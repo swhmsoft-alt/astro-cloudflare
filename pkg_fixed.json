@@ -16,7 +16,6 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run validate:i18n && pnpm run validate:secrets",
-    "lint:js": "eslint . --ignore-pattern dist --ignore-pattern .astro --ignore-pattern .wrangler --ignore-pattern node_modules",
     "lint:css": "stylelint src/styles/",
     "check:kpis": "node scripts/check-kpis.mjs",
     "type-check": "astro check",
@@ -77,6 +76,5 @@
     "stylelint-config-standard": "^40.0.0",
     "typescript": "^5.4.3",
     "typescript-eslint": "^8.63.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
   }
-}
