@@ -7,6 +7,7 @@ import {
   buildFAQSchema,
   buildBreadcrumbSchema,
   buildServiceSchema,
+  buildHowToSchema,
 } from "../../lib/schema";
 import { siteConfig } from "../../config/site.config";
 
@@ -121,5 +122,39 @@ describe("buildServiceSchema", () => {
     expect(schema.name).toBe("Cloud Deployment");
     expect(schema.url).toBe(`${siteConfig.url}/services/cloud-deployment`);
     expect(schema.provider?.["@type"]).toBe("Organization");
+  });
+});
+
+describe("buildHowToSchema", () => {
+  it("builds a HowTo schema with steps", () => {
+    const schema = buildHowToSchema({
+      name: "How to Deploy with Astro",
+      description: "A simple guide",
+      steps: [
+        { name: "Clone the repo", text: "Run git clone..." },
+        { name: "Install deps", text: "Run pnpm install" },
+      ],
+    }, siteConfig);
+    expect(schema["@type"]).toBe("HowTo");
+    expect(schema.name).toBe("How to Deploy with Astro");
+    expect(schema.description).toBe("A simple guide");
+    expect(schema.step).toHaveLength(2);
+    expect(schema.step[0]["@type"]).toBe("HowToStep");
+    expect(schema.step[0].position).toBe(1);
+    expect(schema.step[0].name).toBe("Clone the repo");
+    expect(schema.step[1].position).toBe(2);
+    expect(schema.step[1].name).toBe("Install deps");
+  });
+
+  it("handles optional totalTime and estimatedCost", () => {
+    const schema = buildHowToSchema({
+      name: "Setup Guide",
+      steps: [{ name: "Step 1", text: "Do something" }],
+      totalTime: "PT15M",
+      estimatedCost: "49.99",
+    }, siteConfig);
+    expect(schema.totalTime).toBe("PT15M");
+    expect(schema.estimatedCost?.["@type"]).toBe("MonetaryAmount");
+    expect(schema.estimatedCost?.value).toBe("49.99");
   });
 });

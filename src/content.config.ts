@@ -31,6 +31,16 @@ const blog = defineCollection({
     faqs: z
       .array(z.object({ question: z.string(), answer: z.string() }))
       .optional(),
+    howToSteps: z
+      .array(
+        z.object({
+          name: z.string(),
+          text: z.string(),
+          image: z.string().optional(),
+          url: z.string().optional(),
+        }),
+      )
+      .optional(),
     toc: z.boolean().optional(),
     svgSlug: z.string().optional(),
     translationKey: z.string().optional(),

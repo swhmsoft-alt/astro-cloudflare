@@ -7,12 +7,14 @@ import { canonicalUrl } from "../lib/seo";
 import { resolveRoute } from "../i18n/routes";
 import { t } from "../i18n/ui";
 import { siteConfig } from "../config/site.config";
-import { buildBlogPostingSchema, buildFAQSchema } from "../lib/schema";
+import { buildBlogPostingSchema, buildFAQSchema, buildHowToSchema } from "../lib/schema";
 import {
   ArticleHero,
   RelatedPosts,
   ShareButtons,
   TableOfContents,
+  BlogFAQ,
+  BlogHowTo,
 } from "../components/blog/index";
 
 interface Heading {
@@ -39,6 +41,15 @@ const jsonLd = [
   buildBlogPostingSchema(post),
   ...(post.data.faqs?.length
     ? [buildFAQSchema(post.data.faqs)]
+    : []),
+  ...(post.data.howToSteps?.length
+    ? [
+        buildHowToSchema({
+          name: post.data.title,
+          description: post.data.description,
+          steps: post.data.howToSteps,
+        }),
+      ]
     : []),
 ];
 
@@ -116,6 +127,24 @@ const allPosts = await getCollection("blog");
       title={post.data.title}
       locale={locale}
     />
+
+    {
+      post.data.howToSteps && post.data.howToSteps.length > 0 && (
+        <>
+          <BlogHowTo
+            steps={post.data.howToSteps}
+            title={post.data.title}
+            locale={locale}
+          />
+        </>
+      )
+    }
+
+    {
+      post.data.faqs && post.data.faqs.length > 0 && (
+        <BlogFAQ faqs={post.data.faqs} locale={locale} />
+      )
+    }
 
     <RelatedPosts currentPost={post} allPosts={allPosts} locale={locale} />
 

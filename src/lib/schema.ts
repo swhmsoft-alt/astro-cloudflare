@@ -2,6 +2,8 @@ import type {
   BreadcrumbList,
   BlogPosting,
   FAQPage,
+  HowTo,
+  HowToStep,
   Organization,
   Person,
   Service,
@@ -162,4 +164,44 @@ export function buildServiceSchema(
       url: site.url,
     },
   } satisfies WithContext<Service>;
+}
+
+export function buildHowToSchema(
+  howTo: {
+    name: string;
+    description?: string;
+    steps: Array<{
+      name: string;
+      text: string;
+      image?: string;
+      url?: string;
+    }>;
+    totalTime?: string;
+    estimatedCost?: string;
+    image?: string;
+  },
+  site: SiteConfig = defaultSiteConfig,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo.name,
+    description: howTo.description,
+    image: howTo.image ?? site.branding.logo.light,
+    totalTime: howTo.totalTime,
+    estimatedCost: howTo.estimatedCost
+      ? { "@type": "MonetaryAmount", currency: "USD", value: howTo.estimatedCost }
+      : undefined,
+    step: howTo.steps.map(
+      (step, i) =>
+        ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: step.name,
+          text: step.text,
+          image: step.image ? [step.image] : undefined,
+          url: step.url,
+        }) satisfies WithContext<HowToStep>,
+    ),
+  } satisfies WithContext<HowTo>;
 }

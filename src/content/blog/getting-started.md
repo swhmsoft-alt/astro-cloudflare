@@ -3,6 +3,7 @@ title: "Getting Started with Astro + Cloudflare"
 description: "A step-by-step guide to building a fast site with Astro and Cloudflare Pages."
 locale: "en"
 publishDate: 2026-06-25
+updatedAt: 2026-07-01
 draft: false
 tags:
   - astro
@@ -10,6 +11,20 @@ tags:
   - cloudflare
 author: "Admin"
 translationKey: "getting-started"
+faqs:
+  - question: "What is Astro?"
+    answer: "Astro is a web framework designed for content-driven websites. It ships zero JavaScript by default, using an island architecture for interactivity."
+  - question: "Do I need Node.js to use this starter?"
+    answer: "Yes. This project requires Node.js 24 or later."
+howToSteps:
+  - name: "Clone the repository"
+    text: "Run `git clone https://github.com/milzamsz/astro-cloudflare-starter` to create a local copy of the starter."
+  - name: "Install dependencies"
+    text: "Navigate into the project directory and run `pnpm install` to install all required packages."
+  - name: "Start the dev server"
+    text: "Run `pnpm dev` to start the Astro development server. Open http://localhost:4321 in your browser to see the site."
+  - name: "Customize and deploy"
+    text: "Edit content, update the site configuration files, and deploy to Cloudflare Pages using `pnpm build && npx wrangler pages deploy dist/`."
 ---
 
 ## Why This Stack?

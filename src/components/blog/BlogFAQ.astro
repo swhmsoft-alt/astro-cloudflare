@@ -1,0 +1,86 @@
+---
+import JsonLd from "../seo/JsonLd.astro";
+import { t } from "../../i18n/ui";
+import type { Locale } from "../../lib/site-config";
+
+export interface Props {
+  faqs: Array<{ question: string; answer: string }>;
+  locale?: Locale;
+}
+
+const { faqs, locale = "en" } = Astro.props as Props;
+
+const schema = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
+---
+
+{ schema && <JsonLd schema={schema} /> }
+
+<section class="blog-faq">
+  <h2 class="blog-faq__title">{t(locale, "blog.faq")}</h2>
+
+  <dl class="blog-faq__list">
+    {faqs.map((faq) => (
+      <div class="blog-faq__item">
+        <dt class="blog-faq__question">{faq.question}</dt>
+        <dd class="blog-faq__answer">{faq.answer}</dd>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<style>
+  .blog-faq {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .blog-faq__title {
+    margin: 0 0 var(--space-lg);
+    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+    letter-spacing: -0.01em;
+  }
+
+  .blog-faq__list {
+    display: grid;
+    gap: var(--space-md);
+    margin: 0;
+  }
+
+  .blog-faq__item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  .blog-faq__question {
+    margin: 0;
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 600;
+    font-size: 1.0625rem;
+    cursor: default;
+    background: var(--color-bg-secondary);
+    border-bottom: var(--space-3xs) solid var(--color-border);
+  }
+
+  .blog-faq__answer {
+    margin: 0;
+    padding: var(--space-md) var(--space-lg);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+</style>

@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { siteConfig } from "../config/site.config";
 
 export const prerender = true;
@@ -37,45 +37,48 @@ export const GET: APIRoute = async () => {
   ];
 
   // ── Blog posts (non-draft, sorted by date) ──
-  const blogEntries = await getCollection("blog");
+  const blogEntries: CollectionEntry<"blog">[] = await getCollection("blog");
   const blogLinks: LlmLink[] = blogEntries
-    .filter((p) => !p.data.draft)
-    .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
-    .map((p) => ({
+    .filter((p: CollectionEntry<"blog">) => !p.data.draft)
+    .sort(
+      (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+        b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+    )
+    .map((p: CollectionEntry<"blog">) => ({
       label: p.data.title,
       path: `/blog/${p.id}`,
       description: `${p.data.description} — Published ${p.data.publishDate.toISOString().slice(0, 10)}.`,
     }));
 
   // ── Service pages ──
-  const serviceEntries = await getCollection("services");
-  const serviceLinks: LlmLink[] = serviceEntries.map((s) => ({
+  const serviceEntries: CollectionEntry<"services">[] = await getCollection("services");
+  const serviceLinks: LlmLink[] = serviceEntries.map((s: CollectionEntry<"services">) => ({
     label: s.data.title,
     path: `/services/${s.data.slug}`,
     description: s.data.description,
   }));
 
   // ── Content pages (About, Pricing, Contact, etc. via CMS) ──
-  const pageEntries = await getCollection("pages");
+  const pageEntries: CollectionEntry<"pages">[] = await getCollection("pages");
   const pageLinks: LlmLink[] = pageEntries
-    .filter((p) => !p.data.isLegal) // legal pages covered above
-    .map((p) => ({
+    .filter((p: CollectionEntry<"pages">) => !p.data.isLegal) // legal pages covered above
+    .map((p: CollectionEntry<"pages">) => ({
       label: p.data.title,
       path: `/${p.data.slug}`,
       description: p.data.description,
     }));
 
   // ── Docs (Starlight) ──
-  const docEntries = await getCollection("docs");
+  const docEntries: CollectionEntry<"docs">[] = await getCollection("docs");
   const docLinks: LlmLink[] = docEntries
-    .filter((d) => d.id !== "docs/index") // skip the docs landing — covered above
-    .map((d) => {
+    .filter((d: CollectionEntry<"docs">) => d.id !== "docs/index") // skip the docs landing — covered above
+    .map((d: CollectionEntry<"docs">) => {
       const slug = d.id.replace(/^docs\//, "");
       const label = slug
         .split("/")
         .pop()!
         .replace(/[-_]/g, " ")
-        .replace(/\b\w/g, (c) => c.toUpperCase());
+        .replace(/\b\w/g, (c: string) => c.toUpperCase());
       return {
         label,
         path: `/docs/${slug}`,
@@ -92,9 +95,9 @@ export const GET: APIRoute = async () => {
   ];
 
   // ── FAQ (from content collection) ──
-  const faqEntries = await getCollection("faqs");
+  const faqEntries: CollectionEntry<"faqs">[] = await getCollection("faqs");
   const faqSection = faqEntries.length > 0
-    ? `\n## FAQ\n\n${faqEntries.map((f) => `- **${f.data.question}**: ${f.data.answer}`).join("\n")}\n`
+    ? `\n## FAQ\n\n${faqEntries.map((f: CollectionEntry<"faqs">) => `- **${f.data.question}**: ${f.data.answer}`).join("\n")}\n`
     : "";
 
   // ── Build the body ──
