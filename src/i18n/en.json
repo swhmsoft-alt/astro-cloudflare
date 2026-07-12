@@ -31,7 +31,7 @@
   "notfound.title": "Page Not Found",
   "notfound.desc": "The page you are looking for could not be found.",
   "notfound.back": "Back to Home",
-  "locale.switch": "ID",
+  "locale.switch": "EN",
   "search.title": "Search",
   "search.placeholder": "Search posts, pages...",
   "search.noResults": "No results found",

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/postbuild.js",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run validate:i18n && pnpm run validate:secrets",
@@ -67,6 +67,7 @@
     "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^3.0.0",
+    "glob": "^13.0.6",
     "globals": "^16.0.0",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.5",

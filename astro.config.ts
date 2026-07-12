@@ -93,7 +93,7 @@ function contentValidationIntegration() {
           ),
         );
 
-        const supportedLocales = ["en"];
+        const supportedLocales = ["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"];
         for (const collection of entries) {
           validateDuplicates(collection, supportedLocales);
         }
@@ -106,13 +106,14 @@ export default defineConfig({
   site: siteConfig.url,
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"],
     prefixDefaultLocale: false,
   },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "hover",
   },
+  trailingSlash: 'always',
   integrations: [
     starlight({
       title: siteConfig.name,
@@ -160,6 +161,21 @@ export default defineConfig({
         defaultLocale: "en",
         locales: {
           en: "en-US",
+          de: "de-DE",
+          ja: "ja-JP",
+          fr: "fr-FR",
+          es: "es-ES",
+          pt: "pt-PT",
+          it: "it-IT",
+          ko: "ko-KR",
+          nl: "nl-NL",
+          pl: "pl-PL",
+          ru: "ru-RU",
+          ar: "ar-SA",
+          "pt-br": "pt-BR",
+          tr: "tr-TR",
+          cs: "cs-CZ",
+          sv: "sv-SE",
         },
       },
     }),

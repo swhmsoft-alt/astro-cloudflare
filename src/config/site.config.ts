@@ -176,7 +176,7 @@ export const siteConfig: SiteConfig = {
   /* i18n configuration (matches i18n.config.ts) */
   i18n: {
     enabled: true,
-    locales: ["en"],
+    locales: ["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"],
     defaultLocale: "en",
     routing: { prefixDefaultLocale: false },
   },

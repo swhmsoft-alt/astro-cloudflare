@@ -4,8 +4,8 @@ import { docsSchema } from "@astrojs/starlight/schema";
 import { glob } from "astro/loaders";
 import { i18nConfig } from "./config/i18n.config";
 
-// Add locale codes here (e.g. ["en", "id"]) when introducing new languages.
-const localeSchema = z.enum(["en"]);
+// Add locale codes here when introducing new languages.
+const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"]);
 
 const blog = defineCollection({
   loader: glob({
