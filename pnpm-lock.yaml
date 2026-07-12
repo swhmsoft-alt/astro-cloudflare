@@ -30,8 +30,8 @@ dependencies:
     specifier: ^1.2.114
     version: 1.2.114
   '@iconify-json/simple-icons':
-    specifier: ^1.2.87
-    version: 1.2.87
+    specifier: ^1.2.89
+    version: 1.2.89
   '@tailwindcss/vite':
     specifier: ^4.3.1
     version: 4.3.1(vite@8.1.4)
@@ -1277,8 +1277,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: false
 
-  /@iconify-json/simple-icons@1.2.87:
-    resolution: {integrity: sha512-8YciStObhSji3OZFmWAWK6kBujyqO5bLCxeDwLxf3CR3F4PVelq7keC2LBvgTqviWzSTysj5/g4PCFLiAMVGsw==}
+  /@iconify-json/simple-icons@1.2.89:
+    resolution: {integrity: sha512-hRaCY5s2G5oWAIhc4LCGYn6g6RrwLL4zhoLOT+KUO3joVCxVlZKA+839bv/47Nbe9/ZD4UA6dznZ4XPYcI53wA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: false
