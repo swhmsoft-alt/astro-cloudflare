@@ -2,7 +2,7 @@
 import { siteConfig } from '../../config/site.config';  
 export const prerender = true;  
 export async function GET() {  
-  const base = siteConfig.url.replace(//$/, '');  
+  const base = siteConfig.url.replace(/\/$/, '');  
   const lines = [  
     '# AI Discovery for ' + siteConfig.name,  
     '',  
@@ -21,8 +21,7 @@ export async function GET() {
     'Site: ' + siteConfig.name + ' (' + siteConfig.url + ')',  
     'Generated: ' + new Date().toISOString().slice(0, 10),  
   ];  
-  return new Response(lines.join('
-'), {  
+  return new Response(lines.join('\r\n'), {  
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },  
   });  
 }

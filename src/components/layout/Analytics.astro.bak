@@ -1,0 +1,60 @@
+---
+import { getEntry } from "astro:content";
+
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
+const gtmId = import.meta.env.PUBLIC_GTM_ID as string | undefined;
+const settings = await getEntry("settings", "settings");
+const umamiUrl = settings?.data.umamiUrl;
+const umamiId = settings?.data.umamiId;
+
+const gtagSrc = gaId ? `https://www.googletagmanager.com/gtag/js?id=${gaId}` : "";
+const gtagCode = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "${gaId}");
+    `;
+const gtmSrc = gtmId ? `https://www.googletagmanager.com/gtm.js?id=${gtmId}` : "";
+const gtmCode = `
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    `;
+---
+
+{
+  gaId && (
+    <>
+      <script
+        is:inline
+        async
+        src={gtagSrc}
+      />
+      <script
+        is:inline
+        set:html={gtagCode}
+      />
+    </>
+  )
+}
+
+{
+  gtmId && (
+    <>
+      <script
+        is:inline
+        async
+        src={gtmSrc}
+      />
+      <script
+        is:inline
+        set:html={gtmCode}
+      />
+    </>
+  )
+}
+
+{
+  umamiUrl && umamiId && (
+    <script is:inline async defer src={umamiUrl} data-website-id={umamiId} />
+  )
+}
