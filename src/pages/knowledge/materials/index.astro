@@ -1,0 +1,12 @@
+---
+import EntityPillar from "../_EntityPillar.astro";
+import type { Locale } from "../../../lib/site-config";
+const locale = (Astro.currentLocale || "en") as Locale;
+---
+<EntityPillar
+  collectionName="materials"
+  pageTitle="Titanium Materials Guide"
+  pageDescription="Comprehensive technical specifications and guides for all titanium grades and alloys. Compare properties, machinability, and applications."
+  locale={locale}
+  path="/knowledge/materials/"
+/>

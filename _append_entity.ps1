@@ -1,0 +1,1 @@
+`n        {'processes' in data && data.processes?.length > 0 && (<div class=\"related-section\"><h3>Processes</h3><ul>{data.processes.map((p: string) => (<li><a href={resolveRoute(locale, `/knowledge/processes/${p}/`)}>{p.replace(/-/g, ' ')}</a></li>))}</ul></div>)} 

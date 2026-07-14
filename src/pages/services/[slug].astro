@@ -7,12 +7,28 @@ import CTA from "../../components/CTA.astro";
 export async function getStaticPaths() {
   const allServices: CollectionEntry<"services">[] =
     await getCollection("services");
-  return allServices
-    .filter((service) => service.data.locale === "en")
-    .map((service) => ({
-      params: { slug: service.data.slug },
-      props: { service, locale: service.data.locale },
-    }));
+  const supportedLocales = ["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"];
+  const paths = [];
+  for (const locale of supportedLocales) {
+    const servicesForLocale = allServices.filter((s) => s.data.locale === locale);
+    for (const service of servicesForLocale) {
+      paths.push({
+        params: { slug: service.data.slug },
+        props: { service, locale: service.data.locale },
+      });
+    }
+  }
+  // Fallback: if no locale-specific content, use English
+  if (paths.length === 0) {
+    const englishServices = allServices.filter((s) => s.data.locale === "en");
+    for (const service of englishServices) {
+      paths.push({
+        params: { slug: service.data.slug },
+        props: { service, locale: "en" as const },
+      });
+    }
+  }
+  return paths;
 }
 
 const { service, locale } = Astro.props as {
@@ -26,10 +42,12 @@ const { Content, headings } = await render(service);
   <Content />
   <CTA
     slot="cta"
-    title="Interested in this service?"
-    content="Tell us about your project and we'll get back to you within one business day."
-    ctaText="Get in touch"
-    ctaHref="/contact"
+    title="Start Your Titanium Project Today"
+    content="Upload your drawing or describe your requirements. Our engineering team will provide DFM feedback and a competitive quote within 24 hours."
+    ctaText="Upload Drawing →"
+    ctaHref="/rfq/upload-drawing/"
+    secondaryText="Request a Quote"
+    secondaryHref="/rfq/request-quote/"
     locale={locale}
   />
 </ServiceLayout>

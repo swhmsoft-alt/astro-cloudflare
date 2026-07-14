@@ -26,14 +26,41 @@ export const GET: APIRoute = async () => {
   // ── Static pages ──
   const corePages: LlmLink[] = [
     { label: "Home", path: "/", description: siteConfig.description },
+    { label: "Knowledge Base", path: "/knowledge", description: "Browse the titanium manufacturing knowledge base — materials, processes, industries, standards, and equipment." },
+    { label: "Titanium Materials", path: "/knowledge/materials", description: "Technical specifications for all titanium grades: Grade 1, 2, 5 (Ti-6Al-4V), Grade 23 (Ti-6Al-4V ELI)." },
+    { label: "Manufacturing Processes", path: "/knowledge/processes", description: "CNC machining, 5-axis milling, turning, wire EDM, and additive manufacturing for titanium." },
+    { label: "Industry Applications", path: "/knowledge/industries", description: "Titanium applications in aerospace, medical, semiconductor, robotics, and energy." },
+    { label: "Standards & Certifications", path: "/knowledge/standards", description: "ASTM, ISO, AS9100D, NADCAP standards for titanium manufacturing." },
+    { label: "Surface Finishes", path: "/knowledge/surface-finishes", description: "Anodizing, passivation, bead blasting, and polishing for titanium." },
+    { label: "Machines & Equipment", path: "/knowledge/equipment", description: "Mazak 5-axis, DMG Mori, and wire EDM machines." },
+    { label: "Services Overview", path: "/services", description: "Titanium precision manufacturing services: CNC machining, 5-axis, milling, turning, wire EDM, additive." },
+    { label: "Titanium CNC Machining", path: "/services/titanium-cnc-machining", description: "Precision CNC machining for titanium components. Tolerances to ±0.001 mm." },
+    { label: "5-Axis Titanium Machining", path: "/services/5-axis-titanium-machining", description: "Complex geometries with simultaneous 5-axis machining." },
+    { label: "Titanium Milling", path: "/services/titanium-milling", description: "Precision CNC milling for titanium components." },
+    { label: "Titanium Turning", path: "/services/titanium-turning", description: "Precision CNC turning for titanium shafts and cylindrical parts." },
+    { label: "Titanium Wire EDM", path: "/services/titanium-wire-edm", description: "Burr-free wire EDM cutting for titanium." },
+    { label: "Titanium Additive Manufacturing", path: "/services/titanium-additive-manufacturing", description: "SLM and DMLS 3D printing for titanium." },
+    { label: "Grade 5 Titanium Machining", path: "/services/grade-5-titanium-machining", description: "Specialized machining for Ti-6Al-4V." },
+    { label: "Grade 23 Titanium Machining", path: "/services/grade-23-titanium-machining", description: "Specialized machining for Ti-6Al-4V ELI." },
+    { label: "Aerospace Titanium Components", path: "/services/aerospace-titanium-components", description: "AS9100D certified aerospace titanium parts." },
+    { label: "Medical Titanium Components", path: "/services/medical-titanium-components", description: "ISO 13485 certified medical titanium parts." },
+    { label: "Semiconductor Titanium Parts", path: "/services/semiconductor-titanium-parts", description: "Ultra-pure titanium components for semiconductor equipment." },
     { label: "About", path: "/about", description: "Project background and overview." },
-    { label: "Services Overview", path: "/services", description: "Browse all service offerings and pricing tiers." },
     { label: "Pricing", path: "/pricing", description: "Plans and pricing tiers." },
     { label: "Blog", path: "/blog", description: "Articles, tutorials, and updates." },
     { label: "Contact", path: "/contact", description: "Contact details and inquiry form." },
     { label: "Privacy Policy", path: "/privacy", description: "Privacy policy and data handling practices." },
     { label: "Terms & Conditions", path: "/terms", description: "Terms of service." },
-    { label: "Documentation", path: "/docs", description: "Setup and usage guides for the starter." },
+    { label: "Documentation", path: "/docs", description: "Setup and usage guides." },
+  ];
+
+  // ── RFQ pages ──
+  const rfqPages: LlmLink[] = [
+    { label: "RFQ Overview", path: "/rfq", description: "Request a quote for titanium manufacturing services." },
+    { label: "Upload Drawing", path: "/rfq/upload-drawing", description: "Upload your titanium part drawing for a free quote." },
+    { label: "Request Quote", path: "/rfq/request-quote", description: "Request a competitive quote for titanium components." },
+    { label: "Free DFM Review", path: "/rfq/dfm-review", description: "Get free Design for Manufacturing feedback." },
+    { label: "Prototype Request", path: "/rfq/prototype-request", description: "Request rapid prototypes for titanium parts." },
   ];
 
   // ── Blog posts (non-draft, sorted by date) ──

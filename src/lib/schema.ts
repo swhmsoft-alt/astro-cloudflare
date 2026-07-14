@@ -205,3 +205,116 @@ export function buildHowToSchema(
     ),
   } satisfies WithContext<HowTo>;
 }
+
+export function buildProductSchema(
+  product: {
+    name: string;
+    description: string;
+    url: string;
+    image?: string;
+    category?: string;
+    material?: string;
+    sku?: string;
+  },
+  site: SiteConfig = defaultSiteConfig,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    url: product.url,
+    image: product.image ?? undefined,
+    category: product.category,
+    material: product.material,
+    sku: product.sku,
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      url: product.url,
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
+  } satisfies WithContext<Product>;
+}
+
+export function buildDefinedTermSchema(
+  term: {
+    name: string;
+    description: string;
+    termCode: string;
+    inSetName: string;
+    url: string;
+  },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: term.name,
+    description: term.description,
+    termCode: term.termCode,
+    inDefinedTermSet: term.inSetName,
+    url: term.url,
+  } satisfies WithContext<any>;
+}
+
+export function buildDefinedTermSetSchema(
+  name: string,
+  description: string,
+  terms: Array<{
+    name: string;
+    description: string;
+    termCode: string;
+    url: string;
+    inSetName: string;
+  }>,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name,
+    description,
+    hasDefinedTerm: terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.name,
+      description: t.description,
+      termCode: t.termCode,
+      inDefinedTermSet: t.inSetName,
+      url: t.url,
+    })),
+  } satisfies WithContext<any>;
+}
+
+export function buildTechArticleSchema(
+  article: {
+    headline: string;
+    description: string;
+    datePublished: string;
+    dateModified?: string;
+    authorName?: string;
+    image?: string;
+    keywords?: string[];
+    url: string;
+    inLanguage?: string;
+  },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified ?? article.datePublished,
+    author: article.authorName
+      ? { "@type": "Person", name: article.authorName }
+      : { "@type": "Organization", name: "Titanium Blog" },
+    image: article.image ?? undefined,
+    keywords: article.keywords?.join(", "),
+    mainEntityOfPage: article.url,
+    inLanguage: article.inLanguage ?? "en",
+  } satisfies WithContext<any>;
+}
+

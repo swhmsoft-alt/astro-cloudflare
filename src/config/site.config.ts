@@ -89,29 +89,23 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  /* Core configuration — single source of truth for canonical/OG/sitemap/llms.txt.
-   * Replace with your production domain when forking this template. */
-  url: "https://astro-cloudflare-starter.pages.dev",
-  name: "Astro Cloudflare",
+  /* Core configuration — single source of truth for canonical/OG/sitemap/llms.txt. */
+  url: "https://titanium.blog",
+  name: "titanium.blog",
   description:
-    "Marketing, blog, and docs starter built with Astro and Cloudflare Pages — multilanguage-ready",
-  author: "Milzam",
-  email: "milzamsz@gmail.com",
+    "The global knowledge hub for titanium manufacturing. Expert guides on titanium grades, CNC machining, 5-axis milling, turning, wire EDM, additive manufacturing, and industry applications.",
+  author: "Titanium Blog Team",
+  email: "hello@titanium.blog",
   authorImage: "/images/author.jpg",
 
   /* Social links */
   socialLinks: [
     {
-      platform: "github",
-      url: "https://github.com/milzamsz/astro-cloudflare-starter",
-      label: "GitHub",
-    },
-    {
       platform: "linkedin",
-      url: "https://www.linkedin.com/in/milzamsz/",
+      url: "https://linkedin.com/company/titanium-blog",
       label: "LinkedIn",
     },
-    { platform: "email", url: "mailto:milzamsz@gmail.com", label: "Email" },
+    { platform: "email", url: "mailto:hello@titanium.blog", label: "Email" },
   ],
 
   /* Header settings */
@@ -130,14 +124,14 @@ export const siteConfig: SiteConfig = {
 
   /* Blog configuration */
   blog: {
-    postsPerPage: 10,
-    tagCloudLimit: 20,
+    postsPerPage: 12,
+    tagCloudLimit: 30,
   },
 
   /* Services configuration */
   services: {
     perPage: 12,
-    tagCloudLimit: 20,
+    tagCloudLimit: 30,
   },
 
   /* Article features */
@@ -147,7 +141,7 @@ export const siteConfig: SiteConfig = {
       layout: "sidebar",
       sidebarPosition: "right",
       minHeadings: 2,
-      maxDepth: 3,
+      maxDepth: 4,
     },
     comments: { enabled: false },
   },
@@ -155,17 +149,18 @@ export const siteConfig: SiteConfig = {
   /* Blog image overlay */
   blogImageOverlay: true,
 
-  /* Branding */
+  /* Branding — industrial titanium theme */
   branding: {
     colors: {
-      primary: "#171717",
-      secondary: "#737373",
-      accent: "#404040",
+      primary: "#1a1a2e",
+      secondary: "#4a4a6a",
+      accent: "#2d6a9f",
       background: "#ffffff",
-      foreground: "#171717",
-      border: "#e5e5e5",
-      ring: "#171717",
+      foreground: "#1a1a2e",
+      border: "#d4d4dc",
+      ring: "#2d6a9f",
     },
+    /* Titanium industrial aesthetic — deep charcoal, metallic accents */
     logo: {
       light: "/logos/logo-light.svg",
       dark: "/logos/logo-dark.svg",

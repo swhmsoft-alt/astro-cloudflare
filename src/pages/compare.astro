@@ -1,0 +1,79 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import { getCollection } from "astro:content";
+import { t } from "../i18n/ui";
+import { resolveRoute } from "../i18n/routes";
+import type { Locale } from "../lib/site-config";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+
+const entries = (await getCollection("comparisons"))
+  .filter((e: any) => e.data.locale === locale)
+  .sort((a: any, b: any) => a.data.order - b.data.order);
+
+const typeLabels: Record<string, string> = {
+  "material": "Material Comparison",
+  "process": "Process Comparison",
+  "surface-finish": "Surface Finish Comparison",
+  "commercial": "Commercial Decision",
+};
+
+const typeIcons: Record<string, string> = {
+  "material": "V",
+  "process": "G",
+  "surface-finish": "S",
+  "commercial": "D",
+};
+---
+
+<MarketingLayout
+  title="Titanium Manufacturing Comparisons — Choose the Right Material, Process & Finish"
+  description="Side-by-side comparisons for titanium manufacturing decisions. Material selection, process comparison, surface finish comparison, and cost analysis guides for engineers and procurement managers."
+  locale={locale}
+  path="/compare/"
+>
+  <section class="container py-16">
+    <header class="section-head">
+      <p class="section-head__eyebrow">Decision Guides</p>
+      <h1 class="section-head__title">Titanium Manufacturing Comparisons</h1>
+      <p class="section-head__lead">
+        Evidence-based side-by-side comparisons to help engineers and procurement managers make informed decisions about materials, processes, and surface finishes for titanium components.
+      </p>
+    </header>
+
+    <div class="cmp-grid">
+      {entries.map((entry: any) => {
+        const slug = entry.id;
+        const type = entry.data.comparisonType;
+        return (
+          <a href={resolveRoute(locale, `/compare/${slug}/`)} class="cmp-card">
+            <div class="cmp-card__badge">{typeLabels[type] || type}</div>
+            <h2 class="cmp-card__title">{entry.data.title}</h2>
+            <p class="cmp-card__desc">{entry.data.description}</p>
+            <div class="cmp-card__entities">
+              <span class="cmp-card__entity">{entry.data.entityA}</span>
+              <span class="cmp-card__vs">vs</span>
+              <span class="cmp-card__entity">{entry.data.entityB}</span>
+            </div>
+            <div class="cmp-card__quick">{entry.data.quickAnswer.slice(0, 120)}...</div>
+            <span class="cmp-card__cta">View full comparison &rarr;</span>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+</MarketingLayout>
+
+<style>
+  .cmp-grid { display: grid; gap: var(--space-lg); grid-template-columns: 1fr; margin-top: var(--space-xl); max-width: 56rem; }
+  .cmp-card { display: block; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-primary); text-decoration: none; transition: all 0.2s ease; }
+  .cmp-card:hover { border-color: var(--color-brand-primary); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .cmp-card__badge { display: inline-block; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); background: var(--color-bg-tertiary); color: var(--color-text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-sm); }
+  .cmp-card__title { margin: 0 0 var(--space-sm); font-size: 1.2rem; color: var(--color-text-primary); }
+  .cmp-card__desc { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }
+  .cmp-card__entities { display: flex; gap: 0.5rem; align-items: center; margin-top: var(--space-md); flex-wrap: wrap; }
+  .cmp-card__entity { font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary); background: var(--color-bg-tertiary); padding: 0.3rem 0.7rem; border-radius: var(--radius-md); }
+  .cmp-card__vs { font-size: 0.75rem; font-weight: 700; color: var(--color-brand-primary); }
+  .cmp-card__quick { margin-top: var(--space-sm); font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; }
+  .cmp-card__cta { display: inline-block; margin-top: var(--space-md); color: var(--color-brand-primary); font-weight: 600; font-size: 0.9rem; }
+</style>

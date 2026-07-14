@@ -36,7 +36,7 @@ const socialIcon = (url: string) => {
         <h2>{t(currentLocale, "nav.services")}</h2>
         <ul>
           {
-            footerNav.product.map((item) => (
+            footerNav.services.map((item) => (
               <li>
                 <a href={resolveRoute(currentLocale, item.href)}>
                   {t(currentLocale, item.labelKey)}

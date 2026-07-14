@@ -1,0 +1,140 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { t } from "../../i18n/ui";
+import { resolveRoute } from "../../i18n/routes";
+import type { Locale } from "../../lib/site-config";
+
+export interface Props {
+  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment";
+  pageTitle: string;
+  pageDescription: string;
+  locale: Locale;
+  path: string;
+}
+
+const { collectionName, pageTitle, pageDescription, locale, path } = Astro.props as Props;
+
+const entries = (await getCollection(collectionName))
+  .filter((entry: any) => entry.data.locale === locale)
+  .sort((a: any, b: any) => a.data.order - b.data.order);
+
+const collectionLabels: Record<string, string> = {
+  materials: "knowledge.materials",
+  processes: "knowledge.processes",
+  industries: "knowledge.industries",
+  standards: "knowledge.standards",
+  surfaceFinishes: "knowledge.surfaceFinishes",
+  equipment: "knowledge.equipment",
+};
+---
+
+<MarketingLayout
+  title={pageTitle}
+  description={pageDescription}
+  locale={locale}
+  path={path}
+>
+  <section class="container py-16">
+    <header class="section-head">
+      <p class="section-head__eyebrow">{t(locale, collectionLabels[collectionName] || collectionName)}</p>
+      <h1 class="section-head__title">{pageTitle}</h1>
+      <p class="section-head__lead">{pageDescription}</p>
+    </header>
+
+    <div class="entity-grid">
+      {entries.length === 0 && (
+        <p class="text-secondary">Content coming soon.</p>
+      )}
+      {
+        entries.map((entry: any) => {
+          const slug = entry.id;
+          return (
+            <a href={resolveRoute(locale, `/${path.replace(/^\//, "").replace(/\/$/, "")}/${slug}/`)} class="entity-card">
+              <div class="entity-card__content">
+                <h2 class="entity-card__title">{entry.data.title}</h2>
+                <p class="entity-card__description">{entry.data.description}</p>
+                {'standards' in entry.data && entry.data.standards?.length > 0 && (
+                  <div class="entity-card__tags">
+                    {entry.data.standards.slice(0, 3).map((s: string) => (
+                      <span class="entity-card__tag">{s}</span>
+                    ))}
+                  </div>
+                )}
+                {'industries' in entry.data && entry.data.industries?.length > 0 && (
+                  <div class="entity-card__tags">
+                    {entry.data.industries.slice(0, 3).map((i: string) => (
+                      <span class="entity-card__tag">{i}</span>
+                    ))}
+                  </div>
+                )}
+                {'materials' in entry.data && entry.data.materials?.length > 0 && (
+                  <div class="entity-card__tags">
+                    {entry.data.materials.slice(0, 3).map((m: string) => (
+                      <span class="entity-card__tag">{m.replace(/-/g, " ")}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</MarketingLayout>
+
+<style>
+  .entity-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    margin-top: var(--space-xl);
+  }
+
+  .entity-card {
+    display: block;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .entity-card:hover {
+    border-color: var(--color-brand-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .entity-card__title {
+    margin: 0 0 var(--space-sm);
+    font-size: 1.15rem;
+    color: var(--color-text-primary);
+  }
+
+  .entity-card__description {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+
+  .entity-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: var(--space-sm);
+  }
+
+  .entity-card__tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    background: var(--color-bg-tertiary);
+  }
+</style>
