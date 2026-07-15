@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#2563eb"/>
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="system-ui" font-weight="700" font-size="18">A</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#1F2937"/>
+  <g transform="translate(0, 0)">
+    <polygon points="16,3 29,10 29,24 16,31 3,24 3,10" fill="#9CA3AF"/>
+    <path d="M6,12 L16,17 L26,12 L26,15 L16,21 L6,15 Z" fill="#00E5FF"/>
+    <polygon points="13,16 19,16 19,27 13,27" fill="#1F2937"/>
+  </g>
 </svg>
