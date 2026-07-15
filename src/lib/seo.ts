@@ -90,7 +90,7 @@ export function jsonLdFAQ(
 
 /** BreadcrumbList schema (auto-derived from pathname). */
 export function jsonLdBreadcrumb(items: Array<{ name: string; url: string }>) {
-  return buildBreadcrumbSchema(items);
+  return buildBreadcrumbSchema(items.map((item) => ({ label: item.name, href: item.url })));
 }
 
 /**

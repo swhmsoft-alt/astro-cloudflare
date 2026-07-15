@@ -1,7 +1,6 @@
 ---
 import MarketingLayout from "../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
-import { t } from "../i18n/ui";
 import { resolveRoute } from "../i18n/routes";
 import type { Locale } from "../lib/site-config";
 
@@ -18,12 +17,6 @@ const typeLabels: Record<string, string> = {
   "commercial": "Commercial Decision",
 };
 
-const typeIcons: Record<string, string> = {
-  "material": "V",
-  "process": "G",
-  "surface-finish": "S",
-  "commercial": "D",
-};
 ---
 
 <MarketingLayout

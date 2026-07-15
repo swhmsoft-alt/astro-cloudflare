@@ -6,6 +6,7 @@ import type {
   HowToStep,
   Organization,
   Person,
+  Product,
   Service,
   WebSite,
   WithContext,
@@ -201,7 +202,7 @@ export function buildHowToSchema(
           text: step.text,
           image: step.image ? [step.image] : undefined,
           url: step.url,
-        }) satisfies WithContext<HowToStep>,
+        }) satisfies HowToStep,
     ),
   } satisfies WithContext<HowTo>;
 }
