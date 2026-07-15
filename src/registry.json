@@ -333,7 +333,9 @@
     { "name": "FAQ", "path": "src/pages/faq.astro", "locales": ["en"] },
     { "name": "Guides", "path": "src/pages/guides.astro", "locales": ["en"] },
     { "name": "Materials Index", "path": "src/pages/knowledge/materials/index.astro", "locales": ["en"] },
-    { "name": "Material Detail", "path": "src/pages/knowledge/materials/[slug].astro", "locales": ["en"] }
+    { "name": "Material Detail", "path": "src/pages/knowledge/materials/[slug].astro", "locales": ["en"] },
+    { "name": "Processes Index", "path": "src/pages/knowledge/processes/index.astro", "locales": ["en"] },
+    { "name": "Process Detail", "path": "src/pages/knowledge/processes/[slug].astro", "locales": ["en"] }
   ]
 }
 
