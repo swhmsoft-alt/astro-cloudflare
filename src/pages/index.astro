@@ -6,7 +6,7 @@ import C from"../components/CTA.astro";
 import{t}from"../i18n/ui";
 import{resolveRoute}from"../i18n/routes";
 import{siteConfig as s}from"../config/site.config";
-import type{L}from"../lib/site-config";
+import type{Locale as L}from"../lib/site-config";
 import J from"../components/seo/JsonLd.astro";
 import{buildWebSiteSchema as ws,buildOrganizationSchema as o,buildFAQSchema as q,buildBreadcrumbSchema as b}from"../lib/schema";
 const lc=(Astro.currentLocale||'en')as L;
