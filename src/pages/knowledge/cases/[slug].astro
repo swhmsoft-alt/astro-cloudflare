@@ -115,12 +115,18 @@ const industryColors: Record<string, string> = {
 
 <div class="case-content prose prose-gray dark:prose-invert max-w-none"><Content /></div>
 
-{(data.relatedEvidence?.length > 0 || data.relatedComparisons?.length > 0 || data.relatedMaterials?.length > 0 || data.relatedStandards?.length > 0 || data.relatedServices?.length > 0) && (
+{(data.relatedEvidence?.length > 0 || data.relatedComparisons?.length > 0 || data.relatedMaterials?.length > 0 || data.relatedStandards?.length > 0 || data.relatedServices?.length > 0 || data.processes?.length > 0) && (
 <footer class="case-ftr">
 {data.relatedEvidence?.length > 0 && (
 <div class="case-rel">
 <h3>Related Evidence & Technical Data</h3>
 <ul>{data.relatedEvidence.map((s: string) => (<li><a href={resolveRoute(locale,"/knowledge/evidence/"+s+"/")}>{s.replace(/-/g," ").replace(/\b\w/g,(c:string)=>c.toUpperCase())}</a></li>))}</ul>
+</div>
+)}
+{data.processes?.length > 0 && (
+<div class="case-rel">
+<h3>Related Processes</h3>
+<ul>{data.processes.map((p: string) => (<li><a href={resolveRoute(locale,"/knowledge/processes/"+p+"/")}>{p.replace(/-/g," ").replace(/\b\w/g,(c:string)=>c.toUpperCase())}</a></li>))}</ul>
 </div>
 )}
 {data.relatedComparisons?.length > 0 && (
