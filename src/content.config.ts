@@ -412,6 +412,10 @@ const cases = defineCollection({
 
 
 export const collections = {
+  docs,
+  blog,
+  pages,
+  services,
   settings,
   authors,
   faqs,
