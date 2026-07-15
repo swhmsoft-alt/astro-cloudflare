@@ -67,5 +67,27 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
     <div class="entity-related">
       <h2>{t(locale, "knowledge.related")}</h2>
       <div class="related-grid">
-        {'standards' in data && data.standards?.length > 0 && (<div class="related-section"><h3>Standards</h3><ul>{data.standards.map((s: string) => (<li><a href={resolveRoute(locale, `/knowledge/standards/${s.toLowerCase().replace(/\s+/g, '-')}/`)}>{s}</a></li>))}</ul></div>)}
-        {'industries' in data && data.industries?.length > 0 && (<div class="related-section"><h3>Industries</h3><ul>{data.industries.map((i: string) => (<li><a href={resolveRoute(locale, `/knowledge/industries/${i.toLowerCase().replace(/\s+/g, '-')}/`)}>{i}</a></li>))}</ul></div>)}
+        {'standards' in data && data.standards && data.standards.length > 0 && (
+          <div class="related-section">
+            <h3>Standards</h3>
+            <ul>
+              {data.standards.map((s: string) => (
+                <li><a href={resolveRoute(locale, `/knowledge/standards/${s.toLowerCase().replace(/\s+/g, '-')}/`)}>{s}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {'industries' in data && data.industries && data.industries.length > 0 && (
+          <div class="related-section">
+            <h3>Industries</h3>
+            <ul>
+              {data.industries.map((i: string) => (
+                <li><a href={resolveRoute(locale, `/knowledge/industries/${i.toLowerCase().replace(/\s+/g, '-')}/`)}>{i}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </article>
+</MarketingLayout>

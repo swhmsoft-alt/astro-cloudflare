@@ -155,7 +155,7 @@ const stack = defineCollection({
     name: z.string(),
     description: z.string(),
     version: z.string(),
-    url: z.string().url(),
+    url: z.string().url().optional(),
     icon: z.string(),
     colorOklch: z.string(),
     order: z.number().default(0),
