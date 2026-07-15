@@ -1,7 +1,6 @@
 ---
 import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import { getCollection, render } from "astro:content";
-import { t } from "../../../i18n/ui";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
@@ -10,7 +9,7 @@ import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../../lib/sche
 
 export async function getStaticPaths() {
   const entries = await getCollection("evidence");
-  return entries.filter(e => e.data.locale === "en").map(e => ({
+  return entries.filter((e: { data: { locale: string } }) => e.data.locale === "en").map(e => ({
     params: { slug: e.id.replace(/\.md$/, "") },
     props: { entry: e, locale: "en" as const },
   }));
