@@ -1,6 +1,8 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import Hero from "../../components/Hero.astro";
+import CapabilityShowcase from "../../components/CapabilityShowcase.astro";
+
 import CTA from "../../components/CTA.astro";
 import type { Locale } from "../../lib/site-config";
 
@@ -50,6 +52,9 @@ const locale = (Astro.currentLocale || "en") as Locale;
         <p>Standard (2-4 weeks), Rush (1-2 weeks), Emergency (5-7 days).</p>
       </div>
     </div>
+  <CapabilityShowcase />
+
+
   </section>
 
   <section class="container py-16">

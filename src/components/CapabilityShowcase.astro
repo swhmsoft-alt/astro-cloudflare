@@ -1,0 +1,123 @@
+---
+import { Card, Grid } from "../ui/index";
+
+export interface CapabilityGroup {
+  title: string;
+  items: Array<{
+    label: string;
+    description?: string;
+  }>;
+}
+
+export interface Props {
+  class?: string;
+}
+
+const groups: CapabilityGroup[] = [
+  {
+    title: "Materials",
+    items: [
+      { label: "Grade 2", description: "Commercially pure titanium" },
+      { label: "Grade 5", description: "Ti-6Al-4V" },
+      { label: "Grade 23", description: "Ti-6Al-4V ELI" },
+    ],
+  },
+  {
+    title: "Processes",
+    items: [
+      { label: "5-Axis CNC", description: "Complex geometries" },
+      { label: "Turning", description: "Cylindrical precision" },
+      { label: "Wire EDM", description: "Burr-free cutting" },
+      { label: "DMLS", description: "Additive manufacturing" },
+    ],
+  },
+  {
+    title: "Capabilities",
+    items: [
+      { label: "±0.01mm", description: "Tight tolerance" },
+      { label: "Ra0.4", description: "Surface finish" },
+      { label: "5–10 Days", description: "Prototype lead time" },
+    ],
+  },
+];
+
+const { class: className } = Astro.props as Props;
+---
+
+<section class="capability-showcase container">
+  <header class="section-head">
+    <p class="section-head__eyebrow">What We Can Do</p>
+    <h2 class="section-head__title">Manufacturing Capabilities</h2>
+    <p class="section-head__lead">
+      From material selection through precision machining to final finish — we
+      handle the full scope of titanium component manufacturing under one roof.
+    </p>
+  </header>
+
+  <Grid cols={3} gap="lg">
+    {
+      groups.map((group) => (
+        <Card hover={true} class="cap-card">
+          <h3 class="cap-card__category">{group.title}</h3>
+          <ul class="cap-card__list">
+            {group.items.map((item) => (
+              <li class="cap-card__item">
+                <strong class="cap-card__label">{item.label}</strong>
+                {item.description && (
+                  <span class="cap-card__desc">{item.description}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ))
+    }
+  </Grid>
+</section>
+
+<style>
+  .capability-showcase {
+    padding-block: var(--space-2xl);
+  }
+
+  .cap-card__category {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-brand-primary);
+    display: inline-block;
+  }
+
+  .cap-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cap-card__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cap-card__item:last-child {
+    border-bottom: none;
+  }
+
+  .cap-card__label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .cap-card__desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    text-align: right;
+    flex-shrink: 0;
+  }
+</style>

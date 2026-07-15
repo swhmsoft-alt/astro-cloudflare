@@ -1,6 +1,8 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import Hero from "../../components/Hero.astro";
+import CapabilityShowcase from "../../components/CapabilityShowcase.astro";
+
 import CTA from "../../components/CTA.astro";
 import type { Locale } from "../../lib/site-config";
 
@@ -61,6 +63,9 @@ const locale = (Astro.currentLocale || "en") as Locale;
       <p>Send your drawings to <strong>hello@titanium.blog</strong> with your project requirements and we'll respond within 24 hours.</p>
     </div>
   </section>
+
+  <CapabilityShowcase />
+
 
   <CTA
     eyebrow="Next Step"

@@ -2,6 +2,7 @@
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import Hero from "../../components/Hero.astro";
 import CTA from "../../components/CTA.astro";
+import CapabilityShowcase from "../../components/CapabilityShowcase.astro";
 import { resolveRoute } from "../../i18n/routes";
 import type { Locale } from "../../lib/site-config";
 
@@ -56,6 +57,9 @@ const locale = (Astro.currentLocale || "en") as Locale;
   </section>
 
   <CTA
+  <CapabilityShowcase />
+
+
     eyebrow="Ready to Start?"
     title="Upload Your Drawing Today"
     content="Get DFM feedback and a competitive quote within 24 hours."
