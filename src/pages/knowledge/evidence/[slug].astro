@@ -9,7 +9,7 @@ import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../../lib/sche
 
 export async function getStaticPaths() {
   const entries = await getCollection("evidence");
-  return entries.filter((e: { data: { locale: string } }) => e.data.locale === "en").map(e => ({
+  return entries.filter((e: { data: { locale: string } }) => e.data.locale === "en").map((e: any) => ({
     params: { slug: e.id.replace(/\.md$/, "") },
     props: { entry: e, locale: "en" as const },
   }));

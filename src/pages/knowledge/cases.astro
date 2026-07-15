@@ -218,12 +218,13 @@ const industryColors: Record<string, string> = {
     const cards = document.querySelectorAll('[data-industry]');
     buttons.forEach(btn => {
       btn.addEventListener('click', function() {
-        const filter = this.dataset.filter;
+        const filter = (this as HTMLElement).dataset.filter;
         cards.forEach(el => {
-          el.style.display = filter === 'all' || el.dataset.industry === filter ? '' : 'none';
+          const htmlEl = el as HTMLElement;
+          htmlEl.style.display = filter === 'all' || htmlEl.dataset.industry === filter ? '' : 'none';
         });
         buttons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+        (this as HTMLElement).classList.add('active');
       });
     });
   });

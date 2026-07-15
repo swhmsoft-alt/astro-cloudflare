@@ -67,11 +67,11 @@ const localeInfos: LocaleInfo[] = availableLocales.map((locale) => ({
 
 <script>
  document.addEventListener('click', (e) => {
- const trigger = (e.target).closest('[data-switcher-trigger]');
+ const trigger = (e.target as HTMLElement).closest('[data-switcher-trigger]');
  if (!trigger) {
  document.querySelectorAll('[data-locale-switcher]').forEach((wrapper) => {
- const menu = wrapper.querySelector('[data-switcher-menu]');
- const btn = wrapper.querySelector('[data-switcher-trigger]');
+ const menu = wrapper.querySelector('[data-switcher-menu]') as HTMLElement | null;
+ const btn = wrapper.querySelector('[data-switcher-trigger]') as HTMLElement | null;
  if (menu && btn) {
  menu.hidden = true;
  btn.setAttribute('aria-expanded', 'false');
@@ -79,17 +79,17 @@ const localeInfos: LocaleInfo[] = availableLocales.map((locale) => ({
  });
  return;
  }
- const wrapper = trigger.closest('[data-locale-switcher]');
+ const wrapper = trigger.closest('[data-locale-switcher]') as HTMLElement | null;
  if (!wrapper) return;
- const menu = wrapper.querySelector('[data-switcher-menu]');
- const btn = wrapper.querySelector('[data-switcher-trigger]');
+ const menu = wrapper.querySelector('[data-switcher-menu]') as HTMLElement | null;
+ const btn = wrapper.querySelector('[data-switcher-trigger]') as HTMLElement | null;
  if (!menu || !btn) return;
 
  const isOpen = !menu.hidden;
  document.querySelectorAll('[data-locale-switcher]').forEach((w) => {
  if (w !== wrapper) {
- const m = w.querySelector('[data-switcher-menu]');
- const b = w.querySelector('[data-switcher-trigger]');
+ const m = w.querySelector('[data-switcher-menu]') as HTMLElement | null;
+ const b = w.querySelector('[data-switcher-trigger]') as HTMLElement | null;
  if (m && b) {
  m.hidden = true;
  b.setAttribute('aria-expanded', 'false');
@@ -103,8 +103,8 @@ const localeInfos: LocaleInfo[] = availableLocales.map((locale) => ({
  document.addEventListener('keydown', (e) => {
  if (e.key === 'Escape') {
  document.querySelectorAll('[data-locale-switcher]').forEach((wrapper) => {
- const menu = wrapper.querySelector('[data-switcher-menu]');
- const btn = wrapper.querySelector('[data-switcher-trigger]');
+ const menu = wrapper.querySelector('[data-switcher-menu]') as HTMLElement | null;
+ const btn = wrapper.querySelector('[data-switcher-trigger]') as HTMLElement | null;
  if (menu && btn && !menu.hidden) {
  menu.hidden = true;
  btn.setAttribute('aria-expanded', 'false');
