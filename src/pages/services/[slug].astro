@@ -41,6 +41,9 @@ const { Content, headings } = await render(service);
 
 <ServiceLayout service={service} locale={locale} headings={headings}>
   <Content />
+
+  <CapabilityShowcase />
+
   <CTA
     slot="cta"
     title="Start Your Titanium Project Today"

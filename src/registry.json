@@ -310,6 +310,13 @@
       "path": "src/components/sections/LogoCloud.astro",
       "props": ["title", "logos"],
       "i18nAware": true
+    },
+    {
+      "name": "CapabilityShowcase",
+      "tier": "section",
+      "path": "src/components/CapabilityShowcase.astro",
+      "props": [],
+      "i18nAware": false
     }
   ],
   "pages": [
