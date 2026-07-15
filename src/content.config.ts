@@ -370,6 +370,26 @@ const comparisons = defineCollection({
 
 const procurement = defineCollection({loader:glob({pattern:"**/*.md",base:"./src/content/procurement",generateId:({entry})=>entry.replace(/\.md$/,"")}),schema:z.object({locale:localeSchema,title:z.string(),description:z.string(),procurementCategory:z.enum(["rfq-preparation","lead-time","certification","commercial","quality-inspection"]),audience:z.array(z.string()).default([]),quickAnswer:z.string(),checklist:z.array(z.string()).optional(),typicalValues:z.array(z.object({label:z.string(),value:z.string(),notes:z.string().optional()})).optional(),relatedServices:z.array(z.string()).default([]),relatedStandards:z.array(z.string()).default([]),faqs:z.array(z.object({question:z.string(),answer:z.string()})).optional(),order:z.number().default(0)}),});
 
+const guides = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/guides",
+    generateId: ({ entry }) => entry.replace(/\.\w+$/, ""),
+  }),
+  schema: z.object({
+    locale: localeSchema,
+    title: z.string(),
+    description: z.string(),
+    guideType: z.enum(["material-selection", "machining", "design", "procurement", "industry"]),
+    image: z.string().optional(),
+    featured: z.boolean().default(false),
+    tags: z.array(z.string()).default([]),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
+
 const cases = defineCollection({
   loader: glob({
     pattern: "**/*.md",
@@ -430,5 +450,6 @@ export const collections = {
   evidence,
   comparisons,
   procurement,
+  guides,
   cases,
 };

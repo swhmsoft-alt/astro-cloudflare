@@ -1,0 +1,81 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import { getCollection } from "astro:content";
+import { t } from "../i18n/ui";
+import type { Locale } from "../lib/site-config";
+import FAQ from "../components/FAQ.astro";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+
+const allFaqs = (await getCollection("faqs"))
+  .filter((e) => e.data.locale === locale)
+  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+
+// Group FAQs by category; uncategorised items go into "General"
+const grouped = allFaqs.reduce<Record<string, typeof allFaqs>>((acc, entry) => {
+  const cat = entry.data.category || "general";
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(entry);
+  return acc;
+}, {});
+
+// Ordered category list for display
+const categoryOrder = ["materials", "machining", "manufacturing", "quality", "procurement", "content", "customization", "general"];
+const sortedCategories = Object.entries(grouped).sort(
+  ([a], [b]) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b),
+);
+---
+
+<MarketingLayout
+  title={t(locale, "faq.pageTitle")}
+  description={t(locale, "faq.pageDescription")}
+  locale={locale}
+  path="/faq/"
+>
+  <section class="faq-hub container">
+    <header class="section-head">
+      <p class="section-head__eyebrow">{t(locale, "faq.eyebrow")}</p>
+      <h1 class="section-head__title">{t(locale, "faq.pageTitle")}</h1>
+      <p class="section-head__lead">
+        {t(locale, "faq.pageDescription")}
+      </p>
+    </header>
+
+    {
+      sortedCategories.map(([category, items]) => (
+        <div class="faq-hub__group">
+          <h2 class="faq-hub__category">{t(locale, `faq.category.${category}`)}</h2>
+          <FAQ
+            items={items.map((e) => ({
+              question: e.data.question,
+              answer: e.data.answer,
+            }))}
+          />
+        </div>
+      ))
+    }
+  </section>
+</MarketingLayout>
+
+<style>
+  .faq-hub {
+    padding-block: var(--space-2xl);
+  }
+
+  .faq-hub__group {
+    margin-top: var(--space-2xl);
+  }
+
+  .faq-hub__group:first-of-type {
+    margin-top: 0;
+  }
+
+  .faq-hub__category {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--color-brand-primary);
+    display: inline-block;
+  }
+</style>

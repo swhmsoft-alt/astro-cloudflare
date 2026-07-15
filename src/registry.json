@@ -322,7 +322,9 @@
     { "name": "Sections showcase", "path": "src/pages/sections.astro", "locales": ["en"] },
     { "name": "Pages overview", "path": "src/pages/pages.astro", "locales": ["en"] },
     { "name": "Case Library", "path": "src/pages/knowledge/cases.astro", "locales": ["en"] },
-    { "name": "Case Detail", "path": "src/pages/knowledge/cases/[slug].astro", "locales": ["en"] }
+    { "name": "Case Detail", "path": "src/pages/knowledge/cases/[slug].astro", "locales": ["en"] },
+    { "name": "FAQ", "path": "src/pages/faq.astro", "locales": ["en"] },
+    { "name": "Guides", "path": "src/pages/guides.astro", "locales": ["en"] }
   ]
 }
 
