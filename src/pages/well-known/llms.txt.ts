@@ -1,8 +1,8 @@
 // .well-known/llms.txt - AI discovery file  
 import { siteConfig } from '../../config/site.config';  
 export const prerender = true;  
-export async function GET() {  
-  const base = siteConfig.url.replace(/\/$/, '');  
+export async function GET() {
+
   const lines = [  
     '# AI Discovery for ' + siteConfig.name,  
     '',  

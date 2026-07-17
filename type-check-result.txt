@@ -1,0 +1,9 @@
+
+> astro-cloudflare@1.0.0 astro C:\Users\User\Desktop\astro-cloudflare-starter-main
+> astro "check"
+
+[2m23:22:30[22m [34m[content][39m Syncing content
+[33m[1m23:22:30[22m [WARN] [glob-loader][39m No files found matching "**/*.md" in directory "src\content\guides"
+[2m23:22:30[22m [34m[content][39m Synced content
+[2m23:22:30[22m [34m[types][39m Generated [2m2.47s[22m
+[2m23:22:30[22m [34m[check][39m Getting diagnostics for Astro files in C:\Users\User\Desktop\astro-cloudflare-starter-main...

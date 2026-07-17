@@ -41,7 +41,8 @@ const groups: CapabilityGroup[] = [
   },
 ];
 
-const { class: className } = Astro.props as Props;
+// className is available via Astro.props if needed;
+// const { class: className } = Astro.props as Props;
 ---
 
 <section class="capability-showcase container">

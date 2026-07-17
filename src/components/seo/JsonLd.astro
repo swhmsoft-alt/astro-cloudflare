@@ -9,6 +9,6 @@ const schemas = Array.isArray(schema) ? schema : [schema];
 
 {
   schemas.map((entry) => (
-    <script type="application/ld+json" set:html={JSON.stringify(entry)} />
+    <script type="application/ld+json" set:html={JSON.stringify(entry)} is:inline />
   ))
 }

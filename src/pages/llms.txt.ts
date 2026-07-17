@@ -138,7 +138,7 @@ export const GET: APIRoute = async () => {
 - **Author**: ${siteConfig.author}
 - **Contact**: ${siteConfig.email}
 - **Languages**: ${siteConfig.i18n.locales.join(", ")}
-- **Tech Stack**: Astro, Starlight, Tailwind CSS, Cloudflare Pages, Pagefind${section("Core Pages", corePages, base)}${section("Blog Posts", blogLinks, base)}${section("Services", serviceLinks, base)}${section("Content Pages", pageLinks, base)}${section("Documentation", docLinks, base)}${faqSection}${section("Stack", stack, base)}
+- **Tech Stack**: Astro, Starlight, Tailwind CSS, Cloudflare Pages, Pagefind${section("Core Pages", corePages, base)}${section("RFQ", rfqPages, base)}${section("Blog Posts", blogLinks, base)}${section("Services", serviceLinks, base)}${section("Content Pages", pageLinks, base)}${section("Documentation", docLinks, base)}${faqSection}${section("Stack", stack, base)}
 
 ---
 

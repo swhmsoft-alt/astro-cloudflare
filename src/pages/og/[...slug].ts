@@ -59,7 +59,7 @@ function svgTemplate({
 </svg>`;
 }
 
-function resolveMeta(kind: OgKind, locale: string, slug: string[]) {
+function resolveMeta(kind: OgKind, _locale: string, slug: string[]) {
   if (kind === "home") {
     return {
       title: siteConfig.name,

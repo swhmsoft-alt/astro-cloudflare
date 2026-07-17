@@ -67,7 +67,7 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
     <div class="entity-related">
       <h2>{t(locale, "knowledge.related")}</h2>
       <div class="related-grid">
-        {/* @ts-expect-error — data may contain optional standards/industries fields not in schema */}
+
         {'standards' in data && data.standards && data.standards.length > 0 && (
           <div class="related-section">
             <h3>Standards</h3>
