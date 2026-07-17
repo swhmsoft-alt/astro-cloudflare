@@ -23,7 +23,7 @@ if (!entry) return Astro.redirect("/404");
 
 const data = entry.data as any;
 const pillarPath = `/knowledge/${collectionName}/`;
-const pageUrl = siteConfig.url + resolveRoute(locale, `/${pillarPath}${slug}/`);
+const pageUrl = siteConfig.url + resolveRoute(locale, `${pillarPath}${slug}/`);
 /* breadcrumbs removed */
   /* { label: "Home", href: siteConfig.url + resolveRoute(locale, "/") } // removed */
   /* { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, "/knowledge/") } // removed */
@@ -36,7 +36,7 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
   ? buildProductSchema({ name: data.title, description: data.description, url: pageUrl, category: collectionName, material: data.alloy || undefined }) : null;
 ---
 
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/${pillarPath}${slug}/`} jsonLd={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]}>
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`${pillarPath}${slug}/`} jsonLd={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]}>
   {/* JsonLd inline removed — now passed via MarketingLayout jsonLd prop */}
 
   <article class="container py-16 entity-article">
@@ -44,7 +44,7 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
       <!-- nav entity-breadcrumbs removed -->
         <a href={resolveRoute(locale, "/knowledge/")}>{t(locale, "knowledge.browse")}</a> <!-- removed -->
         <!-- <span aria-hidden="true"> / </span> -->
-        <a href={resolveRoute(locale, `/${pillarPath}`)}>{t(locale, `knowledge.${collectionName}`)}</a>
+        <a href={resolveRoute(locale, `${pillarPath}`)}>{t(locale, `knowledge.${collectionName}`)}</a>
       <!-- /nav removed -->
       <h1 class="entity-title">{data.title}</h1>
       <p class="entity-description">{data.description}</p>
