@@ -74,9 +74,7 @@
   "nav.mazak": "Mazak 5-Axis",
   "nav.dmgMori": "DMG Mori",
   "nav.wireEdmMachines": "Wire EDM Machines",
-  "nav.viewAllEquipment": "View All Equipment →"
-
-,
+  "nav.viewAllEquipment": "View All Equipment →",
   "hero.title": "The Global Knowledge Hub for Titanium Manufacturing",
   "hero.subtitle": "Expert technical guides on titanium grades, CNC machining, 5-axis milling, wire EDM, and additive manufacturing. Built for engineers, procurement managers, and manufacturers worldwide.",
   "hero.cta": "Explore Knowledge Base",
@@ -183,5 +181,6 @@
   "guides.category.procurement": "Procurement Guides",
   "guides.category.industry": "Industry Application Guides",
   "guides.browseCategory": "Browse Category",
-  "guides.comingSoon": "In-depth technical guides are being authored. Each guide will include specifications, best practices, and industry references."
+  "guides.comingSoon": "In-depth technical guides are being authored. Each guide will include specifications, best practices, and industry references.",
+  "nav.pricing": "Pricing"
 }

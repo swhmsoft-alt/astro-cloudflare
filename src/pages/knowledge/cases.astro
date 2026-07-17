@@ -217,8 +217,8 @@ const industryColors: Record<string, string> = {
     const buttons = document.querySelectorAll('.cases-filter__btn');
     const cards = document.querySelectorAll('[data-industry]');
     buttons.forEach(btn => {
-      btn.addEventListener('click', function(this: HTMLElement) {
-        const filter = (this as HTMLElement).dataset.filter;
+      btn.addEventListener('click', function(e) {
+        const filter = e.currentTarget.dataset.filter;
         cards.forEach(el => {
           const htmlEl = el as HTMLElement;
           htmlEl.style.display = filter === 'all' || htmlEl.dataset.industry === filter ? '' : 'none';
