@@ -6,7 +6,6 @@ import {
   ogMeta,
   jsonLdWebSite,
   jsonLdOrganization,
-  breadcrumbFromPath,
 } from "../../lib/seo";
 import { siteConfig } from "../../config/site.config";
 import JsonLd from "./JsonLd.astro";
@@ -61,12 +60,6 @@ const siteWideSchemas = [
   jsonLdWebSite(), // WebSite (name, search action)
 ];
 
-// Auto-derived breadcrumb (skipped for homepage — single-node has no value)
-const breadcrumb = breadcrumbFromPath(locale, path);
-const breadcrumbSchema = breadcrumb
-  ? { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: breadcrumb.map((crumb, i) => ({ "@type": "ListItem", position: i + 1, name: crumb.name, item: crumb.url })) }
-  : null;
-
 // Page-specific schemas from the parent (BlogPosting, Service, FAQPage, etc.)
 const pageSchemas = jsonLd
   ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])
@@ -74,7 +67,6 @@ const pageSchemas = jsonLd
 
 const schemas = [
   ...siteWideSchemas,
-  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
   ...pageSchemas,
 ];
 ---

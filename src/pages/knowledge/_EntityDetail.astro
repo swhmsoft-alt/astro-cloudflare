@@ -6,7 +6,7 @@ import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../lib/site-config";
 import { buildDefinedTermSchema, buildProductSchema } from "../../lib/schema";
-import JsonLd from "../../components/seo/JsonLd.astro";
+/* import JsonLd removed */
 
 export interface Props {
   collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment";
@@ -36,8 +36,8 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
   ? buildProductSchema({ name: data.title, description: data.description, url: pageUrl, category: collectionName, material: data.alloy || undefined }) : null;
 ---
 
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/${pillarPath}${slug}/`}>
-  <JsonLd schema={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]} />
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/${pillarPath}${slug}/`} jsonLd={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]}>
+  {/* JsonLd inline removed — now passed via MarketingLayout jsonLd prop */}
 
   <article class="container py-16 entity-article">
     <header class="entity-header">

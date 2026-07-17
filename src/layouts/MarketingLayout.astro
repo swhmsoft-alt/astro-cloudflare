@@ -8,9 +8,11 @@ export interface Props {
   description: string;
   locale: Locale;
   path: string;
+  /** Page-specific JSON-LD entries merged alongside site-wide defaults. */
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const { title, description, locale, path } = Astro.props as Props;
+const { title, description, locale, path, jsonLd } = Astro.props as Props;
 ---
 
 <BaseLayout
@@ -27,6 +29,7 @@ const { title, description, locale, path } = Astro.props as Props;
     locale={locale}
     path={path}
     ogImage={path === "/" ? `/og/home/${locale}` : `/og/page/${locale}${path}`}
+    jsonLd={jsonLd}
   />
   <slot />
 </BaseLayout>

@@ -4,7 +4,6 @@ import { getCollection, render } from "astro:content";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
-import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildTechArticleSchema } from "../../../lib/schema";
 
 export async function getStaticPaths() {
@@ -34,8 +33,7 @@ const ts = buildTechArticleSchema({
 const { Content } = await render(entry);
 ---
 
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/knowledge/evidence/${entry.id}/`}>
-<JsonLd schema={ts} />
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/knowledge/evidence/${entry.id}/`} jsonLd={ts}>
 <article class="evidence-detail container py-16">
 <header class="ev-hdr">
 <span class="ev-badge">{catLabels[data.evidenceCategory]||data.evidenceCategory}</span>

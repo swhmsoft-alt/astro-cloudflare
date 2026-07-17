@@ -5,7 +5,6 @@ import { t } from "../../../i18n/ui";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
-import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildTechArticleSchema } from "../../../lib/schema";
 
 export async function getStaticPaths() {
@@ -43,8 +42,7 @@ const industryColors: Record<string, string> = {
 };
 ---
 
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/knowledge/cases/${entry.id}/`}>
-<JsonLd schema={ts} />
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/knowledge/cases/${entry.id}/`} jsonLd={ts}>
 <article class="case-detail container py-16">
 <header class="case-hdr">
 <span class="case-badge" style={`background: ${industryColors[data.industry] || 'var(--color-bg-tertiary)'}`}>
