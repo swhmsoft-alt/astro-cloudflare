@@ -1,0 +1,12 @@
+--- 
+import EntityPillar from '../../../knowledge/_EntityPillar.astro';  
+const locale = (Astro.currentLocale || 'en');  
+--- 
+  
+<EntityPillar  
+  collectionName='processes'  
+  pageTitle='Titanium Manufacturing Processes'  
+  pageDescription='Comprehensive technical guides for all titanium manufacturing processes.'  
+  locale={locale}  
+  path='/knowledge/processes/'  
+/> 
