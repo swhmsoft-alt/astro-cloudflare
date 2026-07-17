@@ -5,7 +5,7 @@ import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
 import JsonLd from "../../../components/seo/JsonLd.astro";
-import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../../lib/schema";
+import { buildTechArticleSchema } from "../../../lib/schema";
 
 export async function getStaticPaths() {
   const entries = await getCollection("evidence");
@@ -18,12 +18,6 @@ export async function getStaticPaths() {
 const { entry, locale } = Astro.props as { entry: any; locale: "en" };
 const data = entry.data;
 const pageUrl = siteConfig.url + resolveRoute(locale, `/knowledge/evidence/${entry.id}/`);
-const breadcrumbs = [
-  { label: "Home", href: siteConfig.url + resolveRoute(locale, "/") },
-  { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, "/knowledge/") },
-  { label: "Evidence", href: siteConfig.url + resolveRoute(locale, "/knowledge/evidence/") },
-  { label: data.title, href: pageUrl },
-];
 const catLabels: Record<string, string> = {
   "material-properties": "Material Properties",
   "cutting-parameters": "Cutting Parameters",
@@ -37,14 +31,12 @@ const ts = buildTechArticleSchema({
   keywords: [catLabels[data.evidenceCategory] || data.evidenceCategory],
   url: pageUrl, inLanguage: locale,
 });
-const bc = buildBreadcrumbSchema(breadcrumbs);
 const { Content } = await render(entry);
 ---
 
 <MarketingLayout title={data.title} description={data.description} locale={locale} path={`/knowledge/evidence/${entry.id}/`}>
-<JsonLd schema={[bc, ts]} />
+<JsonLd schema={ts} />
 <article class="evidence-detail container py-16">
-<nav class="ev-bc"><a href={resolveRoute(locale,"/knowledge/")}>Knowledge</a> / <a href={resolveRoute(locale,"/knowledge/evidence/")}>Evidence</a></nav>
 <header class="ev-hdr">
 <span class="ev-badge">{catLabels[data.evidenceCategory]||data.evidenceCategory}</span>
 <h1 class="ev-title">{data.title}</h1>
@@ -58,4 +50,4 @@ const { Content } = await render(entry);
 {data.relatedMaterials?.length>0 && <div class="ev-rel"><h3>Materials</h3><ul>{data.relatedMaterials.map((m:string)=>(<li><a href={resolveRoute(locale,"/knowledge/materials/"+m+"/")}>{m.replace(/-/g," ").replace(/\b\w/g,(c:string)=>c.toUpperCase())}</a></li>))}</ul></div>}
 </footer>
 </article></MarketingLayout>
-<style>.ev-bc{font-size:.85rem;color:var(--color-text-secondary);margin-bottom:var(--space-md)}.ev-bc a{color:var(--color-brand-primary);text-decoration:none}.ev-badge{display:inline-block;font-size:.75rem;padding:.25rem .75rem;border-radius:var(--radius-full);background:var(--color-bg-tertiary);color:var(--color-text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:var(--space-md)}.ev-title{margin:0 0 var(--space-sm);font-size:clamp(1.75rem,3vw,2.5rem);color:var(--color-text-primary)}.ev-desc{margin:0 0 var(--space-sm);color:var(--color-text-secondary);font-size:1.05rem;line-height:1.6}.ev-src{margin:0;font-size:.85rem;color:var(--color-text-secondary);font-style:italic}.ev-src a{color:var(--color-brand-primary)}.ev-tbl{margin-top:var(--space-xl)}.ev-tbl h2{font-size:1.25rem;margin-bottom:var(--space-md);color:var(--color-text-primary)}.tw{overflow-x:auto}.ev-table{width:100%;border-collapse:collapse;font-size:.9rem}.ev-table th,.ev-table td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--color-border)}.ev-table th{background:var(--color-bg-secondary);font-weight:600;color:var(--color-text-primary)}.vv{font-weight:700;color:var(--color-text-primary);font-family:var(--font-mono)}.nn{color:var(--color-text-secondary);font-size:.85rem}.ev-content{margin-top:var(--space-xl)}.ev-ftr{margin-top:var(--space-2xl);padding-top:var(--space-xl);border-top:1px solid var(--color-border)}.ev-rel{margin-bottom:var(--space-lg)}.ev-rel h3{margin:0 0 var(--space-sm);font-size:1rem;color:var(--color-text-primary)}.ev-rel ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}.ev-rel li a{display:inline-block;padding:.2rem .6rem;border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:.8rem;color:var(--color-text-secondary);text-decoration:none}.ev-rel li a:hover{border-color:var(--color-brand-primary);color:var(--color-brand-primary)}</style>
+<style>.ev-badge{display:inline-block;font-size:.75rem;padding:.25rem .75rem;border-radius:var(--radius-full);background:var(--color-bg-tertiary);color:var(--color-text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:var(--space-md)}.ev-title{margin:0 0 var(--space-sm);font-size:clamp(1.75rem,3vw,2.5rem);color:var(--color-text-primary)}.ev-desc{margin:0 0 var(--space-sm);color:var(--color-text-secondary);font-size:1.05rem;line-height:1.6}.ev-src{margin:0;font-size:.85rem;color:var(--color-text-secondary);font-style:italic}.ev-src a{color:var(--color-brand-primary)}.ev-tbl{margin-top:var(--space-xl)}.ev-tbl h2{font-size:1.25rem;margin-bottom:var(--space-md);color:var(--color-text-primary)}.tw{overflow-x:auto}.ev-table{width:100%;border-collapse:collapse;font-size:.9rem}.ev-table th,.ev-table td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--color-border)}.ev-table th{background:var(--color-bg-secondary);font-weight:600;color:var(--color-text-primary)}.vv{font-weight:700;color:var(--color-text-primary);font-family:var(--font-mono)}.nn{color:var(--color-text-secondary);font-size:.85rem}.ev-content{margin-top:var(--space-xl)}.ev-ftr{margin-top:var(--space-2xl);padding-top:var(--space-xl);border-top:1px solid var(--color-border)}.ev-rel{margin-bottom:var(--space-lg)}.ev-rel h3{margin:0 0 var(--space-sm);font-size:1rem;color:var(--color-text-primary)}.ev-rel ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}.ev-rel li a{display:inline-block;padding:.2rem .6rem;border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:.8rem;color:var(--color-text-secondary);text-decoration:none}.ev-rel li a:hover{border-color:var(--color-brand-primary);color:var(--color-brand-primary)}</style>

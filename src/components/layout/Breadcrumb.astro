@@ -1,0 +1,207 @@
+---
+/**
+ * Breadcrumb.astro — Unified, self-contained breadcrumb navigation.
+ *
+ * Parses the current URL automatically, handles i18n locale prefixes,
+ * maps known path segments to translation keys, and renders accessible
+ * breadcrumb markup with JSON-LD schema.
+ *
+ * Does NOT render on the root homepage or locale root (e.g. /ja/).
+ * No props required — reads directly from Astro.url.
+ */
+import {
+  detectLocale,
+  stripLocale,
+  localePrefix,
+} from "../../i18n/routes";
+import { t } from "../../i18n/ui";
+import { buildBreadcrumbSchema } from "../../lib/schema";
+import JsonLd from "../seo/JsonLd.astro";
+import type { Locale } from "../../lib/site-config";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const locale = detectLocale(pathname) as Locale;
+const contentPath = stripLocale(pathname);
+
+// Split the content path into segments, ignoring the leading "/"
+const segments = contentPath.split("/").filter(Boolean);
+
+// Don't render breadcrumbs on the homepage or locale root
+const isRoot =
+  pathname === "/" || pathname === "" || segments.length === 0;
+
+// Known path → translation key mapping for human-readable labels.
+// Covers all routes defined in nav.config.ts.
+const knownLabels: Record<string, string> = {
+  knowledge: "nav.knowledge",
+  materials: "nav.materials",
+  processes: "nav.processes",
+  industries: "nav.industries",
+  standards: "nav.standards",
+  "surface-finishes": "nav.surfaceFinishes",
+  equipment: "nav.equipment",
+  cases: "knowledge.cases",
+  evidence: "knowledge.evidence",
+  blog: "nav.blog",
+  services: "nav.services",
+  guides: "nav.guides",
+  compare: "nav.compare",
+  faq: "nav.faq",
+  rfq: "nav.rfq",
+  about: "nav.about",
+  contact: "nav.contact",
+  pricing: "nav.pricing",
+  privacy: "footer.privacy",
+  terms: "footer.terms",
+  pages: "nav.pages",
+  sections: "nav.sections",
+  "dfm-review": "nav.dfmReview",
+  "request-quote": "nav.requestQuote",
+  "prototype-request": "nav.prototypeRequest",
+  "upload-drawing": "nav.uploadDrawing",
+};
+
+function segmentLabel(segment: string): string {
+  const key = knownLabels[segment];
+  if (key) {
+    const translated = t(locale, key);
+    // If translation returns the key itself (missing), fall through to humanize
+    if (translated !== key) return translated;
+  }
+  // Humanize: replace hyphens/underscores with spaces, capitalize words
+  return segment
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// Build breadcrumb trail
+const crumbs: Array<{ label: string; href: string }> = [
+  { label: t(locale, "nav.home"), href: localePrefix(locale) || "/" },
+];
+
+let accumulated = "";
+for (const segment of segments) {
+  accumulated += `/${segment}`;
+  crumbs.push({
+    label: segmentLabel(segment),
+    href: `${localePrefix(locale)}${accumulated}`,
+  });
+}
+
+const jsonLd = buildBreadcrumbSchema(
+  crumbs.map((crumb) => ({ label: crumb.label, href: crumb.href })),
+);
+---
+
+{
+  !isRoot && (
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol class="breadcrumb__list">
+        {crumbs.map((crumb, index) => (
+          <li class="breadcrumb__item">
+            {index > 0 && (
+              <svg
+                class="breadcrumb__sep"
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            )}
+            {index === crumbs.length - 1 ? (
+              <span aria-current="page" class="breadcrumb__current">
+                {crumb.label}
+              </span>
+            ) : (
+              <a href={crumb.href} class="breadcrumb__link">
+                {crumb.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+
+<JsonLd schema={jsonLd} />
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-3) var(--container-px);
+    font-size: 0.8125rem;
+    line-height: 1;
+    color: var(--muted-foreground);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .breadcrumb::-webkit-scrollbar {
+    display: none;
+  }
+
+  .breadcrumb__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb__item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .breadcrumb__sep {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 var(--spacing-1);
+    color: var(--muted-foreground);
+    opacity: 0.5;
+  }
+
+  .breadcrumb__link {
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb__link:hover {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .breadcrumb__current {
+    color: var(--foreground);
+    font-weight: 600;
+    max-width: 24ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (width <= 48rem) {
+    .breadcrumb {
+      padding: var(--spacing-2) var(--spacing-4);
+      font-size: 0.75rem;
+    }
+  }
+</style>

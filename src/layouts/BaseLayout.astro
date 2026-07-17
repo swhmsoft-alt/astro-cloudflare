@@ -1,6 +1,7 @@
 ---
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
+import Breadcrumb from "../components/layout/Breadcrumb.astro";
 import SearchModal from "../components/layout/SearchModal.astro";
 import SEO from "../components/seo/SEO.astro";
 import Analytics from "../components/layout/Analytics.astro";
@@ -135,6 +136,8 @@ function defaultOgImage(routePath: string) {
     }
 
     <SearchModal locale={locale} />
+
+    <Breadcrumb />
 
     <main id="main-content" class="flex-1">
       <slot />

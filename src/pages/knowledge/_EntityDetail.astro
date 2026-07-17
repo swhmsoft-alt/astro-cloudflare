@@ -5,7 +5,7 @@ import { t } from "../../i18n/ui";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../lib/site-config";
-import { buildDefinedTermSchema, buildBreadcrumbSchema, buildProductSchema } from "../../lib/schema";
+import { buildDefinedTermSchema, buildProductSchema } from "../../lib/schema";
 import JsonLd from "../../components/seo/JsonLd.astro";
 
 export interface Props {
@@ -24,12 +24,12 @@ if (!entry) return Astro.redirect("/404");
 const data = entry.data as any;
 const pillarPath = `/knowledge/${collectionName}/`;
 const pageUrl = siteConfig.url + resolveRoute(locale, `/${pillarPath}${slug}/`);
-const breadcrumbs = [
-  { label: "Home", href: siteConfig.url + resolveRoute(locale, "/") },
-  { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, "/knowledge/") },
-  { label: data.title, href: pageUrl },
-];
-const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbs);
+/* breadcrumbs removed */
+  /* { label: "Home", href: siteConfig.url + resolveRoute(locale, "/") } // removed */
+  /* { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, "/knowledge/") } // removed */
+  /* { label: data.title, href: pageUrl } // removed */
+// ]; (removed)
+// const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbs); (removed)
 const definedTermSchema = (collectionName === "materials" || collectionName === "standards")
   ? buildDefinedTermSchema({ name: data.title, description: data.description, termCode: slug, inSetName: collectionName, url: pageUrl }) : null;
 const productSchema = (collectionName === "materials" || collectionName === "equipment")
@@ -37,15 +37,15 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
 ---
 
 <MarketingLayout title={data.title} description={data.description} locale={locale} path={`/${pillarPath}${slug}/`}>
-  <JsonLd schema={[breadcrumbSchema, ...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]} />
+  <JsonLd schema={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]} />
 
   <article class="container py-16 entity-article">
     <header class="entity-header">
-      <nav class="entity-breadcrumbs">
-        <a href={resolveRoute(locale, "/knowledge/")}>{t(locale, "knowledge.browse")}</a>
-        <span aria-hidden="true"> / </span>
+      <!-- nav entity-breadcrumbs removed -->
+        <a href={resolveRoute(locale, "/knowledge/")}>{t(locale, "knowledge.browse")}</a> <!-- removed -->
+        <!-- <span aria-hidden="true"> / </span> -->
         <a href={resolveRoute(locale, `/${pillarPath}`)}>{t(locale, `knowledge.${collectionName}`)}</a>
-      </nav>
+      <!-- /nav removed -->
       <h1 class="entity-title">{data.title}</h1>
       <p class="entity-description">{data.description}</p>
       <div class="entity-meta">
