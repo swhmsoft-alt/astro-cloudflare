@@ -1,0 +1,76 @@
+---
+
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import MarketingLayout from "../../../layouts/MarketingLayout.astro";
+import Hero from "../../../components/Hero.astro";
+import CapabilityShowcase from "../../../components/CapabilityShowcase.astro";
+
+import CTA from "../../../components/CTA.astro";
+import type { Locale } from "../../../lib/site-config";
+
+const locale = (Astro.props.locale || "en") as Locale;
+---
+
+<MarketingLayout
+  title="Free DFM Review — Design for Manufacturing"
+  description="Get free Design for Manufacturing (DFM) feedback on your titanium component design. Our engineers analyze wall thickness, tolerances, tool access, and surface finish."
+  locale={locale}
+  path="/rfq/dfm-review/"
+>
+  <Hero
+    variant="centered"
+    size="md"
+    eyebrow="Free DFM Review"
+    title="Optimize Your Design Before Production"
+    content="Our engineers review your titanium part design and provide actionable DFM feedback — free of charge."
+    locale={locale}
+  />
+
+  <section class="container py-16">
+    <h2>What We Review</h2>
+    <div class="dfm-grid">
+      <div class="dfm-item">
+        <h3>Wall Thickness</h3>
+        <p>Minimum wall thickness for titanium machining: 0.5 mm. Thinner walls require special fixturing.</p>
+      </div>
+      <div class="dfm-item">
+        <h3>Internal Radii</h3>
+        <p>Sharp internal corners create stress risers. Recommended minimum radius: 0.5 mm.</p>
+      </div>
+      <div class="dfm-item">
+        <h3>Tool Access</h3>
+        <p>Deep cavities and narrow slots may require custom tooling. We identify these early.</p>
+      </div>
+      <div class="dfm-item">
+        <h3>Tolerance Stack-Up</h3>
+        <p>Over-specifying tolerances increases cost. We recommend cost-effective tolerance ranges.</p>
+      </div>
+      <div class="dfm-item">
+        <h3>Surface Finish</h3>
+        <p>We verify specified finishes are achievable and suggest alternatives if needed.</p>
+      </div>
+      <div class="dfm-item">
+        <h3>Thread Specifications</h3>
+        <p>Thread depth, class of fit, and tapping considerations for titanium components.</p>
+      </div>
+    </div>
+  </section>
+
+  <CapabilityShowcase />
+
+  <section class="container py-16">
+    <div class="contact-section">
+      <h2>Submit Your Design for DFM Review</h2>
+      <p>Email your drawing to <strong>hello@titanium.blog</strong> with "DFM Review" in the subject line. We'll respond within 24 hours.</p>
+    </div>
+  </section>
+
+  <CTA
+    eyebrow="After Your DFM Review"
+    title="Ready to Quote?"
+    content="Once you've incorporated the DFM feedback, submit for a competitive quote."
+    ctaText="Request a Quote →"
+    ctaHref="/rfq/request-quote/"
+    locale={locale}
+  />
+</MarketingLayout>

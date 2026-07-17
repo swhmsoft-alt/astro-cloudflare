@@ -1,0 +1,73 @@
+---
+
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { t } from "../../i18n/ui";
+import Hero from "../../components/Hero.astro";
+import CapabilityShowcase from "../../components/CapabilityShowcase.astro";
+import { ServiceCard } from "../../components/services/index";
+
+const locale = (Astro.props.locale || "en") as "en";
+
+const allServices: CollectionEntry<"services">[] =
+  await getCollection("services");
+const services = allServices
+  .filter((s) => s.data.locale === locale)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title={t(locale, "nav.services")}
+  description="Modern website development services"
+  locale={locale}
+  path={"/services"}
+>
+  <Hero
+    variant="centered"
+    size="md"
+    eyebrow="Manufacturing Services"
+    title="Titanium Precision Manufacturing Services"
+    content="From prototype to production — CNC machining, 5-axis milling, turning, wire EDM, and additive manufacturing for titanium components."
+    locale={locale}
+  />
+
+  <section class="services-list container">
+    {
+      services.length === 0 && (
+        <p class="services-list__empty">No services available yet.</p>
+      )
+    }
+    <div class="services-list__grid">
+      {
+        services.map((service) => (
+          <ServiceCard service={service} locale={locale} headingLevel="h2" />
+        ))
+      }
+    </div>
+  </section>
+
+  <CapabilityShowcase />
+
+</BaseLayout>
+
+<style>
+  .services-list {
+    padding-block: var(--space-xl) var(--space-3xl);
+  }
+  .services-list__empty {
+    padding: var(--space-3xl) var(--space-lg);
+    text-align: center;
+    color: var(--color-text-secondary);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-2xl);
+  }
+  .services-list__grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+</style>

@@ -1,10 +1,12 @@
 ---
+
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
 import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import { t } from "../../../i18n/ui";
 import { resolveRoute } from "../../../i18n/routes";
 import type { Locale } from "../../../lib/site-config";
 
-const locale = (Astro.currentLocale || "en") as Locale;
+const locale = (Astro.props.locale || "en") as Locale;
 
 const knowledgeHubs = [
   {

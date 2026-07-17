@@ -1,0 +1,71 @@
+---
+
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import MarketingLayout from "../../../layouts/MarketingLayout.astro";
+import Hero from "../../../components/Hero.astro";
+import CTA from "../../../components/CTA.astro";
+import CapabilityShowcase from "../../../components/CapabilityShowcase.astro";
+import { resolveRoute } from "../../../i18n/routes";
+import type { Locale } from "../../../lib/site-config";
+
+const locale = (Astro.props.locale || "en") as Locale;
+---
+
+<MarketingLayout
+  title="Request for Quote — Titanium Manufacturing"
+  description="Submit your titanium component requirements. Upload drawings, specify materials and tolerances, and receive a competitive quote within 24 hours."
+  locale={locale}
+  path="/rfq/"
+>
+  <Hero
+    variant="centered"
+    size="md"
+    eyebrow="Request for Quote"
+    title="Start Your Titanium Manufacturing Project"
+    content="Upload your drawings, specify your requirements, and get a competitive quote within 24 hours."
+    locale={locale}
+  />
+
+  <section class="container py-16">
+    <div class="rfq-options-grid">
+      <a href={resolveRoute(locale, "/rfq/upload-drawing/")} class="rfq-card rfq-card--primary">
+        <div class="rfq-card__icon" aria-hidden="true">📄</div>
+        <h2 class="rfq-card__title">Upload Drawing</h2>
+        <p class="rfq-card__desc">Upload STEP, IGES, STL, DXF, or PDF files. Our team will review and quote within 24 hours.</p>
+        <span class="rfq-card__cta">Upload Now →</span>
+      </a>
+
+      <a href={resolveRoute(locale, "/rfq/request-quote/")} class="rfq-card">
+        <div class="rfq-card__icon" aria-hidden="true">💰</div>
+        <h2 class="rfq-card__title">Request a Quote</h2>
+        <p class="rfq-card__desc">Describe your project requirements and get a detailed quote for your titanium components.</p>
+        <span class="rfq-card__cta">Request Now →</span>
+      </a>
+
+      <a href={resolveRoute(locale, "/rfq/dfm-review/")} class="rfq-card">
+        <div class="rfq-card__icon" aria-hidden="true">🔧</div>
+        <h2 class="rfq-card__title">Free DFM Review</h2>
+        <p class="rfq-card__desc">Get Design for Manufacturing feedback on your design before committing to production.</p>
+        <span class="rfq-card__cta">Get DFM Feedback →</span>
+      </a>
+
+      <a href={resolveRoute(locale, "/rfq/prototype-request/")} class="rfq-card">
+        <div class="rfq-card__icon" aria-hidden="true">⚡</div>
+        <h2 class="rfq-card__title">Prototype Request</h2>
+        <p class="rfq-card__desc">Rapid prototyping for titanium parts — as fast as 5 business days for low-volume runs.</p>
+        <span class="rfq-card__cta">Start Prototype →</span>
+      </a>
+    </div>
+  </section>
+
+  <CapabilityShowcase />
+
+  <CTA
+    eyebrow="Ready to Start?"
+    title="Upload Your Drawing Today"
+    content="Get DFM feedback and a competitive quote within 24 hours."
+    ctaText="Upload Drawing →"
+    ctaHref="/rfq/upload-drawing/"
+    locale={locale}
+  />
+</MarketingLayout>

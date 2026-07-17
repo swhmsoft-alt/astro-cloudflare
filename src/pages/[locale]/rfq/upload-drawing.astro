@@ -1,0 +1,80 @@
+---
+
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import MarketingLayout from "../../../layouts/MarketingLayout.astro";
+import Hero from "../../../components/Hero.astro";
+import CapabilityShowcase from "../../../components/CapabilityShowcase.astro";
+
+import CTA from "../../../components/CTA.astro";
+import type { Locale } from "../../../lib/site-config";
+
+const locale = (Astro.props.locale || "en") as Locale;
+---
+
+<MarketingLayout
+  title="Upload Drawing — Titanium CNC Machining RFQ"
+  description="Upload your titanium part drawing or 3D model. We accept STEP, IGES, STL, DXF, and PDF. Get a quote within 24 hours."
+  locale={locale}
+  path="/rfq/upload-drawing/"
+>
+  <Hero
+    variant="centered"
+    size="md"
+    eyebrow="Upload Drawing"
+    title="Submit Your Design for Review"
+    content="Upload your part drawing or 3D model and our engineering team will provide DFM feedback and a competitive quote within 24 hours."
+    locale={locale}
+  />
+
+  <section class="container py-16">
+    <div class="upload-section">
+      <h2>Accepted File Formats</h2>
+      <div class="formats-grid">
+        <div class="format-card">
+          <span class="format-icon">🔷</span>
+          <h3>STEP (.stp, .step)</h3>
+          <p>Preferred for 3D models. Supports solids and assemblies.</p>
+        </div>
+        <div class="format-card">
+          <span class="format-icon">🔶</span>
+          <h3>IGES (.igs, .iges)</h3>
+          <p>Legacy 3D format. Acceptable for most CAD systems.</p>
+        </div>
+        <div class="format-card">
+          <span class="format-icon">⬡</span>
+          <h3>STL (.stl)</h3>
+          <p>Mesh format suitable for additive manufacturing and simple geometries.</p>
+        </div>
+        <div class="format-card">
+          <span class="format-icon">📐</span>
+          <h3>DXF (.dxf)</h3>
+          <p>2D format for turned parts, profiles, and flat patterns.</p>
+        </div>
+        <div class="format-card">
+          <span class="format-icon">📄</span>
+          <h3>PDF (.pdf)</h3>
+          <p>2D drawings with dimensions, tolerances, and notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <div class="contact-section">
+      <h2>Prefer to email your files?</h2>
+      <p>Send your drawings to <strong>hello@titanium.blog</strong> with your project requirements and we'll respond within 24 hours.</p>
+    </div>
+  </section>
+
+  <CapabilityShowcase />
+
+
+  <CTA
+    eyebrow="Next Step"
+    title="Ready to discuss your project?"
+    content="Contact us directly with your requirements."
+    ctaText="Contact Us"
+    ctaHref="/contact/"
+    locale={locale}
+  />
+</MarketingLayout>
