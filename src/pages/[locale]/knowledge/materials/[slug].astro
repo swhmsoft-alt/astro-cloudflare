@@ -5,10 +5,10 @@ import { getCollection, render } from "astro:content";
 export async function getStaticPaths() {
   const entries = await getCollection("materials");
   return entries
-    .filter((e: any) => e.data.locale)
+    .filter((e: any) => e.data.locale === "en")
     .map((e: any) => ({
-      params: { slug: e.id },
-      props: { entry: e, locale: e.data.locale },
+      params: { slug: e.id, locale: e.data.locale },
+      props: { entry: e, locale: "en" as const },
     }));
 }
 

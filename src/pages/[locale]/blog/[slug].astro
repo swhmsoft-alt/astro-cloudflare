@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   return allPosts
     .filter((p) => p.data.locale === "en" && !p.data.draft)
     .map((post) => ({
-      params: { slug: post.id },
+      params: { slug: post.id, locale: post.data.locale },
     }));
 }
 

@@ -7,9 +7,9 @@ import { buildTechArticleSchema } from "../../../../lib/schema";
 
 export async function getStaticPaths() {
   const entries = await getCollection("cases");
-  return entries.filter((e: any) => e.data.locale).map((e: any) => ({
-    params: { slug: e.id.replace(/\.md$/, "") },
-    props: { entry: e, locale: e.data.locale },
+  return entries.filter((e: any) => e.data.locale === "en").map((e: any) => ({
+    params: { slug: e.id.replace(/\.md$/, ""), locale: e.data.locale },
+    props: { entry: e, locale: "en" as const },
   }));
 }
 

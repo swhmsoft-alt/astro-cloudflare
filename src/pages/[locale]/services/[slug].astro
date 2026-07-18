@@ -24,8 +24,8 @@ export async function getStaticPaths() {
     const englishServices = allServices.filter((s) => s.data.locale === "en");
     for (const service of englishServices) {
       paths.push({
-        params: { slug: service.data.slug },
-        props: { service, locale: e.data.locale },
+        params: { slug: service.data.slug, locale: "en" },
+        props: { service, locale: "en" as const },
       });
     }
   }
