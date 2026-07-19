@@ -116,7 +116,6 @@
 /* Selection */
 ::selection {
   background-color: color-mix(in srgb, var(--primary) 25%, transparent);
-  color: var(--foreground);
 }
 
 /* Custom scrollbar */
@@ -704,5 +703,74 @@ code {
   color: var(--foreground);
 } 
 .ev-table tbody tr:last-child td { border-bottom: none; } 
-.ev-table tbody tr:nth-child(even) { background: var(--card); } 
+.ev-table tbody tr:nth-child(even) { background: var(--card); }
 
+/* --- Entity detail page layout --- */ 
+.entity-article { 
+  max-width: 56rem; 
+} 
+
+.entity-header { 
+  margin-bottom: 3rem; 
+  padding-bottom: 2rem; 
+  border-bottom: 1px solid var(--border); 
+} 
+
+.entity-title { 
+  font-family: var(--font-heading); 
+  font-size: clamp(1.75rem, 3vw, 2.5rem); 
+  font-weight: 700; 
+  line-height: 1.15; 
+  letter-spacing: -0.02em; 
+  margin: 0 0 0.5rem; 
+  color: var(--foreground); 
+} 
+
+.entity-description { 
+  font-size: 1.0625rem; 
+  line-height: 1.65; 
+  color: var(--muted-foreground); 
+  margin: 0 0 1.5rem; 
+  max-width: 48rem; 
+} 
+
+.entity-meta { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0.375rem; 
+  margin-bottom: 1.5rem; 
+} 
+
+.entity-badge { 
+  align-items: center; 
+  display: inline-flex; 
+  padding: 0.2rem 0.7rem; 
+  border: 1px solid var(--border); 
+  border-radius: 9999px; 
+  font-size: 0.8125rem; 
+  font-weight: 500; 
+  color: var(--muted-foreground); 
+  background: var(--card); 
+} 
+
+.entity-content { 
+  margin-top: 2rem; 
+} 
+
+.prose h2 { 
+  font-size: 1.5rem; 
+  font-weight: 600; 
+  margin-top: 2.5em; 
+  margin-bottom: 0.75em; 
+  padding-bottom: 0.4em; 
+  border-bottom: 1px solid var(--border); 
+  color: var(--foreground); 
+} 
+
+.prose h3 { 
+  font-size: 1.25rem; 
+  font-weight: 600; 
+  margin-top: 1.75em; 
+  margin-bottom: 0.5em; 
+  color: var(--foreground); 
+} 

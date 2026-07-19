@@ -75,16 +75,17 @@ export const mainNav: NavItem[] = [
   {
     href: "/knowledge/",
     labelKey: "nav.knowledge",
-    children: [],
+    children: [
+      { href: "/compare/", labelKey: "nav.compare" },
+      { href: "/guides/", labelKey: "nav.guides" },
+      { href: "/faq/", labelKey: "nav.faq" },
+    ],
   },
   {
     href: "/services/",
     labelKey: "nav.services",
     children: [],
   },
-  { href: "/compare/", labelKey: "nav.compare" },
-  { href: "/guides/", labelKey: "nav.guides" },
-  { href: "/faq/", labelKey: "nav.faq" },
   {
     href: "/rfq/",
     labelKey: "nav.rfq",
