@@ -337,7 +337,21 @@
     { "name": "Processes Index", "path": "src/pages/knowledge/processes/index.astro", "locales": ["en"] },
     { "name": "Process Detail", "path": "src/pages/knowledge/processes/[slug].astro", "locales": ["en"] },
     { "name": "Applications Index", "path": "src/pages/knowledge/applications.astro", "locales": ["en"] },
-    { "name": "Application Detail", "path": "src/pages/knowledge/applications/[slug].astro", "locales": ["en"] }
+    { "name": "Application Detail", "path": "src/pages/knowledge/applications/[slug].astro", "locales": ["en"] },
+    { "name": "Equipment Index", "path": "src/pages/knowledge/equipment.astro", "locales": ["en"] },
+    { "name": "Equipment Detail", "path": "src/pages/knowledge/equipment/[slug].astro", "locales": ["en"] },
+    { "name": "Standards Index", "path": "src/pages/knowledge/standards.astro", "locales": ["en"] },
+    { "name": "Standards Detail", "path": "src/pages/knowledge/standards/[slug].astro", "locales": ["en"] },
+    { "name": "Industries Index", "path": "src/pages/knowledge/industries.astro", "locales": ["en"] },
+    { "name": "Industries Detail", "path": "src/pages/knowledge/industries/[slug].astro", "locales": ["en"] },
+    { "name": "Surface Finishes Index", "path": "src/pages/knowledge/surface-finishes.astro", "locales": ["en"] },
+    { "name": "Surface Finishes Detail", "path": "src/pages/knowledge/surface-finishes/[slug].astro", "locales": ["en"] },
+    { "name": "Evidence Index", "path": "src/pages/evidence.astro", "locales": ["en"] },
+    { "name": "Evidence Detail", "path": "src/pages/knowledge/evidence/[slug].astro", "locales": ["en"] },
+    { "name": "Comparisons Index", "path": "src/pages/compare.astro", "locales": ["en"] },
+    { "name": "Comparison Detail", "path": "src/pages/compare/[slug].astro", "locales": ["en"] },
+    { "name": "Guides Detail", "path": "src/pages/guides/[slug].astro", "locales": ["en"] },
+    { "name": "Procurement Detail", "path": "src/pages/knowledge/procurement/[slug].astro", "locales": ["en"] }
   ]
 }
 
