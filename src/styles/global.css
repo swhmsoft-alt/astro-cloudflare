@@ -644,3 +644,65 @@ code {
     align-items: stretch;
   }
 }
+
+/* Entity header property table */ 
+.props-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius-lg); 
+  overflow: hidden; 
+  font-size: 0.9375rem; 
+  margin-top: var(--space-lg); 
+} 
+.props-table thead { background: var(--muted); } 
+
+.props-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+} 
+
+.props-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+} 
+.props-table tbody tr:last-child td { border-bottom: none; } 
+.props-table tbody tr:nth-child(even) { background: var(--card); } 
+
+@media (width <= 640px) { .props-table { display: block;
+    overflow-x: auto;
+    white-space: nowrap; } } 
+
+/* Evidence detail data table */ 
+.ev-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius-lg); 
+  overflow: hidden; 
+  font-size: 0.9rem; 
+} 
+.ev-table thead { background: var(--muted); } 
+
+.ev-table th {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+} 
+
+.ev-table td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+} 
+.ev-table tbody tr:last-child td { border-bottom: none; } 
+.ev-table tbody tr:nth-child(even) { background: var(--card); } 
+
