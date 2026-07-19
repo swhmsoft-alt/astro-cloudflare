@@ -100,7 +100,8 @@ const encodedUrl = encodeURIComponent(url);
           ta.style.opacity = "0";
           document.body.appendChild(ta);
           ta.select();
-          document.execCommand("copy");
+          // Fallback only when Clipboard API fails; execCommand is deprecated but still needed here
+          (document as any).execCommand("copy");
           ta.remove();
         }
         btn.classList.add("is-copied");

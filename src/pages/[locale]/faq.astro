@@ -10,8 +10,8 @@ import FAQ from "../../components/FAQ.astro";
 const locale = (Astro.props.locale || "en") as Locale;
 
 const allFaqs: CollectionEntry<"faqs">[] = (await getCollection("faqs"))
-  .filter((e) => e.data.locale === locale)
-  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+  .filter((e: CollectionEntry<"faqs">) => e.data.locale === locale)
+  .sort((a: CollectionEntry<"faqs">, b: CollectionEntry<"faqs">) => (a.data.order ?? 0) - (b.data.order ?? 0));
 
 // Group FAQs by category; uncategorised items go into "General"
 const grouped = allFaqs.reduce<Record<string, CollectionEntry<"faqs">[]>>((acc, entry) => {
