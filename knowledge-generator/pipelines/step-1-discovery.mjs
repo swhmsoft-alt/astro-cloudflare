@@ -41,7 +41,7 @@ function parseFM(raw) {
       const ci = t.indexOf(":");
       if (ci === -1) continue;
       k = t.slice(0, ci).trim();
-      let v = t.slice(ci + 1).trim().replace(/['"]/g,"");
+      const v = t.slice(ci + 1).trim().replace(/['"]/g,"");
       if (v.startsWith("[")&&v.endsWith("]")) { o[k] = v.slice(1,-1).split(",").map((s)=>s.trim().replace(/['"]/g,"")).filter(Boolean); } else { o[k] = v; }
     }
     return o;
@@ -88,7 +88,7 @@ export async function run(ctx) {
               ex++;
             }
           }
-        } catch {}
+        } catch { /* directory may not exist, skip */ }
       }
     }
 

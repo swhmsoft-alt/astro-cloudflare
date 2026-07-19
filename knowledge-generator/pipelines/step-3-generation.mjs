@@ -116,7 +116,7 @@ function parseResponse(raw) {
   if (fenceMatch) text = fenceMatch[1].trim();
 
   // Try direct parse
-  try { return JSON.parse(text); } catch {}
+  try { return JSON.parse(text); } catch { /* not valid JSON, try fallback */ }
 
   // Try finding the first complete JSON object (handles truncated/unterminated responses)
   let depth = 0;
@@ -135,7 +135,7 @@ function parseResponse(raw) {
   // Try from first { to the last balanced }
   if (lastBrace > 0) {
     const firstBrace = text.indexOf("{");
-    try { return JSON.parse(text.slice(firstBrace, lastBrace + 1)); } catch {}
+    try { return JSON.parse(text.slice(firstBrace, lastBrace + 1)); } catch { /* still invalid, throw below */ }
   }
 
   throw new Error("Cannot parse JSON. Preview: " + JSON.stringify(text.slice(0, 200)));

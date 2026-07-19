@@ -74,7 +74,7 @@ export async function run(ctx) {
 
     // Collection validation
     const colErr = checkCollection(collection);
-    if (colErr) { fail = true; ctx.logger.warn("FAIL " + collection + "/" + slug + ": " + colErr); continue; }
+    if (colErr) { ctx.logger.warn("FAIL " + collection + "/" + slug + ": " + colErr); continue; }
 
     // Frontmatter
     const fmErr = checkFrontmatter(frontmatter, slug);
