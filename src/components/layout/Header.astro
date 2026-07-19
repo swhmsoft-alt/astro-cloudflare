@@ -20,8 +20,10 @@ const {
   currentPath = "/",
   showThemeToggle = true,
 } = Astro.props as Props;
-const detectedLocale = detectLocale(currentPath);
-const effectiveLocale = detectedLocale || currentLocale;
+// Prefer the explicit currentLocale prop over path-based detection,
+// because pages pass the content path (e.g. "/services") without a
+// locale prefix, which makes detectLocale() always return "en".
+const effectiveLocale = currentLocale || detectLocale(currentPath);
 const contentPath = stripLocale(currentPath);
 
 const navLinks = mainNav.map((item) => ({

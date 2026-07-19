@@ -12,27 +12,27 @@ export interface Props {
 
 const { currentLocale, currentPath } = Astro.props as Props;
 
-const availableLocales = SITE_CONFIG.locales.filter(
- (locale) => locale !== currentLocale,
-);
+// Show ALL locales in the dropdown; the current one is marked with isCurrent.
 
 interface LocaleInfo {
  code: Locale;
  label: string;
  nativeLabel: string;
  href: string;
+ isCurrent: boolean;
 }
 
-const localeInfos: LocaleInfo[] = availableLocales.map((locale) => ({
+const localeInfos: LocaleInfo[] = SITE_CONFIG.locales.map((locale) => ({
  code: locale,
  label: t(locale, 'locale.switch'),
  nativeLabel: SITE_CONFIG.localeLabels[locale],
  href: getEquivalentPath(currentPath, locale),
+ isCurrent: locale === currentLocale,
 }));
 ---
 
 {
- availableLocales.length > 0 && (
+ SITE_CONFIG.locales.length > 0 && (
  <div class='language-switcher-wrapper' data-locale-switcher>
  <button
  type='button'
