@@ -1,0 +1,1 @@
+// Core Entity Prompt Template

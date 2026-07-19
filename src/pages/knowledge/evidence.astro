@@ -29,7 +29,9 @@ const itemListSchema = entries.length > 0 ? buildItemListSchema({
     url: siteConfig.url + resolveRoute(locale, `/knowledge/evidence/${e.id}/`),
   })),
 }) : null;
-const schemas = [collectionSchema, itemListSchema].filter(Boolean);
+const schemas = [collectionSchema, itemListSchema].filter(
+  (s): s is Record<string, unknown> => s !== null,
+);
 
 const categoryLabels: Record<string, string> = {
   "material-properties": "Material Properties",

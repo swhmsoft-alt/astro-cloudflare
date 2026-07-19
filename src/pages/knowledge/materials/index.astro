@@ -28,7 +28,9 @@ const itemListSchema = entries.length > 0 ? buildItemListSchema({
     url: siteConfig.url + resolveRoute(locale, `/knowledge/materials/${e.id}/`),
   })),
 }) : null;
-const schemas = [collectionSchema, itemListSchema].filter(Boolean);
+const schemas = [collectionSchema, itemListSchema].filter(
+  (s): s is Record<string, unknown> => s !== null,
+);
 ---
 <EntityPillar
   collectionName="materials"

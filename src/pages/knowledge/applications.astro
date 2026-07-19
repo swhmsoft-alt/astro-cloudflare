@@ -30,7 +30,9 @@ const itemListSchema = entries.length > 0 ? buildItemListSchema({
     url: siteConfig.url + resolveRoute(locale, `/knowledge/applications/${e.id}/`),
   })),
 }) : null;
-const schemas = [collectionSchema, itemListSchema].filter(Boolean);
+const schemas = [collectionSchema, itemListSchema].filter(
+  (s): s is Record<string, unknown> => s !== null,
+);
 
 const industryLabels: Record<string, string> = {
   aerospace: "Aerospace",
