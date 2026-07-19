@@ -41,11 +41,52 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
 
   <article class="container py-16 entity-article">
     <header class="entity-header">
-      <!-- nav entity-breadcrumbs removed -->
-        <a href={resolveRoute(locale, "/knowledge/")}>{t(locale, "knowledge.browse")}</a> <!-- removed -->
-        <!-- <span aria-hidden="true"> / </span> -->
-        <a href={resolveRoute(locale, `${pillarPath}`)}>{t(locale, `knowledge.${collectionName}`)}</a>
-      <!-- /nav removed -->
+      <h1 class="entity-title">{data.title}</h1>
+      <p class="entity-description">{data.description}</p>
+      <div class="entity-meta">
+        {'grade' in data && <span class="entity-badge">{data.grade}</span>}
+        {'alloy' in data && data.alloy && <span class="entity-badge alloy">{data.alloy}</span>}
+        {'processType' in data && <span class="entity-badge">{data.processType}</span>}
+        {'standardType' in data && <span class="entity-badge">{data.standardType}</span>}
+        {'issuingBody' in data && <span class="entity-badge">{data.issuingBody}</span>}
+        {'tolerances' in data && <span class="entity-badge">{data.tolerances}</span>}
+      </div>
+      {'properties' in data && data.properties && (
+        <table class="props-table">
+          <thead><tr><th>Property</th><th>Value</th></tr></thead>
+          <tbody>{Object.entries(data.properties).map(([key, val]) => (<tr><td>{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</td><td>{val as string}</td></tr>))}</tbody>
+        </table>
+      )}
+    </header>
+    <div class="entity-content"><slot /></div>
+    <div class="entity-related">
+      <h2>{t(locale, "knowledge.related")}</h2>
+      <div class="related-grid">
+
+        {'standards' in data && data.standards && data.standards.length > 0 && (
+          <div class="related-section">
+            <h3>Standards</h3>
+            <ul>
+              {data.standards.map((s: string) => (
+                <li><a href={resolveRoute(locale, `/knowledge/standards/${s.toLowerCase().replace(/\s+/g, '-')}/`)}>{s}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {'industries' in data && data.industries && data.industries.length > 0 && (
+          <div class="related-section">
+            <h3>Industries</h3>
+            <ul>
+              {data.industries.map((i: string) => (
+                <li><a href={resolveRoute(locale, `/knowledge/industries/${i.toLowerCase().replace(/\s+/g, '-')}/`)}>{i}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </article>
+</Marke
       <h1 class="entity-title">{data.title}</h1>
       <p class="entity-description">{data.description}</p>
       <div class="entity-meta">
