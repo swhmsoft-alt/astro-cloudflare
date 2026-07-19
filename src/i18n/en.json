@@ -180,5 +180,7 @@
   "guides.category.design": "Design & DFM",
   "guides.category.procurement": "Procurement & RFQ",
   "guides.category.industry": "Industry Applications",
-  "nav.pricing": "Pricing"
+  "nav.pricing": "Pricing",
+  "guides.browseCategory": "Browse Category",
+  "guides.comingSoon": "In-depth technical guides are being authored. Each guide will include specifications, best practices, and industry references."
 }
