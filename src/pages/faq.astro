@@ -8,11 +8,11 @@ import FAQ from "../components/FAQ.astro";
 const locale = (Astro.currentLocale || "en") as Locale;
 
 const allFaqs = (await getCollection("faqs"))
-  .filter((e) => e.data.locale === locale)
-  .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+  .filter((e: any) => e.data.locale === locale)
+  .sort((a: any, b: any) => (a.data.order ?? 0) - (b.data.order ?? 0));
 
 // Group FAQs by category; uncategorised items go into "General"
-const grouped = allFaqs.reduce<Record<string, typeof allFaqs>>((acc, entry) => {
+const grouped = allFaqs.reduce((acc: Record<string, any>, entry: any) => {
   const cat = entry.data.category || "general";
   if (!acc[cat]) acc[cat] = [];
   acc[cat].push(entry);
@@ -46,7 +46,7 @@ const sortedCategories = Object.entries(grouped).sort(
         <div class="faq-hub__group">
           <h2 class="faq-hub__category">{t(locale, `faq.category.${category}`)}</h2>
           <FAQ
-            items={items.map((e) => ({
+            items={items.map((e: any) => ({
               question: e.data.question,
               answer: e.data.answer,
             }))}
@@ -79,3 +79,4 @@ const sortedCategories = Object.entries(grouped).sort(
     display: inline-block;
   }
 </style>
+
