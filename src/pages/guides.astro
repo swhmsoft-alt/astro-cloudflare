@@ -27,7 +27,7 @@ const itemListSchema = buildItemListSchema({
   })),
 });
 const schemas = [collectionSchema, itemListSchema].filter(
-  (s): s is Record<string, unknown> => s !== null,
+  (s): s is NonNullable<typeof s> => s !== null,
 );
 
 interface GuideStep {
