@@ -1,6 +1,6 @@
 ---
-title: "Complex 5-Axis Titanium Structural Bracket — Single-Setup Consolidation"
-description: "Eliminating 6 of 7 setups on a complex aerospace structural bracket through 5-axis consolidation, tombstone fixturing, and in-process probing, reducing cycle time by 60%."
+title: "Complex 5-Axis Titanium Structural Bracket — Multi-Setup Elimination"
+description: "Reducing 7-setup machining to a single 5-axis operation on a complex aerospace titanium bracket, eliminating 60% of cycle time and 100% of setup variation."
 locale: en
 industry: aerospace
 application: "Aerospace structural bracket"
@@ -9,7 +9,7 @@ processes:
   - "5-axis-machining"
   - "cnc-machining"
   - "milling"
-machines:
+equipment:
   - "Mazak i700 5-Axis"
   - "Mazak Integrex i-200"
 surfaceFinish: "Ra 0.4 µm"
@@ -52,7 +52,7 @@ relatedServices:
   - "5-axis-titanium-machining"
   - "titanium-cnc-machining"
 relatedMaterials:
-  - "grade-5-titanium"
+  - "grade-5-titanium-ti6al4v"
 relatedStandards:
   - "as9100d"
   - "nadcap"
@@ -65,8 +65,3 @@ relatedComparisons:
   - "grade-5-vs-grade-23"
 order: 5
 ---
-
-## RFQ CTA
-
-**Need complex 5-axis titanium structural brackets machined for aerospace applications?**  
-We specialise in single-setup 5-axis machining of complex titanium structural components under AS9100D with NADCAP-compliant processes and full traceability. [Submit an RFQ](/rfq/request-quote/) with your drawing for a rapid quote, DFM feedback, and lead time estimate.

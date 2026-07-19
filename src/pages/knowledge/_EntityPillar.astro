@@ -11,9 +11,10 @@ export interface Props {
   pageDescription: string;
   locale: Locale;
   path: string;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const { collectionName, pageTitle, pageDescription, locale, path } = Astro.props as Props;
+const { collectionName, pageTitle, pageDescription, locale, path, jsonLd } = Astro.props as Props;
 
 const entries = (await getCollection(collectionName))
   .filter((entry: any) => entry.data.locale === locale)
@@ -34,6 +35,7 @@ const collectionLabels: Record<string, string> = {
   description={pageDescription}
   locale={locale}
   path={path}
+  jsonLd={jsonLd}
 >
   <section class="container py-16">
     <header class="section-head">

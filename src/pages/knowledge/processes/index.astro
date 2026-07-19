@@ -1,7 +1,34 @@
 ---
 import EntityPillar from "../_EntityPillar.astro";
+import { getCollection } from "astro:content";
+import { buildCollectionPageSchema, buildItemListSchema } from "../../../lib/schema";
+import { resolveRoute } from "../../../i18n/routes";
+import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
 const locale = (Astro.currentLocale || "en") as Locale;
+
+const entries = (await getCollection("processes"))
+  .filter((e: any) => e.data.locale === locale)
+  .sort((a: any, b: any) => a.data.order - b.data.order);
+
+const listUrl = siteConfig.url + resolveRoute(locale, "/knowledge/processes/");
+const collectionSchema = buildCollectionPageSchema({
+  name: "Titanium Manufacturing Processes",
+  description: "Comprehensive technical guides for all titanium manufacturing processes.",
+  url: listUrl,
+  numberOfItems: entries.length,
+});
+const itemListSchema = entries.length > 0 ? buildItemListSchema({
+  itemType: "TechArticle",
+  numberOfItems: entries.length,
+  url: listUrl,
+  itemListElement: entries.map((e: any) => ({
+    name: e.data.title,
+    description: e.data.description,
+    url: siteConfig.url + resolveRoute(locale, `/knowledge/processes/${e.id}/`),
+  })),
+}) : null;
+const schemas = [collectionSchema, itemListSchema].filter(Boolean);
 ---
 <EntityPillar
   collectionName="processes"
@@ -9,4 +36,5 @@ const locale = (Astro.currentLocale || "en") as Locale;
   pageDescription="Comprehensive technical guides for all titanium manufacturing processes. Compare capabilities, tolerances, surface finishes, and applications for 5-axis machining, CNC turning, wire EDM, DMLS, and more."
   locale={locale}
   path="/knowledge/processes/"
+  jsonLd={schemas}
 />

@@ -11,7 +11,7 @@ const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl
 const blog = defineCollection({
   loader: glob({
     pattern: "**/*.{md,mdx}",
-    base: "./src/content/blog",
+    base: "./src/content/site/blog",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -73,7 +73,7 @@ const pageSectionSchema = z.object({
 const pages = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/pages",
+    base: "./src/content/site/pages",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -91,7 +91,7 @@ const pages = defineCollection({
 const services = defineCollection({
   loader: glob({
     pattern: "**/*.{md,mdx}",
-    base: "./src/content/services",
+    base: "./src/content/site/services",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -112,7 +112,7 @@ const services = defineCollection({
 const authors = defineCollection({
   loader: glob({
     pattern: "**/*.json",
-    base: "./src/content/authors",
+    base: "./src/content/site/authors",
     generateId: ({ entry }) => entry.replace(/\.json$/, ""),
   }),
   schema: z.object({
@@ -133,7 +133,7 @@ const authors = defineCollection({
 const faqs = defineCollection({
   loader: glob({
     pattern: "**/*.json",
-    base: "./src/content/faqs",
+    base: "./src/content/site/faqs",
     generateId: ({ entry }) => entry.replace(/\.json$/, ""),
   }),
   schema: z.object({
@@ -148,7 +148,7 @@ const faqs = defineCollection({
 const stack = defineCollection({
   loader: glob({
     pattern: "**/*.{md,mdx}",
-    base: "./src/content/stack",
+    base: "./src/content/site/stack",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -167,7 +167,7 @@ const stack = defineCollection({
 const materials = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/materials",
+    base: "./src/content/core/materials",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -197,7 +197,7 @@ const materials = defineCollection({
 const processes = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/processes",
+    base: "./src/content/core/processes",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -220,7 +220,7 @@ const processes = defineCollection({
 const industries = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/industries",
+    base: "./src/content/core/industries",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -240,7 +240,7 @@ const industries = defineCollection({
 const standards = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/standards",
+    base: "./src/content/core/standards",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -260,7 +260,7 @@ const standards = defineCollection({
 const surfaceFinishes = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/surface-finishes",
+    base: "./src/content/core/surface-finishes",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -279,7 +279,7 @@ const surfaceFinishes = defineCollection({
 const equipment = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/equipment",
+    base: "./src/content/core/equipment",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({
@@ -320,7 +320,7 @@ const settings = defineCollection({
 const evidence = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/evidence",
+    base: "./src/content/derived/evidence",
     generateId: ({ entry }) => entry.replace(/\.\w+$/, ""),
   }),
   schema: z.object({
@@ -347,7 +347,7 @@ const evidence = defineCollection({
 const comparisons = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/comparisons",
+    base: "./src/content/derived/comparisons",
     generateId: ({ entry }) => entry.replace(/\.md$/, ""),
   }),
   schema: z.object({
@@ -368,12 +368,12 @@ const comparisons = defineCollection({
   }),
 });
 
-const procurement = defineCollection({loader:glob({pattern:"**/*.md",base:"./src/content/procurement",generateId:({entry})=>entry.replace(/\.md$/,"")}),schema:z.object({locale:localeSchema,title:z.string(),description:z.string(),procurementCategory:z.enum(["rfq-preparation","lead-time","certification","commercial","quality-inspection"]),audience:z.array(z.string()).default([]),quickAnswer:z.string(),checklist:z.array(z.string()).optional(),typicalValues:z.array(z.object({label:z.string(),value:z.string(),notes:z.string().optional()})).optional(),relatedServices:z.array(z.string()).default([]),relatedStandards:z.array(z.string()).default([]),faqs:z.array(z.object({question:z.string(),answer:z.string()})).optional(),order:z.number().default(0)}),});
+const procurement = defineCollection({loader:glob({pattern:"**/*.md",base:"./src/content/derived/procurement",generateId:({entry})=>entry.replace(/\.md$/,"")}),schema:z.object({locale:localeSchema,title:z.string(),description:z.string(),procurementCategory:z.enum(["rfq-preparation","lead-time","certification","commercial","quality-inspection"]),audience:z.array(z.string()).default([]),quickAnswer:z.string(),checklist:z.array(z.string()).optional(),typicalValues:z.array(z.object({label:z.string(),value:z.string(),notes:z.string().optional()})).optional(),relatedServices:z.array(z.string()).default([]),relatedStandards:z.array(z.string()).default([]),faqs:z.array(z.object({question:z.string(),answer:z.string()})).optional(),order:z.number().default(0)}),});
 
 const guides = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/guides",
+    base: "./src/content/derived/guides",
     generateId: ({ entry }) => entry.replace(/\.\w+$/, ""),
   }),
   schema: z.object({
@@ -393,7 +393,7 @@ const guides = defineCollection({
 const cases = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/cases",
+    base: "./src/content/derived/cases",
     generateId: ({ entry }) => entry.replace(/\.\w+$/, ""),
   }),
   schema: z.object({
@@ -404,7 +404,7 @@ const cases = defineCollection({
     application: z.string(),
     material: z.string(),
     processes: z.array(z.string()),
-    machines: z.array(z.string()).optional(),
+    equipment: z.array(z.string()).default([]),
     surfaceFinish: z.string().optional(),
     standards: z.array(z.string()).default([]),
     quantity: z.string().optional(),
@@ -431,6 +431,24 @@ const cases = defineCollection({
 });
 
 
+const applications = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/applications",
+    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
+  }),
+  schema: z.object({
+    locale: localeSchema,
+    title: z.string(),
+    description: z.string(),
+    industry: z.string().optional(),
+    image: z.string().optional(),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
+
 
 export const collections = {
   docs,
@@ -452,4 +470,5 @@ export const collections = {
   procurement,
   guides,
   cases,
+   applications,
 };

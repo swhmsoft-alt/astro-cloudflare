@@ -1,15 +1,15 @@
 ---
-title: "Thin-Wall Aerospace Housing — Distortion Control via Symmetric Machining"
-description: "How symmetric stock removal, intermediate stress relief, and reduced radial engagement eliminated distortion on a 0.8mm wall thickness titanium aerospace avionics housing."
+title: "Thin-Wall Aerospace Housing — Distortion Control"
+description: "How symmetric machining, stress relief, and reduced radial engagement eliminated distortion on a 0.8mm wall thickness titanium aerospace housing."
 locale: en
 industry: aerospace
-application: "Aerospace avionics enclosure housing"
+application: "Aerospace housing component"
 material: "Ti-6Al-4V (Grade 5)"
 processes:
   - "5-axis-machining"
   - "cnc-machining"
   - "milling"
-machines:
+equipment:
   - "Mazak i700 5-Axis"
 surfaceFinish: "Ra 0.4 µm"
 standards:
@@ -49,7 +49,7 @@ relatedServices:
   - "aerospace-titanium-components"
   - "titanium-cnc-machining"
 relatedMaterials:
-  - "grade-5-titanium"
+  - "grade-5-titanium-ti6al4v"
 relatedStandards:
   - "as9100d"
   - "iso-2768"
@@ -60,8 +60,3 @@ relatedComparisons:
   - "5-axis-vs-3-axis-machining"
 order: 1
 ---
-
-## RFQ CTA
-
-**Need thin-wall titanium housings machined to tight aerospace specifications?**  
-We precision machine thin-wall titanium components with AS9100D quality management, full material traceability, and distortion control processes. [Submit an RFQ](/rfq/request-quote/) with your drawing and specifications for a competitive quote and DFM feedback.

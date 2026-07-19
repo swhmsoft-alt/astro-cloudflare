@@ -3,6 +3,8 @@ import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
 
 import { resolveRoute } from "../../i18n/routes";
+import { siteConfig } from "../../config/site.config";
+import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
 import type { Locale } from "../../lib/site-config";
 
 const locale = (Astro.currentLocale || "en") as Locale;
@@ -10,6 +12,27 @@ const locale = (Astro.currentLocale || "en") as Locale;
 const entries = (await getCollection("cases"))
   .filter((entry: any) => entry.data.locale === locale)
   .sort((a: any, b: any) => a.data.order - b.data.order);
+
+const listUrl = siteConfig.url + resolveRoute(locale, "/knowledge/cases/");
+const collectionSchema = buildCollectionPageSchema({
+  name: "Titanium Manufacturing Case Library",
+  description: "Real-world titanium manufacturing case studies covering aerospace, medical, semiconductor, and industrial applications.",
+  url: listUrl,
+  numberOfItems: entries.length,
+});
+const itemListSchema = entries.length > 0 ? buildItemListSchema({
+  itemType: "TechArticle",
+  numberOfItems: entries.length,
+  url: listUrl,
+  itemListElement: entries.map((e: any) => ({
+    name: e.data.title,
+    description: e.data.description,
+    url: siteConfig.url + resolveRoute(locale, `/knowledge/cases/${e.id}/`),
+  })),
+}) : null;
+
+const schemas = [collectionSchema, itemListSchema].filter(Boolean);
+
 
 const industryLabels: Record<string, string> = {
   aerospace: "Aerospace",
@@ -31,6 +54,7 @@ const industryColors: Record<string, string> = {
   description="Real-world titanium manufacturing case studies covering aerospace, medical, semiconductor, and industrial applications. Each case documents challenges, solutions, and quantified results."
   locale={locale}
   path="/knowledge/cases/"
+  jsonLd={schemas}
 >
   <section class="container py-16">
     <header class="section-head">

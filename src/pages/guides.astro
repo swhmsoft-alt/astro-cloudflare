@@ -2,9 +2,31 @@
 import MarketingLayout from "../layouts/MarketingLayout.astro";
 import { t } from "../i18n/ui";
 import { resolveRoute } from "../i18n/routes";
+import { siteConfig } from "../config/site.config";
+import { buildCollectionPageSchema, buildItemListSchema } from "../lib/schema";
 import type { Locale } from "../lib/site-config";
 
 const locale = (Astro.currentLocale || "en") as Locale;
+
+const guideTypes = ["material-selection", "machining", "design", "procurement", "industry"];
+const listUrl = siteConfig.url + resolveRoute(locale, "/guides/");
+const collectionSchema = buildCollectionPageSchema({
+  name: "Titanium Manufacturing Guides",
+  description: "Step-by-step guides for titanium material selection, machining, design, procurement, and industry applications.",
+  url: listUrl,
+  numberOfItems: guideTypes.length,
+});
+const itemListSchema = buildItemListSchema({
+  itemType: "HowTo",
+  numberOfItems: guideTypes.length,
+  url: listUrl,
+  itemListElement: guideTypes.map((g) => ({
+    name: g.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    description: `Step-by-step guide for titanium ${g.replace(/-/g, " ")}.`,
+    url: siteConfig.url + resolveRoute(locale, `/guides/#${g}`),
+  })),
+});
+const schemas = [collectionSchema, itemListSchema].filter(Boolean);
 
 interface GuideStep {
   label: string;
@@ -85,6 +107,7 @@ const guideCategories: GuideCategory[] = [
   description={t(locale, "guides.pageDescription")}
   locale={locale}
   path="/guides/"
+  jsonLd={schemas}
 >
   <section class="guides-hub container">
     <header class="section-head">

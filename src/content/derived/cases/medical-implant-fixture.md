@@ -9,7 +9,7 @@ processes:
   - "5-axis-machining"
   - "micro-machining"
   - "milling"
-machines:
+equipment:
   - "DMG Mori NMV 5000"
 surfaceFinish: "Ra 0.2 µm"
 standards:

@@ -289,6 +289,58 @@ export function buildDefinedTermSetSchema(
   } satisfies WithContext<any>;
 }
 
+export function buildCollectionPageSchema(
+  collection: {
+    name: string;
+    description: string;
+    url: string;
+    numberOfItems: number;
+  },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: collection.name,
+    description: collection.description,
+    url: collection.url,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: collection.numberOfItems,
+    },
+  } satisfies WithContext<any>;
+}
+
+export function buildItemListSchema(
+  itemList: {
+    itemType: string;
+    numberOfItems: number;
+    url: string;
+    itemListElement: Array<{
+      name: string;
+      description: string;
+      url: string;
+    }>;
+  },
+) {
+  if (itemList.numberOfItems === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    numberOfItems: itemList.numberOfItems,
+    url: itemList.url,
+    itemListElement: itemList.itemListElement.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": itemList.itemType,
+        name: item.name,
+        description: item.description,
+        url: item.url,
+      },
+    })),
+  } satisfies WithContext<any>;
+}
+
 export function buildTechArticleSchema(
   article: {
     headline: string;

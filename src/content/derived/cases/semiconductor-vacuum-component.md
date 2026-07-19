@@ -9,7 +9,7 @@ processes:
   - "cnc-machining"
   - "welding"
   - "turning"
-machines:
+equipment:
   - "DMG Mori CLX 350"
   - "CNC milling center"
 surfaceFinish: "Ra 0.8 µm"
