@@ -774,3 +774,62 @@ code {
   margin-bottom: 0.5em; 
   color: var(--foreground); 
 } 
+
+/* --- 
+/* --- Entity related section --- */ 
+.entity-related { 
+  margin-top: 3rem; 
+  padding-top: 2rem; 
+  border-top: 1px solid var(--border); 
+} 
+
+.entity-related h2 { 
+  font-family: var(--font-heading); 
+  font-size: 1.125rem; 
+  font-weight: 600; 
+  margin: 0 0 1.25rem; 
+  color: var(--foreground); 
+} 
+
+.related-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+  gap: 1.5rem; 
+} 
+
+.related-section h3 { 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+  letter-spacing: 0.08em; 
+  color: var(--muted-foreground); 
+  margin: 0 0 0.5rem; 
+} 
+
+.related-section ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: grid; 
+  gap: 0.25rem; 
+} 
+
+.related-section li { 
+  margin: 0; 
+} 
+
+.related-section a { 
+  display: inline-block; 
+  padding: 0.25rem 0.6rem; 
+  border: 1px solid var(--border); 
+  border-radius: 9999px; 
+  font-size: 0.8125rem; 
+  text-decoration: none; 
+  color: var(--muted-foreground); 
+  transition: all 0.15s ease; 
+} 
+
+.related-section a:hover { 
+  border-color: var(--primary); 
+  color: var(--foreground); 
+} 
