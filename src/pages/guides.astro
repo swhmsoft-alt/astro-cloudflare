@@ -6,63 +6,74 @@ import type { Locale } from "../lib/site-config";
 
 const locale = (Astro.currentLocale || "en") as Locale;
 
-// Guide categories linking to existing real content in the project.
-// As guide content is authored under src/content/guides/, this hub will
-// automatically switch to collection-driven rendering.
-const guideCategories = [
+interface GuideStep {
+  label: string;
+  href: string;
+}
+
+interface GuideCategory {
+  key: string;
+  titleKey: string;
+  goal: string;
+  steps: GuideStep[];
+  cta: { label: string; href: string };
+}
+
+const guideCategories: GuideCategory[] = [
   {
     key: "material-selection",
     titleKey: "guides.category.materialSelection",
-    description: "How to select the right titanium grade for your application. Compare Grade 2, Grade 5 Ti-6Al-4V, Grade 23 ELI, and specialty alloys by mechanical properties, corrosion resistance, and cost.",
-    href: "/knowledge/materials/",
-    links: [
-      { label: "Browse All Materials", href: "/knowledge/materials/" },
-      { label: "Material Comparison Guides", href: "/compare/" },
+    goal: "I need to choose the right titanium grade for my part.",
+    steps: [
+      { label: "Compare material properties by grade", href: "/knowledge/materials/" },
+      { label: "Run a side-by-side grade comparison", href: "/compare/" },
+      { label: "Check applicable standards & certifications", href: "/knowledge/standards/" },
     ],
+    cta: { label: "Get a quote for your grade \u2192", href: "/rfq/request-quote/" },
   },
   {
     key: "machining",
     titleKey: "guides.category.machining",
-    description: "Best practices for titanium CNC machining, 5-axis milling, turning, and wire EDM. Parameters, tooling, speeds and feeds, and surface finish optimisation.",
-    href: "/knowledge/processes/",
-    links: [
-      { label: "Manufacturing Processes", href: "/knowledge/processes/" },
-      { label: "CNC Machining Service", href: "/services/titanium-cnc-machining/" },
-      { label: "Process Comparisons", href: "/compare/" },
+    goal: "I need to decide how to machine my titanium part.",
+    steps: [
+      { label: "Explore available manufacturing processes", href: "/knowledge/processes/" },
+      { label: "Compare precision, cost & lead time", href: "/compare/" },
+      { label: "See real production case studies", href: "/knowledge/cases/" },
     ],
+    cta: { label: "Request a machining quote \u2192", href: "/rfq/request-quote/" },
   },
   {
     key: "design",
     titleKey: "guides.category.design",
-    description: "Design for manufacturability guidelines for titanium parts. Tolerance stacks, wall thickness, corner radii, thread specs, and surface finish specifications with industry standard references.",
-    href: "/knowledge/evidence/",
-    links: [
-      { label: "Technical Evidence & Data", href: "/knowledge/evidence/" },
-      { label: "Design Standards", href: "/knowledge/standards/" },
+    goal: "I need to design my part for titanium manufacturing.",
+    steps: [
+      { label: "Review technical parameters (tolerances, radii, wall thickness)", href: "/knowledge/evidence/" },
+      { label: "Choose a surface finish", href: "/knowledge/surface-finishes/" },
+      { label: "Confirm design standards compliance", href: "/knowledge/standards/" },
     ],
+    cta: { label: "Submit for DFM review \u2192", href: "/rfq/dfm-review/" },
   },
   {
     key: "procurement",
     titleKey: "guides.category.procurement",
-    description: "Procurement and sourcing guides for titanium components. RFQ preparation, supplier evaluation, lead time planning, quality inspection, and certification requirements.",
-    href: "/rfq/",
-    links: [
-      { label: "Submit an RFQ", href: "/rfq/request-quote/" },
-      { label: "Upload a Drawing", href: "/rfq/upload-drawing/" },
-      { label: "DFM Review", href: "/rfq/dfm-review/" },
+    goal: "I need to send an RFQ and get production started.",
+    steps: [
+      { label: "Prepare your drawing and specifications", href: "/knowledge/procurement/" },
+      { label: "Upload your part file (STEP, IGES, PDF)", href: "/rfq/upload-drawing/" },
+      { label: "Understand lead times and quality certs", href: "/knowledge/standards/" },
     ],
+    cta: { label: "Submit your RFQ now \u2192", href: "/rfq/request-quote/" },
   },
   {
     key: "industry",
     titleKey: "guides.category.industry",
-    description: "Titanium applications in aerospace, medical devices, semiconductor equipment, robotics, and energy. Regulatory requirements, material specs, and case studies by industry.",
-    href: "/knowledge/industries/",
-    links: [
-      { label: "Industry Applications", href: "/knowledge/industries/" },
-      { label: "Case Studies", href: "/knowledge/cases/" },
-      { label: "Aerospace Components", href: "/services/aerospace-titanium-components/" },
-      { label: "Medical Components", href: "/services/medical-titanium-components/" },
+    goal: "I need to know what applies to my industry.",
+    steps: [
+      { label: "Browse industry-specific requirements", href: "/knowledge/industries/" },
+      { label: "Review relevant materials and processes", href: "/knowledge/materials/" },
+      { label: "Read application case studies", href: "/knowledge/cases/" },
     ],
+    cta: { label: "Get an industry-compliant quote \u2192", href: "/rfq/request-quote/" },
   },
 ];
 ---
@@ -88,31 +99,28 @@ const guideCategories = [
       {
         guideCategories.map((cat) => (
           <article class="guide-card">
-            <h2 class="guide-card__title">{t(locale, cat.titleKey)}</h2>
-            <p class="guide-card__desc">{cat.description}</p>
-            <a
-              href={resolveRoute(locale, cat.href)}
-              class="guide-card__primary"
-            >
-              {t(locale, "guides.browseCategory")} →
+            <div class="guide-card__header">
+              <span class="guide-card__badge">{cat.steps.length} steps</span>
+              <h2 class="guide-card__title">{t(locale, cat.titleKey)}</h2>
+            </div>
+            <p class="guide-card__goal">{cat.goal}</p>
+            <ol class="guide-card__steps">
+              {cat.steps.map((step, i) => (
+                <li class="guide-card__step">
+                  <span class="guide-card__step-num">{i + 1}</span>
+                  <a href={resolveRoute(locale, step.href)} class="guide-card__step-link">
+                    {step.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+            <a href={resolveRoute(locale, cat.cta.href)} class="guide-card__cta">
+              {cat.cta.label}
             </a>
-            <ul class="guide-card__links">
-              {
-                cat.links.map((link) => (
-                  <li>
-                    <a href={resolveRoute(locale, link.href)}>{link.label}</a>
-                  </li>
-                ))
-              }
-            </ul>
           </article>
         ))
       }
     </div>
-
-    <aside class="guides-note">
-      <p>{t(locale, "guides.comingSoon")}</p>
-    </aside>
   </section>
 </MarketingLayout>
 
@@ -147,71 +155,104 @@ const guideCategories = [
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     background: var(--color-bg-primary);
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease;
   }
 
   .guide-card:hover {
     border-color: var(--color-brand-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .guide-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .guide-card__badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
   }
 
   .guide-card__title {
-    margin: 0 0 var(--space-sm);
-    font-size: 1.2rem;
+    margin: 0;
+    font-size: 1.15rem;
     color: var(--color-text-primary);
   }
 
-  .guide-card__desc {
-    margin: 0;
+  .guide-card__goal {
+    margin: var(--space-sm) 0 0;
     color: var(--color-text-secondary);
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .guide-card__steps {
+    list-style: none;
+    margin: var(--space-md) 0 0;
+    padding: 0;
     flex: 1;
   }
 
-  .guide-card__primary {
-    display: inline-block;
+  .guide-card__step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-xs) 0;
+  }
+
+  .guide-card__step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+    background: var(--color-brand-primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .guide-card__step-link {
+    color: var(--color-text-primary);
+    font-size: 0.88rem;
+    text-decoration: none;
+    line-height: 1.5;
+    padding-top: 0.1rem;
+  }
+
+  .guide-card__step-link:hover {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+  }
+
+  .guide-card__cta {
+    display: block;
     margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-brand-primary);
+    border-radius: var(--radius-md);
     color: var(--color-brand-primary);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     text-decoration: none;
-  }
-
-  .guide-card__primary:hover {
-    text-decoration: underline;
-  }
-
-  .guide-card__links {
-    list-style: none;
-    margin: var(--space-md) 0 0;
-    padding: var(--space-md) 0 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .guide-card__links li {
-    margin-top: var(--space-xs);
-  }
-
-  .guide-card__links a {
-    color: var(--color-text-secondary);
-    font-size: 0.85rem;
-    text-decoration: none;
-  }
-
-  .guide-card__links a:hover {
-    color: var(--color-brand-primary);
-    text-decoration: underline;
-  }
-
-  .guides-note {
-    margin-top: var(--space-2xl);
-    padding: var(--space-md);
-    background: var(--color-bg-tertiary);
-    border-radius: var(--radius-md);
     text-align: center;
-    color: var(--color-text-secondary);
-    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+
+  .guide-card__cta:hover {
+    background: var(--color-brand-primary);
+    color: #fff;
   }
 </style>
