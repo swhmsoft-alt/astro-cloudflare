@@ -1,9 +1,9 @@
 ---
-import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import { getCollection, render } from "astro:content";
-import { resolveRoute } from "../../i18n/routes";
-import { siteConfig } from "../../config/site.config";
-import { buildTechArticleSchema } from "../../lib/schema";
+import { resolveRoute } from "../../../i18n/routes";
+import { siteConfig } from "../../../config/site.config";
+import { buildTechArticleSchema } from "../../../lib/schema";
 
 export async function getStaticPaths() {
   const entries = await getCollection("procurement");
