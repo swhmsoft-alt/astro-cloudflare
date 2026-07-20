@@ -183,5 +183,12 @@
   "guides.category.procurement": "Procurement Guides",
   "guides.category.industry": "Industry Application Guides",
   "guides.browseCategory": "Browse Category",
-  "guides.comingSoon": "In-depth technical guides are being authored. Each guide will include specifications, best practices, and industry references."
+  "guides.comingSoon": "In-depth technical guides are being authored. Each guide will include specifications, best practices, and industry references.",
+  "knowledge.comparisons": "Comparisons",
+  "knowledge.guides": "Technical Guides",
+  "knowledge.procurement": "Procurement Guides",
+  "nav.evidence": "Technical Evidence",
+  "nav.cases": "Case Studies",
+  "nav.applications": "Applications",
+  "nav.procurement": "Procurement"
 }
