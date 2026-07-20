@@ -39,7 +39,7 @@
     "generate": "node knowledge-generator/run.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^7.0.2",
+    "@astrojs/mdx": "^7.0.3",
     "@astrojs/react": "^6.0.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
@@ -49,7 +49,7 @@
     "@iconify-json/lucide": "^1.2.114",
     "@iconify-json/simple-icons": "^1.2.89",
     "@tailwindcss/vite": "^4.3.2",
-    "astro": "^7.0.7",
+    "astro": "^7.1.2",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
     "cva": "1.0.0-beta.6",
