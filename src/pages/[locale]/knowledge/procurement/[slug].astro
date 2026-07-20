@@ -1,0 +1,45 @@
+---
+import MarketingLayout from "../../../layouts/MarketingLayout.astro";
+import { getCollection, render } from "astro:content";
+import { resolveRoute } from "../../../i18n/routes";
+import { siteConfig } from "../../../config/site.config";
+import { buildTechArticleSchema } from "../../../lib/schema";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("procurement");
+  return entries.filter((e: any) => e.data.locale === "en").map((e: any) => ({
+    params: { slug: e.id, locale: e.data.locale },
+    props: { entry: e, locale: "en" as const },
+  }));
+}
+
+const { entry, locale } = Astro.props as { entry: any; locale: "en" };
+const data = entry.data;
+const pageUrl = siteConfig.url + resolveRoute(locale, `/knowledge/procurement/${entry.id}/`);
+const ts = buildTechArticleSchema({
+  headline: data.title, description: data.description,
+  datePublished: new Date().toISOString(),
+  keywords: ["procurement", data.procurementCategory || "titanium"],
+  url: pageUrl, inLanguage: locale,
+});
+const { Content } = await render(entry);
+---
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/knowledge/procurement/${entry.id}/`} jsonLd={ts}>
+<article class="procurement-detail container py-16">
+<header class="pr-hdr">
+{data.procurementCategory && <span class="pr-badge">{data.procurementCategory}</span>}
+<h1 class="pr-title">{data.title}</h1>
+<p class="pr-desc">{data.description}</p>
+</header>
+{data.quickAnswer && <section class="pr-qa"><h2>Quick Answer</h2><p>{data.quickAnswer}</p></section>}
+<div class="pr-content prose prose-gray dark:prose-invert max-w-none"><Content /></div>
+</article></MarketingLayout>
+<style>
+.pr-badge{display:inline-block;font-size:.75rem;padding:.25rem .75rem;border-radius:var(--radius-full);background:var(--color-bg-tertiary);color:var(--color-text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:var(--space-md)}
+.pr-title{margin:0 0 var(--space-sm);font-size:clamp(1.75rem,3vw,2.5rem);color:var(--color-text-primary)}
+.pr-desc{margin:0 0 var(--space-sm);color:var(--color-text-secondary);font-size:1.05rem;line-height:1.6}
+.pr-qa{margin-bottom:var(--space-xl);padding:var(--space-lg);border:1px solid var(--color-brand-primary);border-radius:var(--radius-lg);background:var(--color-bg-secondary)}
+.pr-qa h2{margin:0 0 var(--space-sm);font-size:1.1rem;color:var(--color-text-primary)}
+.pr-qa p{margin:0;color:var(--color-text-secondary);line-height:1.6}
+.pr-content{margin-top:var(--space-xl)}
+</style>
