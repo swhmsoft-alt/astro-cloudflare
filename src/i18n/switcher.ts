@@ -52,7 +52,11 @@ export function getEquivalentPath(
 
   // If the route is known to have an equivalent, map it
   if (EQUIVALENT_ROUTES[contentPath]) {
-    return `${prefix}${contentPath === "/" ? "" : contentPath}`;
+    // contentPath === "/" → return prefix || "/" so that English (empty prefix)
+    // resolves to "/" instead of an empty string.
+    return contentPath === "/"
+      ? prefix || "/"
+      : `${prefix}${contentPath}`;
   }
 
   // For blog posts and docs, try the content path directly
