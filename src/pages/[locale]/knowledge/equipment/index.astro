@@ -1,0 +1,12 @@
+---
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import EntityPillar from "../../../knowledge/_EntityPillar.astro";
+import type { Locale } from "../../../../lib/site-config";
+const locale = (Astro.props.locale || "en") as Locale;
+---
+<EntityPillar
+  collectionName="equipment"
+  pageTitle="Titanium Manufacturing Equipment"
+  pageDescription="Technical specifications and capabilities of equipment used for precision titanium manufacturing."
+  locale={locale} path="/knowledge/equipment/"
+/>

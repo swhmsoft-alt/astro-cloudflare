@@ -173,8 +173,8 @@ export const knowledgeMegaMenu: NavItem[][] = [
       groupLabel: "nav.equipment",
       children: [
         { href: "/knowledge/equipment/mazak-5-axis/", labelKey: "nav.mazak" },
-        { href: "/knowledge/equipment/dmg-mori/", labelKey: "nav.dmgMori" },
-        { href: "/knowledge/equipment/wire-edm-machines/", labelKey: "nav.wireEdmMachines" },
+        { href: "/knowledge/equipment/dmg-mori-dmu/", labelKey: "nav.dmgMori" },
+        { href: "/knowledge/equipment/charmilles-wire-edm/", labelKey: "nav.wireEdmMachines" },
         { href: "/knowledge/equipment/", labelKey: "nav.viewAllEquipment" },
       ],
     },
@@ -191,6 +191,12 @@ export const footerNav = {
     { href: "/knowledge/standards/", labelKey: "nav.standards" },
     { href: "/knowledge/surface-finishes/", labelKey: "nav.surfaceFinishes" },
     { href: "/knowledge/equipment/", labelKey: "nav.equipment" },
+    { href: "/knowledge/evidence/", labelKey: "nav.evidence" },
+    { href: "/knowledge/cases/", labelKey: "nav.cases" },
+    { href: "/knowledge/applications/", labelKey: "nav.applications" },
+    { href: "/compare/", labelKey: "nav.compare" },
+    { href: "/guides/", labelKey: "nav.guides" },
+    { href: "/knowledge/procurement/", labelKey: "nav.procurement" },
   ] as const,
   /** Services links */
   services: [
