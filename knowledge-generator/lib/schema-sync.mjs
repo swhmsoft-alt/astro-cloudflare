@@ -34,7 +34,7 @@ function resolvePath(collection, slug) {
 }
 
 function buildBreadcrumbs(collection, slug, title) {
-  const crumbs = [{ label: "Home", path: "/" }];
+  const crumbs = [{ label: "Home", path: SITE_URL + "/" }];
 
   const segMap = {
     materials: "Materials", processes: "Processes", equipment: "Equipment",
@@ -47,9 +47,9 @@ function buildBreadcrumbs(collection, slug, title) {
   const label = segMap[collection] || collection;
   const path = resolvePath(collection, slug);
 
-  crumbs.push({ label: "Knowledge", path: "/knowledge/" });
-  if (label !== "Knowledge") crumbs.push({ label, path: "/knowledge/" + collection + "/" });
-  crumbs.push({ label: title, path });
+  crumbs.push({ label: "Knowledge", path: SITE_URL + "/knowledge/" });
+  if (label !== "Knowledge") crumbs.push({ label, path: SITE_URL + "/knowledge/" + collection + "/" });
+  crumbs.push({ label: title, path: SITE_URL + path });
 
   return crumbs;
 }

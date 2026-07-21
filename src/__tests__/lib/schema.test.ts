@@ -96,7 +96,7 @@ describe("buildFAQSchema", () => {
 });
 
 describe("buildBreadcrumbSchema", () => {
-  it("builds a BreadcrumbList with positions", () => {
+  it("builds a BreadcrumbList with positions and absolute URLs", () => {
     const schema = buildBreadcrumbSchema([
       { label: "Home", href: "/" },
       { label: "Blog", href: "/blog" },
@@ -105,6 +105,33 @@ describe("buildBreadcrumbSchema", () => {
     expect(schema.itemListElement).toHaveLength(2);
     expect(schema.itemListElement[0].position).toBe(1);
     expect(schema.itemListElement[1].position).toBe(2);
+  });
+
+  it("resolves relative paths to absolute URLs using the site URL", () => {
+    const schema = buildBreadcrumbSchema([
+      { label: "Home", href: "/" },
+      { label: "Blog", href: "/blog" },
+      { label: "Astro Tips", href: "/blog/astro-tips" },
+    ]);
+    const items = schema.itemListElement;
+    expect(items[0].item).toBe("https://titanium.blog/");
+    expect(items[1].item).toBe("https://titanium.blog/blog");
+    expect(items[2].item).toBe("https://titanium.blog/blog/astro-tips");
+  });
+
+  it("passes through absolute URLs as-is", () => {
+    const schema = buildBreadcrumbSchema([
+      { label: "Custom", href: "https://example.com/custom" },
+    ]);
+    expect(schema.itemListElement[0].item).toBe("https://example.com/custom");
+  });
+
+  it("accepts an optional siteUrl override", () => {
+    const schema = buildBreadcrumbSchema(
+      [{ label: "Home", href: "/" }],
+      "https://custom.example.com",
+    );
+    expect(schema.itemListElement[0].item).toBe("https://custom.example.com/");
   });
 });
 

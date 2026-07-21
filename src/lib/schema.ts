@@ -125,9 +125,20 @@ export function buildFAQSchema(
   } satisfies WithContext<FAQPage>;
 }
 
+/**
+ * Build a BreadcrumbList schema (JSON-LD).
+ *
+ * Google requires every `item` value in a BreadcrumbList to be an absolute URL.
+ * Relative paths (e.g. "/blog") are automatically prepended with the site URL.
+ *
+ * @param crumbs - Breadcrumb entries. If `href` starts with "/", it's resolved to an absolute URL.
+ * @param siteUrl - Optional base URL. Defaults to `siteConfig.url` (https://titanium.blog).
+ */
 export function buildBreadcrumbSchema(
   crumbs: Array<{ label: string; href: string }>,
+  siteUrl?: string,
 ) {
+  const baseUrl = (siteUrl ?? defaultSiteConfig.url).replace(/\/$/, "");
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -135,7 +146,9 @@ export function buildBreadcrumbSchema(
       "@type": "ListItem",
       position: index + 1,
       name: crumb.label,
-      item: crumb.href,
+      item: crumb.href.startsWith("/")
+        ? `${baseUrl}${crumb.href}`
+        : crumb.href,
     })),
   } satisfies WithContext<BreadcrumbList>;
 }
