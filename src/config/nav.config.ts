@@ -87,6 +87,13 @@ export const mainNav: NavItem[] = [
     children: [],
   },
   {
+    href: "/industries/",
+    labelKey: "nav.industries",
+    children: [
+      { href: "/industries/aerospace/", labelKey: "nav.aerospace" },
+    ],
+  },
+  {
     href: "/rfq/",
     labelKey: "nav.rfq",
     children: [

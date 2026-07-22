@@ -360,7 +360,8 @@
     { "name": "Surface Finishes Detail", "path": "src/pages/knowledge/surface-finishes/[slug].astro", "locales": ["en"] },
     { "name": "Procurement Index", "path": "src/pages/knowledge/procurement/index.astro", "locales": ["en"] },
     { "name": "Procurement Detail", "path": "src/pages/knowledge/procurement/[slug].astro", "locales": ["en"] },
-    { "name": "Guides Detail", "path": "src/pages/guides/[slug].astro", "locales": ["en"] }
+    { "name": "Guides Detail", "path": "src/pages/guides/[slug].astro", "locales": ["en"] },
+    { "name": "Aerospace Hub", "path": "src/pages/industries/aerospace/index.astro", "locales": ["en"] }
   ]
 }
 

@@ -1,0 +1,3 @@
+# Redirect old 404 aerospace knowledge path to new industries hub
+/knowledge/industries/aerospace/* /industries/aerospace/:splat 301
+/knowledge/industries/aerospace/ /industries/aerospace/ 301
