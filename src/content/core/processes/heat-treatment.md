@@ -1,5 +1,5 @@
----
-title: "Heat Treatment for Titanium"
+﻿---
+title: "What Is Heat Treatment for Titanium? - Complete Guide"
 description: "Complete guide to heat treatment processes for titanium alloys including annealing, solution treating, and aging. Process parameters, furnace requirements, and metallurgical outcomes."
 locale: en
 processType: "thermal"
@@ -16,7 +16,7 @@ industries:
 equipment:
   - "vacuum-furnace"
   - "atmosphere-furnace"
-tolerances: "±5°C (temperature), ±15 mins (soak)"
+tolerances: "卤5掳C (temperature), 卤15 mins (soak)"
 surfaceFinish: "As-heated (oxide scale requires removal)"
 maxPartSize: "2000 mm x 1500 mm x 1000 mm"
 order: 8
@@ -31,10 +31,10 @@ Heat treatment for titanium alloys involves controlled heating and cooling cycle
 
 | Treatment | Temperature | Duration | Cooling | Purpose |
 |-----------|-------------|----------|---------|---------|
-| Stress Relief | 480–650°C | 1–4 hours | Air cool | Reduce machining stresses |
-| Annealing | 700–850°C | 1–6 hours | Furnace or air cool | Soften for forming |
-| Solution Treat | 900–980°C | 1–2 hours | Water quench | Prepare for aging |
-| Aging | 480–595°C | 4–24 hours | Air cool | Increase strength |
+| Stress Relief | 480鈥?50掳C | 1鈥? hours | Air cool | Reduce machining stresses |
+| Annealing | 700鈥?50掳C | 1鈥? hours | Furnace or air cool | Soften for forming |
+| Solution Treat | 900鈥?80掳C | 1鈥? hours | Water quench | Prepare for aging |
+| Aging | 480鈥?95掳C | 4鈥?4 hours | Air cool | Increase strength |
 
 ## Applications
 
@@ -47,3 +47,4 @@ Heat treatment for titanium alloys involves controlled heating and cooling cycle
 
 **Need heat treatment for your titanium components?**  
 We offer vacuum and atmosphere heat treatment for titanium alloys with full temperature recording. [Submit an RFQ](/rfq/request-quote/) for a quote.
+

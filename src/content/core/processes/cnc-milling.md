@@ -1,5 +1,5 @@
----
-title: "CNC Milling for Titanium"
+﻿---
+title: "What Is CNC Milling for Titanium? - Complete Guide"
 description: "Complete guide to CNC milling of titanium alloys. Process capabilities, cutting parameters, tooling recommendations, and best practices for milling Grade 5 and other titanium alloys."
 locale: en
 processType: "subtractive"
@@ -18,8 +18,8 @@ industries:
 equipment:
   - "mazak-5-axis"
   - "dmg-mori"
-tolerances: "±0.005 mm (standard), ±0.001 mm (precision)"
-surfaceFinish: "0.4 µm Ra (standard), 0.1 µm Ra (precision)"
+tolerances: "卤0.005 mm (standard), 卤0.001 mm (precision)"
+surfaceFinish: "0.4 碌m Ra (standard), 0.1 碌m Ra (precision)"
 maxPartSize: "2000 mm x 1000 mm x 800 mm"
 order: 2
 ---
@@ -33,18 +33,19 @@ CNC milling uses rotating multi-point cutting tools to remove material from tita
 
 | Operation | Speed (SFM) | Feed (IPT) | DOC (in) |
 |-----------|-------------|------------|----------|
-| Rough Milling (Grade 5) | 150–250 | 0.004–0.008 | 0.100–0.200 |
-| Finish Milling (Grade 5) | 200–300 | 0.003–0.005 | 0.010–0.050 |
-| Rough Milling (Grade 2) | 200–350 | 0.005–0.010 | 0.080–0.180 |
+| Rough Milling (Grade 5) | 150鈥?50 | 0.004鈥?.008 | 0.100鈥?.200 |
+| Finish Milling (Grade 5) | 200鈥?00 | 0.003鈥?.005 | 0.010鈥?.050 |
+| Rough Milling (Grade 2) | 200鈥?50 | 0.005鈥?.010 | 0.080鈥?.180 |
 
 ## Tooling Recommendations
 
 - **Substrate**: Micrograin carbide (K10-K20)
-- **Coating**: AlTiN, TiAlN, or TiB₂ for high-temperature applications
-- **Geometry**: Positive rake angles (8-12°), polished flutes for chip evacuation
+- **Coating**: AlTiN, TiAlN, or TiB鈧?for high-temperature applications
+- **Geometry**: Positive rake angles (8-12掳), polished flutes for chip evacuation
 - **Coolant**: High-pressure through-spindle coolant (1000+ PSI) recommended
 
 ## RFQ CTA
 
 **Need precision-milled titanium components?**  
-We offer CNC milling for all titanium grades with tolerances to ±0.001 mm. [Submit an RFQ](/rfq/request-quote/) with your drawing.
+We offer CNC milling for all titanium grades with tolerances to 卤0.001 mm. [Submit an RFQ](/rfq/request-quote/) with your drawing.
+

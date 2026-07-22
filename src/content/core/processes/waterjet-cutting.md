@@ -1,5 +1,5 @@
----
-title: "Waterjet Cutting for Titanium"
+﻿---
+title: "What Is Waterjet Cutting for Titanium? - Complete Guide"
 description: "Complete guide to abrasive waterjet cutting of titanium alloys. Process capabilities, tolerances, edge quality, and applications for titanium plate and sheet cutting without heat-affected zones."
 locale: en
 processType: "nontraditional"
@@ -17,8 +17,8 @@ industries:
   - "semiconductor"
 equipment:
   - "abrasive-waterjet"
-tolerances: "±0.10 mm (standard), ±0.05 mm (precision)"
-surfaceFinish: "3.2 µm Ra (standard)"
+tolerances: "卤0.10 mm (standard), 卤0.05 mm (precision)"
+surfaceFinish: "3.2 碌m Ra (standard)"
 maxPartSize: "4000 mm x 2000 mm x 150 mm"
 order: 7
 ---
@@ -33,8 +33,8 @@ Abrasive waterjet cutting uses a high-pressure stream of water mixed with garnet
 | Parameter | Specification |
 |-----------|---------------|
 | Max thickness | 150 mm |
-| Kerf width | 0.7–1.2 mm |
-| Edge taper | 0.5–2.0° (compensated) |
+| Kerf width | 0.7鈥?.2 mm |
+| Edge taper | 0.5鈥?.0掳 (compensated) |
 | No HAZ | True cold-cutting process |
 
 ## Applications
@@ -49,3 +49,4 @@ Abrasive waterjet cutting uses a high-pressure stream of water mixed with garnet
 
 **Need waterjet-cut titanium parts with no HAZ?**  
 We provide abrasive waterjet cutting for titanium up to 150 mm thick. [Submit an RFQ](/rfq/request-quote/) for a quote.
+

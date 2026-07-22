@@ -1,5 +1,5 @@
 ---
-title: "5-Axis CNC Machining for Titanium"
+title: "What Is 5-Axis CNC Machining for Titanium? - Complete Process Guide"
 description: "Complete guide to 5-axis CNC machining of titanium alloys. Process capabilities, tolerances, surface finishes, lead times, cost ranges, and applications for complex titanium components."
 locale: en
 processType: "subtractive"
