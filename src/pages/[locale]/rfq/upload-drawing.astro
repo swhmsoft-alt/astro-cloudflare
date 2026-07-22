@@ -4,8 +4,10 @@ export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it
 import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import Hero from "../../../components/Hero.astro";
 import CapabilityShowcase from "../../../components/CapabilityShowcase.astro";
-
 import CTA from "../../../components/CTA.astro";
+import { Grid, Section } from "../../../components/ui/layout";
+import { Card } from "../../../components/ui/data-display";
+import { Prose } from "../../../components/ui/content";
 import type { Locale } from "../../../lib/site-config";
 
 const locale = (Astro.props.locale || "en") as Locale;
@@ -26,48 +28,53 @@ const locale = (Astro.props.locale || "en") as Locale;
     locale={locale}
   />
 
-  <section class="container py-16">
-    <div class="upload-section">
-      <h2>Accepted File Formats</h2>
-      <div class="formats-grid">
-        <div class="format-card">
-          <span class="format-icon">🔷</span>
+  <Section spacing="xl">
+    <div class="container">
+      <Prose as="div">
+        <h2>Accepted File Formats</h2>
+      </Prose>
+      <Grid cols={3} gap="md">
+        <Card>
+          <div class="format-icon" aria-hidden="true">🔷</div>
           <h3>STEP (.stp, .step)</h3>
           <p>Preferred for 3D models. Supports solids and assemblies.</p>
-        </div>
-        <div class="format-card">
-          <span class="format-icon">🔶</span>
+        </Card>
+        <Card>
+          <div class="format-icon" aria-hidden="true">🔶</div>
           <h3>IGES (.igs, .iges)</h3>
           <p>Legacy 3D format. Acceptable for most CAD systems.</p>
-        </div>
-        <div class="format-card">
-          <span class="format-icon">⬡</span>
+        </Card>
+        <Card>
+          <div class="format-icon" aria-hidden="true">⬡</div>
           <h3>STL (.stl)</h3>
           <p>Mesh format suitable for additive manufacturing and simple geometries.</p>
-        </div>
-        <div class="format-card">
-          <span class="format-icon">📐</span>
+        </Card>
+        <Card>
+          <div class="format-icon" aria-hidden="true">📐</div>
           <h3>DXF (.dxf)</h3>
           <p>2D format for turned parts, profiles, and flat patterns.</p>
-        </div>
-        <div class="format-card">
-          <span class="format-icon">📄</span>
+        </Card>
+        <Card>
+          <div class="format-icon" aria-hidden="true">📄</div>
           <h3>PDF (.pdf)</h3>
           <p>2D drawings with dimensions, tolerances, and notes.</p>
-        </div>
+        </Card>
+      </Grid>
+    </div>
+  </Section>
+
+  <Section spacing="xl">
+    <div class="container">
+      <div class="contact-card">
+        <Prose as="div">
+          <h2>Prefer to email your files?</h2>
+          <p>Send your drawings to <strong>hello@titanium.blog</strong> with your project requirements and we'll respond within 24 hours.</p>
+        </Prose>
       </div>
     </div>
-  </section>
-
-  <section class="container py-16">
-    <div class="contact-section">
-      <h2>Prefer to email your files?</h2>
-      <p>Send your drawings to <strong>hello@titanium.blog</strong> with your project requirements and we'll respond within 24 hours.</p>
-    </div>
-  </section>
+  </Section>
 
   <CapabilityShowcase />
-
 
   <CTA
     eyebrow="Next Step"
@@ -78,3 +85,19 @@ const locale = (Astro.props.locale || "en") as Locale;
     locale={locale}
   />
 </MarketingLayout>
+
+<style>
+  .format-icon {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+  }
+  .contact-card {
+    max-width: 36rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+  }
+</style>

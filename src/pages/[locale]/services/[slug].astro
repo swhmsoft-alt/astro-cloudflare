@@ -41,17 +41,16 @@ const { Content, headings } = await render(service);
 
 <ServiceLayout service={service} locale={locale} headings={headings}>
   <Content />
-
-  <CapabilityShowcase />
-
-  <CTA
-    slot="cta"
-    title="Start Your Titanium Project Today"
-    content="Upload your drawing or describe your requirements. Our engineering team will provide DFM feedback and a competitive quote within 24 hours."
-    ctaText="Upload Drawing →"
-    ctaHref="/rfq/upload-drawing/"
-    secondaryText="Request a Quote"
-    secondaryHref="/rfq/request-quote/"
-    locale={locale}
-  />
 </ServiceLayout>
+
+<CapabilityShowcase />
+
+<CTA
+  title="Start Your Titanium Project Today"
+  content="Upload your drawing or describe your requirements. Our engineering team will provide DFM feedback and a competitive quote within 24 hours."
+  ctaText="Upload Drawing →"
+  ctaHref="/rfq/upload-drawing/"
+  secondaryText="Request a Quote"
+  secondaryHref="/rfq/request-quote/"
+  locale={locale}
+/>

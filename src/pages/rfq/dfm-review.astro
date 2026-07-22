@@ -2,8 +2,10 @@
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import Hero from "../../components/Hero.astro";
 import CapabilityShowcase from "../../components/CapabilityShowcase.astro";
-
 import CTA from "../../components/CTA.astro";
+import { Grid, Section } from "../../components/ui/layout";
+import { Card } from "../../components/ui/data-display";
+import { Prose } from "../../components/ui/content";
 import type { Locale } from "../../lib/site-config";
 
 const locale = (Astro.currentLocale || "en") as Locale;
@@ -24,44 +26,52 @@ const locale = (Astro.currentLocale || "en") as Locale;
     locale={locale}
   />
 
-  <section class="container py-16">
-    <h2>What We Review</h2>
-    <div class="dfm-grid">
-      <div class="dfm-item">
-        <h3>Wall Thickness</h3>
-        <p>Minimum wall thickness for titanium machining: 0.5 mm. Thinner walls require special fixturing.</p>
-      </div>
-      <div class="dfm-item">
-        <h3>Internal Radii</h3>
-        <p>Sharp internal corners create stress risers. Recommended minimum radius: 0.5 mm.</p>
-      </div>
-      <div class="dfm-item">
-        <h3>Tool Access</h3>
-        <p>Deep cavities and narrow slots may require custom tooling. We identify these early.</p>
-      </div>
-      <div class="dfm-item">
-        <h3>Tolerance Stack-Up</h3>
-        <p>Over-specifying tolerances increases cost. We recommend cost-effective tolerance ranges.</p>
-      </div>
-      <div class="dfm-item">
-        <h3>Surface Finish</h3>
-        <p>We verify specified finishes are achievable and suggest alternatives if needed.</p>
-      </div>
-      <div class="dfm-item">
-        <h3>Thread Specifications</h3>
-        <p>Thread depth, class of fit, and tapping considerations for titanium components.</p>
-      </div>
+  <Section spacing="xl">
+    <div class="container">
+      <Prose as="div">
+        <h2>What We Review</h2>
+      </Prose>
+      <Grid cols={2} gap="md">
+        <Card>
+          <h3>Wall Thickness</h3>
+          <p>Minimum wall thickness for titanium machining: 0.5 mm. Thinner walls require special fixturing.</p>
+        </Card>
+        <Card>
+          <h3>Internal Radii</h3>
+          <p>Sharp internal corners create stress risers. Recommended minimum radius: 0.5 mm.</p>
+        </Card>
+        <Card>
+          <h3>Tool Access</h3>
+          <p>Deep cavities and narrow slots may require custom tooling. We identify these early.</p>
+        </Card>
+        <Card>
+          <h3>Tolerance Stack-Up</h3>
+          <p>Over-specifying tolerances increases cost. We recommend cost-effective tolerance ranges.</p>
+        </Card>
+        <Card>
+          <h3>Surface Finish</h3>
+          <p>We verify specified finishes are achievable and suggest alternatives if needed.</p>
+        </Card>
+        <Card>
+          <h3>Thread Specifications</h3>
+          <p>Thread depth, class of fit, and tapping considerations for titanium components.</p>
+        </Card>
+      </Grid>
     </div>
-  </section>
+  </Section>
 
   <CapabilityShowcase />
 
-  <section class="container py-16">
-    <div class="contact-section">
-      <h2>Submit Your Design for DFM Review</h2>
-      <p>Email your drawing to <strong>hello@titanium.blog</strong> with "DFM Review" in the subject line. We'll respond within 24 hours.</p>
+  <Section spacing="xl">
+    <div class="container">
+      <div class="contact-card">
+        <Prose as="div">
+          <h2>Submit Your Design for DFM Review</h2>
+          <p>Email your drawing to <strong>hello@titanium.blog</strong> with "DFM Review" in the subject line. We'll respond within 24 hours.</p>
+        </Prose>
+      </div>
     </div>
-  </section>
+  </Section>
 
   <CTA
     eyebrow="After Your DFM Review"
@@ -72,3 +82,15 @@ const locale = (Astro.currentLocale || "en") as Locale;
     locale={locale}
   />
 </MarketingLayout>
+
+<style>
+  .contact-card {
+    max-width: 36rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+  }
+</style>

@@ -1,3 +1,9 @@
+## 全局UI规范（所有页面类任务最高优先级强制执行）
+1. 开发/修改任何页面前，必须先遍历项目现有UI组件库；布局、卡片、标准区块、正文排版类需求，100%优先复用已有组件（Grid/Card/Section/Prose等），禁止手写重复功能的原生标签+自定义类名。
+2. 绝对禁止创建无对应CSS定义的自定义类名；禁止自行实现网格布局、卡片容器、标准内容区块、正文排版等已有组件覆盖的基础UI能力。
+3. 所有正文文本区块必须统一使用Prose组件包裹，禁止裸写h2/h3/p标签脱离设计系统。⚠️ 同时注意：已自带样式的独立区块组件（如CapabilityShowcase、Hero、FeatureGrid等）不得被放置在Prose组件或prose类的父容器内部，否则Prose的全局排版样式会污染该组件的自有样式。若布局组件的默认<slot/>被prose包裹，必须使用具名slot将独立区块组件移到prose容器外部。
+4. 页面局部差异化样式仅可写在当前页面的私有<style>块内，必须沿用项目现有设计Token，禁止硬编码颜色、间距、字号等基础样式值。
+
 # Windsurf rules
 
 AI-operable Astro starter. Stay on-system; do not improvise design/architecture.
@@ -17,3 +23,35 @@ Rules:
 - Static Astro by default; React islands only when interaction requires it.
 
 Verify: run `pnpm lint` (includes `pnpm check:kpis`) and `pnpm build` before done.
+
+## ── Material Content Generation (trigger-scoped strong constraint) ──
+
+**Trigger scenario:** When the task involves adding or modifying titanium material grade content, the `materials` content collection, or knowledge-base material pages, the rules below become **hard constraints** that override any default AI behavior.
+
+### ✅ Allowed (the only correct operations)
+- Create or modify Markdown files under `src/content/core/materials/` following the existing schema in `src/content.config.ts` (materials collection)
+- Use standard Markdown syntax only (h2 `##`, h3 `###`, p, ul, ol, table) for body content
+- Fill all structured data (grade, alloy, standards, industries, processes, finishes, certifications, properties) in the Frontmatter block — the `_EntityDetail` layout component renders these automatically
+
+### ❌ Prohibited (absolute bans)
+- Creating any new `.astro` page files for material content (existing dynamic routes at `src/pages/knowledge/materials/[slug].astro` handle rendering)
+- Adding custom CSS classes, inline styles, or hardcoded hex/rgb colors anywhere
+- Modifying `global.css`, `content.config.ts`, `astro.config.*`, `site.config.ts`, `registry.json`, or any layout/component files
+- Adding custom Frontmatter fields beyond the `materials` collection schema
+- Writing `#` (H1) in Markdown body — H1 is rendered by `_EntityDetail` layout
+- Duplicating property/parameter tables in body text that already exist in Frontmatter `properties` field (those render automatically as a spec table)
+
+### 📋 Body section order convention (titanium materials)
+Follow this sequence for Markdown body sections. Sections may be omitted, but must not be reordered:
+1. `## Overview` — material description, key characteristics
+2. `## Chemical Composition` — alloying elements and percentages
+3. `## Mechanical Properties` — strength, hardness, elongation data
+4. `## Machining Characteristics` — feeds, speeds, tooling recommendations
+5. `## Typical Applications` — industry-specific use cases
+6. `## Certifications & Standards` — applicable ASTM/ISO/AMS specs
+7. `## FAQ` — common buyer/engineer questions
+
+### 🧩 Prose usage rule
+- **In content collection Markdown files:** No manual wrapping needed. The dynamic route and `_EntityDetail` layout already apply `prose prose-gray dark:prose-invert max-w-none` styling. Just write raw Markdown.
+- **In `.astro` page templates:** If writing body HTML directly, wrap all text content inside `<Prose>` component (imported from `@/components/ui/content/Prose/Prose.astro`) or apply `class="prose prose-gray dark:prose-invert max-w-none"` to the container div.
+

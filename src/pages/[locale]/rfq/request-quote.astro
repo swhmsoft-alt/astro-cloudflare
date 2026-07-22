@@ -4,8 +4,10 @@ export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it
 import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import Hero from "../../../components/Hero.astro";
 import CapabilityShowcase from "../../../components/CapabilityShowcase.astro";
-
 import CTA from "../../../components/CTA.astro";
+import { Grid, Section } from "../../../components/ui/layout";
+import { Card } from "../../../components/ui/data-display";
+import { Prose } from "../../../components/ui/content";
 import type { Locale } from "../../../lib/site-config";
 
 const locale = (Astro.props.locale || "en") as Locale;
@@ -26,44 +28,52 @@ const locale = (Astro.props.locale || "en") as Locale;
     locale={locale}
   />
 
-  <section class="container py-16">
-    <h2>Information to Include in Your Quote Request</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>Part Description</h3>
-        <p>Describe the part function, critical features, and any special requirements.</p>
-      </div>
-      <div class="info-card">
-        <h3>Material</h3>
-        <p>Grade 1, 2, 5 (Ti-6Al-4V), 23 (Ti-6Al-4V ELI), or custom specification.</p>
-      </div>
-      <div class="info-card">
-        <h3>Quantity</h3>
-        <p>Prototype (1-10), low-volume (11-100), medium (101-1000), or production (1000+).</p>
-      </div>
-      <div class="info-card">
-        <h3>Tolerances</h3>
-        <p>Standard (±0.1mm), Precision (±0.05mm), High Precision (±0.01mm).</p>
-      </div>
-      <div class="info-card">
-        <h3>Surface Finish</h3>
-        <p>Machined, anodized, passivated, polished, bead blasted, or custom.</p>
-      </div>
-      <div class="info-card">
-        <h3>Timeline</h3>
-        <p>Standard (2-4 weeks), Rush (1-2 weeks), Emergency (5-7 days).</p>
-      </div>
+  <Section spacing="xl">
+    <div class="container">
+      <Prose as="div">
+        <h2>Information to Include in Your Quote Request</h2>
+      </Prose>
+      <Grid cols={2} gap="md">
+        <Card>
+          <h3>Part Description</h3>
+          <p>Describe the part function, critical features, and any special requirements.</p>
+        </Card>
+        <Card>
+          <h3>Material</h3>
+          <p>Grade 1, 2, 5 (Ti-6Al-4V), 23 (Ti-6Al-4V ELI), or custom specification.</p>
+        </Card>
+        <Card>
+          <h3>Quantity</h3>
+          <p>Prototype (1-10), low-volume (11-100), medium (101-1000), or production (1000+).</p>
+        </Card>
+        <Card>
+          <h3>Tolerances</h3>
+          <p>Standard (±0.1mm), Precision (±0.05mm), High Precision (±0.01mm).</p>
+        </Card>
+        <Card>
+          <h3>Surface Finish</h3>
+          <p>Machined, anodized, passivated, polished, bead blasted, or custom.</p>
+        </Card>
+        <Card>
+          <h3>Timeline</h3>
+          <p>Standard (2-4 weeks), Rush (1-2 weeks), Emergency (5-7 days).</p>
+        </Card>
+      </Grid>
     </div>
-  </section>
+  </Section>
 
   <CapabilityShowcase />
 
-  <section class="container py-16">
-    <div class="contact-section">
-      <h2>Email Your Quote Request</h2>
-      <p>Send your requirements to <strong>hello@titanium.blog</strong> and we'll respond with a detailed quote within 24 hours.</p>
+  <Section spacing="xl">
+    <div class="container">
+      <div class="contact-card">
+        <Prose as="div">
+          <h2>Email Your Quote Request</h2>
+          <p>Send your requirements to <strong>hello@titanium.blog</strong> and we'll respond with a detailed quote within 24 hours.</p>
+        </Prose>
+      </div>
     </div>
-  </section>
+  </Section>
 
   <CTA
     eyebrow="Have a drawing?"
@@ -74,3 +84,15 @@ const locale = (Astro.props.locale || "en") as Locale;
     locale={locale}
   />
 </MarketingLayout>
+
+<style>
+  .contact-card {
+    max-width: 36rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+  }
+</style>

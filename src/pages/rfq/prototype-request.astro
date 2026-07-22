@@ -2,8 +2,10 @@
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import Hero from "../../components/Hero.astro";
 import CapabilityShowcase from "../../components/CapabilityShowcase.astro";
-
 import CTA from "../../components/CTA.astro";
+import { Grid, Section } from "../../components/ui/layout";
+import { Card } from "../../components/ui/data-display";
+import { Prose } from "../../components/ui/content";
 import type { Locale } from "../../lib/site-config";
 
 const locale = (Astro.currentLocale || "en") as Locale;
@@ -24,51 +26,62 @@ const locale = (Astro.currentLocale || "en") as Locale;
     locale={locale}
   />
 
-  <section class="container py-16">
-    <h2>Prototype Options</h2>
-    <div class="proto-grid">
-      <div class="proto-card">
-        <h3>CNC Machined Prototypes</h3>
-        <p>Best for functional testing and fit checks. Same material and properties as production parts. Lead time: 5-10 business days.</p>
-      </div>
-      <div class="proto-card">
-        <h3>5-Axis Machined Prototypes</h3>
-        <p>Ideal for complex geometries requiring multiple axes. Single setup for complex parts. Lead time: 7-12 business days.</p>
-      </div>
-      <div class="proto-card">
-        <h3>Additive Manufacturing (3D Printing)</h3>
-        <p>Rapid prototypes using SLM/DMLS. No tooling required. Ideal for iterative design. Lead time: 5-10 business days.</p>
-      </div>
+  <Section spacing="xl">
+    <div class="container">
+      <Prose as="div">
+        <h2>Prototype Options</h2>
+      </Prose>
+      <Grid cols={3} gap="md">
+        <Card>
+          <h3>CNC Machined Prototypes</h3>
+          <p>Best for functional testing and fit checks. Same material and properties as production parts. Lead time: 5-10 business days.</p>
+        </Card>
+        <Card>
+          <h3>5-Axis Machined Prototypes</h3>
+          <p>Ideal for complex geometries requiring multiple axes. Single setup for complex parts. Lead time: 7-12 business days.</p>
+        </Card>
+        <Card>
+          <h3>Additive Manufacturing (3D Printing)</h3>
+          <p>Rapid prototypes using SLM/DMLS. No tooling required. Ideal for iterative design. Lead time: 5-10 business days.</p>
+        </Card>
+      </Grid>
     </div>
-  </section>
+  </Section>
 
-  <section class="container py-16">
-    <h2>Prototype Quantities</h2>
-    <div class="quantities-grid">
-      <div class="qty-item">
-        <span class="qty-value">1-5</span>
-        <span class="qty-label">Concept Validation</span>
-      </div>
-      <div class="qty-item">
-        <span class="qty-value">6-20</span>
-        <span class="qty-label">Functional Testing</span>
-      </div>
-      <div class="qty-item">
-        <span class="qty-value">21-50</span>
-        <span class="qty-label">Pre-Production</span>
-      </div>
+  <Section spacing="xl">
+    <div class="container">
+      <Prose as="div">
+        <h2>Prototype Quantities</h2>
+      </Prose>
+      <Grid cols={3} gap="md">
+        <div class="qty-card">
+          <span class="qty-value">1-5</span>
+          <span class="qty-label">Concept Validation</span>
+        </div>
+        <div class="qty-card">
+          <span class="qty-value">6-20</span>
+          <span class="qty-label">Functional Testing</span>
+        </div>
+        <div class="qty-card">
+          <span class="qty-value">21-50</span>
+          <span class="qty-label">Pre-Production</span>
+        </div>
+      </Grid>
     </div>
-  </section>
+  </Section>
 
-  <section class="container py-16">
-    <div class="contact-section">
-      <h2>Start Your Prototype Today</h2>
-      <p>Email your 3D model or drawing to <strong>hello@titanium.blog</strong> with "Prototype Request" in the subject line.</p>
+  <Section spacing="xl">
+    <div class="container">
+      <div class="contact-card">
+        <Prose as="div">
+          <h2>Start Your Prototype Today</h2>
+          <p>Email your 3D model or drawing to <strong>hello@titanium.blog</strong> with "Prototype Request" in the subject line.</p>
+        </Prose>
+      </div>
     </div>
-  </section>
+  </Section>
 
   <CapabilityShowcase />
-
 
   <CTA
     eyebrow="From Prototype to Production"
@@ -79,3 +92,35 @@ const locale = (Astro.currentLocale || "en") as Locale;
     locale={locale}
   />
 </MarketingLayout>
+
+<style>
+  .qty-card {
+    text-align: center;
+    padding: var(--space-lg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+  }
+  .qty-value {
+    display: block;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--foreground);
+    font-family: var(--font-heading);
+  }
+  .qty-label {
+    display: block;
+    margin-top: var(--space-xs);
+    color: var(--muted-foreground);
+    font-size: var(--text-sm);
+  }
+  .contact-card {
+    max-width: 36rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+  }
+</style>
