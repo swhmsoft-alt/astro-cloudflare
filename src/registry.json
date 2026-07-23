@@ -361,7 +361,14 @@
     { "name": "Procurement Index", "path": "src/pages/knowledge/procurement/index.astro", "locales": ["en"] },
     { "name": "Procurement Detail", "path": "src/pages/knowledge/procurement/[slug].astro", "locales": ["en"] },
     { "name": "Guides Detail", "path": "src/pages/guides/[slug].astro", "locales": ["en"] },
-    { "name": "Aerospace Hub", "path": "src/pages/industries/aerospace/index.astro", "locales": ["en"] }
+    { "name": "Aerospace Hub", "path": "src/pages/industries/aerospace/index.astro", "locales": ["en"] },
+    { "name": "Medical Hub", "path": "src/pages/industries/medical/index.astro", "locales": ["en"] },
+    { "name": "Semiconductor Hub", "path": "src/pages/industries/semiconductor/index.astro", "locales": ["en"] },
+    { "name": "Automotive Hub", "path": "src/pages/industries/automotive/index.astro", "locales": ["en"] },
+    { "name": "Oil & Gas Hub", "path": "src/pages/industries/oil-and-gas/index.astro", "locales": ["en"] },
+    { "name": "Chemical Processing Hub", "path": "src/pages/industries/chemical-processing/index.astro", "locales": ["en"] },
+    { "name": "Marine Hub", "path": "src/pages/industries/marine/index.astro", "locales": ["en"] },
+    { "name": "Defence Hub", "path": "src/pages/industries/defence/index.astro", "locales": ["en"] }
   ]
 }
 

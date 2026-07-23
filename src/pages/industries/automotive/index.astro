@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Hero from "../../../components/hero/Hero.astro";
+import CTA from "../../../components/CTA.astro";
+import { resolveRoute } from "../../../i18n/routes";
+import { siteConfig } from "../../../config/site.config";
+import type { Locale } from "../../../lib/site-config";
+import JsonLd from "../../../components/seo/JsonLd.astro";
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+const listUrl = siteConfig.url + resolveRoute(locale, "/industries/automotive/");
+const spokePages = [
+  { title: "Automotive Titanium Machining", description: "CNC machining of titanium components for performance and luxury vehicles. Connecting rods, exhaust systems, suspension springs, and driveshafts with precision tolerances.", href: "/services/titanium-cnc-machining/", cta: "View CNC Machining Service →" },
+  { title: "Automotive Applications & Materials", description: "Guide to titanium in automotive: 40-60% weight reduction vs steel, high-temperature capability, and corrosion resistance for performance vehicles.", href: "/knowledge/industries/automotive/", cta: "Read Automotive Guide →" },
+  { title: "Quality Standards", description: "ISO 9001 quality management with ASTM material compliance for automotive titanium components.", href: "/knowledge/standards/", cta: "View Standards →" },
+];
+const breadcrumbSchema = buildBreadcrumbSchema([{ label: "Home", href: siteConfig.url + "/" }, { label: "Industries", href: siteConfig.url + "/industries/" }, { label: "Automotive", href: listUrl }]);
+const collectionSchema = buildCollectionPageSchema({ name: "Automotive Titanium Manufacturing", description: "Lightweight titanium components for performance and luxury vehicles.", url: listUrl, numberOfItems: spokePages.length });
+---
+<BaseLayout title="Automotive Titanium Components & Machining Services" description="CNC machining of titanium components for automotive. Lightweight connecting rods, exhaust systems, suspension parts for performance and luxury vehicles." locale={locale} path={"/industries/automotive"}>
+  <section class="expertise-section container"><header class="section-head"><p class="section-head__eyebrow">Automotive Expertise</p><h2 class="section-head__title">Lightweight Performance Titanium Components</h2></header><div class="expertise-grid"><div class="expertise-item"><span class="expertise-icon">&#x1F3CE;&#xFE0F;</span><h3>Weight Reduction</h3><p>40-60% lighter than steel with superior strength-to-weight ratio</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F525;</span><h3>High-Temp Capability</h3><p>Reliable performance at elevated temperatures for exhaust and engine parts</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F697;</span><h3>Motorsport Expertise</h3><p>Experience with racing and high-performance automotive applications</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F3C1;</span><h3>Prototype to Production</h3><p>Support from custom one-off parts to medium-volume production runs</p></div></div></section>
+  <section class="materials-section container"><header class="section-head"><p class="section-head__eyebrow">Automotive Titanium Grades</p><h2 class="section-head__title">Common Automotive Titanium Alloys</h2></header><div class="materials-table-wrap"><table class="materials-table"><thead><tr><th>Alloy</th><th>Applications</th></tr></thead><tbody>
+    <tr><td>Ti-6Al-4V (Grade 5)</td><td>Connecting rods, valve springs, suspension, exhaust systems</td></tr>
+    <tr><td>Ti-3Al-2.5V (Grade 9)</td><td>Exhaust tubing, lightweight structural components</td></tr>
+    <tr><td>CP-Ti Grade 2</td><td>Exhaust systems, heat shields, non-structural trim</td></tr>
+    <tr><td>Ti-10V-2Fe-3Al</td><td>High-strength forged connecting rods, suspension links</td></tr>
+  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p></section>
+  <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ISO 9001</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">IATF 16949</span><span class="cert-badge">CMM</span><span class="cert-badge">PPAP</span></div></section>
+  <CTA eyebrow="Start Your Automotive Project" title="Ready to Manufacture Automotive Titanium Parts?" content="Submit your drawings and specifications for a detailed quote within 48 hours." ctaText="Upload Drawings & Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Automotive Guide" secondaryHref="/knowledge/industries/automotive/" locale={locale} />
+</BaseLayout>
+
+  <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
+  <Hero variant="centered" size="md" eyebrow="Automotive Manufacturing" headline="Titanium Machining for Automotive Applications" subheadline="Titanium provides 40-60% weight reduction compared to steel while maintaining superior strength at elevated temperatures. We precision machine titanium components for performance vehicles, luxury automotive, and motorsport applications." primaryCta={{ label: "Request Automotive RFQ →", href: "/rfq/request-quote/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/automotive/" }} locale={locale} />
+  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Automotive</p><h2 class="section-head__title">Complete Automotive Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
+<style>
+  .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
+  .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }
+  .hub-card { display: block; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-primary); text-decoration: none; transition: all 0.2s ease; }
+  .hub-card:hover { border-color: var(--color-brand-primary); transform: translateY(-2px); }
+  .hub-card__title { margin: 0 0 var(--space-sm); font-size: 1.15rem; color: var(--color-text-primary); }
+  .hub-card__description { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }
+  .hub-card__cta { display: inline-block; margin-top: var(--space-md); color: var(--color-brand-primary); font-weight: 600; }
+  .expertise-section { padding-block: var(--space-xl) var(--space-3xl); }
+  .expertise-grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: var(--space-xl); }
+  .expertise-item { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-secondary); }
+  .expertise-icon { font-size: 1.75rem; display: block; margin-bottom: var(--space-sm); }
+  .expertise-item h3 { margin: 0 0 var(--space-xs); font-size: 1rem; color: var(--color-text-primary); }
+  .expertise-item p { margin: 0; color: var(--color-text-secondary); font-size: 0.875rem; line-height: 1.6; }
+  .materials-section { padding-block: var(--space-xl) var(--space-3xl); }
+  .materials-table-wrap { overflow-x: auto; margin-top: var(--space-xl); }
+  .materials-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .materials-table th { text-align: left; padding: var(--space-sm) var(--space-md); border-bottom: 2px solid var(--color-border); color: var(--color-text-primary); font-weight: 600; }
+  .materials-table td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--color-border); color: var(--color-text-secondary); line-height: 1.5; }
+  .materials-table td:first-child { font-weight: 600; color: var(--color-text-primary); white-space: nowrap; }
+  .materials-link { margin-top: var(--space-md); text-align: center; color: var(--color-text-secondary); }
+  .materials-link a { color: var(--color-brand-primary); font-weight: 600; }
+  .certs-section { padding-block: var(--space-xl) var(--space-3xl); }
+  .certs-row { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; margin-top: var(--space-xl); }
+  .cert-badge { display: inline-flex; align-items: center; padding: 0.5rem 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-bg-primary); font-weight: 600; font-size: 0.85rem; color: var(--color-text-primary); }
+  .section-head { text-align: center; }
+  .section-head__eyebrow { display: inline-flex; align-items: center; margin: 0 auto var(--space-sm); padding: 0.35rem 0.9rem; border-radius: var(--radius-full); border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent); background: color-mix(in srgb, var(--primary) 6%, transparent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; color: var(--primary); font-weight: 700; width: fit-content; }
+  .section-head__title { margin: 0; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-text-primary); max-width: 36rem; margin-inline: auto; }
+</style>
+

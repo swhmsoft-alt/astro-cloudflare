@@ -1,0 +1,44 @@
+---
+export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import Hero from "../../../../components/hero/Hero.astro";
+import CTA from "../../../../components/CTA.astro";
+import { resolveRoute } from "../../../../i18n/routes";
+import { siteConfig } from "../../../../config/site.config";
+import type { Locale } from "../../../../lib/site-config";
+import JsonLd from "../../../../components/seo/JsonLd.astro";
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../../lib/schema";
+const locale = (Astro.props.locale || "en") as Locale;
+const lu = siteConfig.url + resolveRoute(locale, "/industries/defence/");
+const sp = [{t:"Defence Titanium Machining",d:"ITAR compliant, MIL-SPEC titanium machining.",h:"/services/aerospace-titanium-components/",c:"View Service →"},{t:"Defence Applications",d:"Titanium for armour, aircraft, and naval systems.",h:"/knowledge/industries/defence/",c:"Read Guide →"},{t:"Standards",d:"MIL-T-9046, AS9100D, ITAR.",h:"/knowledge/standards/",c:"View Standards →"}];
+const bc = buildBreadcrumbSchema([{label:"Home",href:siteConfig.url+"/"},{label:"Industries",href:siteConfig.url+"/industries/"},{label:"Defence",href:lu}]);
+const cs = buildCollectionPageSchema({name:"Defence Titanium Manufacturing",description:"ITAR compliant titanium for defence.",url:lu,numberOfItems:sp.length});
+---
+<BaseLayout title="Defence & Military Titanium Components" description="MIL-SPEC titanium machining for defence applications." locale={locale} path={"/industries/defence"}>
+<JsonLd schema={[bc, cs]} />
+<Hero variant="centered" size="md" eyebrow="Defence & Military" headline="Titanium for Defence Applications" subheadline="Titanium provides lightweight ballistic protection and high-strength structural components for defence programs." primaryCta={{label:"Request RFQ →",href:"/rfq/request-quote/"}} secondaryCta={{label:"View Guide →",href:"/knowledge/industries/defence/"}} locale={locale} />
+<section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions</p><h2 class="section-head__title">Defence Titanium</h2></header><div class="hub-cards__grid">{sp.map((p)=>(<a href={resolveRoute(locale,p.h)} class="hub-card"><h3 class="hub-card__title">{p.t}</h3><p class="hub-card__description">{p.d}</p><span class="hub-card__cta">{p.c}</span></a>))}</div></section>
+<section class="expertise-section container"><header class="section-head"><p class="section-head__eyebrow">Expertise</p><h2 class="section-head__title">MIL-SPEC Compliant</h2></header><div class="expertise-grid"><div class="expertise-item"><span class="expertise-icon">&#x1F6E1;&#xFE0F;</span><h3>ITAR</h3><p>Registered</p></div><div class="expertise-item"><span class="expertise-icon">&#x2708;&#xFE0F;</span><h3>MIL-SPEC</h3><p>Full traceability</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F3C6;</span><h3>AS9100D</h3><p>Quality certified</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F50D;</span><h3>DFARS</h3><p>Compliant supply chain</p></div></div></section>
+<CTA eyebrow="Start Your Project" title="Ready to Manufacture?" content="Submit drawings for a quote within 48 hours." ctaText="Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Guide" secondaryHref="/knowledge/industries/defence/" locale={locale} />
+</BaseLayout>
+<style>
+.hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
+.hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }
+.hub-card { display: block; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-primary); text-decoration: none; }
+.hub-card:hover { border-color: var(--color-brand-primary); transform: translateY(-2px); }
+.hub-card__title { margin: 0 0 var(--space-sm); font-size: 1.15rem; color: var(--color-text-primary); }
+.hub-card__description { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }
+.hub-card__cta { display: inline-block; margin-top: var(--space-md); color: var(--color-brand-primary); font-weight: 600; }
+.expertise-section { padding-block: var(--space-xl) var(--space-3xl); }
+.expertise-grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.expertise-item { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-secondary); }
+.expertise-icon { font-size: 1.75rem; display: block; margin-bottom: var(--space-sm); }
+.expertise-item h3 { margin: 0 0 var(--space-xs); font-size: 1rem; color: var(--color-text-primary); }
+.expertise-item p { margin: 0; color: var(--color-text-secondary); font-size: 0.875rem; line-height: 1.6; }
+.certs-section { padding-block: var(--space-xl) var(--space-3xl); }
+.certs-row { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; }
+.cert-badge { display: inline-flex; padding: 0.5rem 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-bg-primary); font-weight: 600; font-size: 0.85rem; color: var(--color-text-primary); }
+.section-head { text-align: center; }
+.section-head__eyebrow { display: inline-flex; padding: 0.35rem 0.9rem; border-radius: var(--radius-full); border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent); background: color-mix(in srgb, var(--primary) 6%, transparent); font-size: 0.75rem; color: var(--primary); font-weight: 700; }
+.section-head__title { margin: 0; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-text-primary); max-width: 36rem; margin-inline: auto; }
+</style>

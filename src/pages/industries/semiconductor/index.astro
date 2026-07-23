@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Hero from "../../../components/hero/Hero.astro";
+import CTA from "../../../components/CTA.astro";
+import { resolveRoute } from "../../../i18n/routes";
+import { siteConfig } from "../../../config/site.config";
+import type { Locale } from "../../../lib/site-config";
+import JsonLd from "../../../components/seo/JsonLd.astro";
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+const listUrl = siteConfig.url + resolveRoute(locale, "/industries/semiconductor/");
+const spokePages = [
+  { title: "Custom Semiconductor Titanium Parts", description: "Precision titanium components for semiconductor manufacturing equipment. Vacuum chamber parts, wafer handling components, and process tooling with ultra-pure processing.", href: "/services/semiconductor-titanium-parts/", cta: "View Semiconductor Service →" },
+  { title: "Semiconductor Applications & Materials", description: "Detailed guide to titanium in semiconductor fabrication: UHV compatibility, purity requirements, surface finish specifications, and applications.", href: "/knowledge/industries/semiconductor-manufacturing/", cta: "Read Semiconductor Guide →" },
+  { title: "Quality & Standards", description: "ISO 9001 quality management with ASTM B265 and B348 compliance for ultra-pure semiconductor components.", href: "/knowledge/standards/", cta: "View Standards →" },
+];
+const breadcrumbSchema = buildBreadcrumbSchema([{ label: "Home", href: siteConfig.url + "/" }, { label: "Industries", href: siteConfig.url + "/industries/" }, { label: "Semiconductor", href: listUrl }]);
+const collectionSchema = buildCollectionPageSchema({ name: "Semiconductor Titanium Manufacturing", description: "Ultra-pure titanium components for semiconductor equipment.", url: listUrl, numberOfItems: spokePages.length });
+---
+<BaseLayout title="Semiconductor Titanium Components & Manufacturing Services" description="Precision titanium machining for semiconductor equipment. Ultra-high vacuum compatible components with stringent purity and surface finish requirements." locale={locale} path={"/industries/semiconductor"}>
+  <section class="expertise-section container"><header class="section-head"><p class="section-head__eyebrow">Semiconductor Expertise</p><h2 class="section-head__title">Specialized in Ultra-Pure Titanium Components</h2></header><div class="expertise-grid"><div class="expertise-item"><span class="expertise-icon">&#x1F300;</span><h3>UHV Compatibility</h3><p>Minimal outgassing titanium components for ultra-high vacuum chambers</p></div><div class="expertise-item"><span class="expertise-icon">&#x2728;</span><h3>Ultra-Pure Processing</h3><p>Dedicated cleanroom for semiconductor-grade component manufacturing</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F4CD;</span><h3>Precision Tolerances</h3><p>Tight dimensional tolerances for wafer handling and process tooling</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F3C6;</span><h3>Surface Finish Excellence</h3><p>Controlled surface finishes for particle-free semiconductor environments</p></div></div></section>
+  <section class="materials-section container"><header class="section-head"><p class="section-head__eyebrow">Semiconductor Titanium Grades</p><h2 class="section-head__title">Approved Alloys for Semiconductor Equipment</h2></header><div class="materials-table-wrap"><table class="materials-table"><thead><tr><th>Alloy</th><th>Applications</th></tr></thead><tbody>
+    <tr><td>Ti-6Al-4V (Grade 5)</td><td>Vacuum chamber walls, structural components, gas distribution plates</td></tr>
+    <tr><td>Ti-6Al-4V ELI (Grade 23)</td><td>High-purity process components, wafer handling end-effectors</td></tr>
+    <tr><td>CP-Ti Grade 2</td><td>Chemical delivery systems, wet process components, liners</td></tr>
+    <tr><td>Ti-6242</td><td>High-temperature process chamber components</td></tr>
+  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p></section>
+  <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ISO 9001</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">UHV Compatible</span><span class="cert-badge">RoHS</span><span class="cert-badge">REACH</span><span class="cert-badge">CMM</span></div></section>
+  <CTA eyebrow="Start Your Semiconductor Project" title="Ready to Manufacture Semiconductor Titanium Parts?" content="Submit your drawings and specifications for a detailed quote within 48 hours." ctaText="Upload Drawings & Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Semiconductor Guide" secondaryHref="/knowledge/industries/semiconductor-manufacturing/" locale={locale} />
+</BaseLayout>
+
+  <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
+  <Hero variant="centered" size="md" eyebrow="Semiconductor Equipment" headline="Titanium Manufacturing for Semiconductor Equipment" subheadline="Titanium is essential in semiconductor fabrication for its corrosion resistance, non-magnetic properties, and UHV compatibility with minimal outgassing. We provide precision-machined titanium components for wafer processing, vacuum chambers, and gas delivery systems." primaryCta={{ label: "Request Semiconductor RFQ →", href: "/rfq/request-quote/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/semiconductor-manufacturing/" }} locale={locale} />
+  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Semiconductor</p><h2 class="section-head__title">Complete Semiconductor Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
+<style>
+  .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
+  .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }
+  .hub-card { display: block; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-primary); text-decoration: none; transition: all 0.2s ease; }
+  .hub-card:hover { border-color: var(--color-brand-primary); transform: translateY(-2px); }
+  .hub-card__title { margin: 0 0 var(--space-sm); font-size: 1.15rem; color: var(--color-text-primary); }
+  .hub-card__description { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }
+  .hub-card__cta { display: inline-block; margin-top: var(--space-md); color: var(--color-brand-primary); font-weight: 600; }
+  .expertise-section { padding-block: var(--space-xl) var(--space-3xl); }
+  .expertise-grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: var(--space-xl); }
+  .expertise-item { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-secondary); }
+  .expertise-icon { font-size: 1.75rem; display: block; margin-bottom: var(--space-sm); }
+  .expertise-item h3 { margin: 0 0 var(--space-xs); font-size: 1rem; color: var(--color-text-primary); }
+  .expertise-item p { margin: 0; color: var(--color-text-secondary); font-size: 0.875rem; line-height: 1.6; }
+  .materials-section { padding-block: var(--space-xl) var(--space-3xl); }
+  .materials-table-wrap { overflow-x: auto; margin-top: var(--space-xl); }
+  .materials-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .materials-table th { text-align: left; padding: var(--space-sm) var(--space-md); border-bottom: 2px solid var(--color-border); color: var(--color-text-primary); font-weight: 600; }
+  .materials-table td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--color-border); color: var(--color-text-secondary); line-height: 1.5; }
+  .materials-table td:first-child { font-weight: 600; color: var(--color-text-primary); white-space: nowrap; }
+  .materials-link { margin-top: var(--space-md); text-align: center; color: var(--color-text-secondary); }
+  .materials-link a { color: var(--color-brand-primary); font-weight: 600; }
+  .certs-section { padding-block: var(--space-xl) var(--space-3xl); }
+  .certs-row { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; margin-top: var(--space-xl); }
+  .cert-badge { display: inline-flex; align-items: center; padding: 0.5rem 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-bg-primary); font-weight: 600; font-size: 0.85rem; color: var(--color-text-primary); }
+  .section-head { text-align: center; }
+  .section-head__eyebrow { display: inline-flex; align-items: center; margin: 0 auto var(--space-sm); padding: 0.35rem 0.9rem; border-radius: var(--radius-full); border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent); background: color-mix(in srgb, var(--primary) 6%, transparent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; color: var(--primary); font-weight: 700; width: fit-content; }
+  .section-head__title { margin: 0; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-text-primary); max-width: 36rem; margin-inline: auto; }
+</style>
+

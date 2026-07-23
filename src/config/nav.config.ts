@@ -91,6 +91,13 @@ export const mainNav: NavItem[] = [
     labelKey: "nav.industries",
     children: [
       { href: "/industries/aerospace/", labelKey: "nav.aerospace" },
+      { href: "/industries/medical/", labelKey: "nav.medical" },
+      { href: "/industries/semiconductor/", labelKey: "nav.semiconductor" },
+      { href: "/industries/automotive/", labelKey: "nav.automotive" },
+      { href: "/industries/oil-and-gas/", labelKey: "nav.oilAndGas" },
+      { href: "/industries/chemical-processing/", labelKey: "nav.chemicalProcessing" },
+      { href: "/industries/marine/", labelKey: "nav.marine" },
+      { href: "/industries/defence/", labelKey: "nav.defence" },
     ],
   },
   {
