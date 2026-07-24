@@ -22,6 +22,20 @@ const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titan
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
   <Hero variant="centered" size="md" eyebrow="Medical Device Manufacturing" headline="Medical Titanium Manufacturing &amp; Machining" subheadline="Titanium is the preferred material for implantable and non-implantable medical devices due to its biocompatibility, corrosion resistance, and osseointegration properties. We provide ISO 13485 certified manufacturing for orthopedic, dental, and surgical applications." primaryCta={{ label: "Request Medical RFQ →", href: "/rfq/request-quote/" }} secondaryCta={{ label: "View Medical Applications →", href: "/knowledge/industries/medical-device/" }} locale={locale} />
   <section class="hub-cards container">
+    <header class="section-head">
+      <p class="section-head__eyebrow">Medical Device Manufacturing Solutions</p>
+      <h2 class="section-head__title">Complete Medical Titanium Capabilities</h2>
+    </header>
+    <div class="hub-cards__grid">
+      {spokePages.map((page) => (
+        <a href={resolveRoute(locale, page.href)} class="hub-card">
+          <h3 class="hub-card__title">{page.title}</h3>
+          <p class="hub-card__description">{page.description}</p>
+          <span class="hub-card__cta">{page.cta}</span>
+        </a>
+      ))}
+    </div>
+  </section>
   <section class="expertise-section container">
     <header class="section-head"><p class="section-head__eyebrow">Medical Expertise</p><h2 class="section-head__title">Trusted by Medical Device OEMs</h2></header>
     <div class="expertise-grid">
