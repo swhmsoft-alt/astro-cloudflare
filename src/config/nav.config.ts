@@ -73,6 +73,24 @@ export const serviceMegaMenu: NavItem[][] = [
 export const mainNav: NavItem[] = [
   { href: "/", labelKey: "nav.home" },
   {
+    href: "/solutions/",
+    labelKey: "nav.solutions",
+    children: [
+      { href: "/solutions/aerospace-defense/", labelKey: "nav.solutionsAerospaceDefense" },
+      { href: "/solutions/semiconductor/", labelKey: "nav.solutionsSemiconductor" },
+      { href: "/solutions/medical-device/", labelKey: "nav.solutionsMedicalDevice" },
+      { href: "/solutions/cycling-bicycle/", labelKey: "nav.solutionsCyclingBicycle" },
+      { href: "/solutions/marine-offshore/", labelKey: "nav.solutionsMarineOffshore" },
+      { href: "/solutions/automotive-motorsports/", labelKey: "nav.solutionsAutomotiveMotorsports" },
+      { href: "/solutions/electroplating-surface-finishing/", labelKey: "nav.solutionsElectroplating" },
+      { href: "/solutions/chemical-processing/", labelKey: "nav.solutionsChemicalProcessing" },
+      { href: "/solutions/energy/", labelKey: "nav.solutionsEnergy" },
+      { href: "/solutions/consumer-electronics/", labelKey: "nav.solutionsConsumerElectronics" },
+      { href: "/solutions/general-industrial/", labelKey: "nav.solutionsGeneralIndustrial" },
+      { href: "/solutions/environmental-engineering/", labelKey: "nav.solutionsEnvironmental" },
+    ],
+  },
+  {
     href: "/knowledge/",
     labelKey: "nav.knowledge",
     children: [
@@ -223,6 +241,7 @@ export const footerNav = {
   ] as const,
   /** Resources links */
   resources: [
+    { href: "/solutions/", labelKey: "nav.solutions" },
     { href: "/guides/", labelKey: "nav.guides" },
     { href: "/faq/", labelKey: "nav.faq" },
     { href: "/blog/", labelKey: "nav.blog" },

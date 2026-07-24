@@ -48,6 +48,9 @@ screenshots/
 # Lighthouse / audit reports
 lh-*.json
 
+# Temporary/emergency scripts
+deploy.bat
+
 # Temporary files
 *.swp
 *.swo

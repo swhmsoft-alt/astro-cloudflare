@@ -195,5 +195,18 @@
   "nav.evidence": "Technical Evidence",
   "nav.cases": "Case Studies",
   "nav.applications": "Applications",
-  "nav.procurement": "Procurement"
+  "nav.procurement": "Procurement",
+  "nav.solutions": "Solutions",
+  "nav.solutionsAerospaceDefense": "Aerospace & Defense",
+  "nav.solutionsSemiconductor": "Semiconductor",
+  "nav.solutionsMedicalDevice": "Medical Device",
+  "nav.solutionsCyclingBicycle": "Cycling / Bicycle",
+  "nav.solutionsMarineOffshore": "Marine & Offshore",
+  "nav.solutionsAutomotiveMotorsports": "Automotive & Motorsports",
+  "nav.solutionsElectroplating": "Electroplating & Surface Finishing",
+  "nav.solutionsChemicalProcessing": "Chemical Processing",
+  "nav.solutionsEnergy": "Energy",
+  "nav.solutionsConsumerElectronics": "Consumer Electronics",
+  "nav.solutionsGeneralIndustrial": "General Industrial",
+  "nav.solutionsEnvironmental": "Environmental Engineering"
 }

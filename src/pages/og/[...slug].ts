@@ -198,8 +198,11 @@ export async function getStaticPaths() {
   }
 
   for (const entry of PAGES) {
+    // Flatten hierarchical slugs (e.g. "solutions/aerospace-defense" → "solutions--aerospace-defense")
+    // to avoid directory/file conflicts in the build output
+    const flatSlug = entry.data.slug.replace(/\//g, "--");
     paths.push({
-      params: { slug: `page/${entry.data.locale}/${entry.data.slug}` },
+      params: { slug: `page/${entry.data.locale}/${flatSlug}` },
       props: {
         kind: "page",
         locale: entry.data.locale,

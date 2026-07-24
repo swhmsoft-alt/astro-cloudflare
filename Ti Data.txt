@@ -1,0 +1,2820 @@
+﻿# 60 Systems
+
+Engineering Systems by Industry
+Each system contains a complete set of titanium components with material specifications, manufacturing processes, inspection criteria, and engineering failure analysis.
+
+Aerospace & Defense
+14 systems · 18 components
+
+
+🖨️
+Additive Manufacturing (AM) Builds
+Near-net-shape lattice/porous structures, organic contours, internal channels impossible with subtra
+
+🌀
+4 parts
+Aero Engine Compressor Blisks & Blades
+Integral bladed-disk (blisk) with complex 3D aerofoil contours, thin trailing edges, platform and ro
+
+🔧
+3 parts
+Aerospace Ducting & Pneumatic Systems
+Thin-wall tube/duct assemblies with formed bends, flanges, bellows, and branch connections
+
+🛡️
+1 parts
+Ballistic Armor & Protection
+Large flat/curved plates, multi-curvature shaped panels, bolt holes for mounting
+
+📐
+1 parts
+Brackets / Fittings / Connectors
+L/T-shaped or irregular structural parts with mounting holes, weight reduction pockets, ribs
+
+🌡️
+1 parts
+Cryogenic Propellant Tank Hardware
+Thin-section curved bands/rings with precision bolt-hole patterns, often with PTFE liner interface f
+
+🔩
+Fasteners
+Standard/custom threaded parts, small sizes, various head types (hex/socket/flat)
+
+📦
+1 parts
+Housings / Chambers / Enclosures
+Box/cylindrical thin-wall structure with mounting lugs, flanges, viewports
+
+✈️
+1 parts
+Hypersonic Vehicle Control Surfaces
+Thin swept/delta planform with internal stiffening ribs, leading edge with high-temperature oxidatio
+
+🌀
+Impellers / Blades (Rotational)
+Complex 3D curved surfaces, thin-wall twisted blades, integral hub-blade structure
+
+🛬
+3 parts
+Landing Gear Structural Components
+Large-section forged struts, links, and beams with complex internal bores, trunnion pins, and lug at
+
+🔥
+Low-Pressure Turbine Blades (Gamma-TiAl)
+Thin-wall hollow or solid aerofoil with complex internal cooling passages (or solid for LPT), fir-tr
+
+🚀
+3 parts
+Missile & Rocket Motor Hardware
+Cylindrical/conical thin-wall casings, flanged rings, domed end closures with polar bosses and attac
+
+〰️
+Springs / Elastic Elements
+Fine wire coil/special section, high elastic deflection
+
+Medical Device
+7 systems · 24 components
+
+
+❤️
+4 parts
+Cardiovascular Stent & TAVI Frames
+Thin-strut lattice/expanding cage structure (struts 0.1-0.5mm), crimped delivery configuration, self
+
+🦷
+4 parts
+Dental Implants & Prosthetics
+Small threaded conical/cylindrical body, internal hex/octagonal drive, precision mating surface for
+
+🏥
+8 parts
+Medical Implants
+Small precision part, complex curved surfaces (articular), hex/cross drive, self-tapping thread
+
+🧲
+MRI-Compatible Cranial Fixation & Stereotactic Frames
+Ring-shaped frame with 4-point pin fixation, adjustable arc/quadrant for probe targeting, vernier sc
+
+🧠
+Neuro-Interventional Guidewires & Catheters
+Extremely slender wire (OD 0.2-1.0mm) with a shaped distal tip, tapered core, and PTFE/hydrophilic c
+
+🔪
+5 parts
+Surgical Instruments
+Ergonomic handles, slender jaws/shanks, pivot joints, ratchet mechanisms, often one-piece constructi
+
+🧱
+3 parts
+Trauma & Spine Fixation Hardware
+Intramedullary nails with proximal/distal locking holes, pedicle screw tulip heads for rod connectio
+
+Semiconductor
+7 systems · 32 components
+
+
+💻
+1 parts
+MOCVD Wafer Susceptor & Support Hardware
+Large-diameter disk/susceptor (up to 300mm) with pocket recesses for wafers, support arms with preci
+
+💡
+8 parts
+Plasma Chamber Liners, Shields & Thermal Hardware
+Rough-bead-blasted chamber wall liners, exhaust plenum baffle plates, ceramic heater clamping plates
+
+🔍
+1 parts
+Precision Instrumentation & Optical Metrology Components
+Laser mirror gimbal mounts, optical lens retaining rings, quadrupole mass spec rod alignment rings,
+
+💻
+3 parts
+Semiconductor Process Chamber Components
+Large diameter rings, liner shields, focus rings, clamp rings, gas distribution plates — thin-wall,
+
+🌀
+3 parts
+Semiconductor Vacuum Chamber Structural Hardware
+Precision-machined brackets, alignment dowel blocks, heavy-duty hinges, gas box manifold plates, cab
+
+🔧
+10 parts
+UHV Gas Delivery Fittings & Manifolds
+VCR male glands and female nuts, micro-gaskets, double-ferrule compression sleeves, multi-port gas m
+
+🔄
+6 parts
+UHV Sealing Rings & Chamber Compression Hardware
+KF/ISO centering rings, segmented circular clamping rings, Conflat knife-edge rings, O-ring groove r
+
+Consumer Electronics
+6 systems · 13 components
+
+
+📱
+Foldable Phone Hinge & Fold Mechanisms
+Miniature precision assembly with multiple interlocking links, gear segments, spring-loaded cams, an
+
+🏔️
+High-End Outdoor & Adventure Gear
+Thin-wall seamless tube for backpack frames, precision stamped/die-cut spike plates for crampons, CN
+
+📱
+13 parts
+Premium Consumer Electronics & Wearables
+Thin-wall contoured watch bezels and smart glasses temple arms, precision micro-perforated earbud gr
+
+⌚
+Professional Dive Watch Cases & Components
+Large-diameter case body (>40mm) with crown guards, threaded crown tube, drilled lug holes, caseback
+
+📱
+Smartphone Mid-Frame & Structural Chassis
+Large thin-walled perimeter frame with complex internal ribbing, threaded inserts, antenna bands, an
+
+⛳
+Sports & Recreation Equipment
+Thin-wall contoured shapes (golf club heads, bike frames, tennis racket frames), often with variable
+
+Cycling / Bicycle
+5 systems · 51 components
+
+
+🛑
+9 parts
+Bicycle Braking System Components
+Thin disc rotors with vented/spider webs, precision-machined piston inserts, hollow banjo bolts with
+
+⚙️
+6 parts
+Bicycle Drivetrain & Drivetrain Hardware
+Precision-machined thin-profile toothed rings (cogs/chainrings), small-diameter pins/shafts, threade
+
+🚲
+11 parts
+Bicycle Cockpit, Steering & Control Hardware
+Precision fasteners M4-M6 with low-profile Torx heads, thin-wall tubular spacers, complex 3D-printed
+
+🔩
+11 parts
+Bicycle Suspension, Frame Hardware & Linkage
+Large-diameter coil springs with variable rate winding, precision hollow axles with stepped bores, c
+
+🚴
+14 parts
+Bicycle Wheels, Saddle, Pedals & Accessories
+Long thin wire 200-300mm, small hexagonal nipples with internal threading, hollow axles with cam mec
+
+Automotive & Motorsports
+4 systems · 17 components
+
+
+🤖
+Collaborative Robot (Cobot) Actuator Housings
+Thin-wall complex housings with integrated bearing journals, precision gear mounting features, seali
+
+⚙️
+1 parts
+Engine Valve Train Components (Spring Retainers & Keepers)
+Small precision conical/cylindrical parts with internal taper for valve stem locking, external sprin
+
+🏎️
+6 parts
+Racing Suspension Rods, Linkages & Hardware
+Precision-machined threaded pushrods with left/right hand threads, wishbone clevis brackets, anti-ro
+
+🔊
+10 parts
+Ultrasonic Welding Components
+Cylindrical/prismatic stepped profile, threaded mounting stud, precision contact face, tuned half-wa
+
+Energy
+4 systems · 15 components
+
+
+❄️
+Cryogenic & LNG Components
+Valve bodies, stems, seal rings, piping, bellows — often with extended stems for cold box penetratio
+
+⚡
+11 parts
+Nuclear Power & Hydrogen Energy Infrastructure
+Seamless condenser tubes up to 20m length, fuel pool rack spacers with precision slot grids, venturi
+
+⚡
+2 parts
+PEM Electrolyzer Bipolar Plates
+Thin flat plate (0.3-2mm) with flow-field channels (parallel/serpentine/interdigitated), port holes
+
+🔧
+2 parts
+Valves / Fluid Control Components
+Slender shaft, small diameter, high aspect ratio, precision conical/spherical sealing surface
+
+Marine & Offshore
+3 systems · 14 components
+
+
+🌊
+7 parts
+Deep-Sea Exploration & ROV/AUV Hardware
+Thick-wall spherical/cylindrical pressure housings for electronics, precision manipulator arm knuckl
+
+🚢
+3 parts
+Marine Propellers & Shafting
+Large-diameter, complex blade curvature, tapered shaft with keyway, flanged couplings
+
+🚤
+4 parts
+Submarine & Naval Propulsion Components
+Large-diameter thin-wall cylindrical bushings/bearings with precision bore tolerance, keyway slots,
+
+Electroplating & Surface Finishing
+3 systems · 17 components
+
+
+📦
+6 parts
+Electroplating Anode Baskets & Current Delivery Systems
+Expanded mesh or perforated sheet formed into rectangular baskets, with welded knife-edge hooks and
+
+🔧
+4 parts
+Electroplating Racks, Jigs & PCB Fixtures
+Modular frame assemblies with spring-loaded spline contacts (V-prongs), thumb-screw clamps, high-den
+
+🌡️
+7 parts
+Tank Internals, Heating & Agitation Systems
+Thin-wall tubular heater sheaths and steam coils, perforated sparger pipes, venturi eductor nozzles,
+
+Chemical Processing
+2 systems · 21 components
+
+
+🏭
+6 parts
+Chemical Pipe Fittings & Flow Control Components
+Seamless or welded fittings (elbows, tees, reducers, flanges) per ANSI/DIN standards, ball valve ste
+
+🏭
+15 parts
+Industrial Standard Fasteners, Flanges & Hardware
+ASME B16.5 blind flanges up to 24-inch, DIN 934 hex nuts M6-M30, M16-M24 fully threaded stud bolts u
+
+Chemical
+2 systems · 8 components
+
+
+🧪
+8 parts
+Chemical Reactor Internals & Agitators
+Shaft with impeller blades, support baffles, dip tubes, spargers — often as welded assemblies
+
+🔥
+Heat Exchangers / Piping Systems
+Tube/plate assembly structure, tube sheet + bundle + shell, extensive drilled holes
+
+Oil & Gas
+1 systems · 8 components
+
+
+🛢️
+8 parts
+Deepwater Drilling Risers & Components
+Long tubular sections (15-25m each) with threaded/fastened couplings, buoyancy module attachment rin
+
+General Industrial
+1 systems · 0 components
+
+
+🔥
+Heat Treatment Fixtures & Racks
+Open grid/weldment construction, stackable trays, locating pins, threaded studs for part suspension
+
+Environmental Engineering
+1 systems · 8 components
+
+
+🌍
+8 parts
+Wastewater Treatment & Environmental Engineering Hardware
+Sintered porous tubular/filter elements, filter press tie rods, pump impellers with complex curved
+
+——————————————————————————
+
+# 260 Components
+
+Consumer Electronics (1 sys)
+Medical Device (5 sys)
+Automotive & Motorsports (3 sys)
+Electroplating & Surface Finishing (3 sys)
+Marine & Offshore (4 sys)
+Chemical Processing (3 sys)
+Aerospace & Defense (9 sys)
+Cycling / Bicycle (5 sys)
+Semiconductor (7 sys)
+Energy (3 sys)
+General Industrial (1 sys)
+Environmental Engineering (1 sys)
+Consumer Electronics →
+Premium Consumer Electronics & Wearables (27 components)
+Titanium 3D-Printed Ergonomic Mouse
+Grade 5 Ti-6Al-4V
+
+Titanium Action Camera Lens Bezel
+Grade 5 Ti-6Al-4V
+
+Titanium Camera Hot Shoe Mount
+Grade 5 Ti-6Al-4V
+
+Titanium Camera Lens Filter Ring
+Grade 5 Ti-6Al-4V
+
+Titanium Dive Watch Case
+Grade 5 Ti-6Al-4V
+
+Titanium Dive Watch Crown
+Grade 5 Ti-6Al-4V
+
+Titanium EDC Pen Body
+Grade 5 Ti-6Al-4V
+
+Titanium EDC Utility Knife Handle
+Grade 5 Ti-6Al-4V
+
+Titanium Flashlight Body
+Grade 5 Ti-6Al-4V
+
+Titanium Foldable Phone Hinge
+Grade 5 Ti-6Al-4V
+
+Titanium Headphone Driver Enclosure
+Grade 5 Ti-6Al-4V
+
+Titanium Key Organizer Screw
+Grade 5 Ti-6Al-4V
+
+Titanium Laptop Hinge Bracket
+Grade 5 Ti-6Al-4V
+
+Titanium Laptop Hinge Shaft
+Grade 5 Ti-6Al-4V
+
+Titanium Mechanical Keyboard Keycap
+Grade 5 Ti-6Al-4V
+
+Titanium Pen Clip
+Grade 5 Ti-6Al-4V
+
+Titanium Pocket Comb
+Grade 5 Ti-6Al-4V
+
+Titanium SIM Tray Eject Pin
+Grade 5 Ti-6Al-4V
+
+Titanium Smartphone Mid-Frame
+Grade 5 Ti-6Al-4V
+
+Titanium Smartphone SIM Tray
+Grade 5 Ti-6Al-4V
+
+Titanium Smartphone Volume Button
+Grade 5 Ti-6Al-4V
+
+Titanium Smartwatch Bezel
+Grade 5 Ti-6Al-4V
+
+Titanium Smart Glasses Temple Arm
+Grade 5 Ti-6Al-4V
+
+Titanium SSD Armor Enclosure
+Grade 5 Ti-6Al-4V
+
+Titanium Stylus Pen Core Rod
+Grade 5 Ti-6Al-4V
+
+Titanium TWS Earbud Grille
+Grade 5 Ti-6Al-4V
+
+Titanium Wallet Card Case
+Grade 5 Ti-6Al-4V
+
+View Premium Consumer Electronics & Wearables System →
+Medical Device →
+Medical Implants (8 components)
+Titanium Acetabular Cup
+Ti-6Al-4V ELI (ASTM
+
+Titanium Bone Plate
+Ti-6Al-4V ELI (ASTM
+
+Titanium Bone Screw
+Ti-6Al-4V ELI (ASTM
+
+Titanium Craniofacial Mesh
+Grade 2 CP-Ti
+
+Titanium Femoral Condyle
+Ti-6Al-7Nb (ASTM F1295)
+
+Titanium Hip Stem
+Ti-6Al-4V ELI (ASTM
+
+Titanium Intramedullary Nail
+Ti-6Al-4V ELI (ASTM
+
+Titanium Pacemaker Enclosure
+Grade 2 CP-Ti
+
+View Medical Implants System →
+Cardiovascular Stent & TAVI Frames (4 components)
+Titanium Cardiovascular Stent
+Nitinol (ASTM F2063)
+
+Titanium Embolization Coil Mandrel
+Nitinol (ASTM F2063)
+
+Titanium Neuro Guidewire
+Nitinol (ASTM F2063)
+
+Titanium TAVI Frame
+Nitinol (ASTM F2063)
+
+View Cardiovascular Stent & TAVI Frames System →
+Dental Implants & Prosthetics (4 components)
+Titanium Dental Abutment (Angled)
+Ti-6Al-4V ELI (ASTM
+
+Titanium Dental Abutment
+Ti-6Al-4V ELI (ASTM
+
+Titanium Dental Implant Fixture
+Grade 4 CP-Ti
+
+Titanium Orthodontic Archwire
+Nitinol (ASTM F2063)
+
+View Dental Implants & Prosthetics System →
+Surgical Instruments (5 components)
+Titanium Endoscope Sheath
+Grade 9 Ti-3Al-2.5V
+
+Titanium Laparoscopic Stapler Anvil
+Grade 5 Ti-6Al-4V
+
+Titanium Surgical Forceps
+Grade 5 Ti-6Al-4V
+
+Titanium Surgical Retractor Blade
+Grade 9 Ti-3Al-2.5V
+
+Titanium Surgical Scissors Pivot Pin
+Grade 5 Ti-6Al-4V
+
+View Surgical Instruments System →
+Trauma & Spine Fixation Hardware (3 components)
+Titanium Spinal Fixation Rod
+Grade 9 Ti-3Al-2.5V
+
+Titanium Spinal Interbody Cage
+Ti-6Al-4V ELI (ASTM
+
+Titanium Spinal Pedicle Screw
+Ti-6Al-4V ELI (ASTM
+
+View Trauma & Spine Fixation Hardware System →
+Automotive & Motorsports →
+Ultrasonic Welding Components (10 components)
+Titanium Acoustic Waveguide Extension
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Booster 35kHz
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Connecting Stud
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Food Cutting Blade
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Horn 20kHz
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Knurled Insert
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Medical Sonotrode 40kHz
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Nodal Clamp Ring
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Rotary Horn
+Grade 5 Ti-6Al-4V
+
+Titanium Ultrasonic Slot-Patterned Horn
+Grade 5 Ti-6Al-4V
+
+View Ultrasonic Welding Components System →
+Racing Suspension Rods, Linkages & Hardware (6 components)
+Titanium Anti-Roll Bar Droplink
+Grade 5 Ti-6Al-4V
+
+Titanium Camber Adjustment Shim
+Grade 5 Ti-6Al-4V
+
+Titanium Coilover Spring
+Grade 5 Ti-6Al-4V
+
+Titanium Hub Bolt (M12)
+Grade 5 Ti-6Al-4V
+
+Titanium Suspension Tie Rod
+Grade 5 Ti-6Al-4V
+
+Titanium Upper Wishbone Clevis
+Grade 5 Ti-6Al-4V
+
+View Racing Suspension Rods, Linkages & Hardware System →
+Engine Valve Train Components (Spring Retainers & Keepers) (1 components)
+Titanium Connecting Rod
+Grade 5 Ti-6Al-4V
+
+View Engine Valve Train Components (Spring Retainers & Keepers) System →
+Electroplating & Surface Finishing →
+Tank Internals, Heating & Agitation Systems (7 components)
+Titanium Air Sparger Pipe
+Grade 2 CP-Ti
+
+Titanium Eductor Nozzle
+Grade 2 CP-Ti
+
+Titanium Immersion Heater Sheath
+Grade 2 CP-Ti
+
+Titanium Liquid Level Float
+Grade 2 CP-Ti
+
+Titanium Steam Heating Coil
+Grade 2 CP-Ti
+
+Titanium Tank Rim Mounting Bracket
+Grade 2 CP-Ti
+
+Titanium Thermowell
+Grade 2 CP-Ti
+
+View Tank Internals, Heating & Agitation Systems System →
+Electroplating Anode Baskets & Current Delivery Systems (6 components)
+Titanium Anode Basket (Expanded Mesh)
+Grade 2 CP-Ti
+
+Titanium Anode Basket Bottom Plate
+Grade 2 CP-Ti
+
+Titanium Anode Basket Stiffener Rib
+Grade 2 CP-Ti
+
+Titanium Anode Basket Hook
+Grade 2 CP-Ti
+
+Titanium Copper-Cored Busbar
+Grade 2 CP-Ti
+
+Titanium Plating Rack Spline
+Grade 2 CP-Ti
+
+View Electroplating Anode Baskets & Current Delivery Systems System →
+Electroplating Racks, Jigs & PCB Fixtures (4 components)
+Titanium PCB Edge Grip
+Grade 2 CP-Ti
+
+Titanium Plating Crane Lifting Eye
+Grade 2 CP-Ti
+
+Titanium Plating Rack Cross Bar
+Grade 2 CP-Ti
+
+Titanium Plating Rack Thumb Screw
+Grade 2 CP-Ti
+
+View Electroplating Racks, Jigs & PCB Fixtures System →
+Marine & Offshore →
+Deep-Sea Exploration & ROV/AUV Hardware (7 components)
+Titanium AUV Propeller Shaft
+Grade 5 Ti-6Al-4V
+
+Titanium Deep-Sea Release Hook Pin
+Grade 5 Ti-6Al-4V
+
+Titanium ROV Manipulator Knuckle
+Grade 5 Ti-6Al-4V
+
+Titanium ROV Tether Swivel Joint
+Grade 5 Ti-6Al-4V
+
+Titanium Submersible Pressure Hull
+Grade 5 Ti-6Al-4V
+
+Titanium Subsea Battery Clamp Ring
+Grade 5 Ti-6Al-4V
+
+Titanium Underwater Camera Housing
+Grade 5 Ti-6Al-4V
+
+View Deep-Sea Exploration & ROV/AUV Hardware System →
+Deepwater Drilling Risers & Components (8 components)
+Titanium Downhole Production Tubing
+Grade 5 Ti-6Al-4V
+
+Titanium Downhole Wireline Barrel
+Grade 5 Ti-6Al-4V
+
+Titanium Offshore Firewater Nozzle
+Grade 5 Ti-6Al-4V
+
+Titanium Pipeline Repair Sleeve
+Grade 5 Ti-6Al-4V
+
+Titanium Seawater Strainer Housing
+Grade 5 Ti-6Al-4V
+
+Titanium Subsea Chemical Injection Mandrel
+Grade 5 Ti-6Al-4V
+
+Titanium Subsea Manifold Swivel Flange
+Grade 5 Ti-6Al-4V
+
+Titanium Subsea Wellhead Valve Block
+Grade 5 Ti-6Al-4V
+
+View Deepwater Drilling Risers & Components System →
+Marine Propellers & Shafting (3 components)
+Titanium Propeller Hub Cap
+Grade 5 Ti-6Al-4V
+
+Titanium Propeller Shaft
+Grade 5 Ti-6Al-4V
+
+Titanium Waterjet Impeller
+Grade 5 Ti-6Al-4V
+
+View Marine Propellers & Shafting System →
+Submarine & Naval Propulsion Components (4 components)
+Titanium Propeller Pitch Linkage
+Grade 5 Ti-6Al-4V
+
+Titanium Submarine Engine Mount Stud
+Grade 5 Ti-6Al-4V
+
+Titanium Submarine Steering Rudder Pin
+Grade 5 Ti-6Al-4V
+
+Titanium Trim Tab Hydraulic Ram End
+Grade 5 Ti-6Al-4V
+
+View Submarine & Naval Propulsion Components System →
+Chemical Processing →
+Chemical Pipe Fittings & Flow Control Components (6 components)
+Titanium Ball Valve Stem
+Grade 2 CP-Ti
+
+Titanium Concentric Reducer
+Grade 2 CP-Ti
+
+Titanium Equal Tee (ASME B16.9)
+Grade 2 CP-Ti
+
+Titanium Long Radius Elbow (ASME B16.9)
+Grade 2 CP-Ti
+
+Titanium Stub End (Lap Joint)
+Grade 2 CP-Ti
+
+Titanium Threaded NPT Nipple
+Grade 2 CP-Ti
+
+View Chemical Pipe Fittings & Flow Control Components System →
+Industrial Standard Fasteners, Flanges & Hardware (3 components)
+Titanium Blind Flange (ASME B16.5)
+Grade 2 CP-Ti
+
+Titanium Slip-On Flange
+Grade 2 CP-Ti
+
+Titanium Weld Neck Flange
+Grade 2 CP-Ti
+
+View Industrial Standard Fasteners, Flanges & Hardware System →
+Chemical Reactor Internals & Agitators (8 components)
+Titanium Catalyst Basket Mesh Liner
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Chlorine Compressor Impeller
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Heat Exchanger Tube Bundle
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Heat Exchanger Tube Sheet
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Reactor Agitator Shaft
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Reactor Impeller Blade
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Reactor Lining Plate
+Grade 12 Ti-0.3Mo-0.8Ni
+
+Titanium Sulfuric Acid Injection Quill
+Grade 12 Ti-0.3Mo-0.8Ni
+
+View Chemical Reactor Internals & Agitators System →
+Aerospace & Defense →
+Ballistic Armor & Protection (1 components)
+Titanium Ballistic Armor Plate
+Grade 5 Ti-6Al-4V
+
+View Ballistic Armor & Protection System →
+Aerospace Ducting & Pneumatic Systems (3 components)
+Titanium Bleed Air Duct
+Grade 9 Ti-3Al-2.5V
+
+Titanium Engine Pylon Bracket
+Grade 9 Ti-3Al-2.5V
+
+Titanium Environmental Control Duct
+Grade 9 Ti-3Al-2.5V
+
+View Aerospace Ducting & Pneumatic Systems System →
+Aero Engine Compressor Blisks & Blades (4 components)
+Titanium Compressor Blade
+Grade 5 Ti-6Al-4V
+
+Titanium Compressor Blisk
+Grade 5 Ti-6Al-4V
+
+Titanium Compressor Casing Segment
+Grade 5 Ti-6Al-4V
+
+Titanium LPT Blade (Gamma-TiAl)
+Grade 5 Ti-6Al-4V
+
+View Aero Engine Compressor Blisks & Blades System →
+Cryogenic Propellant Tank Hardware (1 components)
+Titanium Cryogenic Tank Clamp Band
+Ti-5Al-2.5Sn ELI
+
+View Cryogenic Propellant Tank Hardware System →
+Housings / Chambers / Enclosures (1 components)
+Titanium Helicopter Rotor Hub
+Grade 5 Ti-6Al-4V
+
+View Housings / Chambers / Enclosures System →
+Hypersonic Vehicle Control Surfaces (1 components)
+Titanium Hypersonic Control Surface
+Ti-65
+
+View Hypersonic Vehicle Control Surfaces System →
+Landing Gear Structural Components (3 components)
+Titanium Landing Gear Side Brace
+Grade 5 Ti-6Al-4V
+
+Titanium Landing Gear Strut
+Grade 5 Ti-6Al-4V
+
+Titanium Landing Gear Truck Beam
+Grade 5 Ti-6Al-4V
+
+View Landing Gear Structural Components System →
+Missile & Rocket Motor Hardware (3 components)
+Titanium Launch Canister Rail
+Grade 5 Ti-6Al-4V
+
+Titanium Missile Airframe Skin
+Grade 5 Ti-6Al-4V
+
+Titanium Rocket Motor Case
+Grade 5 Ti-6Al-4V
+
+View Missile & Rocket Motor Hardware System →
+Brackets / Fittings / Connectors (1 components)
+Titanium Satellite Deployment Shaft
+Grade 5 Ti-6Al-4V
+
+View Brackets / Fittings / Connectors System →
+Cycling / Bicycle →
+Bicycle Suspension, Frame Hardware & Linkage (11 components)
+Titanium Bell Crank Rocker Arm
+Grade 5 Ti-6Al-4V
+
+Titanium Bottom Bracket Shell
+Grade 5 Ti-6Al-4V
+
+Titanium Derailleur Hanger
+Grade 5 Ti-6Al-4V
+
+Titanium Fork Air Chamber Top Cap
+Grade 5 Ti-6Al-4V
+
+Titanium Frame Flip Chip
+Grade 5 Ti-6Al-4V
+
+Titanium Linkage Pivot Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Main Pivot Axle
+Grade 5 Ti-6Al-4V
+
+Titanium Pivot Bearing Retainer Circlip
+Grade 5 Ti-6Al-4V
+
+Titanium Pivot Bearing Spacer Sleeve
+Grade 5 Ti-6Al-4V
+
+Titanium Rear Shock Mounting Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Rear Shock Coil Spring
+Grade 5 Ti-6Al-4V
+
+View Bicycle Suspension, Frame Hardware & Linkage System →
+Bicycle Drivetrain & Drivetrain Hardware (6 components)
+Titanium Bottom Bracket Spindle
+Grade 5 Ti-6Al-4V
+
+Titanium Cassette Cog
+Grade 5 Ti-6Al-4V
+
+Titanium Chainring Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Chainring
+Grade 5 Ti-6Al-4V
+
+Titanium Derailleur Limit Screw
+Grade 5 Ti-6Al-4V
+
+Titanium Derailleur Pulley
+Grade 5 Ti-6Al-4V
+
+View Bicycle Drivetrain & Drivetrain Hardware System →
+Bicycle Braking System Components (9 components)
+Titanium Brake Bleed Port Screw
+Grade 5 Ti-6Al-4V
+
+Titanium Brake Caliper Mounting Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Brake Caliper Piston Insert
+Grade 5 Ti-6Al-4V
+
+Titanium Brake Lever Pivot Pin
+Grade 5 Ti-6Al-4V
+
+Titanium Brake Pad Retaining Pin
+Grade 5 Ti-6Al-4V
+
+Titanium Brake Rotor (Disc)
+Grade 5 Ti-6Al-4V
+
+Titanium Disc Brake Rotor Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Flat-Mount Brake Adapter
+Grade 5 Ti-6Al-4V
+
+Titanium Hydraulic Brake Banjo Bolt
+Grade 5 Ti-6Al-4V
+
+View Bicycle Braking System Components System →
+Bicycle Cockpit, Steering & Control Hardware (11 components)
+Titanium Derailleur Pivot Pin
+Grade 5 Ti-6Al-4V
+
+Titanium Handlebar End Plug
+Grade 5 Ti-6Al-4V
+
+Titanium Handlebar Grip Lock Ring
+Grade 5 Ti-6Al-4V
+
+Titanium GPS Mount Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Headset Compression Plug
+Grade 5 Ti-6Al-4V
+
+Titanium Headset Crown Race
+Grade 5 Ti-6Al-4V
+
+Titanium Headset Spacer
+Grade 5 Ti-6Al-4V
+
+Titanium Headset Top Cap Screw
+Grade 5 Ti-6Al-4V
+
+Titanium Shift Lever Clamp Band
+Grade 5 Ti-6Al-4V
+
+Titanium Stem Faceplate Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Stem Steerer Clamp Bolt
+Grade 5 Ti-6Al-4V
+
+View Bicycle Cockpit, Steering & Control Hardware System →
+Bicycle Wheels, Saddle, Pedals & Accessories (14 components)
+Titanium Fender Mounting Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Hub Freehub Body Spline
+Grade 5 Ti-6Al-4V
+
+Titanium Pedal Cleat Screw
+Grade 5 Ti-6Al-4V
+
+Titanium Pedal Spindle
+Grade 5 Ti-6Al-4V
+
+Titanium Pedal Traction Pin
+Grade 5 Ti-6Al-4V
+
+Titanium Saddle Clamp Washer
+Grade 5 Ti-6Al-4V
+
+Titanium Saddle Rail Clamp Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Seatpost Collar Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Spoke Nipple
+Grade 5 Ti-6Al-4V
+
+Titanium Thru-Axle
+Grade 5 Ti-6Al-4V
+
+Titanium Water Bottle Cage
+Grade 5 Ti-6Al-4V
+
+Titanium Water Bottle Cage Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Wheel Hub Pawl Spring
+Grade 5 Ti-6Al-4V
+
+Titanium Wheel Spoke
+Grade 5 Ti-6Al-4V
+
+View Bicycle Wheels, Saddle, Pedals & Accessories System →
+Semiconductor →
+Semiconductor Vacuum Chamber Structural Hardware (3 components)
+Titanium Centering Ring (KF/ISO)
+Grade 5 Ti-6Al-4V
+
+Titanium Conflat Knife-Edge Ring
+Grade 5 Ti-6Al-4V
+
+Titanium Segmented Clamping Ring
+Grade 5 Ti-6Al-4V
+
+View Semiconductor Vacuum Chamber Structural Hardware System →
+Plasma Chamber Liners, Shields & Thermal Hardware (8 components)
+Titanium Ceramic Heater Clamp Plate
+Grade 2 CP-Ti
+
+Titanium Chamber Liner (Upper)
+Grade 2 CP-Ti
+
+Titanium Exhaust Baffle Plate
+Grade 2 CP-Ti
+
+Titanium RF Grounding Spring Finger
+Grade 2 CP-Ti
+
+Titanium Shadow Ring Bracket
+Grade 2 CP-Ti
+
+Titanium Shield Stand-off Bushing
+Grade 2 CP-Ti
+
+Titanium Slit-Valve Protection Shunt
+Grade 2 CP-Ti
+
+Titanium Threaded Blind Stud (Interior)
+Grade 2 CP-Ti
+
+View Plasma Chamber Liners, Shields & Thermal Hardware System →
+UHV Gas Delivery Fittings & Manifolds (10 components)
+Titanium Double Ferrule Back Ring
+Grade 2 CP-Ti
+
+Titanium Double Ferrule Front Sleeve
+Grade 2 CP-Ti
+
+Titanium Gas Check Valve Plunger
+Grade 2 CP-Ti
+
+Titanium Gas Quick-Disconnect Coupler
+Grade 2 CP-Ti
+
+Titanium Gas Y-Splitter Connector
+Grade 2 CP-Ti
+
+Titanium Micro-Orifice Restrictor
+Grade 2 CP-Ti
+
+Titanium Multi-Port Gas Manifold
+Grade 2 CP-Ti
+
+Titanium VCR Female Nut
+Grade 2 CP-Ti
+
+Titanium VCR Male Gland
+Grade 2 CP-Ti
+
+Titanium VCR Micro-Gasket
+Grade 2 CP-Ti
+
+View UHV Gas Delivery Fittings & Manifolds System →
+UHV Sealing Rings & Chamber Compression Hardware (6 components)
+Titanium Gate Valve Seal Retainer
+Grade 5 Ti-6Al-4V
+
+Titanium High-Load Flange Washer
+Grade 5 Ti-6Al-4V
+
+Titanium Quartz Window Retainer
+Grade 5 Ti-6Al-4V
+
+Titanium Slit-Valve Oval Bezel
+Grade 5 Ti-6Al-4V
+
+Titanium Split-Ring Quick Flange
+Grade 5 Ti-6Al-4V
+
+Titanium Vented Vacuum Screw
+Grade 5 Ti-6Al-4V
+
+View UHV Sealing Rings & Chamber Compression Hardware System →
+Semiconductor Process Chamber Components (3 components)
+Titanium Ion Implantation Electrode
+Grade 5 Ti-6Al-4V
+
+Titanium Lithography Stage Flexure
+Grade 5 Ti-6Al-4V
+
+Titanium Wafer Handling End-Effector
+Grade 5 Ti-6Al-4V
+
+View Semiconductor Process Chamber Components System →
+Precision Instrumentation & Optical Metrology Components (1 components)
+Titanium Lens Retaining Ring (Metrology)
+Grade 5 Ti-6Al-4V
+
+View Precision Instrumentation & Optical Metrology Components System →
+MOCVD Wafer Susceptor & Support Hardware (1 components)
+Titanium MOCVD Susceptor Support Arm
+Grade 5 Ti-6Al-4V
+
+View MOCVD Wafer Susceptor & Support Hardware System →
+Energy →
+Nuclear Power & Hydrogen Energy Infrastructure (11 components)
+Titanium Control Rod Seal Housing
+Grade 2 CP-Ti
+
+Titanium Cryogenic H2 Flange Bolt
+Grade 2 CP-Ti
+
+Titanium ECCS Valve Stem
+Grade 2 CP-Ti
+
+Titanium Fuel Cell End Plate
+Grade 2 CP-Ti
+
+Titanium Fuel Pool Rack Spacer
+Grade 2 CP-Ti
+
+Titanium Hydrogen Flame Arrestor
+Grade 2 CP-Ti
+
+Titanium Hydrogen Storage Valve Stem
+Grade 2 CP-Ti
+
+Titanium Main Condenser Tube
+Grade 2 CP-Ti
+
+Titanium Spent Fuel Cask Bolt
+Grade 2 CP-Ti
+
+Titanium Steam Generator Nozzle
+Grade 2 CP-Ti
+
+Titanium UHP Hydrogen Tube Fitting
+Grade 2 CP-Ti
+
+View Nuclear Power & Hydrogen Energy Infrastructure System →
+PEM Electrolyzer Bipolar Plates (2 components)
+Titanium PEM Bipolar Plate
+Grade 1 CP-Ti
+
+Titanium PEM Gas Diffusion Layer
+Grade 1 CP-Ti
+
+View PEM Electrolyzer Bipolar Plates System →
+Valves / Fluid Control Components (2 components)
+Titanium Pipe U-Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Valve Strainer Basket
+Grade 5 Ti-6Al-4V
+
+View Valves / Fluid Control Components System →
+General Industrial →
+Industrial Standard Fasteners, Flanges & Hardware (12 components)
+Titanium Cotter Pin (DIN 94)
+Grade 5 Ti-6Al-4V
+
+Titanium Countersunk Screw (ISO 10642)
+Grade 5 Ti-6Al-4V
+
+Titanium Flat Washer (ISO 7089)
+Grade 5 Ti-6Al-4V
+
+Titanium Hex Bolt (ISO 4014)
+Grade 5 Ti-6Al-4V
+
+Titanium Hex Nut (ISO 4032)
+Grade 5 Ti-6Al-4V
+
+Titanium PEEK-Insulated Hybrid Bolt
+Grade 5 Ti-6Al-4V
+
+Titanium Serrated Lock Washer
+Grade 5 Ti-6Al-4V
+
+Titanium Socket Head Cap Screw (ISO 4762)
+Grade 5 Ti-6Al-4V
+
+Titanium Spring Lock Washer (DIN 127)
+Grade 5 Ti-6Al-4V
+
+Titanium Stud Bolt (ASTM A193)
+Grade 5 Ti-6Al-4V
+
+Titanium Threaded Rod (1m)
+Grade 5 Ti-6Al-4V
+
+Titanium U-Bolt
+Grade 5 Ti-6Al-4V
+
+View Industrial Standard Fasteners, Flanges & Hardware System →
+Environmental Engineering →
+Wastewater Treatment & Environmental Engineering Hardware (8 components)
+Titanium Dosing Pump Impeller
+Grade 2 CP-Ti
+
+Titanium Filter Press Tie Rod
+Grade 2 CP-Ti
+
+Titanium Mist Eliminator Frame
+Grade 2 CP-Ti
+
+Titanium MMO-Coated Substrate Plate
+Grade 2 CP-Ti
+
+Titanium Orifice Plate (Flow Meter)
+Grade 2 CP-Ti
+
+Titanium Pump Shaft Sleeve
+Grade 2 CP-Ti
+
+Titanium Sintered Filter Element
+Grade 2 CP-Ti
+
+Titanium Sludge Scraper Blade
+Grade 2 CP-Ti
+
+View Wastewater Treatment & Environmental Engineering Hardware System →
+
+——————————————————————————————————————————
+
+# 12 industries
+
+Industries Served
+12 industries where our precision titanium components are used. Each sector has unique engineering requirements — from aerospace-grade fatigue life to medical-grade biocompatibility.
+
+✈️
+
+Aerospace & Defense
+14 systems · 18 components
+
+Aircraft engines, airframe structures, missile systems, and military vehicles requiring high-strength lightweight titani
+
+Engine components
+Airframe structures
+Landing gear
+🏥
+
+Medical Device
+7 systems · 24 components
+
+Orthopedic implants, dental prosthetics, surgical instruments, and interventional medical devices requiring biocompatibl
+
+Joint replacements
+Bone fixation
+Dental implants
+💻
+
+Semiconductor
+7 systems · 32 components
+
+Vacuum chamber components, gas delivery fittings, plasma shields, and precision instrumentation for semiconductor manufa
+
+Chamber liners
+Gas fittings
+Wafer handling
+🧪
+
+Chemical Processing
+2 systems · 21 components
+
+Chemical reactors, heat exchangers, piping systems, and process equipment for corrosive chemical environments.
+
+Reactor internals
+Pipe fittings
+Heat exchanger tubes
+🚴
+
+Cycling / Bicycle
+5 systems · 51 components
+
+High-performance bicycle frames, drivetrain components, cockpit hardware, and suspension systems for road, mountain, and
+
+Drivetrain components
+Braking systems
+Suspension hardware
+⚡
+
+Energy
+4 systems · 15 components
+
+Nuclear power components, hydrogen energy infrastructure, oil & gas equipment, and desalination plant hardware.
+
+Condenser tubes
+Hydrogen storage
+PEM electrolyzer plates
+🚢
+
+Marine & Offshore
+3 systems · 14 components
+
+Propellers, shafts, seawater piping, subsea equipment, and naval propulsion components for marine environments.
+
+Propeller systems
+Shafting
+Seawater piping
+📱
+
+Consumer Electronics
+6 systems · 13 components
+
+Smartphone chassis, smartwatch bezels, foldable device hinges, and premium consumer hardware requiring lightweight, dura
+
+Watch cases & bezels
+Phone mid-frames
+Hinge mechanisms
+🏎️
+
+Automotive & Motorsports
+4 systems · 17 components
+
+Suspension linkages, engine components, exhaust systems, and performance hardware for racing and high-end automotive.
+
+Suspension rods
+Engine valves
+Exhaust systems
+⚡
+
+Electroplating & Surface Finishing
+3 systems · 17 components
+
+Anode baskets, plating racks, jigs, and fixtures for electroplating and PCB manufacturing requiring acid-resistant titan
+
+Anode baskets
+Plating racks
+PCB fixtures
+🌍
+
+Environmental Engineering
+1 systems · 8 components
+
+Wastewater treatment components, filtration systems, and environmental engineering hardware requiring corrosion-resistan
+
+Filter elements
+Pump components
+Sludge handling
+🔩
+
+General Industrial
+1 systems · 0 components
+
+Standard industrial fasteners, flanges, and hardware components for general manufacturing and maintenance.
+
+Fasteners & hardware
+Pipe flanges
+Structural brackets
+
+————————————————————————————————————————————————————————
+
+# 20 titanium Materials
+
+Titanium Materials Library
+20 titanium alloys — from commercially pure grades for chemical processing to advanced beta alloys for aerospace and medical-grade ELI for implants.
+
+CP (4)
+Alpha-Beta (11)
+Near-Alpha (2)
+Beta (1)
+Intermetallic (1)
+Shape Memory (1)
+Commercially Pure
+Unalloyed titanium, excellent corrosion resistance and formability.
+
+Grade 1 CP-Ti
+Grade 2 CP-Ti
+Grade 4 CP-Ti
+Grade 3 CP-Ti
+Alpha-Beta Alloy
+Workhorse alloys balancing strength, toughness, and weldability.
+
+Grade 12 Ti-0.3Mo-0.8Ni
+Grade 23 Ti-6Al-4V ELI
+Grade 5 Ti-6Al-4V
+Grade 7 Ti-0.15Pd
+Grade 9 Ti-3Al-2.5V
+Ti-1023 (Ti-10V-2Fe-3Al)
+Ti-1100
+Ti-15V-3Cr-3Sn-3Al
+Ti-6246 (Ti-6Al-2Sn-4Zr-6Mo)
+Ti-65 (Ti-6Al-4Sn-9Zr-1Mo-1W-0.3Si)
+Ti-6Al-7Nb (ASTM F1295)
+Near-Alpha Alloy
+High-temperature creep resistance for aerospace engines.
+
+Ti-5Al-2.5Sn ELI
+Ti-6242 (Ti-6Al-2Sn-4Zr-2Mo)
+Beta Alloy
+Ultra-high strength, excellent spring-back for fasteners.
+
+Beta-C (Ti-3Al-8V-6Cr-4Mo-4Zr)
+Intermetallic
+Lightweight, high-temperature capability for turbine applications.
+
+Gamma-TiAl (Ti-48Al-2Cr-2Nb)
+Shape Memory Alloy
+Superelasticity and shape memory effect for medical devices.
+
+Nitinol (Ni-Ti Shape Memory Alloy)
+
+————————————————————————————————————————————
+
+# 445 Titanium Manufacturing Capabilities
+From 5-axis CNC milling to surface roughening/coating — every step of titanium component production covered. 260+ product entities across 60+ systems reference these capabilities.
+
+Machining (63)
+EDM (3)
+Additive Manufacturing (6)
+Laser Processing (18)
+Surface Treatment (38)
+Welding (30)
+Forming (8)
+Forging (6)
+Fastener Manufacturing (17)
+Heat Treatment (10)
+Inspection (107)
+General Manufacturing (139)
+Machining
+CNC milling, turning, Swiss-type, and multi-axis machining for complex titanium geometries.
+
+4/5-axis CNC milling
+4/5-axis CNC milling capability for titanium components
+
+5-axis CNC machining of blades
+5-axis CNC machining of blades capability for titanium components
+
+5-axis CNC contour milling
+5-axis CNC contour milling capability for titanium components
+
+5-axis CNC milling of aerofoils
+5-axis CNC milling of aerofoils capability for titanium components
+
+5-axis CNC milling of clevis brackets
+5-axis CNC milling of clevis brackets capability for titanium components
+
+5-axis CNC milling of manipulator knuckles and swivel joints
+5-axis CNC milling of manipulator knuckles and swivel joints capability for titanium components
+
+5-axis milling of faces
+5-axis milling of faces capability for titanium components
+
+5-axis simultaneous CNC milling
+5-axis simultaneous CNC milling capability for titanium components
+
+Automatic Swiss turning
+Automatic Swiss turning capability for titanium components
+
+Centerless grinding + DLC coating of actuator piston rods
+Centerless grinding + DLC coating of actuator piston rods capability for titanium components
+
+Centerless grinding of core taper
+Centerless grinding of core taper capability for titanium components
+
+CNC cutting / profile cutting
+CNC cutting / profile cutting capability for titanium components
+
+CNC gun drilling + centerless grinding of pivot axles
+CNC gun drilling + centerless grinding of pivot axles capability for titanium components
+
+CNC machining of bores and attachment holes
+CNC machining of bores and attachment holes capability for titanium components
+
+CNC machining of clamping plates and brackets
+CNC machining of clamping plates and brackets capability for titanium components
+
+CNC machining of critical surfaces
+CNC machining of critical surfaces capability for titanium components
+
+CNC machining of flange faces and bolt holes
+CNC machining of flange faces and bolt holes capability for titanium components
+
+CNC machining of impeller profiles (5-axis)
+CNC machining of impeller profiles (5-axis) capability for titanium components
+
+CNC machining of mating flanges
+CNC machining of mating flanges capability for titanium components
+
+CNC machining of ring and frame components
+CNC machining of ring and frame components capability for titanium components
+
+CNC machining of threaded couplings
+CNC machining of threaded couplings capability for titanium components
+
+CNC machining of rotor profile/brake track
+CNC machining of rotor profile/brake track capability for titanium components
+
+CNC machining of thumb-screw clamps and brackets
+CNC machining of thumb-screw clamps and brackets capability for titanium components
+
+CNC machining of tooth profiles
+CNC machining of tooth profiles capability for titanium components
+
+CNC machining of venturi nozzle profiles
+CNC machining of venturi nozzle profiles capability for titanium components
+
+CNC milling + diamond-cut beveling of watch bezels
+CNC milling + diamond-cut beveling of watch bezels capability for titanium components
+
+CNC milling from plate (or near-net forging)
+CNC milling from plate (or near-net forging) capability for titanium components
+
+CNC milling of ergonomic contours
+CNC milling of ergonomic contours capability for titanium components
+
+CNC milling of face/sole
+CNC milling of face/sole capability for titanium components
+
+CNC milling of lugs and crown guards
+CNC milling of lugs and crown guards capability for titanium components
+
+CNC milling/turning of brackets and alignment blocks
+CNC milling/turning of brackets and alignment blocks capability for titanium components
+
+CNC milling / turning of susceptor and arms
+CNC milling / turning of susceptor and arms capability for titanium components
+
+CNC multi-spindle turning
+CNC multi-spindle turning capability for titanium components
+
+CNC pocket milling for weight reduction
+CNC pocket milling for weight reduction capability for titanium components
+
+CNC profiling + frame lock milling for folding knives
+CNC profiling + frame lock milling for folding knives capability for titanium components
+
+CNC profiling of impeller blades
+CNC profiling of impeller blades capability for titanium components
+
+CNC swaging/j-bend forming of spoke ends
+CNC swaging/j-bend forming of spoke ends capability for titanium components
+
+CNC tube bending
+CNC tube bending capability for titanium components
+
+CNC turning & boring of ID/OD
+CNC turning & boring of ID/OD capability for titanium components
+
+CNC turning & milling of housing
+CNC turning & milling of housing capability for titanium components
+
+CNC turning + nodal profile milling of sonotrode
+CNC turning + nodal profile milling of sonotrode capability for titanium components
+
+CNC turning/boring of rings
+CNC turning/boring of rings capability for titanium components
+
+CNC turning of axle/spindle profiles
+CNC turning of axle/spindle profiles capability for titanium components
+
+CNC turning of bolt heads and threads
+CNC turning of bolt heads and threads capability for titanium components
+
+CNC turning of case profile
+CNC turning of case profile capability for titanium components
+
+CNC turning of ring profiles and knife-edges
+CNC turning of ring profiles and knife-edges capability for titanium components
+
+CNC turning of pushrods and droplinks
+CNC turning of pushrods and droplinks capability for titanium components
+
+CNC turning of valve stems
+CNC turning of valve stems capability for titanium components
+
+CNC turning of VCR male/female components
+CNC turning of VCR male/female components capability for titanium components
+
+Cold heading of hex nuts + CNC tapping
+Cold heading of hex nuts + CNC tapping capability for titanium components
+
+Cylindrical / centerless grinding
+Cylindrical / centerless grinding capability for titanium components
+
+High-precision grinding
+High-precision grinding capability for titanium components
+
+Plate laser cutting + CNC drilling of flange bolt holes
+Plate laser cutting + CNC drilling of flange bolt holes capability for titanium components
+
+Precision end grinding
+Precision end grinding capability for titanium components
+
+Precision grinding of root form
+Precision grinding of root form capability for titanium components
+
+Precision turning of caliper piston Ti-inserts
+Precision turning of caliper piston Ti-inserts capability for titanium components
+
+Seal face grinding/lapping
+Seal face grinding/lapping capability for titanium components
+
+Single-point diamond turning of sealing surfaces
+Single-point diamond turning of sealing surfaces capability for titanium components
+
+Swiss-type precision turning
+Swiss-type precision turning capability for titanium components
+
+Swiss-type automatic turning
+Swiss-type automatic turning capability for titanium components
+
+Swiss-type turning of spindles/pins
+Swiss-type turning of spindles/pins capability for titanium components
+
+Thread milling of connector ports
+Thread milling of connector ports capability for titanium components
+
+Ultra-precision CNC turning/milling (micron tolerance)
+Ultra-precision CNC turning/milling (micron tolerance) capability for titanium components
+
+EDM
+Wire EDM and sinker EDM for titanium components requiring burr-free edges and tight tolerances.
+
+Support removal (EDM/machining)
+Support removal (EDM/machining) capability for titanium components
+
+Wire EDM of bearing retainer rings from cold-rolled beta strip
+Wire EDM of bearing retainer rings from cold-rolled beta strip capability for titanium components
+
+Wire EDM of thin shutter blades and aperture disks
+Wire EDM of thin shutter blades and aperture disks capability for titanium components
+
+Additive Manufacturing
+SLM/DMLS 3D printing for complex titanium geometries with minimal material waste.
+
+LPBF 3D printing of porous fusion cages
+LPBF 3D printing of porous fusion cages capability for titanium components
+
+SLM 3D printing of complex pod geometries
+SLM 3D printing of complex pod geometries capability for titanium components
+
+SLM 3D printing of custom stem/adapter bodies
+SLM 3D printing of custom stem/adapter bodies capability for titanium components
+
+SLM 3D printing of flat-mount brake adapters
+SLM 3D printing of flat-mount brake adapters capability for titanium components
+
+SLM 3D printing of flex-stay plates with argon shielding
+SLM 3D printing of flex-stay plates with argon shielding capability for titanium components
+
+SLM/DMLS printing
+SLM/DMLS printing capability for titanium components
+
+Laser Processing
+Laser cutting, marking, welding, and surface texturing for precision titanium parts.
+
+EB / laser welding of rib-skin assembly
+EB / laser welding of rib-skin assembly capability for titanium components
+
+Laser cutting + die stamping of crampon spikes
+Laser cutting + die stamping of crampon spikes capability for titanium components
+
+Laser cutting of port holes
+Laser cutting of port holes capability for titanium components
+
+Laser engraving (marking)
+Laser engraving (marking) capability for titanium components
+
+Laser marking (traceability code)
+Laser marking (traceability code) capability for titanium components
+
+Laser marking (UDI code)
+Laser marking (UDI code) capability for titanium components
+
+Laser marking
+Laser marking capability for titanium components
+
+Laser micro-cutting of tube
+Laser micro-cutting of tube capability for titanium components
+
+Laser micro-drilling of orifice disks
+Laser micro-drilling of orifice disks capability for titanium components
+
+Laser/perforation drilling of sparger pipes
+Laser/perforation drilling of sparger pipes capability for titanium components
+
+Laser / plasma cutting of plate
+Laser / plasma cutting of plate capability for titanium components
+
+Laser or waterjet cutting of perforated bottom plates
+Laser or waterjet cutting of perforated bottom plates capability for titanium components
+
+Laser / waterjet cutting
+Laser / waterjet cutting capability for titanium components
+
+Waterjet / abrasive cutting
+Waterjet / abrasive cutting capability for titanium components
+
+Waterjet cutting
+Waterjet cutting capability for titanium components
+
+Waterjet / laser cutting of band profiles
+Waterjet / laser cutting of band profiles capability for titanium components
+
+Waterjet/laser cutting of liner profiles
+Waterjet/laser cutting of liner profiles capability for titanium components
+
+Waterjet / Laser Cutting of Profiles
+High-precision laser and waterjet profile cutting for titanium structural components. Capable of pro
+
+⌀ ±0.05 mm (laser) / ±0.1 mm (waterjet)
+Surface Treatment
+Anodizing, PVD coating, bead blasting, passivation, and surface roughening for corrosion resistance and aesthetics.
+
+Anodizing (AMS 2488)
+Anodizing (AMS 2488) capability for titanium components
+
+Anodizing (colors)
+Anodizing (colors) capability for titanium components
+
+Anodizing/DLC coating
+Anodizing/DLC coating capability for titanium components
+
+Anodizing
+Anodizing capability for titanium components
+
+Bead blasting / anodizing / PVD
+Bead blasting / anodizing / PVD capability for titanium components
+
+Cleaning & passivation
+Cleaning & passivation capability for titanium components
+
+Coating (if required)
+Coating (if required) capability for titanium components
+
+Cryogenic polishing for medical sonotrodes
+Cryogenic polishing for medical sonotrodes capability for titanium components
+
+DLC coating for wear resistance
+DLC coating for wear resistance capability for titanium components
+
+DLC coating (wear resistance)
+DLC coating (wear resistance) capability for titanium components
+
+Electrochemical polishing
+Electrochemical polishing capability for titanium components
+
+Electropolishing of all vacuum-facing surfaces
+Electropolishing of all vacuum-facing surfaces capability for titanium components
+
+Electropolishing + Class 100 ultrasonic cleaning
+Electropolishing + Class 100 ultrasonic cleaning capability for titanium components
+
+Electropolishing of all wetted surfaces
+Electropolishing of all wetted surfaces capability for titanium components
+
+Electropolishing
+Electropolishing capability for titanium components
+
+36 products
+1 systems
+Mirror polishing of piston thermal barrier faces
+Mirror polishing of piston thermal barrier faces capability for titanium components
+
+Oleophobic nano-coating via electron beam evaporation
+Oleophobic nano-coating via electron beam evaporation capability for titanium components
+
+Passivation + Class 10 cleanroom assembly
+Passivation + Class 10 cleanroom assembly capability for titanium components
+
+Passivation + Class 10,000 cleanroom ultrasonic wash
+Passivation + Class 10,000 cleanroom ultrasonic wash capability for titanium components
+
+Passivation & cleaning
+Passivation & cleaning capability for titanium components
+
+Passivation (ASTM F86)
+Passivation (ASTM F86) capability for titanium components
+
+Passivation
+Passivation capability for titanium components
+
+1 systems
+Pickling & passivation
+Pickling & passivation capability for titanium components
+
+PTFE / hydrophilic coating application
+PTFE / hydrophilic coating application capability for titanium components
+
+PVD coating (Pt or Au)
+PVD coating (Pt or Au) capability for titanium components
+
+PVD coating with closed-loop gas mass-flow (Delta-E <=1.0)
+PVD coating with closed-loop gas mass-flow (Delta-E <=1.0) capability for titanium components
+
+PVD color spectrophotometer audit (Delta-E <=1.0)
+PVD color spectrophotometer audit (Delta-E <=1.0) capability for titanium components
+
+PVD / DLC coating
+PVD / DLC coating capability for titanium components
+
+Surface anodizing (optional)
+Surface anodizing (optional) capability for titanium components
+
+Surface anodizing / painting
+Surface anodizing / painting capability for titanium components
+
+Surface anodizing / PVD coating
+Surface anodizing / PVD coating capability for titanium components
+
+Surface blasting / passivation
+Surface blasting / passivation capability for titanium components
+
+Surface coating (if required)
+Surface coating (if required) capability for titanium components
+
+Surface coating
+Surface coating capability for titanium components
+
+Surface polishing
+Surface polishing capability for titanium components
+
+Surface roughening / coating
+Surface roughening / coating capability for titanium components
+
+Surface texturing (SLA/TPS coating)
+Surface texturing (SLA/TPS coating) capability for titanium components
+
+Surface treatment (anodizing)
+Surface treatment (anodizing) capability for titanium components
+
+Welding
+TIG, MIG, orbital, and laser welding of titanium assemblies with full weld integrity inspection.
+
+Automatic TIG welding (tube end)
+Automatic TIG welding (tube end) capability for titanium components
+
+Axle bending fatigue testing 10^6 cycles
+Axle bending fatigue testing 10^6 cycles capability for titanium components
+
+EB welding of hull seams under vacuum
+EB welding of hull seams under vacuum capability for titanium components
+
+Fatigue testing 10^5 cycles
+Fatigue testing 10^5 cycles capability for titanium components
+
+Fatigue testing (10^6 cycles at 10Nm)
+Fatigue testing (10^6 cycles at 10Nm) capability for titanium components
+
+Fatigue testing (accelerated 400M cycles)
+Fatigue testing (accelerated 400M cycles) capability for titanium components
+
+Fatigue testing of release mechanisms (1000+ cycles)
+Fatigue testing of release mechanisms (1000+ cycles) capability for titanium components
+
+Fatigue testing (sprint load simulation)
+Fatigue testing (sprint load simulation) capability for titanium components
+
+Fatigue testing
+Fatigue testing capability for titanium components
+
+Load testing of hooks and welds
+Load testing of hooks and welds capability for titanium components
+
+Sheet metal stamp-bending + spot TIG welding of rain cap flappers
+Sheet metal stamp-bending + spot TIG welding of rain cap flappers capability for titanium components
+
+Shell and channel welding
+Shell and channel welding capability for titanium components
+
+Ti tube bending + welding for bottle cages
+Ti tube bending + welding for bottle cages capability for titanium components
+
+TIG / EB welding of case sections
+TIG / EB welding of case sections capability for titanium components
+
+TIG/MIG welding
+TIG/MIG welding capability for titanium components
+
+TIG orbital welding
+TIG orbital welding capability for titanium components
+
+TIG welding of assemblies
+TIG welding of assemblies capability for titanium components
+
+TIG welding of basket seams and hooks
+TIG welding of basket seams and hooks capability for titanium components
+
+TIG welding of built-up propellers
+TIG welding of built-up propellers capability for titanium components
+
+TIG welding of frame assemblies
+TIG welding of frame assemblies capability for titanium components
+
+TIG welding of shield assemblies (back-side only to avoid weld spatter on plasma face)
+TIG welding of shield assemblies (back-side only to avoid weld spatter on plasma face) capability fo
+
+TIG welding of tank mounting brackets
+TIG welding of tank mounting brackets capability for titanium components
+
+Tube end expansion / seal welding
+Tube end expansion / seal welding capability for titanium components
+
+Tube rolling & longitudinal seam welding (for large diameters)
+Tube rolling & longitudinal seam welding (for large diameters) capability for titanium components
+
+VIV fatigue analysis
+VIV fatigue analysis capability for titanium components
+
+Weld color inspection (silver/gold acceptable; blue/purple = contamination)
+Weld color inspection (silver/gold acceptable; blue/purple = contamination) capability for titanium
+
+Weld integrity inspection
+Weld integrity inspection capability for titanium components
+
+Weld map documentation
+Weld map documentation capability for titanium components
+
+X-ray inspection (for welds)
+X-ray inspection (for welds) capability for titanium components
+
+X-ray of weld joints
+X-ray of weld joints capability for titanium components
+
+Forming
+Bend forming, superplastic forming, tube bending, and hot forming of titanium sheet and tube.
+
+Custom fabrication to drawing
+Custom fabrication to drawing capability for titanium components
+
+Deep drawing of vacuum flask liners (Grade 1 Ti)
+Deep drawing of vacuum flask liners (Grade 1 Ti) capability for titanium components
+
+Precision stamping + vibratory deburring of flat/lock washers
+Precision stamping + vibratory deburring of flat/lock washers capability for titanium components
+
+Seamless tube bending for backpack frames
+Seamless tube bending for backpack frames capability for titanium components
+
+Sheet stamping / chemical etching of flow fields
+Sheet stamping / chemical etching of flow fields capability for titanium components
+
+Tube bending of steam coils (mandrel bending to prevent collapse)
+Tube bending of steam coils (mandrel bending to prevent collapse) capability for titanium components
+
+Wire drawing & straightening
+Wire drawing & straightening capability for titanium components
+
+Wire drawing to precise diameter +-0.02mm
+Wire drawing to precise diameter +-0.02mm capability for titanium components
+
+Forging
+Closed-die and open-die forging of titanium billets for superior grain flow and mechanical properties.
+
+Closed-die forging
+Closed-die forging capability for titanium components
+
+18 products
+Hot forging + vacuum annealing of valve stems and bolts
+Hot forging + vacuum annealing of valve stems and bolts capability for titanium components
+
+Isothermal die forging
+Isothermal die forging capability for titanium components
+
+Precision forging
+Precision forging capability for titanium components
+
+Ring rolling / forging
+Ring rolling / forging capability for titanium components
+
+Triaxial forging of billet for isotropic grain structure
+Triaxial forging of billet for isotropic grain structure capability for titanium components
+
+Fastener Manufacturing
+Thread rolling, cold heading, CNC turning of bolts, nuts, and custom fasteners.
+
+Caseback threading
+Caseback threading capability for titanium components
+
+Hot forging + thread rolling of all rotor & caliper bolts
+Hot forging + thread rolling of all rotor & caliper bolts capability for titanium components
+
+Hot forging + thread rolling of linkage bolts
+Hot forging + thread rolling of linkage bolts capability for titanium components
+
+Left/right hand thread rolling on multi-axis roller
+Left/right hand thread rolling on multi-axis roller capability for titanium components
+
+Magnetic particle inspection (MPI) of all threaded parts
+Magnetic particle inspection (MPI) of all threaded parts capability for titanium components
+
+MPI of threads
+MPI of threads capability for titanium components
+
+Thread gauge inspection
+Thread gauge inspection capability for titanium components
+
+Thread cutting/rolling for NPT connections
+Thread cutting/rolling for NPT connections capability for titanium components
+
+Thread insert installation
+Thread insert installation capability for titanium components
+
+Thread rolling (all safety-critical bolts)
+Thread rolling (all safety-critical bolts) capability for titanium components
+
+Thread rolling / forming
+Thread rolling / forming capability for titanium components
+
+Thread rolling of all fasteners
+Thread rolling of all fasteners capability for titanium components
+
+Thread rolling of pedicle screws (never cut threads)
+Thread rolling of pedicle screws (never cut threads) capability for titanium components
+
+Thread rolling of stud bolts from STA rod stock
+Thread rolling of stud bolts from STA rod stock capability for titanium components
+
+Thread rolling of tie rods
+Thread rolling of tie rods capability for titanium components
+
+Thread rolling / whirling
+Thread rolling / whirling capability for titanium components
+
+Thread rolling
+Thread rolling capability for titanium components
+
+13 products
+Heat Treatment
+Vacuum annealing, stress relieving, and aging treatments for titanium alloys.
+
+Heat treatment (STA)
+Heat treatment (STA) capability for titanium components
+
+18 products
+Heat treatment
+Heat treatment capability for titanium components
+
+12 products
+Heat treatment to optimize hardness
+Heat treatment to optimize hardness capability for titanium components
+
+Shape-setting heat treatment
+Shape-setting heat treatment capability for titanium components
+
+4 products
+Solution + aging heat treatment
+Solution + aging heat treatment capability for titanium components
+
+Stress-relief annealing of spring contacts
+Stress-relief annealing of spring contacts capability for titanium components
+
+Stress relief annealing
+Stress relief annealing capability for titanium components
+
+Stress relief heat treatment
+Stress relief heat treatment capability for titanium components
+
+Vacuum annealing
+Vacuum annealing capability for titanium components
+
+Vacuum heat treatment
+Vacuum heat treatment capability for titanium components
+
+Inspection
+CMM, UT, X-ray, surface roughness, tensile testing, and dimensional validation to AS9100 standards.
+
+100% dimensional inspection (CMM)
+100% dimensional inspection (CMM) capability for titanium components
+
+100% eddy current testing (ECT) of condenser tubes
+100% eddy current testing (ECT) of condenser tubes capability for titanium components
+
+3D CMM inspection
+3D CMM inspection capability for titanium components
+
+3D CMM inspection of spherical bearing housing bores
+3D CMM inspection of spherical bearing housing bores capability for titanium components
+
+Ballistic testing (per NIJ/MIL-STD)
+Ballistic testing (per NIJ/MIL-STD) capability for titanium components
+
+Batch testing (mechanical + metallographic)
+Batch testing (mechanical + metallographic) capability for titanium components
+
+Charpy impact testing at -253C for LH2 cryogenic hardware
+Charpy impact testing at -253C for LH2 cryogenic hardware capability for titanium components
+
+Charpy impact testing at -253C
+Charpy impact testing at -253C capability for titanium components
+
+CMM alignment of hanger interface
+CMM alignment of hanger interface capability for titanium components
+
+CMM blade profiling
+CMM blade profiling capability for titanium components
+
+CMM contour inspection (+-0.2mm)
+CMM contour inspection (+-0.2mm) capability for titanium components
+
+CMM dimensional inspection (+-0.01mm)
+CMM dimensional inspection (+-0.01mm) capability for titanium components
+
+CMM dimensional inspection of contact spacing
+CMM dimensional inspection of contact spacing capability for titanium components
+
+CMM dimensional inspection
+CMM dimensional inspection capability for titanium components
+
+CMM inspection (+-0.001mm for critical features)
+CMM inspection (+-0.001mm for critical features) capability for titanium components
+
+CMM inspection
+CMM inspection capability for titanium components
+
+CMM tooth profile inspection
+CMM tooth profile inspection capability for titanium components
+
+CMM / vision inspection
+CMM / vision inspection capability for titanium components
+
+Contact resistance testing
+Contact resistance testing capability for titanium components
+
+Contour inspection (CMM/bluelight)
+Contour inspection (CMM/bluelight) capability for titanium components
+
+Corrosion testing (potentiodynamic)
+Corrosion testing (potentiodynamic) capability for titanium components
+
+Corrosion testing
+Corrosion testing capability for titanium components
+
+Creep testing
+Creep testing capability for titanium components
+
+Cryogenic dimensional inspection
+Cryogenic dimensional inspection capability for titanium components
+
+Cryogenic proof testing
+Cryogenic proof testing capability for titanium components
+
+Cryogenic testing (-196C)
+Cryogenic testing (-196C) capability for titanium components
+
+Cycle testing (200,000 cycles)
+Cycle testing (200,000 cycles) capability for titanium components
+
+Dimensional inspection of mating surfaces
+Dimensional inspection of mating surfaces capability for titanium components
+
+Dimensional inspection of mounting interfaces
+Dimensional inspection of mounting interfaces capability for titanium components
+
+Dimensional inspection per ASME B16.5/B16.9
+Dimensional inspection per ASME B16.5/B16.9 capability for titanium components
+
+Dimensional inspection per ASME B16.5 / DIN standards
+Dimensional inspection per ASME B16.5 / DIN standards capability for titanium components
+
+Dimensional inspection
+Dimensional inspection capability for titanium components
+
+Drop/impact testing of knife lock-up
+Drop/impact testing of knife lock-up capability for titanium components
+
+Drop testing (MIL-STD-810)
+Drop testing (MIL-STD-810) capability for titanium components
+
+Drop impact testing (1.5m onto concrete)
+Drop impact testing (1.5m onto concrete) capability for titanium components
+
+Dust ingress testing
+Dust ingress testing capability for titanium components
+
+Eddy current inspection
+Eddy current inspection capability for titanium components
+
+Electrical continuity testing
+Electrical continuity testing capability for titanium components
+
+Field durability testing (customer-specified)
+Field durability testing (customer-specified) capability for titanium components
+
+Flow rate testing of eductors
+Flow rate testing of eductors capability for titanium components
+
+Flow testing (cooled blades)
+Flow testing (cooled blades) capability for titanium components
+
+Flow testing
+Flow testing capability for titanium components
+
+Fluorescent penetrant inspection (FPI)
+Fluorescent penetrant inspection (FPI) capability for titanium components
+
+FPI (fluorescent penetrant inspection)
+FPI (fluorescent penetrant inspection) capability for titanium components
+
+Full-length UT inspection
+Full-length UT inspection capability for titanium components
+
+Full-scale tension testing
+Full-scale tension testing capability for titanium components
+
+Function testing
+Function testing capability for titanium components
+
+Hardness testing (HRB/HRC) of washers
+Hardness testing (HRB/HRC) of washers capability for titanium components
+
+Hardness testing (HRC)
+Hardness testing (HRC) capability for titanium components
+
+Hardness testing
+Hardness testing capability for titanium components
+
+Helium leak testing (1x10^-10 mbar.L/s)
+Helium leak testing (1x10^-10 mbar.L/s) capability for titanium components
+
+Helium leak testing (1x10^-9 mbar.L/s)
+Helium leak testing (1x10^-9 mbar.L/s) capability for titanium components
+
+Helium leak testing of electronic canisters
+Helium leak testing of electronic canisters capability for titanium components
+
+Helium leak testing of hydrogen components (1x10^-9 mbar.L/s)
+Helium leak testing of hydrogen components (1x10^-9 mbar.L/s) capability for titanium components
+
+Helium leak testing
+Helium leak testing capability for titanium components
+
+High-temperature wind tunnel testing
+High-temperature wind tunnel testing capability for titanium components
+
+Hydraulic pressure testing of tie rods
+Hydraulic pressure testing of tie rods capability for titanium components
+
+Hydrostatic burst testing
+Hydrostatic burst testing capability for titanium components
+
+Hydrostatic pressure testing of coils
+Hydrostatic pressure testing of coils capability for titanium components
+
+Hydrostatic pressure testing of flanged assemblies
+Hydrostatic pressure testing of flanged assemblies capability for titanium components
+
+Hydrostatic pressure testing to 1.25x rated depth
+Hydrostatic pressure testing to 1.25x rated depth capability for titanium components
+
+Hydrostatic pressure testing to 1.5x rated pressure
+Hydrostatic pressure testing to 1.5x rated pressure capability for titanium components
+
+Hydrostatic pressure testing
+Hydrostatic pressure testing capability for titanium components
+
+Hydrostatic proof testing
+Hydrostatic proof testing capability for titanium components
+
+Hydrostatic testing
+Hydrostatic testing capability for titanium components
+
+Impact testing at cryogenic temperature
+Impact testing at cryogenic temperature capability for titanium components
+
+Kink resistance testing
+Kink resistance testing capability for titanium components
+
+Knife-edge profile inspection (optical microscopy)
+Knife-edge profile inspection (optical microscopy) capability for titanium components
+
+Magnetic field testing
+Magnetic field testing capability for titanium components
+
+Magnetic particle inspection (MPI)
+Magnetic particle inspection (MPI) capability for titanium components
+
+Magnetic permeability testing (mu <1.01)
+Magnetic permeability testing (mu <1.01) capability for titanium components
+
+Magnetic permeability testing
+Magnetic permeability testing capability for titanium components
+
+Mechanical testing per ASTM F543 (screw torque)
+Mechanical testing per ASTM F543 (screw torque) capability for titanium components
+
+MRI artifact testing (3T phantom)
+MRI artifact testing (3T phantom) capability for titanium components
+
+Oxidation testing
+Oxidation testing capability for titanium components
+
+Particle count testing
+Particle count testing capability for titanium components
+
+Plasma erosion testing (customer-specified recipe)
+Plasma erosion testing (customer-specified recipe) capability for titanium components
+
+Porosity testing of sintered filters (bubble point test)
+Porosity testing of sintered filters (bubble point test) capability for titanium components
+
+Pressure testing of banjo bolt assemblies
+Pressure testing of banjo bolt assemblies capability for titanium components
+
+Pressure testing (seal integrity)
+Pressure testing (seal integrity) capability for titanium components
+
+Pressure testing
+Pressure testing capability for titanium components
+
+PT/UT inspection
+PT/UT inspection capability for titanium components
+
+Radial force testing
+Radial force testing capability for titanium components
+
+Saddle rail compression testing 200kg
+Saddle rail compression testing 200kg capability for titanium components
+
+Salt spray corrosion testing (1000h ASTM B117)
+Salt spray corrosion testing (1000h ASTM B117) capability for titanium components
+
+Salt spray corrosion testing 100h ASTM B117
+Salt spray corrosion testing 100h ASTM B117 capability for titanium components
+
+Salt spray corrosion testing ASTM B117
+Salt spray corrosion testing ASTM B117 capability for titanium components
+
+Salt spray corrosion testing
+Salt spray corrosion testing capability for titanium components
+
+Shear strength testing of rotor bolts
+Shear strength testing of rotor bolts capability for titanium components
+
+Spoke tensile testing each to 1200N
+Spoke tensile testing each to 1200N capability for titanium components
+
+Spring-back testing (1000+ cycle test)
+Spring-back testing (1000+ cycle test) capability for titanium components
+
+Spring rate testing of shock coils
+Spring rate testing of shock coils capability for titanium components
+
+Sub-zero impact testing (-40C Charpy)
+Sub-zero impact testing (-40C Charpy) capability for titanium components
+
+Surface hardness / scratch testing
+Surface hardness / scratch testing capability for titanium components
+
+Surface roughness inspection (Ra<0.2um)
+Surface roughness inspection (Ra<0.2um) capability for titanium components
+
+Tensile/fracture toughness testing
+Tensile/fracture toughness testing capability for titanium components
+
+Tensile testing at cryogenic temperature
+Tensile testing at cryogenic temperature capability for titanium components
+
+Tensile testing
+Tensile testing capability for titanium components
+
+Tensile testing per lot
+Tensile testing per lot capability for titanium components
+
+Torque response testing
+Torque response testing capability for titanium components
+
+Torsion testing
+Torsion testing capability for titanium components
+
+Torsional rigidity testing
+Torsional rigidity testing capability for titanium components
+
+Ultrasonic inspection of clevis brackets
+Ultrasonic inspection of clevis brackets capability for titanium components
+
+Ultrasonic inspection (UT)
+Ultrasonic inspection (UT) capability for titanium components
+
+Water pressure testing (to rated depth x 1.25 safety factor)
+Water pressure testing (to rated depth x 1.25 safety factor) capability for titanium components
+
+X-ray / CT inspection
+X-ray / CT inspection capability for titanium components
+
+X-ray inspection
+X-ray inspection capability for titanium components
+
+General Manufacturing
+Assembly, cleaning, packaging, and value-added manufacturing services.
+
+100% crack detection
+100% crack detection capability for titanium components
+
+3.1 MTC with VAR ingot traceability per ASME Section VIII
+3.1 MTC with VAR ingot traceability per ASME Section VIII capability for titanium components
+
+5-axis machining center
+5-axis machining center capability for titanium components
+
+7-stage UHP cleanroom wash for hydrogen fuel cell components
+7-stage UHP cleanroom wash for hydrogen fuel cell components capability for titanium components
+
+Accelerated aging test (1000h)
+Accelerated aging test (1000h) capability for titanium components
+
+Adaptive machining
+Adaptive machining capability for titanium components
+
+AF temperature measurement (DSC)
+AF temperature measurement (DSC) capability for titanium components
+
+Assembly & riveting
+Assembly & riveting capability for titanium components
+
+Automatic spring coiling
+Automatic spring coiling capability for titanium components
+
+Bead blasting of plasma-facing surfaces
+Bead blasting of plasma-facing surfaces capability for titanium components
+
+Bend forming of stiffener ribs and gussets
+Bend forming of stiffener ribs and gussets capability for titanium components
+
+Beta-C wire cold coiling + shot peening + preset for shock springs
+Beta-C wire cold coiling + shot peening + preset for shock springs capability for titanium component
+
+CBN tool finishing
+CBN tool finishing capability for titanium components
+
+Center-boring of vented vacuum screws
+Center-boring of vented vacuum screws capability for titanium components
+
+Charpy impact at -20C
+Charpy impact at -20C capability for titanium components
+
+Chemical etching of diaphragm profiles
+Chemical etching of diaphragm profiles capability for titanium components
+
+Cleaning & packaging (Class 8 cleanroom)
+Cleaning & packaging (Class 8 cleanroom) capability for titanium components
+
+Class 10 cleanroom packaging
+Class 10 cleanroom packaging capability for titanium components
+
+Cleanroom packaging (Class 100)
+Cleanroom packaging (Class 100) capability for titanium components
+
+Cold / hot heading forming
+Cold / hot heading forming capability for titanium components
+
+Coaxiality measurement of pivot axles <0.02mm
+Coaxiality measurement of pivot axles <0.02mm capability for titanium components
+
+Concentricity measurement
+Concentricity measurement capability for titanium components
+
+Contact resistance measurement (CNT method)
+Contact resistance measurement (CNT method) capability for titanium components
+
+Continuous cold tube pilgering for condenser tubes
+Continuous cold tube pilgering for condenser tubes capability for titanium components
+
+Coordinate accuracy verification (+-0.1mm)
+Coordinate accuracy verification (+-0.1mm) capability for titanium components
+
+Coordinate measurement of fiducial markers
+Coordinate measurement of fiducial markers capability for titanium components
+
+Crimping & loading into delivery system
+Crimping & loading into delivery system capability for titanium components
+
+CT scanning (internal defect detection)
+CT scanning (internal defect detection) capability for titanium components
+
+Debinding & sintering
+Debinding & sintering capability for titanium components
+
+Deburring / edge rounding
+Deburring / edge rounding capability for titanium components
+
+Deep-hole boring of multi-port manifolds
+Deep-hole boring of multi-port manifolds capability for titanium components
+
+Deep hole drilling (tube sheet)
+Deep hole drilling (tube sheet) capability for titanium components
+
+Deep-hole gun drilling of gas manifold blocks
+Deep-hole gun drilling of gas manifold blocks capability for titanium components
+
+Deep-hole gun drilling of pressure housings
+Deep-hole gun drilling of pressure housings capability for titanium components
+
+Digital frequency analysis (DFA) tuning to +-50Hz target
+Digital frequency analysis (DFA) tuning to +-50Hz target capability for titanium components
+
+Dimensional certification of bolt circle patterns
+Dimensional certification of bolt circle patterns capability for titanium components
+
+Dimensional certification with full traceability
+Dimensional certification with full traceability capability for titanium components
+
+Dimensional certification
+Dimensional certification capability for titanium components
+
+Dimensional sorting
+Dimensional sorting capability for titanium components
+
+Drilling of bolt holes with jig
+Drilling of bolt holes with jig capability for titanium components
+
+Drilling of mounting holes
+Drilling of mounting holes capability for titanium components
+
+Drilling / tapping
+Drilling / tapping capability for titanium components
+
+Dynamic balancing for rotary horns
+Dynamic balancing for rotary horns capability for titanium components
+
+Dynamic balancing test
+Dynamic balancing test capability for titanium components
+
+Dynamic balancing
+Dynamic balancing capability for titanium components
+
+End forming / flaring
+End forming / flaring capability for titanium components
+
+Expanded metal mesh production
+Expanded metal mesh production capability for titanium components
+
+Flavor leaching test (ISO 10304 for metal ions)
+Flavor leaching test (ISO 10304 for metal ions) capability for titanium components
+
+Folding cycle test (200k+ cycles for hinges)
+Folding cycle test (200k+ cycles for hinges) capability for titanium components
+
+Forged rod tapering + tip forming for tent stakes
+Forged rod tapering + tip forming for tent stakes capability for titanium components
+
+Full UT wall thickness verification
+Full UT wall thickness verification capability for titanium components
+
+Gas chromatography for hydrogen embrittlement certification (H<125ppm)
+Gas chromatography for hydrogen embrittlement certification (H<125ppm) capability for titanium compo
+
+Gun-drilling of intramedullary nails + cannulated screws
+Gun-drilling of intramedullary nails + cannulated screws capability for titanium components
+
+Heat transfer verification
+Heat transfer verification capability for titanium components
+
+Helium leak detection
+Helium leak detection capability for titanium components
+
+Helium mass spectrometer leak test
+Helium mass spectrometer leak test capability for titanium components
+
+High-temperature氧化防护涂层
+High-temperature氧化防护涂层 capability for titanium components
+
+HIP densification
+HIP densification capability for titanium components
+
+Hot forming of curved panels
+Hot forming of curved panels capability for titanium components
+
+Hot forming of skin panels
+Hot forming of skin panels capability for titanium components
+
+Hot forming of seamless tube into elbows/tees
+Hot forming of seamless tube into elbows/tees capability for titanium components
+
+Hot heading + vacuum aging of beta hub bolts
+Hot heading + vacuum aging of beta hub bolts capability for titanium components
+
+Hot isostatic pressing (HIP)
+Hot isostatic pressing (HIP) capability for titanium components
+
+Hydrostatic test
+Hydrostatic test capability for titanium components
+
+Impedance / frequency analysis
+Impedance / frequency analysis capability for titanium components
+
+Impeller dynamic balancing
+Impeller dynamic balancing capability for titanium components
+
+Investment casting (alternative)
+Investment casting (alternative) capability for titanium components
+
+Investment casting
+Investment casting capability for titanium components
+
+Keyway broaching
+Keyway broaching capability for titanium components
+
+Magnetic permeability test (mu <1.00001)
+Magnetic permeability test (mu <1.00001) capability for titanium components
+
+Material certification (EN 10204 3.1 / MTR)
+Material certification (EN 10204 3.1 / MTR) capability for titanium components
+
+Material certification (EN 10204 3.1)
+Material certification (EN 10204 3.1) capability for titanium components
+
+Material certification
+Material certification capability for titanium components
+
+Material traceability per NASA SP-R-0022
+Material traceability per NASA SP-R-0022 capability for titanium components
+
+Metal injection molding (MIM) of foldable hinges
+Metal injection molding (MIM) of foldable hinges capability for titanium components
+
+Metal injection molding (MIM)
+Metal injection molding (MIM) capability for titanium components
+
+Metallographic evaluation
+Metallographic evaluation capability for titanium components
+
+Micro-CT of flame arrestor pore structure
+Micro-CT of flame arrestor pore structure capability for titanium components
+
+Outgassing rate measurement (ASTM E595)
+Outgassing rate measurement (ASTM E595) capability for titanium components
+
+Outgassing test (ASTM E595)
+Outgassing test (ASTM E595) capability for titanium components
+
+Particle count certification
+Particle count certification capability for titanium components
+
+Pickling to remove oxide scale
+Pickling to remove oxide scale capability for titanium components
+
+PMI (positive material identification) verification
+PMI (positive material identification) verification capability for titanium components
+
+PMI verification of all material
+PMI verification of all material capability for titanium components
+
+Powder characterization
+Powder characterization capability for titanium components
+
+Powder compaction + sintering for porous filter elements
+Powder compaction + sintering for porous filter elements capability for titanium components
+
+Powder sintering of flame arrestor porous disks
+Powder sintering of flame arrestor porous disks capability for titanium components
+
+Precision boring of bearing journals
+Precision boring of bearing journals capability for titanium components
+
+Precision chemical micro-etching of earbud grilles
+Precision chemical micro-etching of earbud grilles capability for titanium components
+
+Precision boring of wafer pockets
+Precision boring of wafer pockets capability for titanium components
+
+Precision drilling of gas holes
+Precision drilling of gas holes capability for titanium components
+
+Precision drilling of pin guides
+Precision drilling of pin guides capability for titanium components
+
+Precision honing of bearing surface
+Precision honing of bearing surface capability for titanium components
+
+Pressure test
+Pressure test capability for titanium components
+
+PTFE bonding / insert molding
+PTFE bonding / insert molding capability for titanium components
+
+Shape-setting of distal tip
+Shape-setting of distal tip capability for titanium components
+
+Sheet metal fabrication of demister frame grids
+Sheet metal fabrication of demister frame grids capability for titanium components
+
+Shot peening
+Shot peening capability for titanium components
+
+Solution treatment + aging
+Solution treatment + aging capability for titanium components
+
+Static & dynamic balancing
+Static & dynamic balancing capability for titanium components
+
+Steel wool abrasion test (5000 cycles)
+Steel wool abrasion test (5000 cycles) capability for titanium components
+
+Sterilization (EtO)
+Sterilization (EtO) capability for titanium components
+
+Sterile packaging
+Sterile packaging capability for titanium components
+
+Sterilization validation (gamma/EtO)
+Sterilization validation (gamma/EtO) capability for titanium components
+
+Sterilization validation
+Sterilization validation capability for titanium components
+
+Stiffness sorting
+Stiffness sorting capability for titanium components
+
+Straightening
+Straightening capability for titanium components
+
+Superplastic forming of spherical hull segments
+Superplastic forming of spherical hull segments capability for titanium components
+
+Surface analysis (SEM)
+Surface analysis (SEM) capability for titanium components
+
+Surface enhancement (shot peening)
+Surface enhancement (shot peening) capability for titanium components
+
+Surface finish measurement
+Surface finish measurement capability for titanium components
+
+Surface finishing
+Surface finishing capability for titanium components
+
+Surface preparation & painting
+Surface preparation & painting capability for titanium components
+
+Surface roughness measurement of bead-blasted surface (Ra 3-6um)
+Surface roughness measurement of bead-blasted surface (Ra 3-6um) capability for titanium components
+
+Surface roughness measurement (Ra 1.0-3.0um for osseointegration)
+Surface roughness measurement (Ra 1.0-3.0um for osseointegration) capability for titanium components
+
+Surface roughness measurement (Ra<0.4um)
+Surface roughness measurement (Ra<0.4um) capability for titanium components
+
+Surface roughness measurement
+Surface roughness measurement capability for titanium components
+
+Surface roughness measurement (Ra<0.8um)
+Surface roughness measurement (Ra<0.8um) capability for titanium components
+
+Surface shot peening
+Surface shot peening capability for titanium components
+
+Surface roughness measurement (Ra<0.05um on knife-edge)
+Surface roughness measurement (Ra<0.05um on knife-edge) capability for titanium components
+
+Surface treatment
+Surface treatment capability for titanium components
+
+Thermal cycling test (-20C to +150C)
+Thermal cycling test (-20C to +150C) capability for titanium components
+
+Thermal imaging (bond line integrity)
+Thermal imaging (bond line integrity) capability for titanium components
+
+Thermal imaging of brake track
+Thermal imaging of brake track capability for titanium components
+
+Torque-to-tension verification
+Torque-to-tension verification capability for titanium components
+
+Tube sheet drilling
+Tube sheet drilling capability for titanium components
+
+Ultra-sonic cleaning in Class 10
+Ultra-sonic cleaning in Class 10 capability for titanium components
+
+Ultrasonic cleaning
+Ultrasonic cleaning capability for titanium components
+
+Ultra-sonic cleaning
+Ultra-sonic cleaning capability for titanium components
+
+Ultrasonic thickness mapping of pressure hulls
+Ultrasonic thickness mapping of pressure hulls capability for titanium components
+
+Vacuum arc remelting (VAR) of ELI-grade ingot
+Vacuum arc remelting (VAR) of ELI-grade ingot capability for titanium components
+
+Vacuum-arc remelting (VAR) of ELI-grade ingots
+Vacuum-arc remelting (VAR) of ELI-grade ingots capability for titanium components
+
+Vacuum brazing (if required)
+Vacuum brazing (if required) capability for titanium components
+
+Vacuum brazing
+Vacuum brazing capability for titanium components
+
+Vibratory finishing
+Vibratory finishing capability for titanium components
+
+Water contact angle measurement (>110 deg)
+Water contact angle measurement (>110 deg) capability for titanium components
+
+Wear measurement
+Wear measurement capability for titanium components
+
+Weight sorting
+Weight sorting capability for titanium components
+
+Wire forming of V-prong spring contacts
+Wire forming of V-prong spring contacts capability for titanium components
