@@ -1,0 +1,64 @@
+{
+  "id": "cnc-5axis",
+  "slug": "5axis-cnc-machining",
+  "name": "5-Axis Simultaneous CNC Machining",
+  "category": "Subtractive Manufacturing",
+  "h1": "5-Axis CNC Machining | Complex Freeform Surfaces · Deep Cavities · Titanium & Hardened Steel Ultra-Precision",
+  "metaDescription": "AS9100D certified 5-axis/3+2 CNC machining for titanium, stainless steel, Invar, and hardened tool steels (HRC58-62). Full in-house CAM programming, zero-point fixturing, high-speed milling, in-process probing, robotic deburring, and CMM inspection. Serving aerospace, automotive die/mold, and energy sectors.",
+  "hero": {
+    "title": "Breaking the Physical Limits of Tool Accessibility",
+    "subtitle": "3-axis can't touch deep cavities, undercuts, or complex freeform surfaces without multiple setups. 5-axis simultaneous eliminates this.",
+    "valuePoints": [
+      { "title": "Aerospace-Grade Precision", "description": "Positional accuracy ±0.002mm / ±0.00008\", repeatability ±0.001mm. Achieve H6/H7 tolerances out of the machine." },
+      { "title": "Single-Setup Machining", "description": "Finish 5 faces in one clamping. Completely eliminate accumulated alignment errors from manual re-fixturing." },
+      { "title": "Tool Life 2.5x Longer", "description": "Constant chip load and optimal tool engagement angles reduce wear by 40%, delivering mirror finishes (Ra 0.4μm) without polishing." }
+    ]
+  },
+  "industryPainPoints": {
+    "title": "Why Die/Mold and Turbomachinery Shops Must Adopt 5-Axis",
+    "content": "Three-axis CNC machining encounters fundamental tool accessibility constraints when processing complex geometries. Ball-end mills must extend excessive overhang lengths to reach deep cavities, introducing regenerative chatter that degrades surface finish beyond Ra 3.2 μm and risks catastrophic tool failure. Vertical walls with negative draft angles are simply unmachinable, forcing shops to resort to EDM sinker machining — a process three to five times slower with no ability to produce smooth blended surfaces. Core cavity corners with small radii below 0.5 mm tool diameter ratio require progressively smaller tools, each pass reducing material removal rate exponentially. Multiple setups compound the positional error: each manual re-fixturing introduces 0.01 to 0.05 mm deviation, accumulating across five to eight operations until geometric tolerance stack-up exceeds print requirements. The result is either scrapped components or costly hand-fitting by skilled toolmakers that adds days to lead time.\n\nThe first critical bottleneck is closed impeller channel machining. Semi-open and closed impeller blades twist through compound angles exceeding 45 degrees, causing the tool shank to collide with adjacent blades unless the tool axis is continuously reoriented. Even with 3+2 positioning, each blade requires 15 to 20 indexed orientations with full machine simulation still mandatory for collision avoidance. The second bottleneck is hard milling of pre-hardened tool steels at HRC 58 to 62. Conventional roughing with radial engagement above 40 percent generates cutting forces exceeding 2,000 Newtons, deflecting both tool and workpiece beyond acceptable tolerance. Trochoidal milling paths — circular interpolation with radial engagement held constant at 5 to 8 percent of tool diameter — reduce cutting forces by 60 percent but demand CAM post-processors capable of generating smooth tangent-entry arcs without G-code spline approximation errors. Thermal management is equally critical: cutting speeds above 80 meters per minute without adequate chip evacuation cause micro-welding and edge chipping within 15 seconds of engagement. Optimized trochoidal strategies paired with minimum quantity lubrication at 6 bar mist pressure extend tool life from 12 minutes to 45 minutes per cutting edge.\n\nThe definitive validation of 5-axis value is the A320 nacelle hinge bracket machined from Ti-6Al-4V. Previously requiring eight separate setups across 3-axis mills and a 4-axis lathe with total cycle time of 14.5 hours, the redesigned 5-axis simultaneous process completed the part in a single setup within 6.2 hours — a 57 percent reduction. Process capability index for the critical bore-to-face perpendicularity improved from 0.83, which is unacceptable per AS9103, to 1.67, exceeding aerospace's 1.33 minimum requirement. Manual deburring time dropped from 4.5 hours to 0.8 hours due to smoother surface transitions between machined features. Most significantly, the single-setup approach eliminated three datum reference shifts, reducing accumulated positional error from 0.032 mm to 0.006 mm. Annual tooling cost for the program decreased by $18,400 after eliminating dedicated form tools required for 3-axis profiling. These metrics are consistently replicated across injection mold inserts, turbine blade forms, and structural aerospace components where single-setup complexity fundamentally outperforms multi-operation conventional machining."
+  }
+
+,
+  "capabilityMatrix": [
+    { "stage": "① CAM & Simulation", "capabilities": ["cam-hypermill", "machine-simulation"], "value": "NX/HyperMILL multi-axis strategies. Machine kinematics collision-checked before G-code generation." },
+    { "stage": "② Workholding", "capabilities": ["zero-point-clamping", "vacuum-fixturing"], "value": "Zero-point system swapping fixtures in <5 mins with ±0.005mm repeatability." },
+    { "stage": "③ 5-Axis Milling", "capabilities": ["5axis-simultaneous", "3plus2-positional"], "value": "Swivel head + rotary table, or dual rotary tables. Full RTCP (Rotation Tool Center Point) support." },
+    { "stage": "④ Hard Milling (HRC58-62)", "capabilities": ["trochoidal-milling", "high-speed-machining"], "value": "Machine hardened steels at 180m/min Vc. Trochoidal paths maintain constant chip thickness." },
+    { "stage": "⑤ In-Process Probing", "capabilities": ["renishaw-probing", "adaptive-compensation"], "value": "Renishaw RMP600 automatically compensates for tool wear and thermal growth." },
+    { "stage": "⑥ Robotic Deburring", "capabilities": ["robot-deburring", "vibratory-finishing"], "value": "Force-controlled robotic deburring reduces manual touch labor by 90%." },
+    { "stage": "⑦ Inspection", "capabilities": ["cmm-zeiss", "laser-scanning"], "value": "Zeiss CMM + structured light scanning. Full dimensional report with CPK/PPK analysis." }
+  ],
+  "materials": ["Hardened Tool Steel (HRC58-62)", "Titanium Ti-6Al-4V", "Stainless 304/316", "Invar 36"],
+  "techSpecs": {
+    "title": "3-Axis vs 3+2 Positioning vs Full 5-Axis Simultaneous – Capability Comparison",
+    "rows": [
+      { "parameter": "Max Workpiece (DxH)", "3-Axis": "800x500x400mm", "3+2 Axis": "1000x700x500mm", "5-Axis": "Φ800x600mm" },
+      { "parameter": "Undercut Machining", "3-Axis": "None (0°)", "3+2 Axis": "Limited (-30° fixed)", "5-Axis": "Full (-90° continuous)" },
+      { "parameter": "Surface Finish (Ra)", "3-Axis": "0.8μm (requires hand polish)", "3+2 Axis": "0.6μm", "5-Axis": "0.4μm (mirror off-machine)" },
+      { "parameter": "Impeller Cycle Time", "3-Axis": "Not feasible", "3+2 Axis": "~18 hrs", "5-Axis": "~7.5 hrs" }
+    ]
+  },
+  "faqs": [
+    { "question": "How do you prevent tool chipping when 5-axis machining titanium?", "answer": "Titanium's low thermal conductivity (7 W/m·K) traps heat at the cutting edge. Our strategy combines: (1) AlTiN+Si coated carbide tools with a 45° helix; (2) Trochoidal milling with radial engagement < 5% of tool diameter; (3) High-pressure (70 bar / 1000 psi) through-coolant directed precisely at the cutting zone. Using these parameters (Vc=40-60m/min, fz=0.02-0.04mm/z), we achieve 3x longer tool life compared to conventional roughing." },
+    { "question": "What exactly is the difference between 3+2 positioning and full 5-axis simultaneous?", "answer": "3+2 (also called 5-axis indexed) locks the rotary axes at a fixed angle and performs standard 3-axis milling in that plane. It's excellent for angled holes or flat sloped faces. Full 5-axis simultaneous, however, interpolates the linear axes (X/Y/Z) AND the rotary axes (A/C or B/C) concurrently. This allows the tool vector to continuously change normal to the surface. The key benefit: elimination of cusp marks and significantly better surface finish. Without RTCP, 5-axis is essentially just 3+2. We run Siemens/Hiedenhein controls with full RTCP." },
+    { "question": "Why is RTCP (Rotation Tool Center Point) essential for 5-axis?", "answer": "RTCP is the soul of 5-axis. Without it, the rotary axis movements shift the tool tip position, forcing manual compensation in CAM. With RTCP, the controller automatically calculates axis offsets (pivot length, eccentricity) in real-time, keeping the tool tip absolutely stationary in space during rotation. This allows the programmer to focus purely on the tool path, not the machine kinematics. Without RTCP, you cannot perform true simultaneous surfacing. We verify RTCP accuracy with a laser interferometer to <0.005mm." },
+    { "question": "What are the optimal toolpaths for machining HRC58+ hardened steel molds?", "answer": "For hardened steel, we exclusively use high-speed hard milling (HSM) with the 'high feed, low DOC' philosophy. Recommended: (1) CBN (cubic boron nitride) or nano-grain carbide tools; (2) Semi-finish stock allowance 0.05-0.1mm, with finish DOC ae < 0.03mm; (3) Climb milling only, paired with compressed air + MQL (minimum quantity lubrication) to prevent thermal shock cracking. Typical parameters: Spindle S=18,000-24,000 RPM, Feed F=3000-4000mm/min. Achieves Ra 0.2-0.4μm, eliminating polishing time." }
+  ],
+  "qualityStandards": {
+    "materialStandards": ["ASTM A681 (Tool Steel)", "AMS 4911 (Titanium)", "ASTM A240 (Stainless)", "ASTM F1684 (Invar)"],
+    "certifications": ["AS9100D", "ISO 9001", "NADCAP (HT & NDT)"],
+    "inspection": "100% CMM contour scanning + Surface roughness (Ra/Rz) spot-check + Laser interferometer machine calibration report.",
+    "deliverables": "EN 10204 3.1 cert, Full dimensional report (FAIR per AS9102), CPK analysis, Laser-engraved UID marking per customer spec."
+  },
+  "cta": {
+    "uploadTitle": "Have a STEP/IGES model? Upload for a machining cycle time & cost estimate.",
+    "consultTitle": "Evaluating 3-axis vs. 5-axis? Book a free process review with our lead applications engineer."
+  },
+  "related": {
+    "industries": ["aerospace-structures", "injection-molds", "automotive-stamping-dies", "turbomachinery"],
+    "components": ["closed-impeller", "mold-core-cavity", "structural-housing", "blisk"],
+    "capabilities": ["5axis-simultaneous", "high-speed-machining", "cmm-inspection", "trochoidal-milling"],
+    "materials": ["hardened-steel", "ti-6al-4v", "stainless-304", "invar-36"]
+  }
+}

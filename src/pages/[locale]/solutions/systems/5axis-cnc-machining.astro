@@ -1,0 +1,11 @@
+---
+import CNC5AxisPage from "../../../../solutions/systems/5axis-cnc-machining.astro";
+export function getStaticPaths() {
+  return [
+    { params: { locale: "en" } },
+    { params: { locale: "id" } },
+  ];
+}
+const { locale } = Astro.params as { locale: string };
+---
+<CNC5AxisPage />

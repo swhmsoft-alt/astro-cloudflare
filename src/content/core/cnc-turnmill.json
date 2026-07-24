@@ -1,0 +1,64 @@
+{
+  "id": "cnc-turnmill",
+  "slug": "turn-mill-machining",
+  "name": "Turn-Mill / Multi-Tasking Machining",
+  "category": "Subtractive Manufacturing",
+  "h1": "Turn-Mill Machining | Complex Shafts & Rotational Parts · Single-Setup · Integrated Milling, Drilling & Threading",
+  "metaDescription": "Turn-mill machining for complex axisymmetric components. Eliminate manual part transfers between lathe and milling centers. Achieve 0.005mm concentricity and 30%+ cycle time reduction.",
+  "hero": {
+    "title": "One Setup. One Machine. Finished Component.",
+    "subtitle": "Long slender shafts, hydraulic pistons, and turbine disks no longer need a lathe, a mill, and a drill press. Turn-mill does it all in one.",
+    "valuePoints": [
+      { "title": "Absolute Concentricity", "description": "Eliminate re-chucking errors. Achieve true geometric alignment of bores, threads, and keyways within Φ0.005mm." },
+      { "title": "Floor-to-Floor Time", "description": "Reduce total cycle times by 40-60% by eliminating WIP queues and manual part handling." },
+      { "title": "Complex Feature Integration", "description": "Eccentric contours, Y-axis milling, helical threads, and cross-holes in a single continuous program." }
+    ]
+  },
+  "industryPainPoints": {
+    "title": "Why Manufacturers of Hydraulic & Aerospace Rotors Are Switching to Turn-Mill",
+    "content": "Conventional manufacturing of complex rotational components requires sequential operations across multiple machines: a lathe for rough turning, a machining center for milling and drilling, and often a separate grinding or threading station. Each manual transfer between machines introduces concentricity errors of 0.02 to 0.03 mm TIR, as the part must be re-chucked in a different workholding system. The chucking process itself leaves distortion marks on precision surfaces, frequently requiring an additional clean-up pass that adds 15 to 20 percent to cycle time. Setup accumulation across three or more operations means that for a typical hydraulic piston rod, only 55 percent of total floor-to-floor time is actual cutting; the remainder is queuing, handling, and re-fixturing. This workflow also multiplies quality risk: each handling step introduces potential for operator error, part damage, or incorrect datum referencing that can scrap a near-finished component.\n\nThe first critical bottleneck is whirling vibration in slender rod machining. When turning components with L/D ratios exceeding 8:1, the workpiece natural frequency drops below 80 Hz, matching the tooth-pass frequency of conventional turning tools. This resonance generates regenerative chatter that produces a characteristic chatter mark surface pattern with Ra exceeding 3.2 μm. Standard steady rests provide only partial mitigation, as they contact the already-machined surface and can introduce scoring marks of 0.01 to 0.02 mm depth. The second bottleneck is synchronization of the main and sub-spindle during part transfer. When the sub-spindle engages the workpiece for back-face machining, any angular mismatch between the two spindles causes a torsional shock that can shift the component by 0.02 to 0.05 mm at the transfer plane. Modern turn-mill centers address this through electronic synchronization with resolver feedback at 0.001 degree resolution, but legacy equipment and poorly optimized CAM post-processors frequently produce a 0.05 to 0.1 mm witness mark at the transfer line, requiring manual polishing that consumes 8 to 12 minutes per component.\n\nThe definitive case is the hydraulic piston rod machined from 304 stainless steel measuring 600 mm in length with a 50 mm diameter. The conventional process required three setups: a 25-minute lathe operation for OD turning, a 12-minute milling center transfer for the keyway and cross-hole, and an 8-minute drilling station for the internal oil passage, totaling 45 minutes floor-to-floor with a concentricity of 0.03 mm TIR. The turn-mill process completed all operations in a single setup within 22 minutes, a 51 percent reduction. Concentricity measured at the seal groove improved from 0.03 mm to 0.005 mm TIR, extending seal life from 2,000 to 8,000 operating hours. The single-setup approach eliminated three datum references, reducing accumulated positional error from 0.04 mm to 0.008 mm. Setup time between batches dropped from 50 minutes to 12 minutes. Annual production of 12,000 units saved 4,600 machine hours."
+  }
+
+,
+  "capabilityMatrix": [
+    { "stage": "① Bar Feeding / Workholding", "capabilities": ["bar-loader", "hydraulic-chuck"], "value": "Automated bar feeding for lights-out production. Collet chucks ensure consistent runout <0.01mm." },
+    { "stage": "② Main & Sub-Spindle Turning", "capabilities": ["multi-axis-turning", "live-tooling"], "value": "Synchronous main/sub-spindle transfer enables complete back-face machining in one setup." },
+    { "stage": "③ Y-Axis & B-Axis Milling", "capabilities": ["y-axis-milling", "b-axis-angular"], "value": "Off-center cross-holes, slots, and contours. B-axis (0-120°) for angular milling and drilling." },
+    { "stage": "④ Thread Whirling / Rolling", "capabilities": ["thread-whirling", "thread-rolling"], "value": "High-precision internal/external threading, including special ACME and trapezoidal forms." },
+    { "stage": "⑤ In-Situ Probing", "capabilities": ["in-process-gauging"], "value": "Tool breakage detection and thermal compensation during the run, maintaining tolerances." },
+    { "stage": "⑥ Deburring / Polishing", "capabilities": ["brush-deburring"], "value": "Integrated brush deburring eliminates secondary handwork." },
+    { "stage": "⑦ CMM Inspection", "capabilities": ["cmm-post-process"], "value": "100% CMM reporting for critical features with statistical process control (SPC)." }
+  ],
+  "materials": ["Stainless 304/316", "Titanium Ti-6Al-4V", "Invar 36", "Aluminum 7075"],
+  "techSpecs": {
+    "title": "Conventional Lathe+Mill vs. Turn-Mill – Production Efficiency Matrix",
+    "rows": [
+      { "parameter": "Total Setups Required", "Lathe+Mill": "2-3 (Lathe, Mill, Drill)", "Turn-Mill": "1" },
+      { "parameter": "Concentricity (TIR)", "Lathe+Mill": "0.02-0.03mm", "Turn-Mill": "0.003-0.005mm" },
+      { "parameter": "Complex Slender Shaft (L/D 8:1)", "Lathe+Mill": "Requires steady rests", "Turn-Mill": "Integrated sub-spindle support" },
+      { "parameter": "Typical Batch Changeover", "Lathe+Mill": "45-60 minutes", "Turn-Mill": "10-15 minutes" }
+    ]
+  },
+  "faqs": [
+    { "question": "When is a turn-mill center a better investment than a 5-axis machining center for shaft parts?", "answer": "If your component has a dominant rotational axis (diameter > length of features) but requires off-axis holes, slots, or contours, the turn-mill is superior. A 5-axis machining center struggles with long, slender parts due to workholding constraints and spindle horsepower. Turn-mills utilize the workpiece's rotational mass as the primary drive, offering higher cutting rigidity for turning operations. Specifically, for parts with L/D ratio > 4, turn-mill centers consistently deliver 2x better surface finish and 3x faster roughing rates compared to milling-first strategies." },
+    { "question": "How do you manage thermal growth on long shafts during continuous turn-mill machining?", "answer": "Thermal expansion is the #1 cause of taper in long shafts. Our approach includes: (1) Coolant-through-the-spindle to manage internal heat; (2) Integrated tool path strategies that work from the center outward to balance heat generation; (3) Real-time probing after rough passes to allow a compensation pass for finishing. Additionally, our machines feature thermally symmetric spindles and in-situ 'warm-up' cycles that standardize the thermal profile before the first cut, keeping taper below 0.005mm over 500mm length." },
+    { "question": "What are the limitations of live tooling (milling attachments) on a turn-mill?", "answer": "Live tooling on a turn-mill generally has lower horsepower and RPM compared to a dedicated machining center (typically 5-7 kW vs 15-20 kW, and 6000 RPM vs 15000 RPM). This makes heavy slab milling unproductive. However, for finishing, drilling, tapping, and contouring, they are exceptional. The solution is hybrid processing: we perform heavy turning to rough out 80% of material using the main spindle, and use live tools only for finishing and feature creation. This optimizes productivity without compromising tool life." },
+    { "question": "Can turn-mill machines handle off-center eccentric turning?", "answer": "Yes, through the use of a 'live' milling spindle that can be positioned via the Y-axis and C-axis interpolation. For eccentric turning (like camshafts or crankshafts), the C-axis locks the rotational position, and the X/Y axes interpolate a circular path relative to the fixed part, effectively functioning as a 4-axis milling machine while the part is stationary. This allows precise machining of flats, holes, and contours at precise angular positions without secondary setups." }
+  ],
+  "qualityStandards": {
+    "materialStandards": ["ASTM A276 (Stainless)", "AMS 4911 (Titanium)", "ASTM F1684 (Invar)"],
+    "certifications": ["AS9100D", "IATF 16949 (Automotive)"],
+    "inspection": "In-process gauging + Post-process CMM on 100% of critical dimensions (Position, Concentricity).",
+    "deliverables": "EN 10204 3.1, Full dimensional inspection report, Laser marking DPM code, SPC charts upon request."
+  },
+  "cta": {
+    "uploadTitle": "Have a solid model (STEP/IGES)? Get a turn-mill feasibility & cycle time estimate.",
+    "consultTitle": "Confused about lathe vs. turn-mill? Request a consultation with our machining strategist."
+  },
+  "related": {
+    "industries": ["hydraulic-cylinders", "aerospace-actuators", "medical-orthopedics", "automotive-drivetrain"],
+    "components": ["piston-rod", "actuator-housing", "bone-screw", "drive-shaft"],
+    "capabilities": ["turn-mill", "live-tooling", "thread-whirling", "cmm-inspection"],
+    "materials": ["stainless-304", "ti-6al-4v", "invar-36", "aluminum-7075"]
+  }
+}
