@@ -370,6 +370,7 @@
     { "name": "Oil & Gas Hub", "path": "src/pages/industries/oil-and-gas/index.astro", "locales": ["en"] },
     { "name": "Chemical Processing Hub", "path": "src/pages/industries/chemical-processing/index.astro", "locales": ["en"] },
     { "name": "Marine Hub", "path": "src/pages/industries/marine/index.astro", "locales": ["en"] },
+    { "name": "AM System Detail", "path": "src/pages/solutions/systems/additive-manufacturing.astro", "locales": ["en"] },
     { "name": "Defence Hub", "path": "src/pages/industries/defence/index.astro", "locales": ["en"] }
   ]
 }

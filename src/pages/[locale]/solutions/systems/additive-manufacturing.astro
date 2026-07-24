@@ -1,0 +1,11 @@
+---
+import AMSystemPage from "../../../../solutions/systems/additive-manufacturing.astro";
+export function getStaticPaths() {
+  return [
+    { params: { locale: "en" } },
+    { params: { locale: "id" } },
+  ];
+}
+const { locale } = Astro.params as { locale: string };
+---
+<AMSystemPage />

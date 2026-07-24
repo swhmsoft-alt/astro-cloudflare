@@ -1,0 +1,66 @@
+{
+  "id": "am",
+  "slug": "additive-manufacturing",
+  "name": "Additive Manufacturing (SLM / EBM / DED)",
+  "category": "Additive Manufacturing",
+  "h1": "Titanium Additive Manufacturing (SLM/EBM) | Complex Lattice Structures · Integrated Fluid Channels · Near-Net Shape with Full HIP & 5-Axis Finishing",
+  "metaDescription": "ISO 13485 / AS9100D certified supplier of additively manufactured titanium (Ti-6Al-4V, ELI, Ti6242, TA15) components. Full in-house chain: powder management, LPBF/SLM printing, vacuum annealing, HIP, EDM wire cutting, 5-axis CNC finishing, MAO passivation, and CT inspection. Serving aerospace, medical implants, and motorsport.",
+  "hero": {
+    "title": "Turning 'Impossible Geometries' into Production-Ready Parts",
+    "subtitle": "Traditional subtractive machining hits a wall with internal conformal cooling, organic lattices, and topology-optimized structures. AM makes them one-shot possibilities.",
+    "valuePoints": [
+      { "title": "Weight Reduction 40–70%", "description": "Lattice and topology optimization replace solid volumes, achieving strength-to-weight ratios unattainable by casting or CNC." },
+      { "title": "Functional Integration", "description": "Consolidate 10+ parts into a single print. Eliminate weld seams, braze joints, and mechanical fastening weak points." },
+      { "title": "Agile Iteration", "description": "Design changes go from CAD to build plate in hours. No hard tooling means your engineering team can iterate daily." }
+    ]
+  },
+  "industryPainPoints": {
+    "title": "Why Aerospace & Orthopedic Implant Engineers Are Forced to Adopt AM",
+    "content": "Conventional subtractive machining faces inherent geometric limitations when processing titanium alloys for advanced applications. Tool shank interference prevents access to internal cavities with aspect ratios exceeding 4:1, making conformal cooling channels, organic lattice networks, and deep undercuts impossible to produce by milling alone. Material utilization for complex titanium components machined from solid billet rarely exceeds 10%, with 90% converted to costly, contamination-prone swarf that is difficult to recycle. Welded assemblies, the traditional workaround for hollow or multi-cavity designs, introduce heat-affected zones with reduced fatigue strength and stress corrosion cracking susceptibility. Studies of cyclically loaded titanium weldments show that 78% of failures originate at the weld toe or heat-affected zone interface, creating an unacceptable risk profile for flight-critical and implant-grade hardware.\n\nThe first critical bottleneck is as-printed surface roughness in internal fluid channels. SLM-produced Ti-6Al-4V surfaces exhibit Ra 6–10 μm with partially adhered powder particles, causing pressure drops 300–500% higher than machined equivalents. For regenerative cooling channels in rocket thrust chambers or fuel injector internal passages, this roughness penalty directly degrades thermal management efficiency and atomization quality. The second bottleneck is residual stress-induced distortion in thin-walled lattice structures. During laser powder bed fusion, steep thermal gradients exceeding 10⁶ K/m generate tensile residual stresses in the melt pool vicinity. Without optimized scanning strategies such as island scanning with 67° inter-layer rotation, thin struts of 0.3–0.8 mm diameter suffer macroscopic bending, delamination from support structures, and occasional inter-layer cracking. Support structure removal for internal channels and overhanging lattices remains a manual, labor-intensive operation that accounts for 25–35% of total part cost in geometrically complex builds.\n\nThe most compelling validation of additive manufacturing's value is the GE LEAP engine fuel nozzle. Previously manufactured as 18 separate components requiring 25 brazing operations, the redesigned single-piece AM nozzle eliminated all braze joint failure modes while reducing weight from 320 g to 185 g — a 42% reduction. The process capability index (CPK) for critical flow-path dimensions improved from 0.85, which is unacceptable per Six Sigma standards, to 1.72, well exceeding the 1.67 excellence threshold. Lead time from design freeze to production-ready parts dropped from 84 days to 12 days. Inspection burden was reduced by 78% since no braze joint verification was required. The nozzle has accumulated over 100,000 flight hours in service without a single AM-related failure. These metrics are now replicated across aerospace structural brackets, orthopedic spinal cages, and motorsport heat exchangers where part consolidation, weight reduction, and geometric freedom create undeniable competitive advantage."
+  }
+,
+  "capabilityMatrix": [
+    { "stage": "① Powder Management", "capabilities": ["prep-gas-atomization", "prep-sieving", "prep-drying"], "value": "Sphericity >96%, O₂ content <1500 ppm, 100% batch traceability (EN 10204 3.1)." },
+    { "stage": "② LPBF / EBM Printing", "capabilities": ["slm-printing", "ebm-printing", "lpbf"], "value": "Ti-6Al-4V, ELI, Ti6242, TA15. Build volume up to 400x400x400mm. Minimum wall thickness 0.3mm." },
+    { "stage": "③ Thermal Processing", "capabilities": ["vacuum-annealing", "hip"], "value": "Stress relief + Hot Isostatic Pressing (HIP) to close internal porosity. Achieve 99.99% theoretical density." },
+    { "stage": "④ Support Removal", "capabilities": ["wire-edm", "sinker-edm", "precision-milling"], "value": "Non-contact EDM separation preserves datum surfaces. Minimize post-machining stock." },
+    { "stage": "⑤ 5-Axis Finish Machining", "capabilities": ["5axis-cnc", "deep-hole-drilling"], "value": "Machine critical mating faces, threads, and bearing journals to ±0.01mm tolerance." },
+    { "stage": "⑥ Surface Engineering", "capabilities": ["micro-arc-oxidation", "passivation", "electropolish"], "value": "Tailor surface for bone ingrowth (MAO) or corrosion resistance (ASTM F86 passivation)." },
+    { "stage": "⑦ NDT & Release", "capabilities": ["industrial-ct", "cmm", "helium-leak"], "value": "100% CT volumetric inspection + CMM dimensional report. Zero-defect gateway." }
+  ],
+  "materials": ["Ti-6Al-4V (Grade 5)", "Ti-6Al-4V ELI (Grade 23)", "Ti-6Al-2Sn-4Zr-2Mo", "TA15", "Commercially Pure Ti (Grade 2)"],
+  "techSpecs": {
+    "title": "SLM vs EBM vs DED – Critical Process Selection Matrix",
+    "rows": [
+      { "parameter": "Max Build Envelope", "SLM": "400x400x400 mm", "EBM": "Φ350x380 mm", "DED": "2000x1500x1000 mm" },
+      { "parameter": "Min Feature Size", "SLM": "0.3 mm", "EBM": "0.8 mm", "DED": "1.5 mm" },
+      { "parameter": "Surface Roughness (as-built)", "SLM": "Ra 6-10 μm", "EBM": "Ra 12-16 μm", "DED": "Ra 25-50 μm" },
+      { "parameter": "Oxygen Pickup Risk", "SLM": "Low (Argon)", "EBM": "Ultra-Low (Vacuum)", "DED": "Moderate (Shroud)" }
+    ]
+  }
+
+
+,
+  "faqs": [
+    { "question": "What post-processing is absolutely required for Ti-6Al-4V AM parts?", "answer": "At minimum, vacuum stress relief (600-800°C) and HIP (920°C / 100MPa / 2h) are mandatory to eliminate anisotropic mechanical properties and close lack-of-fusion porosity. Without HIP, Ti-6Al-4V elongation typically fails below 5%. Additionally, EDM wire cutting is required to detach parts from the build plate without inducing micro-cracks. Surface finishing (e.g., micro-arc oxidation or electropolishing) is application-dependent." },
+    { "question": "How do you control oxygen content during titanium printing?", "answer": "Oxygen embrittlement is the #1 killer of titanium ductility. Our SLM/EBM systems maintain an inert atmosphere (Argon for SLM, vacuum for EBM) with continuous in-situ monitoring. The powder feedstock is sourced from PREP or gas-atomized routes with initial O₂ < 1300 ppm. During printing, the chamber O₂ is held below 100 ppm. Post-printing, vacuum annealing (1e-3 Pa) prevents further oxidation during thermal cycles. We guarantee final part O₂ < 2000 ppm per ASTM F2924." },
+    { "question": "What standards do you use for medical implant qualification?", "answer": "We adhere strictly to ASTM F3001 for Ti-6Al-4V ELI, ISO 13485 for quality management, and FDA's 21 CFR Part 820. Each implant lot undergoes 100% industrial CT to verify internal lattice integrity (pore size 650μm ± 50μm, porosity 70% ± 5%), followed by surface roughness (Ra 1.0-1.5μm for bone on-growth) and biocompatibility testing per ISO 10993. Full material lot traceability is provided." },
+    { "question": "What is the realistic lead time for a prototype versus production run?", "answer": "For prototypes (1-5 pieces), lead time is 5-7 business days covering print, HIP, EDM removal, and basic inspection. For production runs (50-200 pieces), the lead time extends to 15-20 business days to allow for qualified powder batches, multi-laser print optimization, and full CMM/CT inspection per AS9102 FAI requirements. We support expedited 'rapid iteration' services (72 hours) for design validation stages." }
+  ],
+  "qualityStandards": {
+    "materialStandards": ["ASTM F2924 (Ti-6Al-4V)", "ASTM F3001 (ELI)", "AMS 4999 (Ti-6Al-4V)", "EN 10204 3.1"],
+    "certifications": ["AS9100D (Aerospace)", "ISO 13485 (Medical)", "NADCAP (Non-destructive Testing)"],
+    "inspection": "100% CT volumetric analysis (defect < 200μm rejection) + CMM dimensional per ASME Y14.5 + Mechanical witness samples (tensile, charpy, hardness) per batch.",
+    "deliverables": "EN 10204 3.1 Material Cert, CMM Full Dimension Report, CT Scan Report (PDF + 3D .vgl), UID Laser Marking per MIL-STD-130, and Risk Management File (ISO 14971 for medical)."
+  },
+  "cta": {
+    "uploadTitle": "Have a STEP/STL file? Get an AM feasibility & quoting analysis within 24 hours.",
+    "consultTitle": "Still evaluating AM vs traditional routes? Book a 1-on-1 consultation with our Sr. Additive Engineer."
+  },
+  "related": {
+    "industries": ["aerospace-titanium-solutions", "medical-implant-manufacturing", "chemical-equipment-titanium", "motorsport-lightweight"],
+    "components": ["fuel-injector-nozzle", "spinal-cage", "satellite-bracket", "porous-heat-exchanger"],
+    "capabilities": ["slm-printing", "hot-isostatic-pressing", "micro-arc-oxidation", "industrial-ct-inspection", "wire-edm"],
+    "materials": ["ti-6al-4v", "ti-6al-4v-eli", "ta15-titanium", "ti-grade-2", "ti6242"]
+  }
+}

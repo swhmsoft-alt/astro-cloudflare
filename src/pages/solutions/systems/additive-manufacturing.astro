@@ -1,0 +1,205 @@
+---
+import MarketingLayout from "../../../layouts/MarketingLayout.astro";
+import { siteConfig } from "../../../config/site.config";
+import { buildFAQSchema } from "../../../lib/schema";
+import { resolveRoute } from "../../../i18n/routes";
+import type { Locale } from "../../../lib/site-config";
+import amData from "../../../content/core/am.json";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+const data = amData;
+const path = "/solutions/systems/additive-manufacturing";
+const pageUrl = siteConfig.url + resolveRoute(locale, path);
+
+const faqSchema = buildFAQSchema(data.faqs);
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: data.name,
+  description: data.metaDescription,
+  category: data.category,
+  url: pageUrl,
+  manufacturer: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+};
+const jsonLd = [faqSchema, productSchema];
+---
+
+<MarketingLayout
+  title={data.name}
+  description={data.metaDescription}
+  locale={locale}
+  path={path}
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="container py-16 md:py-24">
+    <div class="mx-auto max-w-4xl text-center">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">{data.hero.title}</h1>
+      <p class="mt-6 text-lg text-muted-foreground md:text-xl">{data.hero.subtitle}</p>
+    </div>
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
+      {data.hero.valuePoints.map((vp) => (
+        <div class="rounded-lg border bg-card p-6 text-center shadow-sm">
+          <h3 class="text-lg font-semibold">{vp.title}</h3>
+          <p class="mt-2 text-sm text-muted-foreground">{vp.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Industry Pain Points -->
+  <section class="bg-muted/30 py-16">
+    <div class="container">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight">{data.industryPainPoints.title}</h2>
+        <article class="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
+          {data.industryPainPoints.content.split("\n\n").map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capability Matrix -->
+  <section class="container py-16">
+    <h2 class="mb-10 text-center text-3xl font-bold tracking-tight">In-House AM Value Chain</h2>
+    <div class="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {data.capabilityMatrix.map((item) => (
+        <div class="flex flex-col rounded-lg border bg-card p-5 shadow-sm">
+          <h3 class="text-base font-semibold">{item.stage}</h3>
+          <div class="mt-2 flex flex-wrap gap-1">
+            {item.capabilities.map((cap: string) => (
+              <span class="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">{cap}</span>
+            ))}
+          </div>
+          <p class="mt-3 text-sm text-muted-foreground">{item.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Materials -->
+  <section class="bg-muted/30 py-16">
+    <div class="container">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight">Supported Titanium Materials</h2>
+        <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+          {data.materials.map((mat: string) => (
+            <li class="rounded-lg border bg-card px-5 py-3 text-sm font-medium shadow-sm">{mat}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Specs -->
+  <section class="container py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-8 text-center text-3xl font-bold tracking-tight">{data.techSpecs.title}</h2>
+      <div class="overflow-x-auto rounded-lg border">
+        <table class="min-w-full divide-y text-sm">
+          <thead class="bg-muted/50">
+            <tr>
+              <th class="px-4 py-3 text-left font-semibold">Parameter</th>
+              <th class="px-4 py-3 text-left font-semibold">SLM</th>
+              <th class="px-4 py-3 text-left font-semibold">EBM</th>
+              <th class="px-4 py-3 text-left font-semibold">DED</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y">
+            {data.techSpecs.rows.map((row, i: number) => (
+              <tr class={i % 2 === 0 ? "bg-background" : "bg-muted/20"}>
+                <td class="px-4 py-3 font-medium">{row.parameter}</td>
+                <td class="px-4 py-3 text-muted-foreground">{row.SLM}</td>
+                <td class="px-4 py-3 text-muted-foreground">{row.EBM}</td>
+                <td class="px-4 py-3 text-muted-foreground">{row.DED}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Standards -->
+  <section class="bg-muted/30 py-16">
+    <div class="container">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-8 text-center text-3xl font-bold tracking-tight">Quality & Certification</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="rounded-lg border bg-card p-6 shadow-sm">
+            <h3 class="font-semibold">Material Standards</h3>
+            <ul class="mt-3 space-y-1">
+              {data.qualityStandards.materialStandards.map((s: string) => (
+                <li class="text-sm text-muted-foreground">• {s}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-lg border bg-card p-6 shadow-sm">
+            <h3 class="font-semibold">Certifications</h3>
+            <ul class="mt-3 space-y-1">
+              {data.qualityStandards.certifications.map((c: string) => (
+                <li class="text-sm text-muted-foreground">• {c}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-lg border bg-card p-6 shadow-sm md:col-span-2">
+            <h3 class="font-semibold">Inspection Protocol</h3>
+            <p class="mt-2 text-sm text-muted-foreground">{data.qualityStandards.inspection}</p>
+          </div>
+          <div class="rounded-lg border bg-card p-6 shadow-sm md:col-span-2">
+            <h3 class="font-semibold">Deliverables</h3>
+            <p class="mt-2 text-sm text-muted-foreground">{data.qualityStandards.deliverables}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container py-16" itemscope="" itemtype="https://schema.org/FAQPage">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-8 text-center text-3xl font-bold tracking-tight">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        {data.faqs.map((faq) => (
+          <div class="rounded-lg border bg-card shadow-sm" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details class="group">
+              <summary class="flex cursor-pointer items-center justify-between px-5 py-4 font-medium">
+                <span itemprop="name">{faq.question}</span>
+                <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </summary>
+              <div class="border-t px-5 py-4 text-sm text-muted-foreground" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">{faq.answer}</div>
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-muted/30 py-16">
+    <div class="container">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-2xl font-bold tracking-tight">{data.cta.uploadTitle}</h2>
+        <p class="mt-4 text-muted-foreground">{data.cta.consultTitle}</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href={resolveRoute(locale, "/rfq/request-quote/")} class="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+            Upload Drawing →
+          </a>
+          <a href={resolveRoute(locale, "/rfq/dfm-review/")} class="inline-flex items-center rounded-lg border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-colors hover:bg-muted/50">
+            Book a Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>
