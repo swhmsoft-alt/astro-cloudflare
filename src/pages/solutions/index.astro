@@ -20,14 +20,16 @@ interface PageSection {
   content?: string;
   ctaText?: string;
   ctaHref?: string;
-  items?: { title?: string; description?: string; icon?: string }[];
+  items?: { title?: string; description?: string; icon?: string; slug?: string }[];
 }
 
 const sections: PageSection[] = page?.data.sections || [];
 const heroSection = sections.find((s) => s.type === "hero");
 const featuresSection = sections.find((s) => s.type === "features");
+const systemsSection = sections.find((s) => s.type === "systems");
 const ctaSection = sections.find((s) => s.type === "cta");
 const featureItems = featuresSection?.items || [];
+const systemItems = systemsSection?.items || [];
 
 // Emoji map for solution category icons (used at build time)
 const emojiMap: Record<string, string> = {
@@ -43,6 +45,8 @@ const emojiMap: Record<string, string> = {
   "smartwatch": "⌚",
   "cog": "⚙️",
   "leaf": "🌿",
+  "printer": "🖨️",
+  "drill": "🔧",
 };
 
 // Map feature items to their slug identifiers
@@ -99,6 +103,37 @@ const solutionSlugs = [
                 >
                   <div class="solution-card__icon">
                     {item.icon && <span class="solution-card__emoji">{emojiMap[item.icon] || ""}</span>}
+                  </div>
+                  <h3 class="solution-card__title">{item.title}</h3>
+                  <p class="solution-card__desc">{item.description}</p>
+                  <span class="solution-card__cta">Learn more &rarr;</span>
+                </a>
+              );
+            })
+          }
+        </div>
+      </section>
+    )
+  }
+  {
+    systemsSection && (
+      <section class="c py-16">
+        <header class="section-head">
+          <p class="section-head__eyebrow">Manufacturing Systems</p>
+          <h2 class="section-head__title">{systemsSection.title}</h2>
+        </header>
+        <div class="solutions-grid">
+          {
+            systemItems.map((item) => {
+              const slug = item.slug;
+              if (!slug) return null;
+              return (
+                <a
+                  href={resolveRoute(locale, `/solutions/systems/${slug}/`)}
+                  class="solution-card"
+                >
+                  <div class="solution-card__icon">
+                    {item.icon && <span class="solution-card__emoji">{emojiMap[item.icon] || "⚙️"}</span>}
                   </div>
                   <h3 class="solution-card__title">{item.title}</h3>
                   <p class="solution-card__desc">{item.description}</p>

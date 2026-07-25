@@ -47,6 +47,21 @@ sections:
       - title: Environmental Engineering
         description: Water treatment components, pollution control equipment, and sustainable engineering solutions in titanium.
         icon: leaf
+  - type: systems
+    title: Manufacturing Systems
+    items:
+      - title: Additive Manufacturing (SLM / EBM / DED)
+        description: Metal 3D printing for titanium components using selective laser melting, electron beam melting, and directed energy deposition.
+        icon: printer
+        slug: additive-manufacturing
+      - title: CNC 5-Axis Machining
+        description: Simultaneous 5-axis CNC machining for complex titanium geometries with tight tolerances and superior surface finish.
+        icon: drill
+        slug: 5axis-cnc-machining
+      - title: Turn-Mill Machining
+        description: Multi-tasking turn-mill centers for complete titanium part processing in a single setup — reduce lead times and improve accuracy.
+        icon: cog
+        slug: turn-mill-machining
   - type: cta
     title: Ready to Start Your Project?
     content: Upload your drawing or contact our engineering team for a free DFM review and quote within 24 hours.
