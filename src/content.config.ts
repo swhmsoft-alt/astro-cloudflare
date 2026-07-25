@@ -54,7 +54,7 @@ const docs = defineCollection({
 });
 
 const pageSectionSchema = z.object({
-  type: z.enum(["hero", "cta", "features", "faq", "trust"]),
+  type: z.enum(["hero", "cta", "features", "faq", "trust", "systems"]),
   title: z.string().optional(),
   content: z.string().optional(),
   ctaText: z.string().optional(),
@@ -65,6 +65,7 @@ const pageSectionSchema = z.object({
         title: z.string().optional(),
         description: z.string().optional(),
         icon: z.string().optional(),
+        slug: z.string().optional(),
       }),
     )
     .optional(),
