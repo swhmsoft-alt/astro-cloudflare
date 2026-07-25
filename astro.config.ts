@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 import { readdir, readFile } from "node:fs/promises";
-import { join, extname, basename } from "node:path";
+import { join, extname, basename, resolve } from "node:path";
 import { siteConfig } from "./src/config/site.config";
 
 async function collectFiles(dir: string, extensions: string[]): Promise<string[]> {
@@ -195,6 +195,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@pages": resolve(process.cwd(), "src/pages"),
+      },
+    },
   },
   build: {
     format: "directory",
