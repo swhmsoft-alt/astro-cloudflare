@@ -6,7 +6,7 @@ import { resolveRoute } from "../../i18n/routes";
 import type { Locale } from "../../lib/site-config";
 
 export interface Props {
-  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment";
+  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion";
   pageTitle: string;
   pageDescription: string;
   locale: Locale;
@@ -27,6 +27,10 @@ const collectionLabels: Record<string, string> = {
   standards: "knowledge.standards",
   surfaceFinishes: "knowledge.surfaceFinishes",
   equipment: "knowledge.equipment",
+  "material-selection": "knowledge.materialSelection",
+  "failure-analysis": "knowledge.failureAnalysis",
+  "heat-treatment": "knowledge.heatTreatment",
+  corrosion: "knowledge.corrosion",
 };
 ---
 

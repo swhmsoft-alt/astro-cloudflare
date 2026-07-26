@@ -43,8 +43,10 @@ Heat treatment for titanium alloys involves controlled heating and cooling cycle
 - Solution treatment and aging of Ti-10V-2Fe-3Al for maximum strength
 - Beta annealing of Ti-6242 for improved creep resistance
 
-## RFQ CTA
+## References
 
-**Need heat treatment for your titanium components?**  
-We offer vacuum and atmosphere heat treatment for titanium alloys with full temperature recording. [Submit an RFQ](/rfq/request-quote/) for a quote.
+- ASTM B265 -- Standard Specification for Titanium and Titanium Alloy Strip, Sheet, and Plate
+- AMS 2759 -- Heat Treatment of Titanium Alloys
+- AMS 2801 -- Heat Treatment of Titanium Alloy Raw Materials
+- ASM Handbook Volume 4: Heat Treating of Nonferrous Alloys
 

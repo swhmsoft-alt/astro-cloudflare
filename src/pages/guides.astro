@@ -11,7 +11,7 @@ const locale = (Astro.currentLocale || "en") as Locale;
 const guideTypes = ["material-selection", "machining", "design", "procurement", "industry"];
 const listUrl = siteConfig.url + resolveRoute(locale, "/guides/");
 const collectionSchema = buildCollectionPageSchema({
-  name: "Titanium Manufacturing Guides",
+  name: "Titanium Engineering Guides",
   description: "Step-by-step guides for titanium material selection, machining, design, procurement, and industry applications.",
   url: listUrl,
   numberOfItems: guideTypes.length,
@@ -53,7 +53,7 @@ const guideCategories: GuideCategory[] = [
       { label: "Run a side-by-side grade comparison", href: "/compare/" },
       { label: "Check applicable standards & certifications", href: "/knowledge/standards/" },
     ],
-    cta: { label: "Get a quote for your grade \u2192", href: "/rfq/request-quote/" },
+    cta: { label: "Compare titanium grades", href: "/compare/" },
   },
   {
     key: "machining",
@@ -64,7 +64,7 @@ const guideCategories: GuideCategory[] = [
       { label: "Compare precision, cost & lead time", href: "/compare/" },
       { label: "See real production case studies", href: "/knowledge/cases/" },
     ],
-    cta: { label: "Request a machining quote \u2192", href: "/rfq/request-quote/" },
+    cta: { label: "Compare processes", href: "/compare/" },
   },
   {
     key: "design",
@@ -75,18 +75,18 @@ const guideCategories: GuideCategory[] = [
       { label: "Choose a surface finish", href: "/knowledge/surface-finishes/" },
       { label: "Confirm design standards compliance", href: "/knowledge/standards/" },
     ],
-    cta: { label: "Submit for DFM review \u2192", href: "/rfq/dfm-review/" },
+    cta: { label: "Read technical evidence", href: "/knowledge/evidence/" },
   },
   {
     key: "procurement",
     titleKey: "guides.category.procurement",
-    goal: "I need to send an RFQ and get production started.",
+    goal: "I need to prepare specifications and find qualified suppliers.",
     steps: [
       { label: "Prepare your drawing and specifications", href: "/knowledge/procurement/" },
-      { label: "Upload your part file (STEP, IGES, PDF)", href: "/rfq/upload-drawing/" },
-      { label: "Understand lead times and quality certs", href: "/knowledge/standards/" },
+      { label: "Review material certifications and standards", href: "/knowledge/standards/" },
+      { label: "Understand lead times and quality requirements", href: "/knowledge/standards/" },
     ],
-    cta: { label: "Submit your RFQ now \u2192", href: "/rfq/request-quote/" },
+    cta: { label: "Browse procurement guides", href: "/knowledge/procurement/" },
   },
   {
     key: "industry",
@@ -97,12 +97,10 @@ const guideCategories: GuideCategory[] = [
       { label: "Review relevant materials and processes", href: "/knowledge/materials/" },
       { label: "Read application case studies", href: "/knowledge/cases/" },
     ],
-    cta: { label: "Get an industry-compliant quote \u2192", href: "/rfq/request-quote/" },
+    cta: { label: "Explore industry guides", href: "/knowledge/industries/" },
   },
 ];
 ---
-
-
 
 <MarketingLayout
   title={t(locale, "guides.pageTitle")}
@@ -123,24 +121,31 @@ const guideCategories: GuideCategory[] = [
     <div class="guides-grid">
       {
         guideCategories.map((cat) => (
-          <article class="guide-card">
+          <article class="guide-card" id={cat.key}>
             <div class="guide-card__header">
-              <span class="guide-card__badge">{cat.steps.length} steps</span>
-              <h2 class="guide-card__title">{t(locale, cat.titleKey)}</h2>
+              <h2 class="guide-card__title">
+                {t(locale, cat.titleKey)}
+              </h2>
+              <span class="guide-card__badge">
+                {t(locale, "guides.browseCategory")}
+              </span>
             </div>
             <p class="guide-card__goal">{cat.goal}</p>
             <ol class="guide-card__steps">
-              {cat.steps.map((step, i) => (
+              {cat.steps.map((step) => (
                 <li class="guide-card__step">
-                  <span class="guide-card__step-num">{i + 1}</span>
-                  <a href={resolveRoute(locale, step.href)} class="guide-card__step-link">
+                  <span class="guide-card__step-num"></span>
+                  <a
+                    href={resolveRoute(locale, step.href)}
+                    class="guide-card__step-link"
+                  >
                     {step.label}
                   </a>
                 </li>
               ))}
             </ol>
             <a href={resolveRoute(locale, cat.cta.href)} class="guide-card__cta">
-              {cat.cta.label}
+              {cat.cta.label} &rarr;
             </a>
           </article>
         ))

@@ -23,7 +23,7 @@ const knowledgeHubs = [
   },
   {
     titleKey: "knowledge.industries",
-    description: "Titanium applications across aerospace, medical, semiconductor, robotics, and energy industries.",
+    description: "Titanium applications across aerospace, medical, semiconductor, and energy industries.",
     href: "/knowledge/industries/",
     icon: "lucide:building-2",
   },
@@ -40,10 +40,28 @@ const knowledgeHubs = [
     icon: "lucide:sparkles",
   },
   {
-    titleKey: "knowledge.equipment",
-    description: "Machines and equipment for precision titanium manufacturing: Mazak, DMG Mori, and wire EDM machines.",
-    href: "/knowledge/equipment/",
-    icon: "lucide:hard-drive",
+    titleKey: "knowledge.materialSelection",
+    description: "Application-based grade comparison and selection guides for titanium alloys. Compare properties across grades to select the optimal material.",
+    href: "/knowledge/material-selection/",
+    icon: "lucide:git-compare",
+  },
+  {
+    titleKey: "knowledge.failureAnalysis",
+    description: "Hydrogen embrittlement, stress corrosion cracking, deformation, and defect prevention in titanium components.",
+    href: "/knowledge/failure-analysis/",
+    icon: "lucide:search-x",
+  },
+  {
+    titleKey: "knowledge.heatTreatment",
+    description: "Annealing, solution treatment, aging, and microstructure control for titanium alloys. Process parameters and metallurgical outcomes.",
+    href: "/knowledge/heat-treatment/",
+    icon: "lucide:thermometer",
+  },
+  {
+    titleKey: "knowledge.corrosion",
+    description: "Titanium performance in seawater, acid, chloride, and high-temperature environments. Passive film formation and alloy selection.",
+    href: "/knowledge/corrosion/",
+    icon: "lucide:shield",
   },
   {
     titleKey: "knowledge.evidence",
@@ -63,12 +81,30 @@ const knowledgeHubs = [
     href: "/knowledge/applications/",
     icon: "lucide:target",
   },
+  {
+    titleKey: "knowledge.comparisons",
+    description: "Side-by-side comparisons of titanium grades, manufacturing processes, and material alternatives with quantified data for informed engineering decisions.",
+    href: "/compare/",
+    icon: "lucide:arrow-left-right",
+  },
+  {
+    titleKey: "knowledge.guides",
+    description: "Step-by-step guides for titanium material selection, machining, design for manufacturing, procurement, and industry-specific best practices.",
+    href: "/guides/",
+    icon: "lucide:book-open",
+  },
+  {
+    titleKey: "knowledge.procurement",
+    description: "Procurement and purchasing guides for titanium components: RFQ best practices, supplier qualification, material certification, lead times, and commercial terms.",
+    href: "/knowledge/procurement/",
+    icon: "lucide:clipboard-check",
+  },
 ];
 ---
 
 <MarketingLayout
   title={t(locale, "knowledge.browse")}
-  description="Browse the titanium manufacturing knowledge base — materials, processes, industries, standards, and equipment guides."
+  description="Browse the titanium engineering knowledge base — materials, processes, industries, standards, surface finishes, and technical guides."
   locale={locale}
   path="/knowledge/"
 >
@@ -77,7 +113,7 @@ const knowledgeHubs = [
       <p class="section-head__eyebrow">Knowledge Base</p>
       <h1 class="section-head__title">{t(locale, "knowledge.browse")}</h1>
       <p class="section-head__lead">
-        Comprehensive technical guides on titanium materials, manufacturing processes, industry applications, standards, surface finishes, and equipment.
+        Comprehensive technical guides on titanium materials, manufacturing processes, industry applications, standards, surface finishes, and technical references.
       </p>
     </header>
 
@@ -88,7 +124,7 @@ const knowledgeHubs = [
             <div class="knowledge-card__content">
               <h2 class="knowledge-card__title">{t(locale, hub.titleKey)}</h2>
               <p class="knowledge-card__description">{hub.description}</p>
-              <span class="knowledge-card__cta">{t(locale, "blog.learnMore")} →</span>
+              <span class="knowledge-card__cta">{t(locale, "blog.learnMore")} &rarr;</span>
             </div>
           </a>
         ))

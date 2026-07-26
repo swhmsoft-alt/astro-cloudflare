@@ -1,0 +1,14 @@
+---
+import EntityPillar from "../_EntityPillar.astro";
+import type { Locale } from "../../../lib/site-config";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+const path = "/knowledge/material-selection/";
+---
+<EntityPillar
+  collectionName="material-selection"
+  pageTitle="Material Selection Guides"
+  pageDescription="Application-based grade comparison and selection guides for titanium alloys. Compare mechanical properties, corrosion resistance, and formability across grades to select the optimal material for your engineering application."
+  locale={locale}
+  path={path}
+/>

@@ -55,13 +55,13 @@ const hasImageSlot = Astro.slots.has("image");
       (primaryCta || props.secondaryCta) && (
         <div class="hero__actions">
           {primaryCta && (
-            <Button href={resolveRoute(locale, primaryCta.href)}>
+            <Button href={primaryCta.href.startsWith("http") ? primaryCta.href : resolveRoute(locale, primaryCta.href)}>
               {primaryCta.label}
             </Button>
           )}
           {props.secondaryCta && (
             <Button
-              href={resolveRoute(locale, props.secondaryCta.href)}
+              href={props.secondaryCta.href.startsWith("http") ? props.secondaryCta.href : resolveRoute(locale, props.secondaryCta.href)}
               variant="secondary"
             >
               {props.secondaryCta.label}

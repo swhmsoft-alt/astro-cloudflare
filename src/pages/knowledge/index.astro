@@ -38,10 +38,28 @@ const knowledgeHubs = [
     icon: "lucide:sparkles",
   },
   {
-    titleKey: "knowledge.equipment",
-    description: "Machines and equipment for precision titanium manufacturing: Mazak, DMG Mori, and wire EDM machines.",
-    href: "/knowledge/equipment/",
-    icon: "lucide:hard-drive",
+    titleKey: "knowledge.materialSelection",
+    description: "Application-based grade comparison and selection guides for titanium alloys. Compare properties across grades to select the optimal material.",
+    href: "/knowledge/material-selection/",
+    icon: "lucide:git-compare",
+  },
+  {
+    titleKey: "knowledge.failureAnalysis",
+    description: "Hydrogen embrittlement, stress corrosion cracking, deformation, and defect prevention in titanium components.",
+    href: "/knowledge/failure-analysis/",
+    icon: "lucide:search-x",
+  },
+  {
+    titleKey: "knowledge.heatTreatment",
+    description: "Annealing, solution treatment, aging, and microstructure control for titanium alloys. Process parameters and metallurgical outcomes.",
+    href: "/knowledge/heat-treatment/",
+    icon: "lucide:thermometer",
+  },
+  {
+    titleKey: "knowledge.corrosion",
+    description: "Titanium performance in seawater, acid, chloride, and high-temperature environments. Passive film formation and alloy selection.",
+    href: "/knowledge/corrosion/",
+    icon: "lucide:shield",
   },
   {
     titleKey: "knowledge.evidence",
@@ -84,7 +102,7 @@ const knowledgeHubs = [
 
 <MarketingLayout
   title={t(locale, "knowledge.browse")}
-  description="Browse the titanium manufacturing knowledge base — materials, processes, industries, standards, and equipment guides."
+  description="Browse the titanium engineering knowledge base — materials, processes, industries, standards, surface finishes, and technical guides."
   locale={locale}
   path="/knowledge/"
 >
@@ -93,7 +111,7 @@ const knowledgeHubs = [
       <p class="section-head__eyebrow">Knowledge Base</p>
       <h1 class="section-head__title">{t(locale, "knowledge.browse")}</h1>
       <p class="section-head__lead">
-        Comprehensive technical guides on titanium materials, manufacturing processes, industry applications, standards, surface finishes, and equipment.
+        Comprehensive technical guides on titanium materials, manufacturing processes, industry applications, standards, surface finishes, and technical references.
       </p>
     </header>
 

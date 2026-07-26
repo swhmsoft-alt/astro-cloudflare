@@ -93,7 +93,7 @@ export const siteConfig: SiteConfig = {
   url: "https://titanium.blog",
   name: "titanium.blog",
   description:
-    "The global knowledge hub for titanium manufacturing. Expert guides on titanium grades, CNC machining, 5-axis milling, turning, wire EDM, additive manufacturing, and industry applications.",
+    "The independent titanium engineering knowledge hub. Expert technical guides on titanium grades, material selection, corrosion resistance, heat treatment, failure analysis, and manufacturing processes. Built for engineers, designers, and material researchers worldwide.",
   author: "Titanium Blog Team",
   email: "hello@titanium.blog",
   authorImage: "/images/author.jpg",

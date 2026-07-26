@@ -1,0 +1,14 @@
+---
+import EntityPillar from "../_EntityPillar.astro";
+import type { Locale } from "../../../lib/site-config";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+const path = "/knowledge/failure-analysis/";
+---
+<EntityPillar
+  collectionName="failure-analysis"
+  pageTitle="Failure Analysis"
+  pageDescription="Hydrogen embrittlement, stress corrosion cracking, deformation, and defect prevention in titanium components. Understand failure mechanisms, inspection methods, and mitigation strategies."
+  locale={locale}
+  path={path}
+/>

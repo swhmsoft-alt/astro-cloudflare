@@ -19,56 +19,6 @@ export interface NavItem {
   groupLabel?: string;
 }
 
-/** Mega menu group for Services hub */
-export const serviceMegaMenu: NavItem[][] = [
-  [
-    {
-      href: "/services/",
-      labelKey: "nav.byProcess",
-      groupLabel: "nav.byProcess",
-      children: [
-        { href: "/services/titanium-cnc-machining/", labelKey: "nav.titaniumCnc" },
-        { href: "/services/5-axis-titanium-machining/", labelKey: "nav.titanium5axis" },
-        { href: "/services/titanium-milling/", labelKey: "nav.titaniumMilling" },
-        { href: "/services/titanium-turning/", labelKey: "nav.titaniumTurning" },
-        { href: "/services/titanium-wire-edm/", labelKey: "nav.titaniumWireEdm" },
-        { href: "/services/titanium-additive-manufacturing/", labelKey: "nav.titaniumAdditive" },
-      ],
-    },
-    {
-      href: "/services/",
-      labelKey: "nav.byMaterial",
-      groupLabel: "nav.byMaterial",
-      children: [
-        { href: "/services/grade-5-titanium-machining/", labelKey: "nav.grade5Machining" },
-        { href: "/services/grade-23-titanium-machining/", labelKey: "nav.grade23Machining" },
-      ],
-    },
-    {
-      href: "/services/",
-      labelKey: "nav.byIndustry",
-      groupLabel: "nav.byIndustry",
-      children: [
-        { href: "/services/aerospace-titanium-components/", labelKey: "nav.aerospaceComp" },
-        { href: "/services/medical-titanium-components/", labelKey: "nav.medicalComp" },
-        { href: "/services/semiconductor-titanium-parts/", labelKey: "nav.semiconductorComp" },
-      ],
-    },
-  ],
-  [
-    {
-      href: "/rfq/upload-drawing/",
-      labelKey: "nav.uploadDrawing",
-      icon: "lucide:upload",
-    },
-    {
-      href: "/rfq/request-quote/",
-      labelKey: "nav.requestQuote",
-      icon: "lucide:file-text",
-    },
-  ],
-];
-
 /** Main navigation items for header */
 export const mainNav: NavItem[] = [
   { href: "/", labelKey: "nav.home" },
@@ -97,35 +47,6 @@ export const mainNav: NavItem[] = [
       { href: "/compare/", labelKey: "nav.compare" },
       { href: "/guides/", labelKey: "nav.guides" },
       { href: "/faq/", labelKey: "nav.faq" },
-    ],
-  },
-  {
-    href: "/services/",
-    labelKey: "nav.services",
-    children: [],
-  },
-  {
-    href: "/industries/",
-    labelKey: "nav.industries",
-    children: [
-      { href: "/industries/aerospace/", labelKey: "nav.aerospace" },
-      { href: "/industries/medical/", labelKey: "nav.medical" },
-      { href: "/industries/semiconductor/", labelKey: "nav.semiconductor" },
-      { href: "/industries/automotive/", labelKey: "nav.automotive" },
-      { href: "/industries/oil-and-gas/", labelKey: "nav.oilAndGas" },
-      { href: "/industries/chemical-processing/", labelKey: "nav.chemicalProcessing" },
-      { href: "/industries/marine/", labelKey: "nav.marine" },
-      { href: "/industries/defence/", labelKey: "nav.defence" },
-    ],
-  },
-  {
-    href: "/rfq/",
-    labelKey: "nav.rfq",
-    children: [
-      { href: "/rfq/upload-drawing/", labelKey: "nav.uploadDrawing" },
-      { href: "/rfq/request-quote/", labelKey: "nav.requestQuote" },
-      { href: "/rfq/dfm-review/", labelKey: "nav.dfmReview" },
-      { href: "/rfq/prototype-request/", labelKey: "nav.prototypeRequest" },
     ],
   },
 ] as const;
@@ -167,8 +88,6 @@ export const knowledgeMegaMenu: NavItem[][] = [
         { href: "/knowledge/industries/aerospace-titanium-parts/", labelKey: "nav.aerospace" },
         { href: "/knowledge/industries/medical-titanium-implants/", labelKey: "nav.medical" },
         { href: "/knowledge/industries/semiconductor-titanium/", labelKey: "nav.semiconductor" },
-        { href: "/knowledge/industries/robotics-titanium/", labelKey: "nav.robotics" },
-        { href: "/knowledge/industries/energy-titanium/", labelKey: "nav.energy" },
         { href: "/knowledge/industries/", labelKey: "nav.viewAllIndustries" },
       ],
     },
@@ -183,6 +102,7 @@ export const knowledgeMegaMenu: NavItem[][] = [
         { href: "/knowledge/standards/astm-b348/", labelKey: "nav.astmB348" },
         { href: "/knowledge/standards/astm-f136/", labelKey: "nav.astmF136" },
         { href: "/knowledge/standards/as9100d/", labelKey: "nav.as9100d" },
+        { href: "/knowledge/standards/nadcap/", labelKey: "nav.nadcap" },
         { href: "/knowledge/standards/iso-13485/", labelKey: "nav.iso13485" },
         { href: "/knowledge/standards/", labelKey: "nav.viewAllStandards" },
       ],
@@ -200,14 +120,71 @@ export const knowledgeMegaMenu: NavItem[][] = [
       ],
     },
     {
-      href: "/knowledge/equipment/",
-      labelKey: "nav.equipment",
-      groupLabel: "nav.equipment",
+      href: "/knowledge/material-selection/",
+      labelKey: "nav.materialSelection",
+      groupLabel: "nav.materialSelection",
       children: [
-        { href: "/knowledge/equipment/mazak-5-axis/", labelKey: "nav.mazak" },
-        { href: "/knowledge/equipment/dmg-mori-dmu/", labelKey: "nav.dmgMori" },
-        { href: "/knowledge/equipment/charmilles-wire-edm/", labelKey: "nav.wireEdmMachines" },
-        { href: "/knowledge/equipment/", labelKey: "nav.viewAllEquipment" },
+        { href: "/knowledge/material-selection/", labelKey: "nav.materialSelection" },
+      ],
+    },
+  ],
+  [
+    {
+      href: "/knowledge/failure-analysis/",
+      labelKey: "nav.failureAnalysis",
+      groupLabel: "nav.failureAnalysis",
+      children: [
+        { href: "/knowledge/failure-analysis/", labelKey: "nav.failureAnalysis" },
+      ],
+    },
+    {
+      href: "/knowledge/heat-treatment/",
+      labelKey: "nav.heatTreatment",
+      groupLabel: "nav.heatTreatment",
+      children: [
+        { href: "/knowledge/heat-treatment/", labelKey: "nav.heatTreatment" },
+      ],
+    },
+    {
+      href: "/knowledge/corrosion/",
+      labelKey: "nav.corrosionResistance",
+      groupLabel: "nav.corrosionResistance",
+      children: [
+        { href: "/knowledge/corrosion/", labelKey: "nav.corrosionResistance" },
+      ],
+    },
+    {
+      href: "/knowledge/evidence/",
+      labelKey: "nav.evidence",
+      groupLabel: "nav.evidence",
+      children: [
+        { href: "/knowledge/evidence/", labelKey: "nav.evidence" },
+      ],
+    },
+    {
+      href: "/knowledge/cases/",
+      labelKey: "nav.cases",
+      groupLabel: "nav.cases",
+      children: [
+        { href: "/knowledge/cases/", labelKey: "nav.cases" },
+      ],
+    },
+  ],
+  [
+    {
+      href: "/knowledge/applications/",
+      labelKey: "nav.applications",
+      groupLabel: "nav.applications",
+      children: [
+        { href: "/knowledge/applications/", labelKey: "nav.applications" },
+      ],
+    },
+    {
+      href: "/knowledge/procurement/",
+      labelKey: "nav.procurement",
+      groupLabel: "nav.procurement",
+      children: [
+        { href: "/knowledge/procurement/", labelKey: "nav.procurement" },
       ],
     },
   ],
@@ -222,22 +199,16 @@ export const footerNav = {
     { href: "/knowledge/industries/", labelKey: "nav.industries" },
     { href: "/knowledge/standards/", labelKey: "nav.standards" },
     { href: "/knowledge/surface-finishes/", labelKey: "nav.surfaceFinishes" },
-    { href: "/knowledge/equipment/", labelKey: "nav.equipment" },
+    { href: "/knowledge/material-selection/", labelKey: "nav.materialSelection" },
+    { href: "/knowledge/failure-analysis/", labelKey: "nav.failureAnalysis" },
+    { href: "/knowledge/heat-treatment/", labelKey: "nav.heatTreatment" },
+    { href: "/knowledge/corrosion/", labelKey: "nav.corrosionResistance" },
     { href: "/knowledge/evidence/", labelKey: "nav.evidence" },
     { href: "/knowledge/cases/", labelKey: "nav.cases" },
     { href: "/knowledge/applications/", labelKey: "nav.applications" },
     { href: "/compare/", labelKey: "nav.compare" },
     { href: "/guides/", labelKey: "nav.guides" },
     { href: "/knowledge/procurement/", labelKey: "nav.procurement" },
-  ] as const,
-  /** Services links */
-  services: [
-    { href: "/services/titanium-cnc-machining/", labelKey: "nav.titaniumCnc" },
-    { href: "/services/5-axis-titanium-machining/", labelKey: "nav.titanium5axis" },
-    { href: "/services/titanium-milling/", labelKey: "nav.titaniumMilling" },
-    { href: "/services/titanium-turning/", labelKey: "nav.titaniumTurning" },
-    { href: "/services/titanium-wire-edm/", labelKey: "nav.titaniumWireEdm" },
-    { href: "/services/titanium-additive-manufacturing/", labelKey: "nav.titaniumAdditive" },
   ] as const,
   /** Resources links */
   resources: [
@@ -246,7 +217,6 @@ export const footerNav = {
     { href: "/faq/", labelKey: "nav.faq" },
     { href: "/blog/", labelKey: "nav.blog" },
     { href: "/docs/", labelKey: "nav.docs" },
-    { href: "/rfq/", labelKey: "nav.rfq" },
   ] as const,
   /** Company links */
   company: [

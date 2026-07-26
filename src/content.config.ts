@@ -89,27 +89,6 @@ const pages = defineCollection({
   }),
 });
 
-const services = defineCollection({
-  loader: glob({
-    pattern: "**/*.{md,mdx}",
-    base: "./src/content/site/services",
-    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
-  }),
-  schema: z.object({
-    locale: localeSchema,
-    slug: z.string(),
-    title: z.string(),
-    description: z.string(),
-    image: z.string().optional(),
-    featured: z.boolean().default(false),
-    tags: z.array(z.string()).default([]),
-    features: z.array(z.string()).default([]),
-    priceRange: z.string().optional(),
-    order: z.number().default(0),
-    translationKey: z.string().optional(),
-  }),
-});
-
 const authors = defineCollection({
   loader: glob({
     pattern: "**/*.json",
@@ -277,25 +256,6 @@ const surfaceFinishes = defineCollection({
   }),
 });
 
-const equipment = defineCollection({
-  loader: glob({
-    pattern: "**/*.md",
-    base: "./src/content/core/equipment",
-    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
-  }),
-  schema: z.object({
-    locale: localeSchema,
-    title: z.string(),
-    description: z.string(),
-    manufacturer: z.string().optional(),
-    processes: z.array(z.string()).default([]),
-    materials: z.array(z.string()).default([]),
-    image: z.string().optional(),
-    order: z.number().default(0),
-    translationKey: z.string().optional(),
-  }),
-});
-
 const settings = defineCollection({
   loader: glob({
     pattern: "settings.yml",
@@ -455,7 +415,6 @@ export const collections = {
   docs,
   blog,
   pages,
-  services,
   settings,
   authors,
   faqs,
@@ -465,7 +424,6 @@ export const collections = {
   industries,
   standards,
   surfaceFinishes,
-  equipment,
   evidence,
   comparisons,
   procurement,

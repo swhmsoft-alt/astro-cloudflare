@@ -33,10 +33,10 @@ const socialIcon = (url: string) => {
       </div>
 
       <div class="footer__column">
-        <h2>{t(currentLocale, "nav.services")}</h2>
+        <h2>{t(currentLocale, "nav.knowledge")}</h2>
         <ul>
           {
-            footerNav.services.map((item) => (
+            footerNav.knowledge.slice(0, 7).map((item) => (
               <li>
                 <a href={resolveRoute(currentLocale, item.href)}>
                   {t(currentLocale, item.labelKey)}

@@ -1,0 +1,14 @@
+---
+import EntityPillar from "../_EntityPillar.astro";
+import type { Locale } from "../../../lib/site-config";
+
+const locale = (Astro.currentLocale || "en") as Locale;
+const path = "/knowledge/corrosion/";
+---
+<EntityPillar
+  collectionName="corrosion"
+  pageTitle="Corrosion Resistance"
+  pageDescription="Titanium performance in seawater, acid, chloride, and high-temperature environments. Understand passive film formation, localized corrosion risks, and alloy selection for corrosive service conditions."
+  locale={locale}
+  path={path}
+/>
