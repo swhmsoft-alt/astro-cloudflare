@@ -208,5 +208,13 @@
   "nav.solutionsEnergy": "Energy",
   "nav.solutionsConsumerElectronics": "Consumer Electronics",
   "nav.solutionsGeneralIndustrial": "General Industrial",
-  "nav.solutionsEnvironmental": "Environmental Engineering"
+  "nav.solutionsEnvironmental": "Environmental Engineering",
+  "knowledge.materialSelection": "Material Selection Guides",
+  "knowledge.failureAnalysis": "Failure Analysis",
+  "knowledge.heatTreatment": "Heat Treatment",
+  "knowledge.corrosion": "Corrosion Resistance",
+  "nav.materialSelection": "Material Selection",
+  "nav.failureAnalysis": "Failure Analysis",
+  "nav.heatTreatment": "Heat Treatment",
+  "nav.corrosionResistance": "Corrosion Resistance"
 }
