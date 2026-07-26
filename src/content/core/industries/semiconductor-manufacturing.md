@@ -25,5 +25,4 @@ order: 3
 - Wafer handling end-effectors and grippers
 - Showerheads and gas distribution plates
 - Electrostatic chuck components
-## RFQ CTA
-Need UHV-compatible titanium parts? We specialise in precision-machined titanium for semiconductor equipment. [Submit an RFQ](/rfq/request-quote/).
+

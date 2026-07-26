@@ -1,0 +1,63 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import { resolveRoute } from "../../i18n/routes";
+import { siteConfig } from "../../config/site.config";
+import type { Locale } from "../../lib/site-config";
+import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../lib/schema";
+const locale = (Astro.currentLocale || "en") as Locale;
+
+const pageTitle = "Titanium Hardness Unit Converter";
+const pageDesc = "Convert hardness and tensile strength values for titanium alloys between HRC, HB, HRB, ksi, and MPa.";
+const pageUrl = siteConfig.url + resolveRoute(locale, "/tools/hardness-converter/");
+const bc = buildBreadcrumbSchema([
+  { label: "Home", href: siteConfig.url + "/" },
+  { label: "Tools", href: siteConfig.url + "/tools/" },
+  { label: pageTitle, href: pageUrl },
+]);
+const ta = buildTechArticleSchema({
+  headline: pageTitle, description: pageDesc, url: pageUrl,
+  datePublished: "2026-01-15", dateModified: "2026-07-26",
+  keywords: ["hardness converter", "HRC to HB", "ksi to MPa", "titanium hardness"],
+});
+---
+
+<MarketingLayout title={pageTitle} description={pageDesc} locale={locale} path="/tools/hardness-converter/" jsonLd={[bc, ta]}>
+  <article class="container py-16">
+    <h1 class="text-3xl font-bold mb-2">{pageTitle}</h1>
+    <p class="text-secondary mb-8">{pageDesc}</p>
+
+    <section class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead><tr class="bg-secondary/10">
+          <th class="p-3 text-left border">HRC</th><th class="p-3 text-right border">HB</th>
+          <th class="p-3 text-right border">UTS (ksi)</th><th class="p-3 text-right border">UTS (MPa)</th>
+        </tr></thead>
+        <tbody>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">20</td><td class="p-3 border text-right">225</td><td class="p-3 border text-right">95</td><td class="p-3 border text-right">655</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">22</td><td class="p-3 border text-right">238</td><td class="p-3 border text-right">100</td><td class="p-3 border text-right">690</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">24</td><td class="p-3 border text-right">252</td><td class="p-3 border text-right">105</td><td class="p-3 border text-right">724</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">26</td><td class="p-3 border text-right">266</td><td class="p-3 border text-right">110</td><td class="p-3 border text-right">758</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">28</td><td class="p-3 border text-right">280</td><td class="p-3 border text-right">115</td><td class="p-3 border text-right">793</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">30</td><td class="p-3 border text-right">295</td><td class="p-3 border text-right">120</td><td class="p-3 border text-right">827</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">32</td><td class="p-3 border text-right">310</td><td class="p-3 border text-right">125</td><td class="p-3 border text-right">862</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">34</td><td class="p-3 border text-right">325</td><td class="p-3 border text-right">130</td><td class="p-3 border text-right">896</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">36</td><td class="p-3 border text-right">341</td><td class="p-3 border text-right">135</td><td class="p-3 border text-right">931</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">38</td><td class="p-3 border text-right">357</td><td class="p-3 border text-right">140</td><td class="p-3 border text-right">965</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">40</td><td class="p-3 border text-right">374</td><td class="p-3 border text-right">145</td><td class="p-3 border text-right">1000</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">42</td><td class="p-3 border text-right">390</td><td class="p-3 border text-right">150</td><td class="p-3 border text-right">1034</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">44</td><td class="p-3 border text-right">408</td><td class="p-3 border text-right">155</td><td class="p-3 border text-right">1069</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mt-12 p-6 bg-secondary/5 rounded-lg border">
+      <h2 class="text-lg font-semibold mb-2">Conversion Notes</h2>
+      <ul class="text-sm text-secondary space-y-1">
+        <li>HRC = Rockwell C scale (diamond indenter, 150 kgf)</li>
+        <li>HB = Brinell hardness (10 mm tungsten carbide ball, 3000 kgf)</li>
+        <li>UTS conversion uses ASTM A370 / SAE J417 correlation for titanium alloys</li>
+        <li>±10% accuracy typical. Always verify with material test certificate</li>
+      </ul>
+    </section>
+  </article>
+</MarketingLayout>

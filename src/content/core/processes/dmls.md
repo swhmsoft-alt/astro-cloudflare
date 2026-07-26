@@ -93,8 +93,3 @@ Both materials are widely qualified for DMLS. Grade 23 is preferred for medical 
 - Low-volume production of complex geometries uneconomical to cast or machine
 - Medical surgical guides and custom instrumentation
 
-## RFQ CTA
-
-**Need additively manufactured titanium components with complex geometries?**  
-We offer DMLS printing for Grade 5 and Grade 23 titanium with post-processing (CNC machining, heat treatment, surface finishing) and full material certification. [Submit an RFQ](/rfq/request-quote/) with your 3D model for a detailed quote and design for additive manufacturing (DFAM) review.
-

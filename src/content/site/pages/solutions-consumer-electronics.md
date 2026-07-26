@@ -16,7 +16,7 @@ order: 10
 
 Titanium has become the material of choice for premium consumer electronics, offering a unique combination of strength, light weight, scratch resistance, and premium feel that sets luxury products apart.
 
-### Our Capabilities
+### capabilities
 
 - **Device Housings**: Smartphone and tablet frames and backplates
 - **Wearable Components**: Smartwatch cases, bands, and clasps
@@ -34,4 +34,4 @@ Titanium has become the material of choice for premium consumer electronics, off
 
 ### Contact Us
 
-Want to add titanium to your next consumer electronics product? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Want to add titanium to your next consumer electronics product?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

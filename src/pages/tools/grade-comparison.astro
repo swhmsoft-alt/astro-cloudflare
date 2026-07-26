@@ -1,0 +1,66 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import { resolveRoute } from "../../i18n/routes";
+import { siteConfig } from "../../config/site.config";
+import type { Locale } from "../../lib/site-config";
+import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../lib/schema";
+const locale = (Astro.currentLocale || "en") as Locale;
+
+const pageTitle = "Titanium Grade Comparison Tool";
+const pageDesc = "Compare mechanical properties, corrosion resistance, and applications across Grades 1-23 side by side.";
+const pageUrl = siteConfig.url + resolveRoute(locale, "/tools/grade-comparison/");
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { label: "Home", href: siteConfig.url + "/" },
+  { label: "Tools", href: siteConfig.url + "/tools/" },
+  { label: pageTitle, href: pageUrl },
+]);
+const techArticleSchema = buildTechArticleSchema({
+  headline: pageTitle, description: pageDesc, url: pageUrl,
+  datePublished: "2026-01-15", dateModified: "2026-07-26",
+  keywords: ["titanium grades", "grade comparison", "Ti-6Al-4V", "Grade 5"],
+});
+---
+
+<MarketingLayout title={pageTitle} description={pageDesc} locale={locale} path="/tools/grade-comparison/" jsonLd={[breadcrumbSchema, techArticleSchema]}>
+  <article class="container py-16">
+    <h1 class="text-3xl font-bold mb-2">{pageTitle}</h1>
+    <p class="text-secondary mb-8">{pageDesc}</p>
+
+    <section class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead><tr class="bg-secondary/10">
+          <th class="p-3 text-left border">Grade</th><th class="p-3 text-left border">Alloy</th>
+          <th class="p-3 text-right border">UTS (ksi)</th><th class="p-3 text-right border">YS (ksi)</th>
+          <th class="p-3 text-right border">Elong (%)</th><th class="p-3 text-right border">Hardness</th>
+          <th class="p-3 text-left border">Standard</th>
+        </tr></thead>
+        <tbody>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 1</td><td class="p-3 border">CP-Ti</td><td class="p-3 border text-right">35</td><td class="p-3 border text-right">25</td><td class="p-3 border text-right">24</td><td class="p-3 border text-right">70 HRB</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 2</td><td class="p-3 border">CP-Ti</td><td class="p-3 border text-right">50</td><td class="p-3 border text-right">40</td><td class="p-3 border text-right">20</td><td class="p-3 border text-right">80 HRB</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 3</td><td class="p-3 border">CP-Ti</td><td class="p-3 border text-right">65</td><td class="p-3 border text-right">55</td><td class="p-3 border text-right">18</td><td class="p-3 border text-right">90 HRB</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 4</td><td class="p-3 border">CP-Ti</td><td class="p-3 border text-right">80</td><td class="p-3 border text-right">70</td><td class="p-3 border text-right">15</td><td class="p-3 border text-right">95 HRB</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 5</td><td class="p-3 border">Ti-6Al-4V</td><td class="p-3 border text-right">130</td><td class="p-3 border text-right">120</td><td class="p-3 border text-right">10</td><td class="p-3 border text-right">36 HRC</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 7</td><td class="p-3 border">Ti-0.15Pd</td><td class="p-3 border text-right">50</td><td class="p-3 border text-right">40</td><td class="p-3 border text-right">20</td><td class="p-3 border text-right">80 HRB</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 9</td><td class="p-3 border">Ti-3Al-2.5V</td><td class="p-3 border text-right">90</td><td class="p-3 border text-right">80</td><td class="p-3 border text-right">15</td><td class="p-3 border text-right">30 HRC</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 12</td><td class="p-3 border">Ti-0.3Mo-0.8Ni</td><td class="p-3 border text-right">70</td><td class="p-3 border text-right">50</td><td class="p-3 border text-right">18</td><td class="p-3 border text-right">85 HRB</td><td class="p-3 border">ASTM B265</td></tr>
+          <tr class="hover:bg-secondary/5"><td class="p-3 border font-medium">Grade 23</td><td class="p-3 border">Ti-6Al-4V ELI</td><td class="p-3 border text-right">120</td><td class="p-3 border text-right">110</td><td class="p-3 border text-right">10</td><td class="p-3 border text-right">34 HRC</td><td class="p-3 border">ASTM F136</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold mb-4">Grade Selection Guide</h2>
+      <ul class="space-y-2 text-secondary">
+        <li><strong class="text-foreground">Grade 1-4 (CP):</strong> Best for formability and corrosion resistance. Grade 2 is the most widely used CP grade.</li>
+        <li><strong class="text-foreground">Grade 5 (Ti-6Al-4V):</strong> The workhorse titanium alloy — 50% of all titanium usage.</li>
+        <li><strong class="text-foreground">Grade 7:</strong> Enhanced corrosion resistance with Pd addition.</li>
+        <li><strong class="text-foreground">Grade 23 (ELI):</strong> Extra-low interstitials for improved fracture toughness.</li>
+      </ul>
+    </section>
+
+    <section class="mt-12 p-6 bg-secondary/5 rounded-lg border">
+      <h2 class="text-lg font-semibold mb-2">Reference Standards</h2>
+      <p class="text-sm text-secondary">All data represents minimum values per ASTM B265/B348/F136. Verify with material test certificates.</p>
+    </section>
+  </article>
+</MarketingLayout>

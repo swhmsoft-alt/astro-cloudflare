@@ -59,7 +59,3 @@ relatedComparisons:
 order: 2
 ---
 
-## RFQ CTA
-
-**Need medical implant fixtures or micro-machined titanium components certified to ASTM F136?**  
-We precision machine Grade 23 titanium components under ISO 13485 with temperature-controlled processes and full material traceability. [Submit an RFQ](/rfq/request-quote/) with your specifications for a detailed quote and DFM review.

@@ -16,7 +16,7 @@ order: 9
 
 The energy industry demands materials that perform reliably under extreme pressures, temperatures, and corrosive environments. Titanium delivers unmatched performance in these demanding applications.
 
-### Our Capabilities
+### capabilities
 
 - **Oil & Gas**: Downhole tools, completion equipment, subsea components
 - **Power Generation**: Turbine blades, condenser tubing, valve components
@@ -32,4 +32,4 @@ The energy industry demands materials that perform reliably under extreme pressu
 
 ### Contact Us
 
-Need energy-sector titanium components? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Need energy-sector titanium components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

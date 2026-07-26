@@ -67,7 +67,3 @@ Grade 7 (Ti-0.15Pd) is a CP titanium grade with a small palladium addition (0.12
 - **Marine**: Seawater heat exchangers, desalination plant components
 - **Energy**: Geothermal well casings, flue gas desulfurisation scrubbers
 
-## RFQ CTA
-
-**Need corrosion-resistant Grade 7 titanium components?**  
-We supply Grade 7 titanium parts for aggressive chemical environments. [Submit an RFQ](/rfq/request-quote/) with your application details.

@@ -43,8 +43,3 @@ Electrical discharge machining (EDM) erodes conductive titanium materials using 
 - Medical implant features requiring burr-free surfaces
 - Small hole drilling (< 0.1 mm diameter) in titanium
 
-## RFQ CTA
-
-**Need EDM services for titanium components?**  
-We offer precision wire and sinker EDM for titanium alloys. [Submit an RFQ](/rfq/request-quote/) for a quote.
-

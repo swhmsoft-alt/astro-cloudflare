@@ -16,7 +16,7 @@ order: 4
 
 Titanium has been revered in cycling for decades for its unique combination of light weight, strength, and natural vibration damping. A titanium frame offers a ride quality that carbon fiber and aluminum cannot match.
 
-### Our Capabilities
+### capabilities
 
 - **Custom Frames**: Road, gravel, mountain, and touring frames built to your geometry
 - **Forks & Handlebars**: Custom titanium forks and handlebars for any discipline
@@ -32,4 +32,4 @@ Titanium has been revered in cycling for decades for its unique combination of l
 
 ### Contact Us
 
-Want a custom titanium bicycle component? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Want a custom titanium bicycle component?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

@@ -411,6 +411,86 @@ const applications = defineCollection({
 
 
 
+
+const heatTreatment = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/core/heat-treatment",
+    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
+  }),
+  schema: z.object({
+    locale: localeSchema,
+    title: z.string(),
+    description: z.string(),
+    processType: z.string().default("thermal"),
+    materials: z.array(z.string()).default([]),
+    industries: z.array(z.string()).default([]),
+    equipment: z.array(z.string()).default([]),
+    tolerances: z.string().optional(),
+    surfaceFinish: z.string().optional(),
+    maxPartSize: z.string().optional(),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
+const corrosion = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/core/corrosion",
+    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
+  }),
+  schema: z.object({
+    locale: localeSchema,
+    title: z.string(),
+    description: z.string(),
+    corrosionType: z.string().optional(),
+    materials: z.array(z.string()).default([]),
+    industries: z.array(z.string()).default([]),
+    standards: z.array(z.string()).default([]),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
+const failureAnalysis = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/core/failure-analysis",
+    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
+  }),
+  schema: z.object({
+    locale: localeSchema,
+    title: z.string(),
+    description: z.string(),
+    failureType: z.string().optional(),
+    materials: z.array(z.string()).default([]),
+    industries: z.array(z.string()).default([]),
+    standards: z.array(z.string()).default([]),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
+const materialSelection = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/core/material-selection",
+    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
+  }),
+  schema: z.object({
+    locale: localeSchema,
+    title: z.string(),
+    description: z.string(),
+    selectionCategory: z.string().optional(),
+    materials: z.array(z.string()).default([]),
+    industries: z.array(z.string()).default([]),
+    standards: z.array(z.string()).default([]),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
 export const collections = {
   docs,
   blog,
@@ -430,4 +510,8 @@ export const collections = {
   guides,
   cases,
    applications,
+  heatTreatment,
+  corrosion,
+  failureAnalysis,
+  materialSelection,
 };

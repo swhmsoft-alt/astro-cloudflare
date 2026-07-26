@@ -58,7 +58,3 @@ Ti-6242 is a near-alpha titanium alloy designed for high-temperature service up 
 - Power generation turbine components
 - Defence propulsion systems
 
-## RFQ CTA
-
-**Need Ti-6242 components for high-temperature applications?**  
-We machine Ti-6242 titanium parts with full AMS certification. [Submit an RFQ](/rfq/request-quote/) with your specifications.

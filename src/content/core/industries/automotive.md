@@ -23,5 +23,4 @@ order: 4
 - Exhaust systems (Grade 2, Grade 5)
 - Connecting rods (Ti-10V-2Fe-3Al, Grade 5)
 - Valve springs, suspension springs, driveshafts
-## RFQ CTA
-Need automotive titanium components? We machine titanium for performance vehicles. [Submit an RFQ](/rfq/request-quote/).
+

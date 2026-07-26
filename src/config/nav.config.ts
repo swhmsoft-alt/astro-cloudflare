@@ -1,238 +1,130 @@
 /**
- * Navigation configuration — Centralized navigation structure
- * Defines main navigation links, mega menu groups, and footer sections
- * Used by Header and Footer components for consistent navigation
+ * Navigation configuration
  */
-
 export interface NavItem {
-  /** Navigation link URL */
   href: string;
-  /** Translation key for localized label */
   labelKey: string;
-  /** Optional icon name for icon-only navigation items */
   icon?: string;
-  /** Whether this is an external link (opens in new tab) */
   external?: boolean;
-  /** Sub-navigation items for dropdown menus */
   children?: NavItem[];
-  /** Group label for mega menu columns */
   groupLabel?: string;
 }
 
-/** Main navigation items for header */
 export const mainNav: NavItem[] = [
   { href: "/", labelKey: "nav.home" },
-  {
-    href: "/solutions/",
-    labelKey: "nav.solutions",
-    children: [
-      { href: "/solutions/aerospace-defense/", labelKey: "nav.solutionsAerospaceDefense" },
-      { href: "/solutions/semiconductor/", labelKey: "nav.solutionsSemiconductor" },
-      { href: "/solutions/medical-device/", labelKey: "nav.solutionsMedicalDevice" },
-      { href: "/solutions/cycling-bicycle/", labelKey: "nav.solutionsCyclingBicycle" },
-      { href: "/solutions/marine-offshore/", labelKey: "nav.solutionsMarineOffshore" },
-      { href: "/solutions/automotive-motorsports/", labelKey: "nav.solutionsAutomotiveMotorsports" },
-      { href: "/solutions/electroplating-surface-finishing/", labelKey: "nav.solutionsElectroplating" },
-      { href: "/solutions/chemical-processing/", labelKey: "nav.solutionsChemicalProcessing" },
-      { href: "/solutions/energy/", labelKey: "nav.solutionsEnergy" },
-      { href: "/solutions/consumer-electronics/", labelKey: "nav.solutionsConsumerElectronics" },
-      { href: "/solutions/general-industrial/", labelKey: "nav.solutionsGeneralIndustrial" },
-      { href: "/solutions/environmental-engineering/", labelKey: "nav.solutionsEnvironmental" },
-    ],
-  },
-  {
-    href: "/knowledge/",
-    labelKey: "nav.knowledge",
-    children: [
-      { href: "/compare/", labelKey: "nav.compare" },
-      { href: "/guides/", labelKey: "nav.guides" },
-      { href: "/faq/", labelKey: "nav.faq" },
-    ],
-  },
+  { href: "/grades/", labelKey: "nav.grades" },
+  { href: "/processes/", labelKey: "nav.processes" },
+  { href: "/solutions/", labelKey: "nav.solutions", children: [
+    { href: "/solutions/aerospace-defense/", labelKey: "nav.solutionsAerospaceDefense" },
+    { href: "/solutions/semiconductor/", labelKey: "nav.solutionsSemiconductor" },
+    { href: "/solutions/medical-device/", labelKey: "nav.solutionsMedicalDevice" },
+    { href: "/solutions/marine-offshore/", labelKey: "nav.solutionsMarineOffshore" },
+    { href: "/solutions/chemical-processing/", labelKey: "nav.solutionsChemicalProcessing" },
+    { href: "/solutions/energy/", labelKey: "nav.solutionsEnergy" },
+    { href: "/solutions/general-industrial/", labelKey: "nav.solutionsGeneralIndustrial" },
+  ]},
+  { href: "/standards/", labelKey: "nav.standards" },
+  { href: "/industries/", labelKey: "nav.industries" },
+  { href: "/tools/", labelKey: "nav.tools" },
 ] as const;
 
-/** Mega menu group for Knowledge hub */
+
 export const knowledgeMegaMenu: NavItem[][] = [
   [
-    {
-      href: "/knowledge/materials/",
-      labelKey: "nav.materials",
-      groupLabel: "nav.materials",
-      children: [
-        { href: "/knowledge/materials/grade-1-titanium/", labelKey: "nav.grade1" },
-        { href: "/knowledge/materials/grade-2-titanium/", labelKey: "nav.grade2" },
-        { href: "/knowledge/materials/grade-5-titanium-ti6al4v/", labelKey: "nav.grade5" },
-        { href: "/knowledge/materials/grade-23-titanium-eli/", labelKey: "nav.grade23" },
-        { href: "/knowledge/materials/", labelKey: "nav.viewAllMaterials" },
-      ],
-    },
-    {
-      href: "/knowledge/processes/",
-      labelKey: "nav.processes",
-      groupLabel: "nav.processes",
-      children: [
-        { href: "/knowledge/processes/cnc-machining/", labelKey: "nav.cncMachining" },
-        { href: "/knowledge/processes/5-axis-machining/", labelKey: "nav.5axis" },
-        { href: "/knowledge/processes/milling/", labelKey: "nav.milling" },
-        { href: "/knowledge/processes/turning/", labelKey: "nav.turning" },
-        { href: "/knowledge/processes/wire-edm/", labelKey: "nav.wireEdm" },
-        { href: "/knowledge/processes/additive-manufacturing/", labelKey: "nav.additive" },
-        { href: "/knowledge/processes/", labelKey: "nav.viewAllProcesses" },
-      ],
-    },
-    {
-      href: "/knowledge/industries/",
-      labelKey: "nav.industries",
-      groupLabel: "nav.industries",
-      children: [
-        { href: "/knowledge/industries/aerospace-titanium-parts/", labelKey: "nav.aerospace" },
-        { href: "/knowledge/industries/medical-titanium-implants/", labelKey: "nav.medical" },
-        { href: "/knowledge/industries/semiconductor-titanium/", labelKey: "nav.semiconductor" },
-        { href: "/knowledge/industries/", labelKey: "nav.viewAllIndustries" },
-      ],
-    },
+    { href: "/grades/", labelKey: "nav.materials", groupLabel: "nav.materials", children: [
+      { href: "/grades/grade-1-titanium/", labelKey: "nav.grade1" },
+      { href: "/grades/grade-2-titanium/", labelKey: "nav.grade2" },
+      { href: "/grades/grade-5-titanium-ti6al4v/", labelKey: "nav.grade5" },
+      { href: "/grades/grade-23-titanium-eli/", labelKey: "nav.grade23" },
+      { href: "/grades/", labelKey: "nav.viewAllMaterials" },
+    ]},
+    { href: "/processes/", labelKey: "nav.processes", groupLabel: "nav.processes", children: [
+      { href: "/processes/cnc-machining/", labelKey: "nav.cncMachining" },
+      { href: "/processes/5-axis-machining/", labelKey: "nav.5axis" },
+      { href: "/processes/milling/", labelKey: "nav.milling" },
+      { href: "/processes/turning/", labelKey: "nav.turning" },
+      { href: "/processes/wire-edm/", labelKey: "nav.wireEdm" },
+      { href: "/processes/additive-manufacturing/", labelKey: "nav.additive" },
+      { href: "/processes/", labelKey: "nav.viewAllProcesses" },
+    ]},
+    { href: "/industries/", labelKey: "nav.industries", groupLabel: "nav.industries", children: [
+      { href: "/industries/aerospace/", labelKey: "nav.aerospace" },
+      { href: "/industries/medical/", labelKey: "nav.medical" },
+      { href: "/industries/semiconductor/", labelKey: "nav.semiconductor" },
+      { href: "/industries/energy/", labelKey: "nav.energy" },
+      { href: "/industries/", labelKey: "nav.viewAllIndustries" },
+    ]},
   ],
   [
-    {
-      href: "/knowledge/standards/",
-      labelKey: "nav.standards",
-      groupLabel: "nav.standards",
-      children: [
-        { href: "/knowledge/standards/astm-b265/", labelKey: "nav.astmB265" },
-        { href: "/knowledge/standards/astm-b348/", labelKey: "nav.astmB348" },
-        { href: "/knowledge/standards/astm-f136/", labelKey: "nav.astmF136" },
-        { href: "/knowledge/standards/as9100d/", labelKey: "nav.as9100d" },
-        { href: "/knowledge/standards/nadcap/", labelKey: "nav.nadcap" },
-        { href: "/knowledge/standards/iso-13485/", labelKey: "nav.iso13485" },
-        { href: "/knowledge/standards/", labelKey: "nav.viewAllStandards" },
-      ],
-    },
-    {
-      href: "/knowledge/surface-finishes/",
-      labelKey: "nav.surfaceFinishes",
-      groupLabel: "nav.surfaceFinishes",
-      children: [
-        { href: "/knowledge/surface-finishes/titanium-anodizing/", labelKey: "nav.anodizing" },
-        { href: "/knowledge/surface-finishes/bead-blasting/", labelKey: "nav.beadBlasting" },
-        { href: "/knowledge/surface-finishes/passivation/", labelKey: "nav.passivation" },
-        { href: "/knowledge/surface-finishes/polishing/", labelKey: "nav.polishing" },
-        { href: "/knowledge/surface-finishes/", labelKey: "nav.viewAllFinishes" },
-      ],
-    },
-    {
-      href: "/knowledge/material-selection/",
-      labelKey: "nav.materialSelection",
-      groupLabel: "nav.materialSelection",
-      children: [
-        { href: "/knowledge/material-selection/", labelKey: "nav.materialSelection" },
-      ],
-    },
+    { href: "/standards/", labelKey: "nav.standards", groupLabel: "nav.standards", children: [
+      { href: "/standards/astm-b265/", labelKey: "nav.astmB265" },
+      { href: "/standards/astm-b348/", labelKey: "nav.astmB348" },
+      { href: "/standards/astm-f136/", labelKey: "nav.astmF136" },
+      { href: "/standards/as9100d/", labelKey: "nav.as9100d" },
+      { href: "/standards/nadcap/", labelKey: "nav.nadcap" },
+      { href: "/standards/iso-13485/", labelKey: "nav.iso13485" },
+      { href: "/standards/", labelKey: "nav.viewAllStandards" },
+    ]},
+    { href: "/finishes/", labelKey: "nav.surfaceFinishes", groupLabel: "nav.surfaceFinishes", children: [
+      { href: "/finishes/anodizing/", labelKey: "nav.anodizing" },
+      { href: "/finishes/bead-blasting/", labelKey: "nav.beadBlasting" },
+      { href: "/finishes/passivation/", labelKey: "nav.passivation" },
+      { href: "/finishes/polishing/", labelKey: "nav.polishing" },
+      { href: "/finishes/", labelKey: "nav.viewAllFinishes" },
+    ]},
+    { href: "/select/", labelKey: "nav.materialSelection", groupLabel: "nav.materialSelection", children: [
+      { href: "/select/", labelKey: "nav.materialSelection" },
+    ]},
+    { href: "/failures/", labelKey: "nav.failureAnalysis", groupLabel: "nav.failureAnalysis", children: [
+      { href: "/failures/", labelKey: "nav.failureAnalysis" },
+    ]},
   ],
   [
-    {
-      href: "/knowledge/failure-analysis/",
-      labelKey: "nav.failureAnalysis",
-      groupLabel: "nav.failureAnalysis",
-      children: [
-        { href: "/knowledge/failure-analysis/", labelKey: "nav.failureAnalysis" },
-      ],
-    },
-    {
-      href: "/knowledge/heat-treatment/",
-      labelKey: "nav.heatTreatment",
-      groupLabel: "nav.heatTreatment",
-      children: [
-        { href: "/knowledge/heat-treatment/", labelKey: "nav.heatTreatment" },
-      ],
-    },
-    {
-      href: "/knowledge/corrosion/",
-      labelKey: "nav.corrosionResistance",
-      groupLabel: "nav.corrosionResistance",
-      children: [
-        { href: "/knowledge/corrosion/", labelKey: "nav.corrosionResistance" },
-      ],
-    },
-    {
-      href: "/knowledge/evidence/",
-      labelKey: "nav.evidence",
-      groupLabel: "nav.evidence",
-      children: [
-        { href: "/knowledge/evidence/", labelKey: "nav.evidence" },
-      ],
-    },
-    {
-      href: "/knowledge/cases/",
-      labelKey: "nav.cases",
-      groupLabel: "nav.cases",
-      children: [
-        { href: "/knowledge/cases/", labelKey: "nav.cases" },
-      ],
-    },
-  ],
-  [
-    {
-      href: "/knowledge/applications/",
-      labelKey: "nav.applications",
-      groupLabel: "nav.applications",
-      children: [
-        { href: "/knowledge/applications/", labelKey: "nav.applications" },
-      ],
-    },
-    {
-      href: "/knowledge/procurement/",
-      labelKey: "nav.procurement",
-      groupLabel: "nav.procurement",
-      children: [
-        { href: "/knowledge/procurement/", labelKey: "nav.procurement" },
-      ],
-    },
+    { href: "/heat-treatment/", labelKey: "nav.heatTreatment", groupLabel: "nav.heatTreatment", children: [
+      { href: "/heat-treatment/", labelKey: "nav.heatTreatment" },
+    ]},
+    { href: "/corrosion/", labelKey: "nav.corrosionResistance", groupLabel: "nav.corrosionResistance", children: [
+      { href: "/corrosion/", labelKey: "nav.corrosionResistance" },
+    ]},
+    { href: "/tools/", labelKey: "nav.tools", groupLabel: "nav.tools", children: [
+      { href: "/tools/grade-comparison/", labelKey: "nav.gradeComparison" },
+      { href: "/tools/hardness-converter/", labelKey: "nav.hardnessConverter" },
+    ]},
   ],
 ];
 
-/** Footer navigation grouped by section */
 export const footerNav = {
-  /** Knowledge base links */
   knowledge: [
-    { href: "/knowledge/materials/", labelKey: "nav.materials" },
-    { href: "/knowledge/processes/", labelKey: "nav.processes" },
-    { href: "/knowledge/industries/", labelKey: "nav.industries" },
-    { href: "/knowledge/standards/", labelKey: "nav.standards" },
-    { href: "/knowledge/surface-finishes/", labelKey: "nav.surfaceFinishes" },
-    { href: "/knowledge/material-selection/", labelKey: "nav.materialSelection" },
-    { href: "/knowledge/failure-analysis/", labelKey: "nav.failureAnalysis" },
-    { href: "/knowledge/heat-treatment/", labelKey: "nav.heatTreatment" },
-    { href: "/knowledge/corrosion/", labelKey: "nav.corrosionResistance" },
-    { href: "/knowledge/evidence/", labelKey: "nav.evidence" },
-    { href: "/knowledge/cases/", labelKey: "nav.cases" },
-    { href: "/knowledge/applications/", labelKey: "nav.applications" },
+    { href: "/grades/", labelKey: "nav.materials" },
+    { href: "/processes/", labelKey: "nav.processes" },
+    { href: "/industries/", labelKey: "nav.industries" },
+    { href: "/standards/", labelKey: "nav.standards" },
+    { href: "/finishes/", labelKey: "nav.surfaceFinishes" },
+    { href: "/select/", labelKey: "nav.materialSelection" },
+    { href: "/failures/", labelKey: "nav.failureAnalysis" },
+    { href: "/heat-treatment/", labelKey: "nav.heatTreatment" },
+    { href: "/corrosion/", labelKey: "nav.corrosionResistance" },
     { href: "/compare/", labelKey: "nav.compare" },
     { href: "/guides/", labelKey: "nav.guides" },
-    { href: "/knowledge/procurement/", labelKey: "nav.procurement" },
   ] as const,
-  /** Resources links */
   resources: [
     { href: "/solutions/", labelKey: "nav.solutions" },
     { href: "/guides/", labelKey: "nav.guides" },
     { href: "/faq/", labelKey: "nav.faq" },
     { href: "/blog/", labelKey: "nav.blog" },
-    { href: "/docs/", labelKey: "nav.docs" },
+    { href: "/tools/", labelKey: "nav.tools" },
   ] as const,
-  /** Company links */
   company: [
     { href: "/about/", labelKey: "nav.about" },
-    { href: "/contact/", labelKey: "nav.contact" },
     { href: "/privacy/", labelKey: "footer.privacy" },
     { href: "/terms/", labelKey: "footer.terms" },
   ] as const,
-  /** Legal pages and terms */
   legal: [
     { href: "/privacy/", labelKey: "footer.privacy" },
     { href: "/terms/", labelKey: "footer.terms" },
   ] as const,
 } as const;
 
-/** Helper function to get navigation items by section */
 export function getFooterNav(section: keyof typeof footerNav): NavItem[] {
   return footerNav[section] as unknown as NavItem[];
 }

@@ -94,8 +94,3 @@ Cost factors: material grade, diameter and length, quantity, tolerance requireme
 - Industrial bushings, sleeves, and connector components
 - Hydraulic and pneumatic system components
 
-## RFQ CTA
-
-**Need precision-turned titanium components for your application?**  
-We offer CNC turning and mill-turn services for all titanium grades with tight tolerances and full material certification. [Submit an RFQ](/rfq/request-quote/) with your specifications for a competitive quote and DFM feedback.
-

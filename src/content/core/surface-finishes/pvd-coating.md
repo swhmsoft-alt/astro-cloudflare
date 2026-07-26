@@ -23,5 +23,4 @@ order: 7
 - Decorative gold-coloured titanium components (TiN coating)
 - Wear-resistant coatings for medical instruments
 - Black coatings for optical and aerospace components
-## RFQ CTA
-Need PVD-coated titanium parts? We offer TiN, TiAlN, AlTiN, and DLC coatings for titanium components. [Submit an RFQ](/rfq/request-quote/).
+

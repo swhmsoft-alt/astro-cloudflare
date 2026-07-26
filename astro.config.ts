@@ -113,6 +113,18 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
   trailingSlash: 'always',
+  redirects: {
+    '/knowledge/materials/[slug]': '/grades/[slug]',
+    '/knowledge/processes/[slug]': '/processes/[slug]',
+    '/knowledge/industries/[slug]': '/industries/[slug]',
+    '/knowledge/standards/[slug]': '/standards/[slug]',
+    '/knowledge/surface-finishes/[slug]': '/finishes/[slug]',
+    '/knowledge/material-selection/[slug]': '/select/[slug]',
+    '/knowledge/failure-analysis/[slug]': '/failures/[slug]',
+    '/knowledge/heat-treatment/[slug]': '/heat-treatment/[slug]',
+    '/knowledge/corrosion/[slug]': '/corrosion/[slug]',
+    '/knowledge/': '/',
+  },
   integrations: [
     starlight({
       title: siteConfig.name,

@@ -27,5 +27,4 @@ order: 2
 - Dental implants and abutments
 - Surgical instruments and cutting guides
 - Custom patient-specific implants via DMLS
-## RFQ CTA
-Need ISO 13485 medical device manufacturing? We are certified for titanium implant production. [Submit an RFQ](/rfq/request-quote/).
+

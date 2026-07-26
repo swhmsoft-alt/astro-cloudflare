@@ -45,8 +45,3 @@ Abrasive waterjet cutting uses a high-pressure stream of water mixed with garnet
 - Marine titanium plate components
 - Prototype and custom parts without tooling costs
 
-## RFQ CTA
-
-**Need waterjet-cut titanium parts with no HAZ?**  
-We provide abrasive waterjet cutting for titanium up to 150 mm thick. [Submit an RFQ](/rfq/request-quote/) for a quote.
-

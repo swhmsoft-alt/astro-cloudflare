@@ -16,7 +16,7 @@ order: 7
 
 Titanium is the preferred material for electroplating and surface finishing tooling due to its excellent corrosion resistance in acid and alkaline baths, long service life, and non-contaminating properties.
 
-### Our Capabilities
+### capabilities
 
 - **Anode Baskets**: Titanium baskets for precious metal plating
 - **Jigs & Fixtures**: Custom plating racks and component holders
@@ -32,4 +32,4 @@ Titanium is the preferred material for electroplating and surface finishing tool
 
 ### Contact Us
 
-Looking for custom titanium plating tooling? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Looking for custom titanium plating tooling?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

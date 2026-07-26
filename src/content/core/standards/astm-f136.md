@@ -91,7 +91,3 @@ ASTM F136 covers wrought Ti-6Al-4V ELI (Grade 23) in the form of bars, wire, for
 - **Additive Manufacturing (DMLS)** — Custom patient-specific implants from F136 powder
 - **Surface Finishing** — Electropolishing, passivation, and bead blasting per ASTM F86
 
-## RFQ CTA
-
-**Need medical implant components certified to ASTM F136?**  
-We precision machine Ti-6Al-4V ELI (Grade 23) components to ASTM F136 with full material traceability, ISO 13485 quality management, and MTR certification. [Submit an RFQ](/rfq/request-quote/) with your specifications for a detailed quote and DFM review.

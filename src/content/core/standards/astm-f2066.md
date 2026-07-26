@@ -15,5 +15,4 @@ order: 12
 ---
 ## Quick Answer
 **What is ASTM F2066?** ASTM F2066 covers wrought Ti-15Mo beta titanium for surgical implants. It offers 690 MPa min tensile strength and 78 GPa modulus (closer to bone than Ti-6Al-4V).
-## RFQ CTA
-Need Ti-15Mo implant components per ASTM F2066? We machine beta titanium for medical devices. [Submit an RFQ](/rfq/request-quote/).
+

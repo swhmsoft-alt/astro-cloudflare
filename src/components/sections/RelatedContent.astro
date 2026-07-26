@@ -1,0 +1,185 @@
+---
+import { getCollection } from "astro:content";
+import { resolveRoute } from "../../i18n/routes";
+import type { Locale } from "../../lib/site-config";
+
+export interface Props {
+  /** The current collection name */
+  collectionName: string;
+  /** The current entry slug to exclude from results */
+  currentSlug: string;
+  /** Arrays of related entity slugs/keywords from the current article's frontmatter */
+  relatedMaterials?: string[];
+  relatedProcesses?: string[];
+  relatedFailures?: string[];
+  standards?: string[];
+  applications?: string[];
+  /** Current locale */
+  locale: Locale;
+}
+
+const {
+  collectionName,
+  currentSlug,
+  relatedMaterials = [],
+  relatedProcesses = [],
+  relatedFailures = [],
+  standards = [],
+  applications = [],
+  locale,
+} = Astro.props as Props;
+
+// Collect all content entries for related lookup
+const allCollections = ["materials", "processes", "industries", "standards", "surfaceFinishes", "evidence", "cases"];
+const allEntries: any[] = [];
+for (const col of allCollections) {
+  try {
+    const entries = await getCollection(col as any);
+    allEntries.push(
+      ...entries
+        .filter((e: any) => e.data.locale === locale)
+        .map((e: any) => ({ ...e, _collection: col }))
+    );
+  } catch {
+    // collection might not exist or be empty
+  }
+}
+
+// Build a relevance score map for other entries
+const scores = new Map<string, { entry: any; score: number }>();
+
+for (const entry of allEntries) {
+  if (entry.id === currentSlug && entry._collection === collectionName) continue;
+  
+  let score = 0;
+  const data = entry.data;
+  
+  // Match related fields from current article to other articles
+  const matchKeywords = (field: string[], targetField: string[]) => {
+    if (!field || !targetField) return;
+    for (const kw of field) {
+      if (targetField.some((t: string) => t.toLowerCase().includes(kw.toLowerCase()) || kw.toLowerCase().includes(t.toLowerCase()))) {
+        score += 2;
+      }
+    }
+  };
+  
+  matchKeywords(relatedMaterials, data.materials);
+  matchKeywords(relatedProcesses, data.processType ? [data.processType] : []);
+  matchKeywords(standards, data.standards);
+  matchKeywords(applications, data.industries);
+  
+  // Bonus for same industry
+  if (relatedFailures && data.failureType && relatedFailures.some((f: string) => data.failureType.includes(f))) {
+    score += 1;
+  }
+  
+  if (score > 0) {
+    scores.set(`${entry._collection}::${entry.id}`, { entry, score });
+  }
+}
+
+// Sort by score descending and take top 6
+const related = Array.from(scores.values())
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 6);
+
+// Map collection names to URL paths
+const collectionPaths: Record<string, string> = {
+  materials: "/grades/",
+  processes: "/processes/",
+  industries: "/industries/",
+  standards: "/standards/",
+  surfaceFinishes: "/finishes/",
+  evidence: "/evidence/",
+  cases: "/cases/",
+};
+---
+
+{related.length > 0 && (
+  <section class="related-content">
+    <h2 class="related-title">Related Engineering Topics</h2>
+    <div class="related-grid">
+      {related.map(({ entry }) => {
+        const col = entry._collection;
+        const basePath = collectionPaths[col] || `/${col}/`;
+        return (
+          <a
+            href={resolveRoute(locale, `${basePath}${entry.id}/`)}
+            class="related-card"
+          >
+            <span class="related-badge">
+              {col === "materials" ? "Grade" :
+               col === "processes" ? "Process" :
+               col === "industries" ? "Industry" :
+               col === "standards" ? "Standard" :
+               col === "surfaceFinishes" ? "Finish" :
+               col === "evidence" ? "Data" : "Guide"}
+            </span>
+            <h3 class="related-card__title">{entry.data.title}</h3>
+            <p class="related-card__desc">{entry.data.description}</p>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+)}
+
+<style>
+  .related-content {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+  .related-title {
+    margin: 0 0 var(--space-lg);
+    font-size: 1.35rem;
+    color: var(--color-text-primary);
+  }
+  .related-grid {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .related-card {
+    display: block;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .related-card:hover {
+    border-color: var(--color-brand-primary);
+    transform: translateY(-1px);
+  }
+  .related-badge {
+    display: inline-block;
+    margin-bottom: var(--space-xs);
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+  .related-card__title {
+    margin: 0 0 var(--space-xs);
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+  }
+  .related-card__desc {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

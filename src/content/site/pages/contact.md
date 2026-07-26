@@ -2,7 +2,7 @@
 locale: en
 slug: contact
 title: Contact
-description: Get in touch with our team for questions, collaboration, and more information.
+description: Get in touch with experienced teams for questions, collaboration, and more information.
 sections:
   - type: hero
     title: Contact Us

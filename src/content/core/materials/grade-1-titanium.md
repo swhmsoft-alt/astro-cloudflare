@@ -79,7 +79,3 @@ Grade 1 offers the best formability of any titanium grade. It can be cold formed
 - **Architectural**: Building facades, roofing panels, decorative cladding, structural art installations
 - **Aerospace**: Non-structural interior components, hydraulic tubing, ducting in non-pressurised areas
 
-## RFQ CTA
-
-**Need Grade 1 titanium parts for forming, welding, or machining?**  
-We supply precision-fabricated Grade 1 titanium components for chemical, medical, and marine applications. [Submit an RFQ](/rfq/request-quote/) with your specifications for a rapid quote and DFM feedback.

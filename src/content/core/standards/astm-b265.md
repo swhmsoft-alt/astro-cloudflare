@@ -87,7 +87,3 @@ The standard specifies maximum allowable limits for interstitial elements (Fe, O
 - **Titanium Turning** — Turning of bar and billet sourced to ASTM B265-compliant material
 - **Wire EDM** — Precision cutting of plate blanks for medical and aerospace applications
 
-## RFQ CTA
-
-**Need titanium sheet, strip, or plate components certified to ASTM B265?**  
-We CNC machine and finish titanium parts from certified ASTM B265 material stock with full traceability and MTR documentation. [Submit an RFQ](/rfq/request-quote/) with your drawing and material specification.

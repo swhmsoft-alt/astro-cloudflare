@@ -73,7 +73,3 @@ Grade 3 is a medium-strength commercially pure titanium grade containing 99.1% m
 - **Energy**: Geothermal well components, condenser tubing, heat recovery systems
 - **Aerospace**: Non-structural airframe components, ducting, clamps
 
-## RFQ CTA
-
-**Need Grade 3 titanium components for industrial applications?**  
-We machine and fabricate Grade 3 titanium parts to your specifications. [Submit an RFQ](/rfq/request-quote/) with your drawing for a competitive quote.

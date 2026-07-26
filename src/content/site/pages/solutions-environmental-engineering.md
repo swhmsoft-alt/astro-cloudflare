@@ -16,7 +16,7 @@ order: 12
 
 Environmental engineering applications demand materials that withstand corrosive conditions while maintaining long service life. Titanium's durability and corrosion resistance make it ideal for sustainable infrastructure.
 
-### Our Capabilities
+### capabilities
 
 - **Water Treatment**: Titanium electrodes for electrochlorination and water purification
 - **Pollution Control**: Scrubber components, exhaust handling, and emissions control
@@ -32,4 +32,4 @@ Environmental engineering applications demand materials that withstand corrosive
 
 ### Contact Us
 
-Working on an environmental engineering project? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Working on an environmental engineering project?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

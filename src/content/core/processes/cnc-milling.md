@@ -44,8 +44,3 @@ CNC milling uses rotating multi-point cutting tools to remove material from tita
 - **Geometry**: Positive rake angles (8-12掳), polished flutes for chip evacuation
 - **Coolant**: High-pressure through-spindle coolant (1000+ PSI) recommended
 
-## RFQ CTA
-
-**Need precision-milled titanium components?**  
-We offer CNC milling for all titanium grades with tolerances to 卤0.001 mm. [Submit an RFQ](/rfq/request-quote/) with your drawing.
-

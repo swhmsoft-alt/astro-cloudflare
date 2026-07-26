@@ -16,7 +16,7 @@ order: 8
 
 Titanium's exceptional corrosion resistance in oxidizing acids, chlorides, and caustic environments makes it indispensable for chemical processing equipment. Components manufactured from titanium often outlast stainless steel by 10x or more.
 
-### Our Capabilities
+### capabilities
 
 - **Reactor Vessels**: Pressure vessels and reaction kettles
 - **Heat Exchangers**: Shell-and-tube and plate heat exchangers
@@ -32,4 +32,4 @@ Titanium's exceptional corrosion resistance in oxidizing acids, chlorides, and c
 
 ### Contact Us
 
-Need corrosion-resistant chemical processing equipment? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Need corrosion-resistant chemical processing equipment?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

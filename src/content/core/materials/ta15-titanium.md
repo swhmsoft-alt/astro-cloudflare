@@ -54,7 +54,3 @@ TA15 (Ti-6.5Al-2Zr-1Mo-1V) is a near-alpha titanium alloy developed for high-str
 - High-temperature fasteners
 - Additive manufactured aerospace components
 
-## RFQ CTA
-
-**Need TA15 titanium parts for aerospace or defense applications?**  
-We machine and additively manufacture TA15 components with full material traceability. [Submit an RFQ](/rfq/request-quote/) with your specifications.

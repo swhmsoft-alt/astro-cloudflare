@@ -16,7 +16,7 @@ order: 6
 
 In automotive and motorsports, every gram counts. Titanium offers the strength of steel at roughly half the weight, making it the ultimate material for performance-critical components.
 
-### Our Capabilities
+### capabilities
 
 - **Connecting Rods**: Lightweight titanium rods for high-performance engines
 - **Exhaust Systems**: Full titanium exhausts, headers, and mufflers
@@ -33,4 +33,4 @@ In automotive and motorsports, every gram counts. Titanium offers the strength o
 
 ### Contact Us
 
-Ready to build lighter, faster automotive components? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Ready to build lighter, faster automotive components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

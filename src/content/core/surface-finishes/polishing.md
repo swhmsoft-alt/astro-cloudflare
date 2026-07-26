@@ -27,5 +27,4 @@ order: 5
 | Intermediate | 400鈥?00 | 0.4 碌m |
 | Fine | 800鈥?200 | 0.2 碌m |
 | Mirror | 2000鈥?000+ | 0.05 碌m |
-## RFQ CTA
-Need polished titanium components? We offer mechanical polishing for cosmetic and functional applications. [Submit an RFQ](/rfq/request-quote/).
+

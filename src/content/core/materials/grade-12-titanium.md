@@ -58,7 +58,3 @@ Grade 12 (Ti-0.3Mo-0.8Ni) is a medium-strength titanium alloy with molybdenum an
 - Marine: Seawater heat exchangers, desalination equipment
 - Energy: Geothermal brine handling, flue gas desulfurisation
 
-## RFQ CTA
-
-**Need Grade 12 titanium components for corrosive environments?**  
-We offer precision machining and fabrication of Grade 12 titanium. [Submit an RFQ](/rfq/request-quote/) for a quote.

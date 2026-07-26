@@ -30,5 +30,4 @@ order: 3
 2. Nitric acid bath (20鈥?0% HNO鈧? 20鈥?0掳C, 15鈥?0 minutes)
 3. Thorough DI water rinsing
 4. Drying in clean environment
-## RFQ CTA
-Need passivated titanium medical or aerospace components? We offer passivation per ASTM F86 and ASTM A967. [Submit an RFQ](/rfq/request-quote/).
+

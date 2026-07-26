@@ -61,7 +61,3 @@ relatedComparisons:
 order: 1
 ---
 
-## RFQ CTA
-
-**Need thin-wall titanium housings machined to tight aerospace specifications?**  
-We precision machine thin-wall titanium components with AS9100D quality management, full material traceability, and distortion control processes. [Submit an RFQ](/rfq/request-quote/) with your drawing and specifications for a competitive quote and DFM feedback.

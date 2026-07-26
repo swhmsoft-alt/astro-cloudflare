@@ -24,5 +24,4 @@ order: 5
 - Subsea manifolds and piping
 - Seawater injection systems and heat exchangers
 - Riser components and stress joints
-## RFQ CTA
-Need NACE-compliant titanium oil and gas components? We supply certified subsea titanium parts. [Submit an RFQ](/rfq/request-quote/).
+

@@ -23,5 +23,4 @@ order: 6
 - Surface texturing for improved implant osseointegration
 - Part marking and identification
 - Removal of alpha case from heat-treated titanium
-## RFQ CTA
-Need chemically etched titanium components? We offer precision chemical milling and etching for aerospace and medical parts. [Submit an RFQ](/rfq/request-quote/).
+

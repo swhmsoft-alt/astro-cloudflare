@@ -16,7 +16,7 @@ order: 2
 
 Semiconductor fabrication demands materials that resist corrosion, minimize particle generation, and maintain dimensional stability. Titanium's natural oxide layer and non-magnetic properties make it ideal for critical semiconductor equipment components.
 
-### Our Capabilities
+### capabilities
 
 - **Vacuum Chambers**: Ultra-clean welded titanium chambers for deposition and etch tools
 - **Wafer Handling**: End effectors, grippers, and transport components
@@ -32,4 +32,4 @@ Semiconductor fabrication demands materials that resist corrosion, minimize part
 
 ### Contact Us
 
-Need semiconductor-grade titanium components? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Need semiconductor-grade titanium components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

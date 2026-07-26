@@ -23,5 +23,4 @@ order: 5
 ---
 ## Quick Answer
 **What is ASTM B381?** ASTM B381 covers titanium alloy forgings including CP grades F1-F4 and alloy grades F5 (Ti-6Al-4V), F9, F12, F23. It defines chemical composition and minimum mechanical properties.
-## RFQ CTA
-Need ASTM B381 titanium forgings? We supply forged titanium with full material certification. [Submit an RFQ](/rfq/request-quote/).
+

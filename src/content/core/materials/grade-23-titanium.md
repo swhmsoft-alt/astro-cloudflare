@@ -120,7 +120,3 @@ Grade 23 machines similarly to Grade 5 but with slightly lower cutting forces du
 - **Electropolishing** — Produces mirror finishes (Ra < 0.2 µm) for implant bearing surfaces
 - **Passivation** — Nitric acid passivation per ASTM F86 enhances the protective oxide layer
 
-## RFQ CTA
-
-**Need Grade 23 titanium components certified to ASTM F136?**  
-We offer precision machining for medical implants and aerospace ELI components with full traceability, ISO 13485 quality management, and material certification. [Submit an RFQ](/rfq/request-quote/) with your specifications for a detailed quote and DFM review.

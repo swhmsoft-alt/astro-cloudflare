@@ -15,5 +15,4 @@ order: 2
 ---
 ## Quick Answer
 **What is NADCAP?** NADCAP is an industry-managed accreditation programme providing third-party conformity assessment for specialised aerospace manufacturing processes. Required by Boeing, Airbus, GE, Rolls-Royce.
-## RFQ CTA
-Need NADCAP-accredited titanium processing? We hold NADCAP certification for heat treating and chemical processing. [Submit an RFQ](/rfq/request-quote/).
+

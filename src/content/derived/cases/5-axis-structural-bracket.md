@@ -66,7 +66,3 @@ relatedComparisons:
 order: 5
 ---
 
-## RFQ CTA
-
-**Need complex 5-axis titanium structural brackets machined for aerospace applications?**  
-We specialise in single-setup 5-axis machining of complex titanium structural components under AS9100D with NADCAP-compliant processes and full traceability. [Submit an RFQ](/rfq/request-quote/) with your drawing for a rapid quote, DFM feedback, and lead time estimate.

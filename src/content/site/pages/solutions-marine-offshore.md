@@ -16,7 +16,7 @@ order: 5
 
 Titanium's outstanding resistance to seawater corrosion makes it the ideal material for marine and offshore applications. Unlike stainless steel, titanium is virtually immune to pitting and crevice corrosion in seawater.
 
-### Our Capabilities
+### capabilities
 
 - **Propeller Shafts**: High-strength titanium shafts for marine propulsion
 - **Underwater Hardware**: Through-hull fittings, valves, and seawater systems
@@ -32,4 +32,4 @@ Titanium's outstanding resistance to seawater corrosion makes it the ideal mater
 
 ### Contact Us
 
-Need marine-grade titanium components? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Need marine-grade titanium components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

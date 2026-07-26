@@ -26,5 +26,4 @@ order: 6
 - Reaction vessels for oxidising acid processes
 - Piping systems for corrosive chemical transfer
 - Chlorine dioxide bleaching equipment (pulp and paper)
-## RFQ CTA
-Need titanium chemical processing equipment? We fabricate certified titanium vessels and piping components. [Submit an RFQ](/rfq/request-quote/).
+

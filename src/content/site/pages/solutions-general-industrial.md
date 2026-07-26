@@ -14,9 +14,9 @@ order: 11
 
 ## Overview
 
-Beyond the well-known industries, titanium's unique properties solve engineering challenges across a vast range of industrial applications. Our team brings deep expertise to every custom project.
+Beyond the well-known industries, titanium's unique properties solve engineering challenges across a vast range of industrial applications. experienced teams brings deep expertise to every custom project.
 
-### Our Capabilities
+### capabilities
 
 - **Machinery Components**: Wear parts, bushings, and specialized tooling
 - **Custom Fabrications**: Welded assemblies, brackets, and structural members
@@ -34,4 +34,4 @@ Beyond the well-known industries, titanium's unique properties solve engineering
 
 ### Contact Us
 
-Have a unique industrial application? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Have a unique industrial application?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

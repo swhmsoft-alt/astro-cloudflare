@@ -27,5 +27,4 @@ order: 8
 - Naval propeller and shaft systems
 - Ordnance and missile components
 - Soldier equipment (helmet systems, exoskeleton frames)
-## RFQ CTA
-Need defence-grade titanium components? We manufacture to MIL-SPEC requirements with full traceability. [Submit an RFQ](/rfq/request-quote/).
+

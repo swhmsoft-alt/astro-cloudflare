@@ -39,8 +39,3 @@ Hot isostatic pressing (HIP) subjects titanium components to high temperature an
 - Elimination of subsurface porosity in medical implants (ISO 5832-3)
 - Improvement of creep properties in high-temperature titanium alloys
 
-## RFQ CTA
-
-**Need HIP for titanium components?**  
-We offer hot isostatic pressing services for cast and additively manufactured titanium. [Submit an RFQ](/rfq/request-quote/) for a quote.
-

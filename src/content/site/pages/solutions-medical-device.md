@@ -16,7 +16,7 @@ order: 3
 
 Titanium is the gold standard for medical implants and surgical instruments due to its biocompatibility, corrosion resistance, and osseointegration properties. Our medical manufacturing capabilities are fully ISO 13485 certified.
 
-### Our Capabilities
+### capabilities
 
 - **Orthopedic Implants**: Hip stems, knee components, spinal implants, and bone plates
 - **Surgical Instruments**: Forceps, scissors, retractors, and custom surgical tooling
@@ -38,4 +38,4 @@ Titanium is the gold standard for medical implants and surgical instruments due 
 
 ### Contact Us
 
-Ready to start your medical device project? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Ready to start your medical device project?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

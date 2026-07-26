@@ -56,7 +56,3 @@ relatedEvidence:
 order: 3
 ---
 
-## RFQ CTA
-
-**Need Grade 2 titanium vacuum components fabricated for semiconductor applications?**  
-We manufacture precision-machined and welded titanium components for semiconductor etch and deposition equipment, with helium leak certification and SEMI compliance. [Submit an RFQ](/rfq/request-quote/) with your drawing and specifications for a competitive quote and engineering review.

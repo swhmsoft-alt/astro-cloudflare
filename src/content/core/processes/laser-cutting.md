@@ -46,8 +46,3 @@ Laser cutting uses a focused high-power laser beam to melt, burn, or vaporise ti
 - Prototype and short-run production of 2D titanium parts
 - Decorative architectural titanium panels
 
-## RFQ CTA
-
-**Need laser-cut titanium parts?**  
-We offer fibre laser cutting for titanium sheet and plate up to 25 mm. [Submit an RFQ](/rfq/request-quote/) for a fast quote.
-

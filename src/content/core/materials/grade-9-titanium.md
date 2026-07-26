@@ -115,7 +115,3 @@ Grade 9 machines more easily than Grade 5 due to its lower strength and reduced 
 - **Anodizing** — Produces protective oxide; thinner coating than Grade 5 but sufficient for most environments
 - **Cold Forming** — Suitable for swaging, flaring, and end-forming operations common in tube assemblies
 
-## RFQ CTA
-
-**Need Grade 9 titanium components or tube assemblies?**  
-We offer precision CNC machining, tube bending, welding, and finishing services for Ti-3Al-2.5V in aerospace, marine, and industrial applications. [Submit an RFQ](/rfq/request-quote/) with your specifications for a competitive quote and engineering review.

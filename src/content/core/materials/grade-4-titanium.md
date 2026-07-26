@@ -74,7 +74,3 @@ Grade 4 is the highest-strength commercially pure titanium grade, with 99.0% min
 - **Aerospace**: Structural brackets, fasteners, ducting supports
 - **Industrial**: Fasteners, shafts, springs, structural components requiring corrosion resistance
 
-## RFQ CTA
-
-**Need Grade 4 titanium parts machined to specification?**  
-We offer precision machining of Grade 4 titanium with full material certification. [Submit an RFQ](/rfq/request-quote/) for a rapid quote.

@@ -57,7 +57,3 @@ Ti-5Al-2.5Sn is an alpha titanium alloy stabilised with aluminium and tin. It of
 - Chemical processing equipment at elevated temperatures
 - Helicopter rotor components
 
-## RFQ CTA
-
-**Need Ti-5Al-2.5Sn components for cryogenic or high-temperature service?**  
-We machine Grade 6 titanium to your exact specifications. [Submit an RFQ](/rfq/request-quote/) for a competitive quote.

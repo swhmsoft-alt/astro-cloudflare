@@ -94,8 +94,3 @@ Cost factors: part thickness, total cut length, number of pierce points, surface
 - Prototype and low-volume production of complex 2D profiles
 - Slotted features, keyways, and precision holes in hardened titanium
 
-## RFQ CTA
-
-**Need burr-free titanium components cut to micron precision?**  
-We offer wire EDM services for titanium alloys with tolerances down to 卤0.001 mm and full certification. [Submit an RFQ](/rfq/request-quote/) with your specifications for a detailed quote and DFM review.
-

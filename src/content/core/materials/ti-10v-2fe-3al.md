@@ -57,7 +57,3 @@ Ti-10V-2Fe-3Al is a beta-rich titanium alloy developed for high-strength aerospa
 - Automotive connecting rods and suspension components
 - Defence structural applications
 
-## RFQ CTA
-
-**Need high-strength Ti-10-2-3 forged or machined components?**  
-We offer precision machining of beta titanium alloys with full certification. [Submit an RFQ](/rfq/request-quote/) for a detailed quote.

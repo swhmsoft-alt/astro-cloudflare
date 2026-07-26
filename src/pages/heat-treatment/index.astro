@@ -1,0 +1,42 @@
+---
+import EntityPillar from "../_shared/_EntityPillar.astro";
+import { getCollection } from "astro:content";
+import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
+import { resolveRoute } from "../../i18n/routes";
+import { siteConfig } from "../../config/site.config";
+import type { Locale } from "../../lib/site-config";
+const locale = (Astro.currentLocale || "en") as Locale;
+
+const entries = (await getCollection("heat-treatment"))
+  .filter((e: any) => e.data.locale === locale)
+  .sort((a: any, b: any) => a.data.order - b.data.order);
+
+const listUrl = siteConfig.url + resolveRoute(locale, "/heat-treatment/");
+const collectionSchema = buildCollectionPageSchema({
+  name: "Titanium Heat Treatment Guide",
+  description: "Complete technical guide to titanium heat treatment: annealing, solution treatment, aging, stress relief, and microstructure control.",
+  url: listUrl,
+  numberOfItems: entries.length,
+});
+const itemListSchema = entries.length > 0 ? buildItemListSchema({
+  itemType: "TechArticle",
+  numberOfItems: entries.length,
+  url: listUrl,
+  itemListElement: entries.map((e: any) => ({
+    name: e.data.title,
+    description: e.data.description,
+    url: siteConfig.url + resolveRoute(locale, "/heat-treatment/" + e.id + "/"),
+  })),
+}) : null;
+const schemas = [collectionSchema, itemListSchema].filter(
+  (s): s is NonNullable<typeof s> => s !== null,
+);
+---
+<EntityPillar
+  collectionName="heat-treatment"
+  pageTitle="Titanium Heat Treatment Guide"
+  pageDescription="Complete technical guide to titanium heat treatment: annealing, solution treatment, aging, stress relief, and microstructure control."
+  locale={locale}
+  path="/heat-treatment/"
+  jsonLd={schemas}
+/>

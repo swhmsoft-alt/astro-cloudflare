@@ -62,7 +62,3 @@ relatedComparisons:
 order: 4
 ---
 
-## RFQ CTA
-
-**Need orthopaedic implant components certified to ASTM F136 with validated surface integrity?**  
-We precision machine Grade 23 titanium implants under ISO 13485 with PCD finishing, validated polishing protocols, and full material traceability. [Submit an RFQ](/rfq/request-quote/) with your specifications for a compliant quote and engineering review.

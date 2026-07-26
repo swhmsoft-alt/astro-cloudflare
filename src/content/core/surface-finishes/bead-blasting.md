@@ -32,5 +32,4 @@ order: 2
 - Uniform matte surface finish for medical implants
 - Surface preparation before coating or bonding
 - Removal of light oxidation from heat-treated titanium
-## RFQ CTA
-Need bead-blasted titanium components? We offer precision bead blasting for all titanium grades. [Submit an RFQ](/rfq/request-quote/).
+

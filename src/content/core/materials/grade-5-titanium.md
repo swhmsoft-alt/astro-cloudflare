@@ -126,7 +126,3 @@ Grade 5 titanium is more challenging to machine than aluminium or steel due to i
 - **Welding** — TIG and laser weldable; requires inert gas shielding and stress relief
 - **Heat Treatment** — Solution treatment and aging (STA) can increase strength to 1170 MPa
 
-## RFQ CTA
-
-**Need Grade 5 titanium components precision-machined?**  
-We specialise in Ti-6Al-4V CNC machining with 5-axis capability, tight tolerances, and full certification. [Submit an RFQ](/rfq/request-quote/) with your drawing for a rapid quote, DFM feedback, and lead time estimate.

@@ -87,7 +87,3 @@ The standard defines precise limits for interstitial elements (Fe, O, C, N, H) a
 - **5-Axis Machining** — Complex geometry components machined from bar or billet
 - **Wire EDM** — Precision cutting of bar blanks for medical and prototype applications
 
-## RFQ CTA
-
-**Need titanium bar components certified to ASTM B348?**  
-We machine precision parts from certified ASTM B348 titanium bar stock with full material traceability and MTR documentation. [Submit an RFQ](/rfq/request-quote/) with your drawing and material specification for a rapid quote.

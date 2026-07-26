@@ -27,5 +27,4 @@ order: 7
 - Desalination plant components
 - Subsea ROV and AUV housings
 - Yacht fittings and rigging
-## RFQ CTA
-Need marine-grade titanium components? We supply corrosion-resistant titanium for permanent seawater service. [Submit an RFQ](/rfq/request-quote/).
+

@@ -113,7 +113,3 @@ Grade 2 is the most machinable of the titanium grades due to its lower strength 
 - **Anodizing** — Produces protective oxide layer; colour anodizing possible with voltage control
 - **Passivation** — Enhances native corrosion resistance for chemical and medical applications
 
-## RFQ CTA
-
-**Need Grade 2 titanium parts machined to your specifications?**  
-We provide precision CNC machining, forming, and finishing services for CP titanium components. [Submit an RFQ](/rfq/request-quote/) with your drawing and specifications for a rapid quote and DFM feedback.

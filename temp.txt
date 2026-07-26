@@ -1,0 +1,56 @@
+---  
+import EntityPillar from "../_shared/_EntityPillar.astro";
+import { getCollection } from "astro:content";
+import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
+import { resolveRoute } from "../../i18n/routes";
+import { siteConfig } from "../../config/site.config";
+import type { Locale } from "../../lib/site-config";  
+import { resolveRoute } from '../../i18n/routes'  
+import { siteConfig } from '../../config/site.config'  
+import type { Locale } from '../../lib/site-config'  
+  
+const locale = (Astro.currentLocale || 'en') as Locale;  
+  
+const industries = [  
+{ title: 'Aerospace', href: '/industries/aerospace/', desc: 'Precision titanium manufacturing for flight-critical components.' },  
+{ title: 'Medical', href: '/industries/medical/', desc: 'ISO 13485 certified titanium manufacturing for medical devices.' },  
+{ title: 'Automotive', href: '/industries/automotive/', desc: 'Lightweight titanium for performance and structural applications.' },  
+{ title: 'Semiconductor', href: '/industries/semiconductor/', desc: 'High-purity titanium for semiconductor manufacturing equipment.' },  
+{ title: 'Oil & Gas', href: '/industries/oil-and-gas/', desc: 'Corrosion-resistant titanium for offshore and subsea equipment.' },  
+{ title: 'Chemical Processing', href: '/industries/chemical-processing/', desc: 'Titanium equipment for chemical processing and heat exchangers.' },  
+{ title: 'Marine', href: '/industries/marine/', desc: 'Seawater-resistant titanium for marine and offshore structures.' },  
+{ title: 'Defence & Military', href: '/industries/defence/', desc: 'MIL-SPEC certified titanium manufacturing for defense.' }  
+];  
+--- 
+<MarketingLayout title='Industries We Serve -- Titanium Manufacturing by Industry' description='Explore titanium manufacturing capabilities across aerospace, medical, semiconductor, automotive, oil and gas, chemical processing, marine, and defence industries.' locale={locale} path='/industries'>  
+<section class='industries-hub container'>  
+<header class='section-head'>  
+<p class='section-head__eyebrow'>Industries</p>  
+<h1 class='section-head__title'>Industries We Serve</h1>  
+<p>End-to-end titanium manufacturing solutions across all major industries.</p>  
+</header>  
+<div class='industries-grid'> 
+{industries.map(ind => (  
+<a href={resolveRoute(locale, ind.href)} class='industry-card'>  
+<h2 class='industry-card__title'>{ind.title}</h2>  
+<p class='industry-card__desc'>{ind.desc}</p>  
+<span class='industry-card__cta'>Explore &rarr;</span>  
+</a>  
+))}  
+</div>  
+</section>  
+</MarketingLayout> 
+<style>  
+.industries-hub { padding-block: var(--space-2xl); }  
+.industries-grid { display: grid; gap: var(--space-lg); grid-template-columns: 1fr; margin-top: var(--space-xl); }  
+@media (min-width: 768px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }  
+@media (min-width: 1024px) { .industries-grid { grid-template-columns: repeat(3, 1fr); } }  
+.industry-card { display: block; padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg-primary); text-decoration: none; transition: all 0.2s ease; }  
+.industry-card:hover { border-color: var(--color-brand-primary); transform: translateY(-2px); }  
+.industry-card__title { margin: 0 0 var(--space-sm); font-size: 1.2rem; color: var(--color-text-primary); }  
+.industry-card__desc { margin: 0; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }  
+.industry-card__cta { display: inline-block; margin-top: var(--space-md); color: var(--color-brand-primary); font-weight: 600; font-size: 0.9rem; }  
+.section-head { text-align: center; margin-bottom: var(--space-lg); }  
+.section-head__eyebrow { display: inline-flex; margin: 0 auto var(--space-sm); padding: 0.35rem 0.9rem; border-radius: var(--radius-full); border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent); background: color-mix(in srgb, var(--primary) 6%, transparent); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; color: var(--primary); font-weight: 700; width: fit-content; }  
+.section-head__title { margin: 0; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--color-text-primary); max-width: 36rem; margin-inline: auto; }  
+</style> 

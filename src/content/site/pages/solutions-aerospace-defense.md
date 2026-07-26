@@ -16,7 +16,7 @@ order: 1
 
 Aerospace and defense applications demand materials that perform under extreme conditions. Titanium's exceptional strength-to-weight ratio, fatigue resistance, and corrosion performance make it the material of choice for critical aircraft and defense components.
 
-### Our Capabilities
+### capabilities
 
 - **Structural Components**: Bulkheads, ribs, spars, wing boxes, and fuselage frames
 - **Engine Parts**: Compressor blades, discs, casings, and exhaust components
@@ -38,4 +38,4 @@ Aerospace and defense applications demand materials that perform under extreme c
 
 ### Contact Us
 
-Ready to discuss your aerospace or defense project? [Submit an RFQ](/rfq/request-quote/) or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.
+Ready to discuss your aerospace or defense project?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

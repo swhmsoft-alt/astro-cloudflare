@@ -53,7 +53,3 @@ Grade 11 is the low-oxygen version of Grade 7, with the same palladium content (
 - Chlorine dioxide bleaching equipment in pulp and paper
 - Seawater piping where both corrosion resistance and formability are critical
 
-## RFQ CTA
-
-**Need Grade 11 titanium for demanding chemical environments?**  
-We fabricate Grade 11 titanium components with full material traceability. [Submit an RFQ](/rfq/request-quote/) for a detailed quote.

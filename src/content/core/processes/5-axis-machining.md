@@ -95,7 +95,3 @@ Cost factors: material grade, quantity, tolerance requirements, surface finish s
 - Defence and armour components
 - Tooling and moulds for high-temperature processes
 
-## RFQ CTA
-
-**Need complex titanium components machined with 5-axis precision?**  
-We specialise in 5-axis CNC machining of titanium alloys with tight tolerances, full certification, and AS9100D / ISO 13485 quality management. [Submit an RFQ](/rfq/request-quote/) with your drawing for a rapid quote, DFM feedback, and lead time estimate.
