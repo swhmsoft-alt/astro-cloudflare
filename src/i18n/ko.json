@@ -1,8 +1,6 @@
 {
   "nav.home": "홈",
   "nav.about": "소개",
-  "nav.services": "서비스",
-  "nav.pricing": "가격",
   "nav.blog": "블로그",
   "nav.contact": "문의",
   "nav.docs": "문서",
@@ -75,15 +73,9 @@
   "pagination.next": "다음",
   "pagination.page": "페이지",
   "pagination.of": "/",
-  "nav.knowledge": "Knowledge",
   "nav.guides": "Guides",
   "nav.compare": "Compare",
   "nav.faq": "FAQ",
-  "nav.rfq": "RFQ",
-  "nav.uploadDrawing": "Upload Drawing",
-  "nav.requestQuote": "Request Quote",
-  "nav.dfmReview": "DFM Review",
-  "nav.prototypeRequest": "Prototype Request",
   "nav.byProcess": "By Process",
   "nav.byMaterial": "By Material",
   "nav.byIndustry": "By Industry",
@@ -216,5 +208,9 @@
   "nav.materialSelection": "Material Selection",
   "nav.failureAnalysis": "Failure Analysis",
   "nav.heatTreatment": "Heat Treatment",
-  "nav.corrosionResistance": "Corrosion Resistance"
+  "nav.corrosionResistance": "Corrosion Resistance",
+  "nav.grades": "Grades",
+  "nav.tools": "Tools",
+  "nav.gradeComparison": "Grade Comparison",
+  "nav.hardnessConverter": "Hardness Converter"
 }

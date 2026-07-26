@@ -1,8 +1,6 @@
 {
   "nav.home": "Home",
   "nav.about": "Chi siamo",
-  "nav.services": "Servizi",
-  "nav.pricing": "Prezzi",
   "nav.blog": "Blog",
   "nav.contact": "Contatti",
   "nav.docs": "Documentazione",
@@ -75,15 +73,9 @@
   "pagination.next": "Successivo",
   "pagination.page": "Pagina",
   "pagination.of": "di",
-  "nav.knowledge": "Knowledge",
   "nav.guides": "Guides",
   "nav.compare": "Compare",
   "nav.faq": "FAQ",
-  "nav.rfq": "RFQ",
-  "nav.uploadDrawing": "Upload Drawing",
-  "nav.requestQuote": "Request Quote",
-  "nav.dfmReview": "DFM Review",
-  "nav.prototypeRequest": "Prototype Request",
   "nav.byProcess": "By Process",
   "nav.byMaterial": "By Material",
   "nav.byIndustry": "By Industry",
@@ -216,5 +208,9 @@
   "nav.materialSelection": "Material Selection",
   "nav.failureAnalysis": "Failure Analysis",
   "nav.heatTreatment": "Heat Treatment",
-  "nav.corrosionResistance": "Corrosion Resistance"
+  "nav.corrosionResistance": "Corrosion Resistance",
+  "nav.grades": "Grades",
+  "nav.tools": "Tools",
+  "nav.gradeComparison": "Grade Comparison",
+  "nav.hardnessConverter": "Hardness Converter"
 }
