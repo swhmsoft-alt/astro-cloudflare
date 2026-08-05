@@ -11,7 +11,7 @@ quickAnswer: "Anodizing builds a thicker, coloured oxide layer for wear and aest
 | Factor | Anodizing | Passivation |
 |--------|-----------|-------------|
 | Purpose | Wear/colour | Corrosion resistance |
-| Oxide Thickness | 0.2-100 碌m | 0.005-0.01 碌m |
+| Oxide Thickness | 0.2-100 µm | 0.005-0.01 µm |
 | Visual Change | Coloured | None visible |
 | Process | Electrochemical | Chemical (acid) |
 | Wear Resistance | Excellent | None |

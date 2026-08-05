@@ -12,4 +12,4 @@ source: "AMS 4983 MatWeb"
 | Yield Strength | 1170 | MPa |
 | Elongation | 6 | % |
 | Hardness | 38 | HRC |
-| Fracture Toughness | 60 | MPa鈭歮 |
+| Fracture Toughness | 60 | MPa·√m |

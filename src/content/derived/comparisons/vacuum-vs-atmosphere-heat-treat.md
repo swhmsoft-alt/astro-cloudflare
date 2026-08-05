@@ -13,5 +13,5 @@ quickAnswer: "Vacuum heating prevents alpha case formation on titanium. Atmosphe
 | Alpha Case | None | 0.05-0.15 mm |
 | Surface Finish | As-loaded | Oxidised |
 | Cost Factor | 2-3x | 1x |
-| Temperature Uniformity | 卤5掳C | 卤10掳C |
+| Temperature Uniformity | ±5°C | ±10°C |
 | Quench Rate | Slower (gas) | Faster (gas/liquid) |

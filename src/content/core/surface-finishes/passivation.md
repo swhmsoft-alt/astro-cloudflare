@@ -20,14 +20,14 @@ processes:
 standards:
   - astm-f86
   - astm-a967
-surfaceFinish: "As-machined (0.4鈥?.8 碌m Ra)"
+surfaceFinish: "As-machined (0.4–0.8 µm Ra)"
 order: 3
 ---
 ## Quick Answer
-**What is passivation for titanium?** Passivation is a chemical treatment that removes surface contamination and promotes the growth of the natural protective oxide layer on titanium. Unlike stainless steel passivation (which removes free iron), titanium passivation cleans and thickens the existing TiO鈧?layer.
+**What is passivation for titanium?** Passivation is a chemical treatment that removes surface contamination and promotes the growth of the natural protective oxide layer on titanium. Unlike stainless steel passivation (which removes free iron), titanium passivation cleans and thickens the existing TiO₂layer.
 ## Process
 1. Alkaline cleaning to remove oils and residues
-2. Nitric acid bath (20鈥?0% HNO鈧? 20鈥?0掳C, 15鈥?0 minutes)
+2. Nitric acid bath (20–40% HNO₃ 20–40°C, 15–30 minutes)
 3. Thorough DI water rinsing
 4. Drying in clean environment
 

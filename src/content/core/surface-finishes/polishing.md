@@ -15,7 +15,7 @@ industries:
   - automotive
 processes:
   - surface-finishing
-surfaceFinish: "0.05鈥?.8 碌m Ra"
+surfaceFinish: "0.05–0.8 µm Ra"
 order: 5
 ---
 ## Quick Answer
@@ -23,8 +23,8 @@ order: 5
 ## Grit Sequence
 | Stage | Grit | Resulting Ra |
 |-------|------|-------------|
-| Rough | 120鈥?40 | 0.8 碌m |
-| Intermediate | 400鈥?00 | 0.4 碌m |
-| Fine | 800鈥?200 | 0.2 碌m |
-| Mirror | 2000鈥?000+ | 0.05 碌m |
+| Rough | 120–240 | 0.8 µm |
+| Intermediate | 400–600 | 0.4 µm |
+| Fine | 800–1200 | 0.2 µm |
+| Mirror | 2000–4000+ | 0.05 µm |
 

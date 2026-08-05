@@ -10,7 +10,7 @@ processes:
   - "welding"
 standards:
   - "ISO 9001"
-challenge: "Lightweight exhaust required for sports car. Target 50% weight reduction vs stainless steel. Must withstand 800掳C."
+challenge: "Lightweight exhaust required for sports car. Target 50% weight reduction vs stainless steel. Must withstand 800°C."
 solution: "Headers: Grade 2 mandrel bent 1.5mm wall. Collector/muffler: Grade 5 sheet. Flanges: Grade 5 CNC machined. TIG welded with ERTi-2."
-result: "Weight 7.2 kg vs 14.8 kg = 51% reduction. Continuous 800掳C operation. No corrosion after 50000 km."
+result: "Weight 7.2 kg vs 14.8 kg = 51% reduction. Continuous 800°C operation. No corrosion after 50000 km."
 ---

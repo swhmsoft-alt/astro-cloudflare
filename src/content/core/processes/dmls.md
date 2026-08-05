@@ -13,8 +13,8 @@ industries:
   - "industrial"
 equipment:
   - "dmls"
-tolerances: "卤0.05 mm (standard), 卤0.02 mm (precision, post-machined)"
-surfaceFinish: "6鈥?0 碌m Ra (as-built), 0.4 碌m Ra (post-machined)"
+tolerances: "±0.05 mm (standard), ±0.02 mm (precision, post-machined)"
+surfaceFinish: "6–10 µm Ra (as-built), 0.4 µm Ra (post-machined)"
 maxPartSize: "400 mm x 400 mm x 400 mm"
 order: 4
 ---
@@ -28,19 +28,19 @@ Direct Metal Laser Sintering (DMLS) is an additive manufacturing process that bu
 
 DMLS offers unrivalled design freedom for titanium components. Key capabilities include:
 
-- **Complex internal geometries** 鈥?conformal cooling channels, lattice structures, organic shapes
-- **Thin wall capability** 鈥?down to 0.3 mm minimum wall thickness
-- **High material utilisation** 鈥?<5% waste vs 80鈥?0% scrap in conventional machining
-- **Multiple parts per build** 鈥?nested within build volume up to 400 x 400 x 400 mm
-- **Support structures** 鈥?breakaway or soluble supports for overhangs >45掳
-- **Layer thickness** 鈥?30 碌m (standard), 60 碌m (rapid), 20 碌m (high-resolution)
+- **Complex internal geometries** — conformal cooling channels, lattice structures, organic shapes
+- **Thin wall capability** — down to 0.3 mm minimum wall thickness
+- **High material utilisation** — <5% waste vs 80–90% scrap in conventional machining
+- **Multiple parts per build** — nested within build volume up to 400 x 400 x 400 mm
+- **Support structures** — breakaway or soluble supports for overhangs >45°
+- **Layer thickness** — 30 µm (standard), 60 µm (rapid), 20 µm (high-resolution)
 
 ## Tolerance
 
 | Standard | Precision (post-machined) |
 |----------|--------------------------|
-| 卤0.05 mm (as-built) | 卤0.02 mm |
-| 卤0.002 mm/mm for features >100 mm | 卤0.005 mm |
+| ±0.05 mm (as-built) | ±0.02 mm |
+| ±0.002 mm/mm for features >100 mm | ±0.005 mm |
 | ISO 2768-m (as-built) | ISO 2768-f (post-machined) |
 
 Critical mating surfaces typically require post-build CNC machining to achieve tight tolerances. DMLS is often paired with subtractive finishing for hybrid manufacturing.
@@ -49,8 +49,8 @@ Critical mating surfaces typically require post-build CNC machining to achieve t
 
 | As-built | Post-processed |
 |----------|---------------|
-| 6鈥?0 碌m Ra (standard) | 0.4 碌m Ra (machined) |
-| 3鈥? 碌m Ra (fine parameters) | 0.1 碌m Ra (polished/electropolished) |
+| 6–10 µm Ra (standard) | 0.4 µm Ra (machined) |
+| 3–5 µm Ra (fine parameters) | 0.1 µm Ra (polished/electropolished) |
 
 As-built surfaces have characteristic roughness from partially sintered particles. Post-processing (CNC machining, polishing, electropolishing) is standard for functional surfaces.
 
@@ -58,9 +58,9 @@ As-built surfaces have characteristic roughness from partially sintered particle
 
 | Phase | Duration |
 |-------|----------|
-| Prototype (1鈥?0 pcs) | 5鈥?0 business days |
-| Low-volume (10鈥?0 pcs) | 2鈥? weeks |
-| Production (50鈥?00+ pcs) | 4鈥? weeks |
+| Prototype (1–10 pcs) | 5–10 business days |
+| Low-volume (10–50 pcs) | 2–3 weeks |
+| Production (50–100+ pcs) | 4–6 weeks |
 | Express service | Available on request |
 
 Build time depends on part height, volume, and number of parts per build. Complex lattice structures add significant scan time.
@@ -69,17 +69,17 @@ Build time depends on part height, volume, and number of parts per build. Comple
 
 | Complexity | Typical Range (per part) |
 |------------|-------------------------|
-| Simple geometry, small (<50 mm) | $200鈥?800 |
-| Moderate (internal features, lattices) | $800鈥?3,000 |
-| Complex (large, thin walls, intricate) | $3,000鈥?10,000+ |
-| NRE (file preparation + build setup) | $500鈥?2,000 |
+| Simple geometry, small (<50 mm) | $200–$800 |
+| Moderate (internal features, lattices) | $800–$3,000 |
+| Complex (large, thin walls, intricate) | $3,000–$10,000+ |
+| NRE (file preparation + build setup) | $500–$2,000 |
 
 Cost factors: part volume and height (determines build time), material grade (Grade 23 powder costs more), post-processing requirements, and quantity (build nesting reduces per-part cost). Titanium powder cost is a significant contributor.
 
 ## Recommended Materials
 
-- **Grade 5 (Ti-6Al-4V)** 鈥?Aerospace brackets, lightweight structural components, custom tooling
-- **Grade 23 (Ti-6Al-4V ELI)** 鈥?Medical implants (custom patient-specific), surgical guides, Class II/III devices
+- **Grade 5 (Ti-6Al-4V)** — Aerospace brackets, lightweight structural components, custom tooling
+- **Grade 23 (Ti-6Al-4V ELI)** — Medical implants (custom patient-specific), surgical guides, Class II/III devices
 
 Both materials are widely qualified for DMLS. Grade 23 is preferred for medical implant applications due to its improved fracture toughness.
 

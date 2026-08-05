@@ -10,7 +10,7 @@ processes:
   - "cnc-machining"
 standards:
   - "NACE MR0175"
-challenge: "Downhole component for sour gas H2S service: NACE MR0175 compliance, corrosion resistance in 200掳C brine."
+challenge: "Downhole component for sour gas H2S service: NACE MR0175 compliance, corrosion resistance in 200°C brine."
 solution: "Grade 23 Ti-6Al-4V ELI for NACE compliance. CNC turned and milled. Full NACE material certification."
 result: "100% NACE MR0175 compliant. Passed H2S exposure testing. In service 18+ months."
 ---

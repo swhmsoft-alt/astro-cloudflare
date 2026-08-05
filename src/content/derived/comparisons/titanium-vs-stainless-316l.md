@@ -10,7 +10,7 @@ quickAnswer: "Titanium offers superior corrosion resistance and biocompatibility
 ## Key Differences
 | Property | Ti-6Al-4V | SS 316L |
 |----------|-----------|---------|
-| Density | 4.43 g/cm鲁 | 7.95 g/cm鲁 |
+| Density | 4.43 g/cm³ | 7.95 g/cm³ |
 | Tensile Strength | 950 MPa | 485 MPa |
 | Yield Strength | 880 MPa | 170 MPa |
 | Corrosion (Chloride) | Excellent | Pitting risk |

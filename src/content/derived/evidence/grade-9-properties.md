@@ -17,5 +17,5 @@ materials:
 | Hardness | 30 | HRC |
 | Modulus | 107 | GPa |
 ## Physical Properties
-| Density | 4.48 | g/cm鲁 |
-| Melting Point | 1670 | 掳C |
+| Density | 4.48 | g/cm³ |
+| Melting Point | 1670 | °C |

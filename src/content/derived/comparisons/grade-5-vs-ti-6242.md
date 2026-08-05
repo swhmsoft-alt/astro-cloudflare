@@ -5,13 +5,13 @@ locale: en
 comparisonType: material
 entityA: Grade 5
 entityB: Ti-6242
-quickAnswer: "Ti-6242 operates at 540掳C vs 400掳C for Grade 5. Grade 5 offers higher ductility and lower cost."
+quickAnswer: "Ti-6242 operates at 540°C vs 400°C for Grade 5. Grade 5 offers higher ductility and lower cost."
 ---
 ## Key Differences
 | Property | Grade 5 | Ti-6242 |
 |----------|---------|---------|
-| Max Temp | 400掳C | 540掳C |
+| Max Temp | 400°C | 540°C |
 | Tensile Strength | 950 MPa | 930 MPa |
-| Density | 4.43 g/cm鲁 | 4.54 g/cm鲁 |
+| Density | 4.43 g/cm³ | 4.54 g/cm³ |
 | Creep Resistance | Moderate | Excellent |
 | Typical Use | General | Engine components |

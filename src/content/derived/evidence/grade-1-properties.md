@@ -14,5 +14,5 @@ source: "ASTM B348 MatWeb"
 | Hardness | 20 | HRC |
 | Modulus | 103 | GPa |
 ## Physical Properties
-| Density | 4.51 | g/cm鲁 |
-| Melting Point | 1668 | 掳C |
+| Density | 4.51 | g/cm³ |
+| Melting Point | 1668 | °C |

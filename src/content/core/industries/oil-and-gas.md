@@ -19,7 +19,7 @@ standards:
 order: 5
 ---
 ## Quick Answer
-**What are titanium's oil and gas applications?** Titanium resists seawater corrosion and sour gas (H鈧係) with high strength-to-weight ratio. NACE MR0175 compliant grades available.
+**What are titanium's oil and gas applications?** Titanium resists seawater corrosion and sour gas (H₂S) with high strength-to-weight ratio. NACE MR0175 compliant grades available.
 ## Applications
 - Subsea manifolds and piping
 - Seawater injection systems and heat exchangers

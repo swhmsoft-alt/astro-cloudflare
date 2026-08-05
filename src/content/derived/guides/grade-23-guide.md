@@ -11,7 +11,7 @@ Grade 23 must comply with ASTM F136 or ISO 5832-3.
 Supplier must operate under ISO 13485.
 
 ## 3. Surface Finish
-Bearing surfaces Ra 鈮?0.1. Bone-contact Ra 0.5-2.0.
+Bearing surfaces Ra ≤ 0.1. Bone-contact Ra 0.5-2.0.
 
 ## 4. Cleanliness
 Validated cleaning. Class 7 cleanroom packaging.

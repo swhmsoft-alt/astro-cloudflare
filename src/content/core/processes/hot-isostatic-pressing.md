@@ -13,7 +13,7 @@ industries:
   - "oil-and-gas"
 equipment:
   - "hip-vessel"
-tolerances: "卤5掳C, 卤10 MPa"
+tolerances: "±5°C, ±10 MPa"
 maxPartSize: "1500 mm diameter x 3000 mm height"
 order: 9
 ---
@@ -21,15 +21,15 @@ order: 9
 ## Quick Answer
 
 **What is HIP for titanium?**  
-Hot isostatic pressing (HIP) subjects titanium components to high temperature and isostatic gas pressure simultaneously, typically 900鈥?50掳C and 100鈥?00 MPa in an argon atmosphere. HIP eliminates internal porosity, improves fatigue life, and restores mechanical properties in cast and additively manufactured titanium parts.
+Hot isostatic pressing (HIP) subjects titanium components to high temperature and isostatic gas pressure simultaneously, typically 900–950°C and 100–200 MPa in an argon atmosphere. HIP eliminates internal porosity, improves fatigue life, and restores mechanical properties in cast and additively manufactured titanium parts.
 
 ## Benefits
 
 | Benefit | Improvement |
 |---------|-------------|
 | Density | 99.99%+ (eliminates microporosity) |
-| Fatigue life | 2鈥?0脳 improvement |
-| Elongation | 20鈥?0% improvement |
+| Fatigue life | 2–10× improvement |
+| Elongation | 20–50% improvement |
 | Scatter in properties | Significantly reduced |
 
 ## Applications

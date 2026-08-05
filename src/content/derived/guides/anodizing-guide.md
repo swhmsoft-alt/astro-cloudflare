@@ -5,10 +5,10 @@ locale: en
 guideType: "machining"
 ---
 ## 1. Type II Colour Anodizing
-10-110V in electrolyte. Oxide 0.2-2 碌m. For aesthetics and ID marking.
+10-110V in electrolyte. Oxide 0.2-2 µm. For aesthetics and ID marking.
 
 ## 2. Type III Hard Anodizing
-Higher voltage/current. Oxide 20-100 碌m. Hardness 400-600 HV.
+Higher voltage/current. Oxide 20-100 µm. Hardness 400-600 HV.
 
 ## 3. Preparation
 Parts clean degreased free of contamination. Mask for selective anodizing.

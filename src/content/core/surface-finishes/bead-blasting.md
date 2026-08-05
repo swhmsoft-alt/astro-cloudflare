@@ -18,7 +18,7 @@ processes:
   - surface-finishing
 standards:
   - ams-2430
-surfaceFinish: "0.8鈥?.2 碌m Ra"
+surfaceFinish: "0.8–1.2 µm Ra"
 order: 2
 ---
 ## Quick Answer
@@ -26,8 +26,8 @@ order: 2
 ## Parameters
 | Media | Pressure | Resulting Ra |
 |-------|----------|-------------|
-| Glass beads (60鈥?00 mesh) | 2鈥? bar | 0.8鈥?.6 碌m |
-| Ceramic beads (80鈥?20 mesh) | 3鈥? bar | 1.2鈥?.2 碌m |
+| Glass beads (60–100 mesh) | 2–4 bar | 0.8–1.6 µm |
+| Ceramic beads (80–120 mesh) | 3–5 bar | 1.2–3.2 µm |
 ## Applications
 - Uniform matte surface finish for medical implants
 - Surface preparation before coating or bonding

@@ -5,7 +5,7 @@ locale: en
 guideType: "material-selection"
 ---
 ## 1. Properties
-Grade 5: 950 MPa tensile at 4.43 g/cm鲁. 50% of global titanium.
+Grade 5: 950 MPa tensile at 4.43 g/cm³. 50% of global titanium.
 
 ## 2. Material Certification
 ASTM B265 sheet ASTM B348 bar. Aerospace: AMS 4928 or AMS 4911.

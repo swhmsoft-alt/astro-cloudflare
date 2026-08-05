@@ -15,8 +15,8 @@ industries:
   - "tool-and-die"
 equipment:
   - "wire-edm"
-tolerances: "卤0.002 mm (standard), 卤0.001 mm (precision)"
-surfaceFinish: "0.8 碌m Ra (standard), 0.2 碌m Ra (finish)"
+tolerances: "±0.002 mm (standard), ±0.001 mm (precision)"
+surfaceFinish: "0.8 µm Ra (standard), 0.2 µm Ra (finish)"
 maxPartSize: "1500 mm x 1000 mm x 500 mm"
 order: 5
 ---
@@ -31,9 +31,9 @@ Electrical discharge machining (EDM) erodes conductive titanium materials using 
 | Parameter | Specification |
 |-----------|---------------|
 | Cavity depth | Up to 300 mm |
-| Electrode wear ratio | 0.1鈥?.0% (copper-graphite) |
+| Electrode wear ratio | 0.1–1.0% (copper-graphite) |
 | Minimum corner radius | 0.02 mm |
-| Surface finish | 0.4 碌m Ra (fine), 0.1 碌m Ra (ultra-fine) |
+| Surface finish | 0.4 µm Ra (fine), 0.1 µm Ra (ultra-fine) |
 
 ## Applications
 

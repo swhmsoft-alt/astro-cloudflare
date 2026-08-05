@@ -16,13 +16,13 @@ processes:
 ## Parameters by Thickness
 | Thickness | Wire Dia | Cut Speed | Surface (Rough) |
 |-----------|----------|-----------|-----------------|
-| 25 mm | 0.25 mm | 3.5 mm/min | 1.2 碌m Ra |
-| 50 mm | 0.25 mm | 2.8 mm/min | 1.4 碌m Ra |
-| 100 mm | 0.30 mm | 1.8 mm/min | 1.6 碌m Ra |
+| 25 mm | 0.25 mm | 3.5 mm/min | 1.2 µm Ra |
+| 50 mm | 0.25 mm | 2.8 mm/min | 1.4 µm Ra |
+| 100 mm | 0.30 mm | 1.8 mm/min | 1.6 µm Ra |
 ## Multi-Pass Finishing
 | Pass | Surface Finish |
 |------|---------------|
-| Rough | 1.2鈥?.6 碌m |
-| Trim 1 | 0.6鈥?.8 碌m |
-| Trim 2 | 0.3鈥?.4 碌m |
-| Trim 3 | 0.1鈥?.2 碌m |
+| Rough | 1.2–1.6 µm |
+| Trim 1 | 0.6–0.8 µm |
+| Trim 2 | 0.3–0.4 µm |
+| Trim 3 | 0.1–0.2 µm |

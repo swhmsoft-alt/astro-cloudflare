@@ -14,9 +14,9 @@ processes:
 ## Standard Parameters
 | Parameter | Standard | High-Resolution |
 |-----------|----------|----------------|
-| Laser Power | 200鈥?00 W | 100鈥?00 W |
-| Scan Speed | 1000鈥?000 mm/s | 500鈥?000 mm/s |
-| Layer Thickness | 30鈥?0 碌m | 20鈥?0 碌m |
+| Laser Power | 200–400 W | 100–400 W |
+| Scan Speed | 1000–2000 mm/s | 500–2000 mm/s |
+| Layer Thickness | 30–60 µm | 20–60 µm |
 ## Mechanical Properties
 | Property | XY | Z |
 |----------|----|---|

@@ -1,5 +1,5 @@
 ﻿---
-title: "ASTM B381 鈥?Titanium and Titanium Alloy Forgings"
+title: "ASTM B381 — Titanium and Titanium Alloy Forgings"
 description: "ASTM B381 specification for titanium and titanium alloy forgings covering CP grades F1-F4 and alloy grades F5, F9, F12, F23."
 locale: en
 standardType: material

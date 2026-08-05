@@ -17,6 +17,6 @@ materials:
 | Hardness | 24 | HRC | typical |
 | Modulus of Elasticity | 105 | GPa | tension |
 ## Physical Properties
-| Density | 4.51 | g/cm鲁 |
-| Melting Point | 1668 | 掳C |
-| Thermal Conductivity | 16.4 | W/m路K |
+| Density | 4.51 | g/cm³ |
+| Melting Point | 1668 | °C |
+| Thermal Conductivity | 16.4 | W/m·K |

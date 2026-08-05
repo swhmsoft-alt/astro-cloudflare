@@ -19,14 +19,14 @@ processes:
 ## Tolerances by Process
 | Process | Standard | Precision | Ultra-Precision |
 |---------|----------|-----------|----------------|
-| 3-Axis Milling | 卤0.025 mm | 卤0.005 mm | 卤0.001 mm |
-| 5-Axis Milling | 卤0.025 mm | 卤0.005 mm | 卤0.001 mm |
-| CNC Turning | 卤0.010 mm | 卤0.005 mm | 卤0.002 mm |
-| Wire EDM | 卤0.005 mm | 卤0.002 mm | 卤0.001 mm |
+| 3-Axis Milling | ±0.025 mm | ±0.005 mm | ±0.001 mm |
+| 5-Axis Milling | ±0.025 mm | ±0.005 mm | ±0.001 mm |
+| CNC Turning | ±0.010 mm | ±0.005 mm | ±0.002 mm |
+| Wire EDM | ±0.005 mm | ±0.002 mm | ±0.001 mm |
 ## Feature-Specific
 | Feature | Typical | Best Practice |
 |---------|---------|---------------|
 | Hole diameter (reamed) | H7 | H6 |
-| Hole position | 卤0.050 mm | 卤0.010 mm |
+| Hole position | ±0.050 mm | ±0.010 mm |
 | Flatness (per 100mm) | 0.025 mm | 0.005 mm |
 | Concentricity | 0.025 mm | 0.005 mm |

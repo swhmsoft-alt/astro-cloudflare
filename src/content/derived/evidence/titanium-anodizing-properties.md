@@ -15,16 +15,16 @@ processes:
 ## Anodizing Voltage-Colour Relationship (Type II)
 | Voltage | Colour | Oxide Thickness |
 |---------|--------|----------------|
-| 10V | Bronze/Gold | 200脜 |
-| 20V | Purple/Blue | 400脜 |
-| 30V | Light Blue | 600脜 |
-| 50V | Green | 1000脜 |
-| 70V | Pink/Magenta | 1400脜 |
-| 90V | Green-Yellow | 1800脜 |
-| 110V | Rose | 2200脜 |
+| 10V | Bronze/Gold | 200Å |
+| 20V | Purple/Blue | 400Å |
+| 30V | Light Blue | 600Å |
+| 50V | Green | 1000Å |
+| 70V | Pink/Magenta | 1400Å |
+| 90V | Green-Yellow | 1800Å |
+| 110V | Rose | 2200Å |
 ## Type III (Hard Anodizing)
 | Property | Value |
 |----------|-------|
-| Oxide Thickness | 20鈥?00 碌m |
-| Hardness | 400鈥?00 HV |
-| Dielectric Strength | 500鈥?00 V |
+| Oxide Thickness | 20–100 µm |
+| Hardness | 400–600 HV |
+| Dielectric Strength | 500–700 V |

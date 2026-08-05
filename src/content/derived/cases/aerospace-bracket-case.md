@@ -11,9 +11,9 @@ equipment:
   - "dmg-mori-dmu"
 standards:
   - "AS9100D"
-tolerance: "卤0.005 mm"
+tolerance: "±0.005 mm"
 leadTime: "15 business days"
 challenge: "Complex Ti-6Al-4V bracket for wing assembly requiring tight tolerances, thin walls 0.8mm, AS9100D certification."
 solution: "5-axis DMG MORI DMU 80 with custom thin-wall fixturing. Trochoidal roughing. CMM GD&T per ASME Y14.5."
-result: "卤0.005 mm on critical features. 0.8mm walls maintained. FAI 100% conforming."
+result: "±0.005 mm on critical features. 0.8mm walls maintained. FAI 100% conforming."
 ---

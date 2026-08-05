@@ -1,5 +1,5 @@
 ﻿---
-title: "ASTM F2066 鈥?Wrought Titanium-15 Molybdenum for Surgical Implants"
+title: "ASTM F2066 — Wrought Titanium-15 Molybdenum for Surgical Implants"
 description: "ASTM F2066 specification for wrought Ti-15Mo beta titanium alloy used in surgical implant applications."
 locale: en
 standardType: material

@@ -9,10 +9,10 @@ sourceUrl: "/knowledge/evidence/titanium-inspection-data"
 ## Dimensional Inspection
 | Method | Accuracy | Application |
 |--------|----------|-------------|
-| CMM (Zeiss) | 卤0.001 mm | All dimensions, GD&T |
-| Optical Comparator | 卤0.010 mm | 2D profiles, thread forms |
-| Laser Scanner | 卤0.020 mm | Organic shapes, reverse engineering |
-| Bore Gauges | 卤0.002 mm | Hole diameter verification |
+| CMM (Zeiss) | ±0.001 mm | All dimensions, GD&T |
+| Optical Comparator | ±0.010 mm | 2D profiles, thread forms |
+| Laser Scanner | ±0.020 mm | Organic shapes, reverse engineering |
+| Bore Gauges | ±0.002 mm | Hole diameter verification |
 ## Non-Destructive Testing
 | Method | Detection Capability | Standard |
 |--------|---------------------|----------|

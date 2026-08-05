@@ -14,7 +14,7 @@ Chlorides/acids: Grade 7/12/2. Medical: Grade 23. Marine: Grade 2/5.
 High: Grade 1/2. Moderate: Grade 9. Limited: Grade 5/23.
 
 ## 4. Temperature
-Up to 315掳C: CP grades. Up to 400掳C: Grade 5/23. Up to 540掳C: Ti-6242.
+Up to 315°C: CP grades. Up to 400°C: Grade 5/23. Up to 540°C: Ti-6242.
 
 ## 5. Budget
 Low: CP grades. Medium: Grade 9/5. Premium: Grade 23/7/Ti-6242.

@@ -17,8 +17,8 @@ industries:
   - "semiconductor"
 equipment:
   - "abrasive-waterjet"
-tolerances: "卤0.10 mm (standard), 卤0.05 mm (precision)"
-surfaceFinish: "3.2 碌m Ra (standard)"
+tolerances: "±0.10 mm (standard), ±0.05 mm (precision)"
+surfaceFinish: "3.2 µm Ra (standard)"
 maxPartSize: "4000 mm x 2000 mm x 150 mm"
 order: 7
 ---
@@ -33,8 +33,8 @@ Abrasive waterjet cutting uses a high-pressure stream of water mixed with garnet
 | Parameter | Specification |
 |-----------|---------------|
 | Max thickness | 150 mm |
-| Kerf width | 0.7鈥?.2 mm |
-| Edge taper | 0.5鈥?.0掳 (compensated) |
+| Kerf width | 0.7–1.2 mm |
+| Edge taper | 0.5–1.0° (compensated) |
 | No HAZ | True cold-cutting process |
 
 ## Applications

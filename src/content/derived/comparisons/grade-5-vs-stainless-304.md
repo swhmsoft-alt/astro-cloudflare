@@ -10,9 +10,9 @@ quickAnswer: "Grade 5 offers 3x higher strength-to-weight ratio and superior cor
 ## Key Differences
 | Property | Grade 5 | SS 304 |
 |----------|---------|--------|
-| Density | 4.43 g/cm鲁 | 8.00 g/cm鲁 |
+| Density | 4.43 g/cm³ | 8.00 g/cm³ |
 | Tensile Strength | 950 MPa | 505 MPa |
 | Yield Strength | 880 MPa | 215 MPa |
 | Corrosion Resistance | Excellent | Good |
-| Max Temp | 400掳C | 870掳C |
+| Max Temp | 400°C | 870°C |
 | Relative Cost | 3-5x | 1x |

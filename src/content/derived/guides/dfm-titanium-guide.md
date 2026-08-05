@@ -8,7 +8,7 @@ guideType: "design"
 Limit to 4x tool diameter. Deeper need specialty tooling.
 
 ## 2. Realistic Tolerances
-Standard 卤0.025 mm. Precision 卤0.005 mm. Ultra 卤0.001 mm adds cost.
+Standard ±0.025 mm. Precision ±0.005 mm. Ultra ±0.001 mm adds cost.
 
 ## 3. Standard Tooling
 Corner radii min 1.5 mm. 3 mm when possible. Avoid custom tools.

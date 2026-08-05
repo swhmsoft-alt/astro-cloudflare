@@ -13,11 +13,11 @@ industries:
   - semiconductor
 processes:
   - surface-finishing
-surfaceFinish: "1.6鈥?.3 碌m Ra (etched)"
+surfaceFinish: "1.6–3.3 µm Ra (etched)"
 order: 6
 ---
 ## Quick Answer
-**What is chemical etching for titanium?** Chemical etching uses acid solutions (typically HF+HNO鈧?mixtures) to selectively remove material from titanium surfaces. It is used for weight reduction, surface texturing, marking, and preparing surfaces for bonding.
+**What is chemical etching for titanium?** Chemical etching uses acid solutions (typically HF+HNO₃mixtures) to selectively remove material from titanium surfaces. It is used for weight reduction, surface texturing, marking, and preparing surfaces for bonding.
 ## Applications
 - Weight reduction of aerospace structural components (chemical milling)
 - Surface texturing for improved implant osseointegration

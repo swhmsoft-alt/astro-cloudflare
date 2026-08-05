@@ -10,10 +10,10 @@ quickAnswer: "Titanium offers isotropic properties, higher temperature capabilit
 ## Key Differences
 | Property | Ti-6Al-4V | Carbon Fibre |
 |----------|-----------|-------------|
-| Density | 4.43 g/cm鲁 | 1.60 g/cm鲁 |
+| Density | 4.43 g/cm³ | 1.60 g/cm³ |
 | Tensile Strength | 950 MPa | 600-1200 MPa |
-| Specific Stiffness | 26 MN路m/kg | 50-80 MN路m/kg |
-| Max Temp | 400掳C | 120-180掳C |
+| Specific Stiffness | 26 MN·m/kg | 50-80 MN·m/kg |
+| Max Temp | 400°C | 120-180°C |
 | Impact Resistance | Excellent | Poor |
 | Cost | Moderate | High |
 | Fatigue Behaviour | Predictable | Complex |
