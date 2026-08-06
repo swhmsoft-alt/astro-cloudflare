@@ -30,13 +30,22 @@ This starter includes automatic hreflang generation via the `hreflangLinks()` fu
 
 ## Canonical URLs
 
-Every page should have a self-referencing canonical URL:
+Every page should have a self-referencing canonical URL.
+
+**Hard rule (matches Astro's `trailingSlash: 'always'`):** page URLs must end
+with a trailing slash so the canonical / `og:url` / hreflang / breadcrumb /
+JSON-LD values are byte-identical to the real rendered URL — never strip the
+slash. File/API/asset paths (`.js`, `.css`, `.txt`, `.xml`, `.json`, OG-image
+endpoints, …) are excluded and must NOT get a trailing slash.
 
 ```typescript
 export function canonicalUrl(locale: Locale, path: string): string {
   const prefix = localePrefix(locale);
-  const normalized = path.replace(/\/$/, "");
-  return `${SITE_CONFIG.url}${prefix}${normalized || ""}`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  const finalPath = isFileLikePath(normalized)
+    ? normalized
+    : ensureTrailingSlash(normalized);
+  return `${SITE_CONFIG.url}${prefix}${finalPath}`;
 }
 ```
 

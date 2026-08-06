@@ -64,7 +64,7 @@ describe("buildBlogPostingSchema", () => {
     expect(schema.headline).toBe("Welcome");
     expect(schema.author).toEqual({ "@type": "Person", name: "Admin" });
     expect(schema.datePublished).toBe("2025-01-01T00:00:00.000Z");
-    expect(schema.mainEntityOfPage).toBe(`${siteConfig.url}/blog/welcome`);
+    expect(schema.mainEntityOfPage).toBe(`${siteConfig.url}/blog/welcome/`);
     expect(schema.keywords).toBe("astro");
     expect(schema.inLanguage).toBe("en");
   });
@@ -115,8 +115,8 @@ describe("buildBreadcrumbSchema", () => {
     ]);
     const items = schema.itemListElement;
     expect(items[0].item).toBe("https://titanium.blog/");
-    expect(items[1].item).toBe("https://titanium.blog/blog");
-    expect(items[2].item).toBe("https://titanium.blog/blog/astro-tips");
+    expect(items[1].item).toBe("https://titanium.blog/blog/");
+    expect(items[2].item).toBe("https://titanium.blog/blog/astro-tips/");
   });
 
   it("passes through absolute URLs as-is", () => {
@@ -147,7 +147,7 @@ describe("buildServiceSchema", () => {
     const schema = buildServiceSchema(service, siteConfig);
     expect(schema["@type"]).toBe("Service");
     expect(schema.name).toBe("Cloud Deployment");
-    expect(schema.url).toBe(`${siteConfig.url}/services/cloud-deployment`);
+    expect(schema.url).toBe(`${siteConfig.url}/services/cloud-deployment/`);
     expect(schema.provider?.["@type"]).toBe("Organization");
   });
 });

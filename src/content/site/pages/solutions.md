@@ -63,10 +63,10 @@ sections:
         icon: cog
         slug: turn-mill-machining
   - type: cta
-    title: Ready to Start Your Project?
-    content: Upload your drawing or contact our engineering team for a free DFM review and quote within 24 hours.
-    ctaText: Upload Drawing
-    ctaHref: /rfq/upload-drawing/
+    title: Explore Titanium Engineering Knowledge
+    content: Neutral, vendor-independent technical guidance on titanium applications, grades, and standards to support your engineering decisions.
+    ctaText: Browse Titanium Grades
+    ctaHref: /grades/
 isLegal: false
 order: 2
 ---

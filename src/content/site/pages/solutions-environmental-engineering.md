@@ -29,7 +29,3 @@ Environmental engineering applications demand materials that withstand corrosive
 - 100% recyclable — titanium retains value at end of life
 - Energy-efficient — excellent heat transfer reduces operational energy
 - Low maintenance — corrosion resistance eliminates frequent replacements
-
-### Contact Us
-
-Working on an environmental engineering project?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

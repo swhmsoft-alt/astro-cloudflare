@@ -29,7 +29,3 @@ Titanium's exceptional corrosion resistance in oxidizing acids, chlorides, and c
 - Grade 2 CP Titanium — general chemical service
 - Grade 7 (Ti-0.15Pd) — reducing acid environments
 - Grade 12 (Ti-0.3Mo-0.8Ni) — improved strength and corrosion resistance
-
-### Contact Us
-
-Need corrosion-resistant chemical processing equipment?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

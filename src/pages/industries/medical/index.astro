@@ -20,7 +20,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titan
 ---
 <BaseLayout title="Medical Device Titanium Manufacturing & Machining Services" description="ISO 13485 certified titanium machining for medical devices. CNC milling and turning of orthopedic implants, surgical instruments, and custom medical components." locale={locale} path={"/industries/medical"}>
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
-  <Hero variant="centered" size="md" eyebrow="Medical Device Manufacturing" headline="Medical Titanium Manufacturing &amp; Machining" subheadline="Titanium is the preferred material for implantable and non-implantable medical devices due to its biocompatibility, corrosion resistance, and osseointegration properties. We provide ISO 13485 certified manufacturing for orthopedic, dental, and surgical applications." primaryCta={{ label: "Request Medical RFQ →", href: "/rfq/request-quote/" }} secondaryCta={{ label: "View Medical Applications →", href: "/knowledge/industries/medical-device/" }} locale={locale} />
+  <Hero variant="centered" size="md" eyebrow="Medical Device Manufacturing" headline="Medical Titanium Manufacturing &amp; Machining" subheadline="Titanium is the preferred material for implantable and non-implantable medical devices due to its biocompatibility, corrosion resistance, and osseointegration properties. We provide ISO 13485 certified manufacturing for orthopedic, dental, and surgical applications." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Medical Applications →", href: "/knowledge/industries/medical-device/" }} locale={locale} />
   <section class="hub-cards container">
     <header class="section-head">
       <p class="section-head__eyebrow">Medical Device Manufacturing Solutions</p>
@@ -60,7 +60,16 @@ const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titan
     <header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Medical Device Certifications &amp; Compliance</h2></header>
     <div class="certs-row"><span class="cert-badge">ISO 13485</span><span class="cert-badge">FDA QSR</span><span class="cert-badge">EU MDR</span><span class="cert-badge">ASTM F136</span><span class="cert-badge">ASTM F67</span><span class="cert-badge">ISO 5832</span><span class="cert-badge">CMM</span></div>
   </section>
-  <CTA eyebrow="Start Your Medical Device Project" title="Ready to Manufacture Medical Titanium Components?" content="Submit your drawings and specifications for a detailed quote within 48 hours." ctaText="Upload Drawings & Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Medical Device Guide" secondaryHref="/knowledge/industries/medical-device/" locale={locale} />
+  <CTA
+  eyebrow="Neutral engineering reference"
+  title="Explore Titanium Engineering Knowledge"
+  content="Neutral, vendor-independent technical guidance on titanium applications, grades, and standards to support your engineering decisions."
+  ctaText="Browse Titanium Grades"
+  ctaHref="/grades/"
+  secondaryText="Compare Materials"
+  secondaryHref="/compare/"
+  locale={locale}
+/>
 </BaseLayout>
 
 <style>

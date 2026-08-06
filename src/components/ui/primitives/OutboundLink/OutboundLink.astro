@@ -1,0 +1,30 @@
+---
+import {
+  resolveLinkPolicy,
+  type LinkRelationship,
+} from "../../../../lib/linkPolicy";
+
+export interface Props {
+  href: string;
+  relationship?: LinkRelationship;
+  rel?: string;
+  target?: string;
+  class?: string;
+}
+
+const { href, relationship = "internal", rel, target, class: className } =
+  Astro.props as Props;
+
+// OutboundLink intentionally carries no styling — it only enforces the
+// governance matrix (rel/target) so links pass check:kpis and SEO audits.
+const policy = resolveLinkPolicy(relationship, { rel, target });
+---
+
+<a
+  href={href}
+  class={className}
+  rel={policy.rel || undefined}
+  target={policy.target || undefined}
+>
+  <slot />
+</a>

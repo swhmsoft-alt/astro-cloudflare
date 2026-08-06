@@ -28,11 +28,20 @@ const collectionSchema = buildCollectionPageSchema({ name: "Defence Titanium Man
     <tr><td>Ti-3Al-2.5V (Grade 9)</td><td>Hydraulic tubing, ducting for military platforms</td></tr>
   </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">AS9100D</span><span class="cert-badge">NADCAP</span><span class="cert-badge">ITAR</span><span class="cert-badge">DFARS</span><span class="cert-badge">MIL-T-9046</span><span class="cert-badge">CMM</span><span class="cert-badge">NDT</span></div></section>
-  <CTA eyebrow="Start Your Defence Project" title="Ready to Manufacture Defence Titanium Parts?" content="Submit your drawings and specifications for a detailed quote within 48 hours." ctaText="Upload Drawings & Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Defence Guide" secondaryHref="/knowledge/industries/defence/" locale={locale} />
+  <CTA
+  eyebrow="Neutral engineering reference"
+  title="Explore Titanium Engineering Knowledge"
+  content="Neutral, vendor-independent technical guidance on titanium applications, grades, and standards to support your engineering decisions."
+  ctaText="Browse Titanium Grades"
+  ctaHref="/grades/"
+  secondaryText="Compare Materials"
+  secondaryHref="/compare/"
+  locale={locale}
+/>
 </BaseLayout>
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
-  <Hero variant="centered" size="md" eyebrow="Defence & Military" headline="Titanium Manufacturing for Defence Applications" subheadline="Titanium provides lightweight ballistic protection, high-strength structural components for military aircraft, and corrosion-resistant naval systems. We manufacture to MIL-SPEC requirements with ITAR compliance and full traceability." primaryCta={{ label: "Request Defence RFQ →", href: "/rfq/request-quote/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/defence/" }} locale={locale} />
+  <Hero variant="centered" size="md" eyebrow="Defence & Military" headline="Titanium Manufacturing for Defence Applications" subheadline="Titanium provides lightweight ballistic protection, high-strength structural components for military aircraft, and corrosion-resistant naval systems. We manufacture to MIL-SPEC requirements with ITAR compliance and full traceability." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/defence/" }} locale={locale} />
   <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Defence</p><h2 class="section-head__title">Complete Defence Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }

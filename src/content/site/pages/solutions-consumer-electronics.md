@@ -31,7 +31,3 @@ Titanium has become the material of choice for premium consumer electronics, off
 - PVD coating (gold, black, gunmetal)
 - Laser engraving and marking
 - Anodized colors
-
-### Contact Us
-
-Want to add titanium to your next consumer electronics product?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

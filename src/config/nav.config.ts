@@ -111,7 +111,6 @@ export const footerNav = {
     { href: "/solutions/", labelKey: "nav.solutions" },
     { href: "/guides/", labelKey: "nav.guides" },
     { href: "/faq/", labelKey: "nav.faq" },
-    { href: "/blog/", labelKey: "nav.blog" },
     { href: "/tools/", labelKey: "nav.tools" },
   ] as const,
   company: [

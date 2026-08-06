@@ -29,7 +29,3 @@ Titanium has been revered in cycling for decades for its unique combination of l
 - Polished finish — mirror-like appearance
 - Anodized — color accent options
 - Shot-peened — uniform matte texture
-
-### Contact Us
-
-Want a custom titanium bicycle component?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

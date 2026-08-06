@@ -29,7 +29,3 @@ Titanium's outstanding resistance to seawater corrosion makes it the ideal mater
 - Fatigue-resistant in seawater environments
 - Non-magnetic for naval applications
 - Biofouling resistant
-
-### Contact Us
-
-Need marine-grade titanium components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

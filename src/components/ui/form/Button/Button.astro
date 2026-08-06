@@ -1,5 +1,10 @@
 ---
 import { cn } from "../../../../lib/cn";
+import {
+  isExternalUrl,
+  resolveLinkPolicy,
+  type LinkRelationship,
+} from "../../../../lib/linkPolicy";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive" | "link";
 type ButtonSize = "sm" | "md" | "lg";
@@ -28,6 +33,12 @@ export interface Props {
   loading?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  /**
+   * Outbound link governance: when `href` is external and a relationship is
+   * provided, the correct `rel`/`target` attributes are applied automatically.
+   * Defaults to `"internal"` (no rel/target) for backward compatibility.
+   */
+  relationship?: LinkRelationship;
   class?: string;
 }
 
@@ -37,8 +48,12 @@ const {
   loading = false,
   variant,
   size,
+  relationship = "internal",
   class: className,
 } = Astro.props as Props;
+
+// Apply the governance policy only to external links; internal links stay plain.
+const policy = href && isExternalUrl(href) ? resolveLinkPolicy(relationship) : {};
 const classes = cn(
   "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-primary)] disabled:opacity-50 disabled:pointer-events-none",
   variant ? variantClasses[variant] : variantClasses.primary,
@@ -49,7 +64,13 @@ const classes = cn(
 
 {
   href ? (
-    <a href={href} class={classes} aria-busy={loading ? "true" : undefined}>
+    <a
+      href={href}
+      class={classes}
+      rel={policy.rel || undefined}
+      target={policy.target || undefined}
+      aria-busy={loading ? "true" : undefined}
+    >
       <slot />
     </a>
   ) : (

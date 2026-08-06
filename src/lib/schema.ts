@@ -15,6 +15,7 @@ import {
   siteConfig as defaultSiteConfig,
   type SiteConfig,
 } from "../config/site.config";
+import { ensureTrailingSlash } from "./site-config";
 
 export function buildWebSiteSchema(
   site: Pick<SiteConfig, "name" | "url" | "description"> = defaultSiteConfig,
@@ -101,7 +102,7 @@ export function buildBlogPostingSchema(
     author: post.data.author
       ? { "@type": "Person", name: post.data.author }
       : undefined,
-    mainEntityOfPage: `${site.url}/blog/${post.id}`,
+    mainEntityOfPage: `${site.url}/blog/${post.id}/`,
     image: post.data.image ? [post.data.image] : undefined,
     keywords: post.data.tags?.join(", "),
     inLanguage: post.data.locale,
@@ -147,7 +148,7 @@ export function buildBreadcrumbSchema(
       position: index + 1,
       name: crumb.label,
       item: crumb.href.startsWith("/")
-        ? `${baseUrl}${crumb.href}`
+        ? `${baseUrl}${ensureTrailingSlash(crumb.href)}`
         : crumb.href,
     })),
   } satisfies WithContext<BreadcrumbList>;
@@ -171,7 +172,7 @@ export function buildServiceSchema(
     "@type": "Service",
     name: service.data.title,
     description: service.data.description,
-    url: `${site.url}/services/${service.data.slug}`,
+    url: `${site.url}/services/${service.data.slug}/`,
     provider: {
       "@type": "Organization",
       name: site.name,

@@ -177,21 +177,22 @@ const jsonLd = [faqSchema, productSchema];
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Related Reference -->
   <section class="bg-muted/30 py-16">
     <div class="container">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-2xl font-bold tracking-tight">{data.cta.uploadTitle}</h2>
-        <p class="mt-4 text-muted-foreground">{data.cta.consultTitle}</p>
+        <h2 class="text-2xl font-bold tracking-tight">Explore Related Engineering Reference</h2>
+        <p class="mt-4 text-muted-foreground">Neutral technical guidance on titanium materials, processes, and standards to support your engineering decisions.</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href={resolveRoute(locale, "/rfq/request-quote/")} class="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
-            Upload Model →
+          <a href={resolveRoute(locale, "/grades/")} class="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+            Browse Titanium Grades &rarr;
           </a>
-          <a href={resolveRoute(locale, "/rfq/dfm-review/")} class="inline-flex items-center rounded-lg border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-colors hover:bg-muted/50">
-            Book a Process Review
+          <a href={resolveRoute(locale, "/processes/")} class="inline-flex items-center rounded-lg border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-colors hover:bg-muted/50">
+            Explore Manufacturing Processes &rarr;
           </a>
         </div>
       </div>
     </div>
   </section>
+
 </MarketingLayout>

@@ -1,6 +1,7 @@
 ---
 import Button from "../../form/Button/Button.astro";
 import Section from "../../layout/Section/Section.astro";
+import type { LinkRelationship } from "../../../../lib/linkPolicy";
 
 export interface Props {
   eyebrow?: string;
@@ -10,6 +11,13 @@ export interface Props {
   primaryHref?: string;
   secondaryText?: string;
   secondaryHref?: string;
+  /**
+   * Outbound link governance for the CTA buttons. When a CTA href is external
+   * (e.g. an RFQ link to cnctitanium.com), provide the matching relationship so
+   * the correct `rel`/`target` is applied automatically.
+   */
+  primaryRelationship?: LinkRelationship;
+  secondaryRelationship?: LinkRelationship;
   centered?: boolean;
 }
 
@@ -21,6 +29,8 @@ const {
   primaryHref,
   secondaryText,
   secondaryHref,
+  primaryRelationship,
+  secondaryRelationship,
   centered = true,
 } = Astro.props as Props;
 ---
@@ -36,12 +46,20 @@ const {
         (primaryText || secondaryText) && (
           <div class="ui-cta__actions">
             {primaryText && primaryHref && (
-              <Button href={primaryHref} variant="primary">
+              <Button
+                href={primaryHref}
+                variant="primary"
+                relationship={primaryRelationship}
+              >
                 {primaryText}
               </Button>
             )}
             {secondaryText && secondaryHref && (
-              <Button href={secondaryHref} variant="secondary">
+              <Button
+                href={secondaryHref}
+                variant="secondary"
+                relationship={secondaryRelationship}
+              >
                 {secondaryText}
               </Button>
             )}

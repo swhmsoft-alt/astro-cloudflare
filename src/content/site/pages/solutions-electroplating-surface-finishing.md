@@ -29,7 +29,3 @@ Titanium is the preferred material for electroplating and surface finishing tool
 - No metallic contamination of bath chemistry
 - Long service life — outlasts stainless steel 5:1
 - Lightweight — easier handling and maintenance
-
-### Contact Us
-
-Looking for custom titanium plating tooling?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

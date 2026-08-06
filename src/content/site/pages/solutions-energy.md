@@ -29,7 +29,3 @@ The energy industry demands materials that perform reliably under extreme pressu
 - High strength-to-weight for deep-well applications
 - Fatigue-resistant for cyclic loading conditions
 - Long service life reduces total cost of ownership
-
-### Contact Us
-
-Need energy-sector titanium components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

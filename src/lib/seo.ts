@@ -1,5 +1,5 @@
 import { siteConfig } from "../config/site.config";
-import type { Locale } from "./site-config";
+import { ensureTrailingSlash, type Locale } from "./site-config";
 import { localePrefix, stripLocale } from "../i18n/routes";
 import {
   buildWebSiteSchema,
@@ -18,13 +18,33 @@ export interface SeoMeta {
 }
 
 /**
+ * File/API/asset routes (js, css, txt, xml, json, og images, …) must NOT get a
+ * trailing slash — only real HTML page URLs end with "/" (trailingSlash: 'always').
+ * Detected by the presence of a file extension in the last path segment.
+ */
+const FILE_EXTENSION_RE = /\.[a-z0-9]+$/i;
+
+export function isFileLikePath(path: string): boolean {
+  const lastSegment = path.split("/").pop() ?? "";
+  return FILE_EXTENSION_RE.test(lastSegment);
+}
+
+/**
  * Generate the canonical URL for a given locale and path.
+ *
+ * Hard rule: page URLs always end with a trailing slash to match Astro's
+ * `trailingSlash: 'always'`, keeping canonical / og:url / hreflang / breadcrumb
+ * / JSON-LD identical to the real rendered URL (SEO/GEO/visitor consistency).
+ * File/API paths (js, css, txt, xml, og images, …) are left untouched.
  * Handles Astro i18n prefix routing (prefixDefaultLocale: false).
  */
 export function canonicalUrl(locale: Locale, path: string): string {
   const prefix = localePrefix(locale);
-  const normalized = path.replace(/\/$/, "");
-  return `${siteConfig.url}${prefix}${normalized || ""}`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  const finalPath = isFileLikePath(normalized)
+    ? normalized
+    : ensureTrailingSlash(normalized);
+  return `${siteConfig.url}${prefix}${finalPath}`;
 }
 
 /**

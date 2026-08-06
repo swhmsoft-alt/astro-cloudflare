@@ -29,7 +29,3 @@ Semiconductor fabrication demands materials that resist corrosion, minimize part
 - Surface finish to Ra < 0.4 µm
 - Ultrasonic cleaning and vacuum packaging
 - Full material certification and traceability
-
-### Contact Us
-
-Need semiconductor-grade titanium components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

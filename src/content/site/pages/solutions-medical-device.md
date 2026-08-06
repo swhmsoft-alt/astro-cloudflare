@@ -35,7 +35,3 @@ Titanium is the gold standard for medical implants and surgical instruments due 
 - Ti-6Al-4V ELI (Grade 23) — implant-grade
 - CP Titanium (Grade 1-4) — surgical instruments
 - Ti-6Al-7Nb — alternative implant alloy
-
-### Contact Us
-
-Ready to start your medical device project?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

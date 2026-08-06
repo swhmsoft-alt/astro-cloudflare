@@ -16,11 +16,20 @@ const cs = buildCollectionPageSchema({name:"Semiconductor Titanium Manufacturing
 ---
 <BaseLayout title="Semiconductor Titanium Components & Manufacturing" description="Precision titanium machining for semiconductor equipment." locale={locale} path={"/industries/semiconductor"}>
 <JsonLd schema={[bc, cs]} />
-<Hero variant="centered" size="md" eyebrow="Semiconductor Equipment" headline="Titanium Manufacturing for Semiconductor" subheadline="Titanium is essential for UHV compatibility in semiconductor fabrication." primaryCta={{label:"Request RFQ →",href:"/rfq/request-quote/"}} secondaryCta={{label:"View Guide →",href:"/knowledge/industries/semiconductor-manufacturing/"}} locale={locale} />
+<Hero variant="centered" size="md" eyebrow="Semiconductor Equipment" headline="Titanium Manufacturing for Semiconductor" subheadline="Titanium is essential for UHV compatibility in semiconductor fabrication." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{label:"View Guide →",href:"/knowledge/industries/semiconductor-manufacturing/"}} locale={locale} />
 <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions</p><h2 class="section-head__title">Semiconductor Titanium Capabilities</h2></header><div class="hub-cards__grid">{sp.map((p)=>(<a href={resolveRoute(locale,p.h)} class="hub-card"><h3 class="hub-card__title">{p.t}</h3><p class="hub-card__description">{p.d}</p><span class="hub-card__cta">{p.c}</span></a>))}</div></section>
 <section class="expertise-section container"><header class="section-head"><p class="section-head__eyebrow">Expertise</p><h2 class="section-head__title">Ultra-Pure Components</h2></header><div class="expertise-grid"><div class="expertise-item"><span class="expertise-icon">&#x1F300;</span><h3>UHV Compatibility</h3><p>Minimal outgassing</p></div><div class="expertise-item"><span class="expertise-icon">&#x2728;</span><h3>Ultra-Pure</h3><p>Cleanroom manufacturing</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F4CD;</span><h3>Precision</h3><p>Tight tolerances</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F3C6;</span><h3>Surface Finish</h3><p>Particle-free</p></div></div></section>
 <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality</p><h2 class="section-head__title">Certifications</h2></header><div class="certs-row"><span class="cert-badge">ISO 9001</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">UHV</span><span class="cert-badge">CMM</span></div></section>
-<CTA eyebrow="Start Your Project" title="Ready to Manufacture?" content="Submit drawings for a quote within 48 hours." ctaText="Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Guide" secondaryHref="/knowledge/industries/semiconductor-manufacturing/" locale={locale} />
+<CTA
+  eyebrow="Neutral engineering reference"
+  title="Explore Titanium Engineering Knowledge"
+  content="Neutral, vendor-independent technical guidance on titanium applications, grades, and standards to support your engineering decisions."
+  ctaText="Browse Titanium Grades"
+  ctaHref="/grades/"
+  secondaryText="Compare Materials"
+  secondaryHref="/compare/"
+  locale={locale}
+/>
 </BaseLayout>
 <style>
 .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }

@@ -30,7 +30,3 @@ In automotive and motorsports, every gram counts. Titanium offers the strength o
 - Excellent high-temperature performance
 - Corrosion-resistant — no plating needed
 - Natural vibration damping
-
-### Contact Us
-
-Ready to build lighter, faster automotive components?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

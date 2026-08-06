@@ -31,7 +31,3 @@ Beyond the well-known industries, titanium's unique properties solve engineering
 - Non-magnetic for sensitive equipment
 - High strength at elevated temperatures
 - Excellent fatigue performance
-
-### Contact Us
-
-Have a unique industrial application?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

@@ -35,7 +35,3 @@ Aerospace and defense applications demand materials that perform under extreme c
 - Ti-6Al-4V (Grade 5) — general-purpose structural
 - Ti-6Al-4V ELI (Grade 23) — fracture-critical applications
 - Ti-6Al-2Sn-4Zr-2Mo — high-temperature sections
-
-### Contact Us
-
-Ready to discuss your aerospace or defense project?  or [upload your drawing](/rfq/upload-drawing/) for a free DFM review.

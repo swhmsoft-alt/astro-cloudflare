@@ -16,10 +16,19 @@ const cs = buildCollectionPageSchema({name:"Chemical Processing Titanium",descri
 ---
 <BaseLayout title="Chemical Processing Titanium Components" description="ASME BPVC certified titanium for chemical processing." locale={locale} path={"/industries/chemical-processing"}>
 <JsonLd schema={[bc, cs]} />
-<Hero variant="centered" size="md" eyebrow="Chemical Processing" headline="Titanium for Chemical Processing" subheadline="Titanium offers exceptional corrosion resistance in chlorides and acids. We fabricate certified vessels and piping." primaryCta={{label:"Request RFQ →",href:"/rfq/request-quote/"}} secondaryCta={{label:"View Guide →",href:"/knowledge/industries/chemical-processing/"}} locale={locale} />
+<Hero variant="centered" size="md" eyebrow="Chemical Processing" headline="Titanium for Chemical Processing" subheadline="Titanium offers exceptional corrosion resistance in chlorides and acids. We fabricate certified vessels and piping." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{label:"View Guide →",href:"/knowledge/industries/chemical-processing/"}} locale={locale} />
 <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions</p><h2 class="section-head__title">Chemical Processing</h2></header><div class="hub-cards__grid">{sp.map((p)=>(<a href={resolveRoute(locale,p.h)} class="hub-card"><h3 class="hub-card__title">{p.t}</h3><p class="hub-card__description">{p.d}</p><span class="hub-card__cta">{p.c}</span></a>))}</div></section>
 <section class="expertise-section container"><header class="section-head"><p class="section-head__eyebrow">Expertise</p><h2 class="section-head__title">Corrosion-Resistant</h2></header><div class="expertise-grid"><div class="expertise-item"><span class="expertise-icon">&#x2697;&#xFE0F;</span><h3>Corrosion</h3><p>Chlorides & acids</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F30D;</span><h3>ASME BPVC</h3><p>Certified</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F3ED;</span><h3>Custom Fab</h3><p>Vessels</p></div><div class="expertise-item"><span class="expertise-icon">&#x1F4CB;</span><h3>MTRs</h3><p>Full traceability</p></div></div></section>
-<CTA eyebrow="Start Your Project" title="Ready to Manufacture?" content="Submit drawings for a quote within 48 hours." ctaText="Request RFQ →" ctaHref="/rfq/request-quote/" secondaryText="View Guide" secondaryHref="/knowledge/industries/chemical-processing/" locale={locale} />
+<CTA
+  eyebrow="Neutral engineering reference"
+  title="Explore Titanium Engineering Knowledge"
+  content="Neutral, vendor-independent technical guidance on titanium applications, grades, and standards to support your engineering decisions."
+  ctaText="Browse Titanium Grades"
+  ctaHref="/grades/"
+  secondaryText="Compare Materials"
+  secondaryHref="/compare/"
+  locale={locale}
+/>
 </BaseLayout>
 <style>
 .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
