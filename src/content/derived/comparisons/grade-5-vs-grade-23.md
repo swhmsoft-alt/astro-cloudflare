@@ -5,12 +5,12 @@ locale: en
 comparisonType: "material"
 entityA: "Grade 5 (Ti-6Al-4V)"
 entityB: "Grade 23 (Ti-6Al-4V ELI)"
-entityALink: "/knowledge/materials/grade-5-titanium-ti6al4v/"
-entityBLink: "/knowledge/materials/grade-23-titanium-eli/"
+entityALink: "/grades/grade-5-titanium/"
+entityBLink: "/grades/grade-23-titanium/"
 quickAnswer: "Choose Grade 5 (Ti-6Al-4V) for general aerospace and industrial applications where its higher strength (950 MPa vs 860 MPa) and lower cost advantage matter. Choose Grade 23 (Ti-6Al-4V ELI) for medical implants, surgical instruments, and low-temperature applications requiring enhanced fracture toughness. Grade 23 costs 15-25% more."
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
-  - "grade-23-titanium-eli"
+  - "grade-5-titanium"
+  - "grade-23-titanium"
 relatedProcesses:
   - "cnc-machining"
   - "milling"

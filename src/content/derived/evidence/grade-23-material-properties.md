@@ -6,7 +6,7 @@ evidenceCategory: "material-properties"
 source: "ASTM F136 / ASTM B348 / ASM Materials Handbook"
 sourceUrl: "https://www.astm.org/f0136-24.html"
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
 relatedProcesses:
   - "cnc-machining"
   - "milling"

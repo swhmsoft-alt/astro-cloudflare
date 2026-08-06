@@ -5,8 +5,8 @@ locale: en
 evidenceCategory: "tolerances"
 source: "ISO 2768 / ISO 286 / Production validation data"
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
-  - "grade-23-titanium-eli"
+  - "grade-5-titanium"
+  - "grade-23-titanium"
 relatedProcesses:
   - "5-axis-machining"
   - "cnc-machining"

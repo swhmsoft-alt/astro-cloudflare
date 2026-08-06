@@ -5,7 +5,7 @@ locale: en
 evidenceCategory: "surface-roughness"
 source: "ASM Handbook Volume 5: Surface Engineering"
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
   - "grade-2-titanium"
 relatedProcesses:
   - "cnc-machining"

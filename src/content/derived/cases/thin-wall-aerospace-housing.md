@@ -49,7 +49,7 @@ relatedServices:
   - "aerospace-titanium-components"
   - "titanium-cnc-machining"
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
 relatedStandards:
   - "as9100d"
   - "iso-2768"

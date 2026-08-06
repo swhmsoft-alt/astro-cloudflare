@@ -3,8 +3,8 @@ title: "Aerospace Titanium Parts"
 description: "Titanium applications in aerospace manufacturing. Aircraft structural components, engine parts, landing gear, and fasteners made from titanium alloys."
 locale: en
 materials:
-  - "grade-5-titanium-ti6al4v"
-  - "grade-23-titanium-eli"
+  - "grade-5-titanium"
+  - "grade-23-titanium"
   - "grade-2-titanium"
 processes:
   - "cnc-machining"

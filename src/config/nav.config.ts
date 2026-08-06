@@ -34,8 +34,8 @@ export const knowledgeMegaMenu: NavItem[][] = [
     { href: "/grades/", labelKey: "nav.materials", groupLabel: "nav.materials", children: [
       { href: "/grades/grade-1-titanium/", labelKey: "nav.grade1" },
       { href: "/grades/grade-2-titanium/", labelKey: "nav.grade2" },
-      { href: "/grades/grade-5-titanium-ti6al4v/", labelKey: "nav.grade5" },
-      { href: "/grades/grade-23-titanium-eli/", labelKey: "nav.grade23" },
+      { href: "/grades/grade-5-titanium/", labelKey: "nav.grade5" },
+      { href: "/grades/grade-23-titanium/", labelKey: "nav.grade23" },
       { href: "/grades/", labelKey: "nav.viewAllMaterials" },
     ]},
     { href: "/processes/", labelKey: "nav.processes", groupLabel: "nav.processes", children: [

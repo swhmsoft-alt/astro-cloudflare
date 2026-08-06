@@ -124,6 +124,8 @@ export default defineConfig({
     '/knowledge/heat-treatment/[slug]': '/heat-treatment/[slug]',
     '/knowledge/corrosion/[slug]': '/corrosion/[slug]',
     '/knowledge/': '/',
+    '/grades/grade-5-titanium-ti6al4v/': '/grades/grade-5-titanium/',
+    '/grades/grade-23-titanium-eli/': '/grades/grade-23-titanium/',
   },
   integrations: [
     starlight({

@@ -3,7 +3,7 @@ title: "Titanium Anodizing — Complete Guide"
 description: "Technical guide to titanium anodizing. Types of anodizing (Type II, Type III), color anodizing, process parameters, and applications for aerospace and medical industries."
 locale: en
 materials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
   - "grade-2-titanium"
 industries:
   - "aerospace"

@@ -4,8 +4,8 @@ description: "Complete guide to CNC machining titanium alloys. Process capabilit
 locale: en
 processType: "subtractive"
 materials:
-  - "grade-5-titanium-ti6al4v"
-  - "grade-23-titanium-eli"
+  - "grade-5-titanium"
+  - "grade-23-titanium"
   - "grade-2-titanium"
 industries:
   - "aerospace"

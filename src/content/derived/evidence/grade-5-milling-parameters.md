@@ -5,7 +5,7 @@ locale: en
 evidenceCategory: "cutting-parameters"
 source: "Machining Data Handbook (Meteut Research Associates) / Sandvik Coromant Titanium Machining Guide"
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
 relatedProcesses:
   - "milling"
   - "cnc-machining"

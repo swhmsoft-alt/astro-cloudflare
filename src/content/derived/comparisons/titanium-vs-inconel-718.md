@@ -7,7 +7,7 @@ entityA: "Ti-6Al-4V (Grade 5)"
 entityB: "Inconel 718"
 quickAnswer: "Choose Ti-6Al-4V for lightweight structural applications requiring high strength-to-weight ratio and corrosion resistance up to 400°C. Choose Inconel 718 for extreme-temperature applications up to 700°C where oxidation and creep resistance are critical. Ti-6Al-4V is lighter (4.43 vs 8.19 g/cm³) and easier to machine; Inconel 718 maintains strength at higher temperatures."
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
 relatedProcesses:
   - "cnc-machining"
   - "milling"

@@ -52,7 +52,7 @@ relatedServices:
   - "5-axis-titanium-machining"
   - "titanium-cnc-machining"
 relatedMaterials:
-  - "grade-5-titanium-ti6al4v"
+  - "grade-5-titanium"
 relatedStandards:
   - "as9100d"
   - "nadcap"

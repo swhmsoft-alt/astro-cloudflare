@@ -49,7 +49,7 @@ relatedServices:
   - "grade-23-titanium-machining"
   - "titanium-cnc-machining"
 relatedMaterials:
-  - "grade-23-titanium-eli"
+  - "grade-23-titanium"
 relatedStandards:
   - "astm-f136"
   - "iso-13485"

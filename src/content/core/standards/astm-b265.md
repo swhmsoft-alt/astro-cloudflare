@@ -6,7 +6,6 @@ standardType: "material"
 materials:
   - "grade-2-titanium"
   - "grade-5-titanium"
-  - "grade-5-titanium-ti6al4v"
 industries:
   - "aerospace"
   - "medical"

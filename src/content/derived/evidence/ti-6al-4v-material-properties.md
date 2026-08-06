@@ -6,7 +6,7 @@ evidenceCategory: "material-properties"
 source: "ASTM B265 / ASTM B348 / ASM Materials Handbook Volume 2"
 sourceUrl: "https://www.astm.org/b0265-24.html"
 relatedMaterials:
-  - "grade-23-titanium-eli"
+  - "grade-23-titanium"
   - "grade-2-titanium"
 relatedProcesses:
   - "cnc-machining"
