@@ -51,7 +51,7 @@ export function canonicalUrl(locale: Locale, path: string): string {
  * Generate hreflang link elements for the current page across all locales.
  * Handles Astro i18n prefix routing.
  */
-export function hreflangLinks(path: string): Array<{
+export function hreflangLinks(path: string, locales?: string[]): Array<{
   rel: string;
   href: string;
   hreflang: string;
@@ -59,7 +59,7 @@ export function hreflangLinks(path: string): Array<{
   // Strip locale prefix to get the content path
   const contentPath = stripLocale(path);
 
-  return siteConfig.i18n.locales.map((loc) => ({
+  return (locales ?? siteConfig.i18n.locales).map((loc) => ({
     rel: "alternate",
     href: canonicalUrl(loc as Locale, contentPath),
     hreflang: loc,

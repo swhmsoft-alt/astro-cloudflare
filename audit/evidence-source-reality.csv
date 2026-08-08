@@ -1,0 +1,31 @@
+slug,title,category,source,sourceUrl,standardsHint,dataPoints,faqs,citationReady,hasSource,hasSourceUrl,hasData
+5-axis-machining-data,5-Axis Machining Parameters for Titanium,cutting-parameters,DMG MORI Application Data,/knowledge/evidence/5-axis-machining-data,0,0,0,false,true,true,false
+5-axis-tolerances,5-Axis Titanium Machining — Achievable Tolerances,tolerances,ISO 2768 / ISO 286 / Production validation data,,2,7,2,false,true,false,true
+bead-blasting-surface-roughness,Titanium Bead Blasting — Surface Roughness Data,surface-roughness,ASM Handbook Volume 5: Surface Engineering,,1,5,1,false,true,false,true
+cnc-turning-parameters,CNC Turning Parameters for Titanium Alloys,cutting-parameters,"Sandvik Coromant, Machining Data Handbook",/knowledge/evidence/cnc-turning-parameters,0,0,0,false,true,true,false
+dmls-parameters,DMLS Process Parameters for Ti-6Al-4V,process-capabilities,EOS Material Data Sheet,/knowledge/evidence/dmls-parameters,0,0,0,false,true,true,false
+grade-1-properties,Grade 1 Titanium Material Properties,material-properties,ASTM B348 MatWeb,,0,0,0,false,true,false,false
+grade-12-properties,Grade 12 Titanium Material Properties,material-properties,ASTM B348 MatWeb,,0,0,0,false,true,false,false
+grade-2-properties,Grade 2 Titanium Material Properties,material-properties,"ASTM B265/B348, MatWeb",/knowledge/evidence/grade-2-properties,0,0,0,false,true,true,false
+grade-23-material-properties,Ti-6Al-4V ELI (Grade 23) — Complete Material Properties,material-properties,ASTM F136 / ASTM B348 / ASM Materials Handbook,https://www.astm.org/f0136-24.html,2,8,2,true,true,true,true
+grade-3-properties,Grade 3 Titanium Material Properties,material-properties,ASTM B348 MatWeb,,0,0,0,false,true,false,false
+grade-4-properties,Grade 4 Titanium Material Properties,material-properties,ASTM B348 MatWeb,,0,0,0,false,true,false,false
+grade-5-milling-parameters,Ti-6Al-4V Milling — Recommended Cutting Parameters,cutting-parameters,Machining Data Handbook (Meteut Research Associates) / Sandvik Coromant Titanium Machining Guide,,0,7,2,false,true,false,true
+grade-5-milling-roughing-data,High-Feed Milling Parameters for Grade 5 Titanium,cutting-parameters,Empirical Testing Seco Tools,/knowledge/evidence/grade-5-milling-roughing-data,0,0,0,false,true,true,false
+grade-5-turning-parameters,Grade 5 Titanium Turning Parameters,cutting-parameters,Sandvik Coromant,/knowledge/evidence/grade-5-turning-parameters,0,0,0,false,true,true,false
+grade-7-properties,Grade 7 Titanium Material Properties,material-properties,ASTM B348 MatWeb,,0,0,0,false,true,false,false
+grade-9-properties,Grade 9 Titanium Material Properties (Ti-3Al-2.5V),material-properties,"ASTM B265/B348, MatWeb",/knowledge/evidence/grade-9-properties,0,0,0,false,true,true,false
+machining-tolerances,CNC Machining Tolerances for Titanium Components,tolerances,"ISO 2768, Industry Practice",/knowledge/evidence/machining-tolerances,0,0,0,false,true,true,false
+surface-finish-comparison,Titanium Surface Finish Comparative Data,surface-roughness,"Industry Standards, Empirical Testing",/knowledge/evidence/surface-finish-comparison,0,0,0,false,true,true,false
+ti-10-2-3-properties,Ti-10V-2Fe-3Al Material Properties,material-properties,AMS 4983 MatWeb,,0,0,0,false,true,false,false
+ti-6al-4v-hardness-data,Ti-6Al-4V Hardness and Heat Treatment Response,material-properties,ASM Handbook Vol 4,/knowledge/evidence/ti-6al-4v-hardness-data,0,0,0,false,true,true,false
+ti-6al-4v-material-properties,Ti-6Al-4V (Grade 5) — Complete Material Properties,material-properties,ASTM B265 / ASTM B348 / ASM Materials Handbook Volume 2,https://www.astm.org/b0265-24.html,5,12,2,true,true,true,true
+titanium-anodizing-properties,Titanium Anodizing Colour Parameters and Properties,surface-roughness,Industry Standards,/knowledge/evidence/titanium-anodizing-properties,0,0,0,false,true,true,false
+titanium-corrosion-data,Titanium Corrosion Resistance Data by Environment,material-properties,ASTM Corrosion Data Standards,,0,0,0,false,true,false,false
+titanium-cost-data,Titanium Material Cost Comparison by Grade,process-capabilities,Industry Pricing Data London Metal Exchange,/knowledge/evidence/titanium-cost-data,0,0,0,false,true,true,false
+titanium-drilling-data,Drilling Parameters for Titanium Alloys,cutting-parameters,Guhring OSG Application Data,/knowledge/evidence/titanium-drilling-data,0,0,0,false,true,true,false
+titanium-fatigue-data,Ti-6Al-4V Fatigue Properties and S-N Data,material-properties,ASM Handbook Volume 19,,0,0,0,false,true,false,false
+titanium-inspection-data,Titanium Component Inspection Methods and Standards,tolerances,AS9100D ASME Y14.5,/knowledge/evidence/titanium-inspection-data,0,0,0,false,true,true,false
+titanium-surface-roughness-standards,Titanium Surface Roughness Standards by Application,surface-roughness,ASME B46.1 ISO 1302,,0,0,0,false,true,false,false
+titanium-welding-data,Titanium Welding Parameters and Procedures,process-capabilities,AWS D1.9 Structural Welding Code - Titanium,/knowledge/evidence/titanium-welding-data,0,0,0,false,true,true,false
+wire-edm-parameters,Wire EDM Parameters for Titanium Alloys,cutting-parameters,GF Machining Solutions Application Data,/knowledge/evidence/wire-edm-parameters,0,0,0,false,true,true,false

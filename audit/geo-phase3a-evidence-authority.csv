@@ -1,0 +1,31 @@
+slug,claim_type,claim_clarity,data_point_reality,source,source_reality,source_supports_claim,source_authority,party,citation_ready,external_url,internal_stub,related_materials,related_processes,related_standards,recommendation
+5-axis-machining-data,cutting-parameter,medium,yes,DMG MORI Application Data,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/5-axis-machining-data,- grade-5-titanium,- 5-axis-machining,,STRENGTHEN
+5-axis-tolerances,tolerance,high,yes,ISO 2768 / ISO 286 / Production validation data,partial,partial,MEDIUM,mixed,NO,,,,,- iso-2768,VERIFY
+bead-blasting-surface-roughness,surface-roughness,high,yes,ASM Handbook Volume 5: Surface Engineering,yes,yes,MEDIUM,third,NO,,,,,- astm-b265,CLEAN
+cnc-turning-parameters,cutting-parameter,medium,yes,"Sandvik Coromant, Machining Data Handbook",yes,yes,MEDIUM,third,NO,,/knowledge/evidence/cnc-turning-parameters,- grade-5-titanium,- cnc-turning,,STRENGTHEN
+dmls-parameters,process-capability,medium,yes,EOS Material Data Sheet,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/dmls-parameters,- grade-5-titanium,- dmls,,STRENGTHEN
+grade-1-properties,material-property,high,yes,ASTM B348 MatWeb,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+grade-12-properties,material-property,high,yes,ASTM B348 MatWeb,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+grade-2-properties,material-property,high,yes,"ASTM B265/B348, MatWeb",yes,yes,MEDIUM,third,NO,,/knowledge/evidence/grade-2-properties,- grade-2-titanium,,,CLEAN
+grade-23-material-properties,material-property,high,yes,ASTM F136 / ASTM B348 / ASM Materials Handbook,yes,yes,HIGH,third,YES,https://www.astm.org/f0136-24.html,,,,- astm-f136,CITATION_ASSET
+grade-3-properties,material-property,high,yes,ASTM B348 MatWeb,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+grade-4-properties,material-property,high,yes,ASTM B348 MatWeb,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+grade-5-milling-parameters,cutting-parameter,high,yes,Machining Data Handbook (Meteut Research Associates) / Sandvik Coromant Titanium Machining Guide,yes,yes,MEDIUM,third,NO,,,,,- astm-b265,STRENGTHEN
+grade-5-milling-roughing-data,cutting-parameter,medium,yes,Empirical Testing Seco Tools,partial,partial,LOW,first,NO,,/knowledge/evidence/grade-5-milling-roughing-data,- grade-5-titanium,- cnc-milling,,VERIFY_OR_REWRITE
+grade-5-turning-parameters,cutting-parameter,medium,yes,Sandvik Coromant,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/grade-5-turning-parameters,- grade-5-titanium,- cnc-turning,,STRENGTHEN
+grade-7-properties,material-property,high,yes,ASTM B348 MatWeb,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+grade-9-properties,material-property,high,yes,"ASTM B265/B348, MatWeb",yes,yes,MEDIUM,third,NO,,/knowledge/evidence/grade-9-properties,- grade-9-titanium,,,CLEAN
+machining-tolerances,tolerance,high,yes,"ISO 2768, Industry Practice",partial,partial,MEDIUM,mixed,NO,,/knowledge/evidence/machining-tolerances,- grade-5-titanium,- cnc-machining,,VERIFY
+surface-finish-comparison,surface-roughness,high,yes,"Industry Standards, Empirical Testing",partial,partial,LOW,first,NO,,/knowledge/evidence/surface-finish-comparison,- grade-5-titanium,- surface-finishing,,VERIFY_OR_REWRITE
+ti-10-2-3-properties,material-property,high,yes,AMS 4983 MatWeb,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+ti-6al-4v-hardness-data,material-property,high,yes,ASM Handbook Vol 4,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/ti-6al-4v-hardness-data,- grade-5-titanium,- heat-treatment,,CLEAN
+ti-6al-4v-material-properties,material-property,high,yes,ASTM B265 / ASTM B348 / ASM Materials Handbook Volume 2,yes,yes,HIGH,third,YES,https://www.astm.org/b0265-24.html,,,,- astm-b265,CITATION_ASSET
+titanium-anodizing-properties,surface-roughness,high,yes,Industry Standards,partial,partial,LOW,first,NO,,/knowledge/evidence/titanium-anodizing-properties,- grade-5-titanium,- surface-finishing,,VERIFY
+titanium-corrosion-data,material-property,high,yes,ASTM Corrosion Data Standards,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+titanium-cost-data,cost,high,partial,Industry Pricing Data London Metal Exchange,no,no,LOW,first,NO,,/knowledge/evidence/titanium-cost-data,,,,REWRITE_OR_DROP
+titanium-drilling-data,cutting-parameter,medium,yes,Guhring OSG Application Data,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/titanium-drilling-data,- grade-5-titanium,- cnc-machining,,STRENGTHEN
+titanium-fatigue-data,material-property,high,yes,ASM Handbook Volume 19,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+titanium-inspection-data,inspection,high,yes,AS9100D ASME Y14.5,yes,partial,MEDIUM,mixed,NO,,/knowledge/evidence/titanium-inspection-data,,,,VERIFY
+titanium-surface-roughness-standards,surface-roughness,high,yes,ASME B46.1 ISO 1302,yes,yes,MEDIUM,third,NO,,,,,,CLEAN
+titanium-welding-data,process-capability,medium,yes,AWS D1.9 Structural Welding Code - Titanium,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/titanium-welding-data,- grade-2-titanium,- welding,,CLEAN
+wire-edm-parameters,cutting-parameter,medium,yes,GF Machining Solutions Application Data,yes,yes,MEDIUM,third,NO,,/knowledge/evidence/wire-edm-parameters,- grade-5-titanium,- wire-edm,,STRENGTHEN

@@ -12,8 +12,8 @@ const locale = (Astro.currentLocale || "en") as Locale;
 const listUrl = siteConfig.url + resolveRoute(locale, "/industries/chemical-processing/");
 const spokePages = [
   { title: "Chemical Processing Titanium", description: "ASME BPVC certified titanium components for chemical processing. Heat exchangers, reaction vessels, piping systems, and chlorine dioxide equipment.", href: "/services/titanium-cnc-machining/", cta: "View Machining Service →" },
-  { title: "Chemical Processing Applications", description: "Guide to titanium in chemical processing: corrosion resistance in chlorides, oxidising acids, and wet chlorine environments.", href: "/knowledge/industries/chemical-processing/", cta: "Read Chemical Processing Guide →" },
-  { title: "Standards & Compliance", description: "ASME BPVC, ASTM B265, ASTM B348 compliant manufacturing for chemical processing equipment.", href: "/knowledge/standards/", cta: "View Standards →" },
+  { title: "Chemical Processing Applications", description: "Guide to titanium in chemical processing: corrosion resistance in chlorides, oxidising acids, and wet chlorine environments.", href: "/industries/chemical-processing/", cta: "Read Chemical Processing Guide →" },
+  { title: "Standards & Compliance", description: "ASME BPVC, ASTM B265, ASTM B348 compliant manufacturing for chemical processing equipment.", href: "/standards/", cta: "View Standards →" },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema([{ label: "Home", href: siteConfig.url + "/" }, { label: "Industries", href: siteConfig.url + "/industries/" }, { label: "Chemical Processing", href: listUrl }]);
 const collectionSchema = buildCollectionPageSchema({ name: "Chemical Processing Titanium Manufacturing", description: "Corrosion-resistant titanium components for chemical processing.", url: listUrl, numberOfItems: spokePages.length });
@@ -26,7 +26,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Chemical Processing 
     <tr><td>Ti-Grade 12</td><td>High-temperature chemical processing, heat exchanger tubing</td></tr>
     <tr><td>Ti-6Al-4V (Grade 5)</td><td>High-strength structural components, agitator shafts</td></tr>
     <tr><td>Ti-Grade 11</td><td>Enhanced corrosion resistance for reducing acid environments</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ASME BPVC</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">ISO 9001</span><span class="cert-badge">NACE</span><span class="cert-badge">CMM</span><span class="cert-badge">NDT</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -41,7 +41,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Chemical Processing 
 </BaseLayout>
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
-  <Hero variant="centered" size="md" eyebrow="Chemical Processing" headline="Titanium Manufacturing for Chemical Processing" subheadline="Titanium offers exceptional corrosion resistance in chlorides, oxidising acids, and wet chlorine. We fabricate certified titanium vessels, heat exchangers, and piping systems for the most demanding chemical environments." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/chemical-processing/" }} locale={locale} />
+  <Hero variant="centered" size="md" eyebrow="Chemical Processing" headline="Titanium Manufacturing for Chemical Processing" subheadline="Titanium offers exceptional corrosion resistance in chlorides, oxidising acids, and wet chlorine. We fabricate certified titanium vessels, heat exchangers, and piping systems for the most demanding chemical environments." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/chemical-processing/" }} locale={locale} />
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
   .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }

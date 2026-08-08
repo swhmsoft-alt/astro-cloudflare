@@ -12,15 +12,15 @@ const locale = (Astro.currentLocale || "en") as Locale;
 const listUrl = siteConfig.url + resolveRoute(locale, "/industries/medical/");
 const spokePages = [
   { title: "Custom Medical Titanium Components", description: "ISO 13485 certified CNC machining of titanium medical components. Orthopedic implants, surgical instruments, dental implants, and custom medical devices.", href: "/services/medical-titanium-components/", cta: "View Medical Machining Service →" },
-  { title: "Medical Device Applications & Materials", description: "Detailed guide to titanium grades and applications in medical device manufacturing. Ti-6Al-4V ELI, Grade 23, and commercially pure titanium.", href: "/knowledge/industries/medical-device/", cta: "Read Medical Device Guide →" },
-  { title: "Quality & Regulatory Compliance", description: "ISO 13485 quality management system, FDA QSR compliance, EU MDR, and full material traceability for medical device manufacturing.", href: "/knowledge/standards/iso-13485/", cta: "View Medical Certifications →" },
+  { title: "Medical Device Applications & Materials", description: "Detailed guide to titanium grades and applications in medical device manufacturing. Ti-6Al-4V ELI, Grade 23, and commercially pure titanium.", href: "/industries/medical-device/", cta: "Read Medical Device Guide →" },
+  { title: "Quality & Regulatory Compliance", description: "ISO 13485 quality management system, FDA QSR compliance, EU MDR, and full material traceability for medical device manufacturing.", href: "/standards/iso-13485/", cta: "View Medical Certifications →" },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema([{ label: "Home", href: siteConfig.url + "/" }, { label: "Industries", href: siteConfig.url + "/industries/" }, { label: "Medical", href: listUrl }]);
 const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titanium Manufacturing", description: "ISO 13485 certified titanium manufacturing for medical devices.", url: listUrl, numberOfItems: spokePages.length });
 ---
 <BaseLayout title="Medical Device Titanium Manufacturing & Machining Services" description="ISO 13485 certified titanium machining for medical devices. CNC milling and turning of orthopedic implants, surgical instruments, and custom medical components." locale={locale} path={"/industries/medical"}>
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
-  <Hero variant="centered" size="md" eyebrow="Medical Device Manufacturing" headline="Medical Titanium Manufacturing &amp; Machining" subheadline="Titanium is the preferred material for implantable and non-implantable medical devices due to its biocompatibility, corrosion resistance, and osseointegration properties. We provide ISO 13485 certified manufacturing for orthopedic, dental, and surgical applications." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Medical Applications →", href: "/knowledge/industries/medical-device/" }} locale={locale} />
+  <Hero variant="centered" size="md" eyebrow="Medical Device Manufacturing" headline="Medical Titanium Manufacturing &amp; Machining" subheadline="Titanium is the preferred material for implantable and non-implantable medical devices due to its biocompatibility, corrosion resistance, and osseointegration properties. We provide ISO 13485 certified manufacturing for orthopedic, dental, and surgical applications." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Medical Applications →", href: "/industries/medical-device/" }} locale={locale} />
   <section class="hub-cards container">
     <header class="section-head">
       <p class="section-head__eyebrow">Medical Device Manufacturing Solutions</p>
@@ -54,7 +54,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titan
       <tr><td>CP-Ti Grade 2</td><td>ASTM F67, ISO 5832-2</td><td>Surgical instruments, trays, non-load-bearing implants</td></tr>
       <tr><td>CP-Ti Grade 1</td><td>ASTM F67, ISO 5832-2</td><td>Custom patient-specific implants, craniofacial plates</td></tr>
     </tbody></table></div>
-    <p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p>
+    <p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p>
   </section>
   <section class="certs-section container">
     <header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Medical Device Certifications &amp; Compliance</h2></header>

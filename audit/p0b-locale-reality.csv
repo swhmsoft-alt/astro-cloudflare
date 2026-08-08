@@ -1,0 +1,52 @@
+locale,route,content_file,title,h1,word_count,language_detected,translation_status,content_similarity_to_en,canonical,hreflang,indexability,recommended_action
+en-root,/evidence/...,evidence/*.md,evidence (en),en H1,0,en,FULL_TRANSLATION,1,self (root),16-locale (broken: non-en details absent),INDEX,INDEX
+en,/en/evidence/...,duplicate,"evidence (en, /en/ prefix)",en H1,0,en,ENGLISH_FALLBACK,1,to root en,16-locale,duplicate,CANONICAL_TO_EN
+de,/de/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ja,/ja/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+fr,/fr/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+es,/es/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pt,/pt/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+it,/it/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ko,/ko/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+nl,/nl/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pl,/pl/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ru,/ru/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ar,/ar/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pt-br,/pt-br/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+tr,/tr/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+cs,/cs/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+sv,/sv/evidence/,,evidence hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+en-root,/procurement/...,procurement/*.md,procurement (en),en H1,0,en,FULL_TRANSLATION,1,self (root),16-locale (broken: non-en details absent),INDEX,INDEX
+en,/en/procurement/...,duplicate,"procurement (en, /en/ prefix)",en H1,0,en,ENGLISH_FALLBACK,1,to root en,16-locale,duplicate,CANONICAL_TO_EN
+de,/de/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ja,/ja/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+fr,/fr/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+es,/es/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pt,/pt/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+it,/it/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ko,/ko/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+nl,/nl/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pl,/pl/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ru,/ru/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ar,/ar/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pt-br,/pt-br/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+tr,/tr/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+cs,/cs/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+sv,/sv/procurement/,,procurement hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+en-root,/applications/...,applications/*.md,applications (en),en H1,0,en,FULL_TRANSLATION,1,self (root),16-locale (broken: non-en details absent),INDEX,INDEX
+en,/en/applications/...,duplicate,"applications (en, /en/ prefix)",en H1,0,en,ENGLISH_FALLBACK,1,to root en,16-locale,duplicate,CANONICAL_TO_EN
+de,/de/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ja,/ja/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+fr,/fr/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+es,/es/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pt,/pt/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+it,/it/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ko,/ko/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+nl,/nl/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pl,/pl/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ru,/ru/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+ar,/ar/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+pt-br,/pt-br/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+tr,/tr/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+cs,/cs/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE
+sv,/sv/applications/,,applications hub (empty),,0,en(none),EMPTY,0,to en?,points to absent detail,NOT_INDEXABLE,NOINDEX or REMOVE

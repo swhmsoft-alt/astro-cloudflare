@@ -12,8 +12,8 @@ const locale = (Astro.currentLocale || "en") as Locale;
 const listUrl = siteConfig.url + resolveRoute(locale, "/industries/semiconductor/");
 const spokePages = [
   { title: "Custom Semiconductor Titanium Parts", description: "Precision titanium components for semiconductor manufacturing equipment. Vacuum chamber parts, wafer handling components, and process tooling with ultra-pure processing.", href: "/services/semiconductor-titanium-parts/", cta: "View Semiconductor Service →" },
-  { title: "Semiconductor Applications & Materials", description: "Detailed guide to titanium in semiconductor fabrication: UHV compatibility, purity requirements, surface finish specifications, and applications.", href: "/knowledge/industries/semiconductor-manufacturing/", cta: "Read Semiconductor Guide →" },
-  { title: "Quality & Standards", description: "ISO 9001 quality management with ASTM B265 and B348 compliance for ultra-pure semiconductor components.", href: "/knowledge/standards/", cta: "View Standards →" },
+  { title: "Semiconductor Applications & Materials", description: "Detailed guide to titanium in semiconductor fabrication: UHV compatibility, purity requirements, surface finish specifications, and applications.", href: "/industries/semiconductor-manufacturing/", cta: "Read Semiconductor Guide →" },
+  { title: "Quality & Standards", description: "ISO 9001 quality management with ASTM B265 and B348 compliance for ultra-pure semiconductor components.", href: "/standards/", cta: "View Standards →" },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema([{ label: "Home", href: siteConfig.url + "/" }, { label: "Industries", href: siteConfig.url + "/industries/" }, { label: "Semiconductor", href: listUrl }]);
 const collectionSchema = buildCollectionPageSchema({ name: "Semiconductor Titanium Manufacturing", description: "Ultra-pure titanium components for semiconductor equipment.", url: listUrl, numberOfItems: spokePages.length });
@@ -25,7 +25,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Semiconductor Titani
     <tr><td>Ti-6Al-4V ELI (Grade 23)</td><td>High-purity process components, wafer handling end-effectors</td></tr>
     <tr><td>CP-Ti Grade 2</td><td>Chemical delivery systems, wet process components, liners</td></tr>
     <tr><td>Ti-6242</td><td>High-temperature process chamber components</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ISO 9001</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">UHV Compatible</span><span class="cert-badge">RoHS</span><span class="cert-badge">REACH</span><span class="cert-badge">CMM</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -40,7 +40,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Semiconductor Titani
 </BaseLayout>
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
-  <Hero variant="centered" size="md" eyebrow="Semiconductor Equipment" headline="Titanium Manufacturing for Semiconductor Equipment" subheadline="Titanium is essential in semiconductor fabrication for its corrosion resistance, non-magnetic properties, and UHV compatibility with minimal outgassing. We provide precision-machined titanium components for wafer processing, vacuum chambers, and gas delivery systems." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/semiconductor-manufacturing/" }} locale={locale} />
+  <Hero variant="centered" size="md" eyebrow="Semiconductor Equipment" headline="Titanium Manufacturing for Semiconductor Equipment" subheadline="Titanium is essential in semiconductor fabrication for its corrosion resistance, non-magnetic properties, and UHV compatibility with minimal outgassing. We provide precision-machined titanium components for wafer processing, vacuum chambers, and gas delivery systems." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/semiconductor-manufacturing/" }} locale={locale} />
   <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Semiconductor</p><h2 class="section-head__title">Complete Semiconductor Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }

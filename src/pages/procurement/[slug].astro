@@ -1,0 +1,10 @@
+﻿---
+import ProcurementDetail from "../_shared/_ProcurementDetail.astro";
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const entries = await getCollection("procurement");
+  return entries.filter((e: any) => e.data.locale === "en").map((e: any) => ({ params: { slug: e.id }, props: { entry: e, locale: "en" as const } }));
+}
+const { entry } = Astro.props as { entry: any; locale: "en" };
+---
+<ProcurementDetail slug={entry.id} />

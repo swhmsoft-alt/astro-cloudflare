@@ -1,15 +1,15 @@
----
+﻿---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
 import { t } from "../../i18n/ui";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../lib/site-config";
-import { buildDefinedTermSchema, buildProductSchema } from "../../lib/schema";
+import { buildDefinedTermSchema, buildProductSchema, buildFAQSchema, buildBreadcrumbSchema } from "../../lib/schema";
 import RelatedContent from "../../components/sections/RelatedContent.astro";
 
 export interface Props {
-  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion";
+  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion" | "evidence" | "applications";
   slug: string;
 }
 
@@ -24,13 +24,31 @@ if (!entry) return Astro.redirect("/404");
 const data = entry.data as any;
 const pillarPath = `/${collectionName === "materials" ? "grades" : collectionName === "surfaceFinishes" ? "finishes" : collectionName === "material-selection" ? "select" : collectionName === "failure-analysis" ? "failures" : collectionName === "heat-treatment" ? "heat-treatment" : collectionName === "corrosion" ? "corrosion" : collectionName}/`;
 const pageUrl = siteConfig.url + resolveRoute(locale, `${pillarPath}${slug}/`);
-const definedTermSchema = (collectionName === "materials" || collectionName === "standards")
+const definedTermSchema = (collectionName === "materials" || collectionName === "standards" || collectionName === "evidence" || collectionName === "applications")
   ? buildDefinedTermSchema({ name: data.title, description: data.description, termCode: slug, inSetName: collectionName, url: pageUrl }) : null;
 const productSchema = (collectionName === "materials" || collectionName === "equipment")
   ? buildProductSchema({ name: data.title, description: data.description, url: pageUrl, category: collectionName, material: data.alloy || undefined }) : null;
+
+// Evidence source model: resolve internal /evidence/* stubs and never emit them.
+function resolveEvidenceSource(d: any) {
+  const src = (d.source || "").trim();
+  const rawUrl = (d.sourceUrl || "").trim();
+  if (rawUrl.startsWith("http")) return { text: src, url: rawUrl, type: "EXTERNAL", status: "External source" };
+  if (rawUrl.startsWith("/")) return { text: src, url: "", type: "INTERNAL_REFERENCE", status: "Internal reference - external citation pending" };
+  if (src) return { text: src, url: "", type: "STANDARD_OR_DOC", status: "Cited (no URL)" };
+  return { text: "", url: "", type: "UNKNOWN", status: "Source not stated" };
+}
+const evSource = collectionName === "evidence" ? resolveEvidenceSource(data) : null;
+
+const faqSchema = (data.faqs && data.faqs.length > 0) ? buildFAQSchema(data.faqs) : null;
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { label: "Home", href: siteConfig.url + "/" },
+  { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, pillarPath) },
+  { label: data.title, href: pageUrl },
+]);
 ---
 
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`${pillarPath}${slug}/`} jsonLd={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : [])]}>
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`${pillarPath}${slug}/`} hreflangLocales={(collectionName === "evidence" || collectionName === "applications") ? ["en"] : undefined} jsonLd={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : []), breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])]}>
 
   <article class="container py-16 entity-article">
     <header class="entity-header">
@@ -43,37 +61,77 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
         {'standardType' in data && <span class="entity-badge">{data.standardType}</span>}
         {'issuingBody' in data && <span class="entity-badge">{data.issuingBody}</span>}
         {'tolerances' in data && <span class="entity-badge">{data.tolerances}</span>}
+        {'evidenceCategory' in data && <span class="entity-badge">{data.evidenceCategory.replace(/-/g, " ")}</span>}
+        {'industry' in data && <span class="entity-badge">{data.industry}</span>}
       </div>
+
       {'properties' in data && data.properties && (
         <table class="props-table">
           <thead><tr><th>Property</th><th>Value</th></tr></thead>
           <tbody>{Object.entries(data.properties).map(([key, val]) => (<tr><td>{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</td><td>{val as string}</td></tr>))}</tbody>
         </table>
       )}
+
+      {collectionName === "evidence" && evSource && (
+        <div class="ev-source">
+          <div class="ev-source__status">{evSource.status}</div>
+          {evSource.text && <div class="ev-source__text"><strong>Source:</strong> {evSource.text}</div>}
+          {evSource.url && <a class="ev-source__url" href={evSource.url} rel="noopener noreferrer">View source</a>}
+        </div>
+      )}
+
+      {collectionName === "evidence" && Array.isArray(data.dataPoints) && data.dataPoints.length > 0 && (
+        <table class="props-table ev-data">
+          <thead><tr><th>Property</th><th>Value</th><th>Unit</th><th>Notes</th></tr></thead>
+          <tbody>{data.dataPoints.map((p: any) => (
+            <tr><td>{p.property || ""}</td><td>{p.value ?? ""}</td><td>{p.unit || ""}</td><td>{p.notes || ""}</td></tr>
+          ))}</tbody>
+        </table>
+      )}
     </header>
+
     <div class="entity-content"><slot /></div>
     <div class="entity-related">
       <h2>{t(locale, "knowledge.related")}</h2>
       <div class="related-grid">
-
         {'standards' in data && data.standards && data.standards.length > 0 && (
           <div class="related-section">
             <h3>Standards</h3>
-            <ul>
-              {data.standards.map((s: string) => (
-                <li><a href={resolveRoute(locale, `/standards/${s.toLowerCase().replace(/\s+/g, '-')}/`)}>{s}</a></li>
-              ))}
-            </ul>
+            <ul>{data.standards.map((s: string) => (
+              <li><a href={resolveRoute(locale, `/standards/${s.toLowerCase().replace(/\s+/g, "-")}/`)}>{s}</a></li>
+            ))}</ul>
           </div>
         )}
         {'industries' in data && data.industries && data.industries.length > 0 && (
           <div class="related-section">
             <h3>Industries</h3>
-            <ul>
-              {data.industries.map((i: string) => (
-                <li><a href={resolveRoute(locale, `/industries/${i.toLowerCase().replace(/\s+/g, '-')}/`)}>{i}</a></li>
-              ))}
-            </ul>
+            <ul>{data.industries.map((i: string) => (
+              <li><a href={resolveRoute(locale, `/industries/${i.toLowerCase().replace(/\s+/g, "-")}/`)}>{i}</a></li>
+            ))}</ul>
+          </div>
+        )}
+        {collectionName === "evidence" && Array.isArray(data.relatedMaterials) && data.relatedMaterials.length > 0 && (
+          <div class="related-section">
+            <h3>Related Materials</h3>
+            <ul>{data.relatedMaterials.map((m: string) => (
+              <li><a href={resolveRoute(locale, `/grades/${m}/`)}>{m.replace(/-/g, " ")}</a></li>
+            ))}</ul>
+          </div>
+        )}
+        {collectionName === "evidence" && Array.isArray(data.relatedProcesses) && data.relatedProcesses.length > 0 && (
+          <div class="related-section">
+            <h3>Related Processes</h3>
+            <ul>{data.relatedProcesses.map((p: string) => (
+              <li><a href={resolveRoute(locale, `/processes/${p}/`)}>{p.replace(/-/g, " ")}</a></li>
+            ))}</ul>
+          </div>
+        )}
+        {collectionName === "evidence" && Array.isArray(data.relatedStandards) && data.relatedStandards.length > 0 && (
+          <div class="related-section">
+            <h3>Related Standards</h3>
+            <ul>{data.relatedStandards.map((s: string) => (
+              <li><a href={resolveRoute(locale, `/standards/${s}/`)}>{s.replace(/-/g, " ").toUpperCase()}</a></li>
+            ))}</ul>
           </div>
         )}
       </div>
@@ -81,12 +139,20 @@ const productSchema = (collectionName === "materials" || collectionName === "equ
     <RelatedContent
       collectionName={collectionName}
       currentSlug={slug}
-      relatedMaterials={data.materials || []}
-      relatedProcesses={data.processType ? [data.processType] : []}
+      relatedMaterials={data.materials || data.relatedMaterials || []}
+      relatedProcesses={data.processType ? [data.processType] : data.relatedProcesses || []}
       relatedFailures={data.failureType ? [data.failureType] : []}
-      standards={data.standards || []}
+      standards={data.standards || data.relatedStandards || []}
       applications={data.industries || []}
       locale={locale}
     />
   </article>
 </MarketingLayout>
+
+<style>
+  .ev-source { margin: var(--space-md) 0; padding: var(--space-md); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-tertiary); }
+  .ev-source__status { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .15rem .5rem; border-radius: var(--radius-full); background: var(--color-bg-primary); color: var(--color-text-secondary); margin-bottom: var(--space-xs); }
+  .ev-source__text { font-size: .9rem; color: var(--color-text-secondary); line-height: 1.5; }
+  .ev-source__url { display: inline-block; margin-top: var(--space-xs); color: var(--color-brand-primary); font-weight: 600; font-size: .85rem; }
+  .ev-data { margin-top: var(--space-md); }
+</style>

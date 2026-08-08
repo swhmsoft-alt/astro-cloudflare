@@ -48,7 +48,7 @@ const { Content } = await render(entry);
 <section class="cmp-qa"><h2>Quick Answer</h2><p>{data.quickAnswer}</p></section>
 <div class="cmp-content prose prose-gray dark:prose-invert max-w-none"><Content /></div>
 {data.relatedMaterials?.length>0||data.relatedProcesses?.length>0||data.relatedStandards?.length>0?<footer class="cmp-ftr">
-{data.relatedStandards?.length>0&&<div><h3>Related Standards</h3><ul>{data.relatedStandards.map((s:string)=>(<li><a href={resolveRoute(locale,"/knowledge/standards/"+s+"/")}>{s.replace(/-/g," ").toUpperCase()}</a></li>))}</ul></div>}
+{data.relatedStandards?.length>0&&<div><h3>Related Standards</h3><ul>{data.relatedStandards.map((s:string)=>(<li><a href={resolveRoute(locale,"/standards/"+s+"/")}>{s.replace(/-/g," ").toUpperCase()}</a></li>))}</ul></div>}
 </footer>:null}
 </article></MarketingLayout>
 <style>

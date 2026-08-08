@@ -30,7 +30,7 @@ const {
 } = Astro.props as Props;
 
 // Collect all content entries for related lookup
-const allCollections = ["materials", "processes", "industries", "standards", "surfaceFinishes", "evidence", "cases"];
+const allCollections = ["materials", "processes", "industries", "standards", "surfaceFinishes", "evidence", "cases", "procurement", "applications"];
 const allEntries: any[] = [];
 for (const col of allCollections) {
   try {
@@ -93,6 +93,8 @@ const collectionPaths: Record<string, string> = {
   surfaceFinishes: "/finishes/",
   evidence: "/evidence/",
   cases: "/cases/",
+  procurement: "/procurement/",
+  applications: "/applications/",
 };
 ---
 

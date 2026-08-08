@@ -12,8 +12,8 @@ const locale = (Astro.currentLocale || "en") as Locale;
 const listUrl = siteConfig.url + resolveRoute(locale, "/industries/automotive/");
 const spokePages = [
   { title: "Automotive Titanium Machining", description: "CNC machining of titanium components for performance and luxury vehicles. Connecting rods, exhaust systems, suspension springs, and driveshafts with precision tolerances.", href: "/services/titanium-cnc-machining/", cta: "View CNC Machining Service →" },
-  { title: "Automotive Applications & Materials", description: "Guide to titanium in automotive: 40-60% weight reduction vs steel, high-temperature capability, and corrosion resistance for performance vehicles.", href: "/knowledge/industries/automotive/", cta: "Read Automotive Guide →" },
-  { title: "Quality Standards", description: "ISO 9001 quality management with ASTM material compliance for automotive titanium components.", href: "/knowledge/standards/", cta: "View Standards →" },
+  { title: "Automotive Applications & Materials", description: "Guide to titanium in automotive: 40-60% weight reduction vs steel, high-temperature capability, and corrosion resistance for performance vehicles.", href: "/industries/automotive/", cta: "Read Automotive Guide →" },
+  { title: "Quality Standards", description: "ISO 9001 quality management with ASTM material compliance for automotive titanium components.", href: "/standards/", cta: "View Standards →" },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema([{ label: "Home", href: siteConfig.url + "/" }, { label: "Industries", href: siteConfig.url + "/industries/" }, { label: "Automotive", href: listUrl }]);
 const collectionSchema = buildCollectionPageSchema({ name: "Automotive Titanium Manufacturing", description: "Lightweight titanium components for performance and luxury vehicles.", url: listUrl, numberOfItems: spokePages.length });
@@ -25,7 +25,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Automotive Titanium 
     <tr><td>Ti-3Al-2.5V (Grade 9)</td><td>Exhaust tubing, lightweight structural components</td></tr>
     <tr><td>CP-Ti Grade 2</td><td>Exhaust systems, heat shields, non-structural trim</td></tr>
     <tr><td>Ti-10V-2Fe-3Al</td><td>High-strength forged connecting rods, suspension links</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/knowledge/materials/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ISO 9001</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">IATF 16949</span><span class="cert-badge">CMM</span><span class="cert-badge">PPAP</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -40,7 +40,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Automotive Titanium 
 </BaseLayout>
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
-  <Hero variant="centered" size="md" eyebrow="Automotive Manufacturing" headline="Titanium Machining for Automotive Applications" subheadline="Titanium provides 40-60% weight reduction compared to steel while maintaining superior strength at elevated temperatures. We precision machine titanium components for performance vehicles, luxury automotive, and motorsport applications." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/knowledge/industries/automotive/" }} locale={locale} />
+  <Hero variant="centered" size="md" eyebrow="Automotive Manufacturing" headline="Titanium Machining for Automotive Applications" subheadline="Titanium provides 40-60% weight reduction compared to steel while maintaining superior strength at elevated temperatures. We precision machine titanium components for performance vehicles, luxury automotive, and motorsport applications." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/automotive/" }} locale={locale} />
   <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Automotive</p><h2 class="section-head__title">Complete Automotive Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }

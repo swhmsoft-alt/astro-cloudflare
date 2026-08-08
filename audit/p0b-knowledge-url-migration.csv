@@ -1,0 +1,13 @@
+old_reference,new_reference,source_file,context,old_route_exists,new_route_exists,semantic_equivalence,migration_status
+/knowledge/materials/,/grades/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/processes/,/processes/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/industries/,/industries/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/standards/,/standards/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/surface-finishes/,/finishes/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/evidence/,/evidence/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/procurement/,/procurement/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/cases/,/compare/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,PARTIAL (cases not exposed),DONE
+/knowledge/material-selection/,/select/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/failure-analysis/,/failures/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/heat-treatment/,/heat-treatment/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE
+/knowledge/corrosion/,/corrosion/,guides/compare/industries/llms,navigation/dead-link,NO (dead),YES,YES,DONE

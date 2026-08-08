@@ -24,6 +24,7 @@ export interface Props {
   path: string;
   ogImage?: string;
   canonical?: string;
+  hreflangLocales?: string[];
   article?: SEOArticle;
   /** Page-specific JSON-LD entries merged alongside site-wide defaults. */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
@@ -36,6 +37,7 @@ const {
   path,
   ogImage,
   canonical,
+  hreflangLocales,
   article,
   jsonLd,
 } = Astro.props as Props;
@@ -44,7 +46,7 @@ const fullTitle = title.includes(siteConfig.name)
   ? title
   : `${title} | ${siteConfig.name}`;
 const canonicalHref = canonical ?? canonicalUrl(locale, path);
-const links = hreflangLinks(path);
+const links = hreflangLinks(path, hreflangLocales);
 const og = ogMeta({
   title: fullTitle,
   description,

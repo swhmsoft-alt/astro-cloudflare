@@ -1,0 +1,122 @@
+entity,occurrence,pageCount,firstPages
+grade-5-titanium,47,47,processes:5-axis-machining | processes:dmls-vs-ebm | processes:titanium-casting | processes:titanium-forging | processes:titanium-sheet-metal | processes:titanium-welding
+aerospace,41,41,materials:grade-1-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium | materials:grade-4-titanium | materials:grade-5-titanium
+cnc-machining,28,28,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium
+milling,28,28,materials:grade-1-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+grade-23-titanium,27,27,processes:5-axis-machining | processes:dmls-vs-ebm | processes:titanium-forging | processes:titanium-welding | industries:aerospace-titanium-parts | standards:as9100d
+grade-2-titanium,27,27,processes:5-axis-machining | processes:titanium-casting | processes:titanium-sheet-metal | processes:titanium-welding | industries:aerospace-titanium-parts | standards:as9100d
+medical,24,24,materials:grade-1-titanium | materials:grade-23-titanium | materials:grade-4-titanium | materials:grade-5-titanium | processes:5-axis-machining | processes:dmls-vs-ebm
+turning,19,19,materials:grade-1-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+chemical-processing,18,18,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+AS9100D,16,16,materials:grade-1-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium | materials:grade-4-titanium | materials:grade-5-titanium
+marine,14,14,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+passivation,14,14,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium
+ASTM B265,13,13,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium
+ASTM B348,13,13,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium
+anodizing,13,13,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium
+welding,12,12,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+5-axis-machining,12,12,materials:grade-23-titanium | materials:grade-5-titanium | industries:aerospace-titanium-parts | evidence:5-axis-tolerances | cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing
+forming,9,9,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+polishing,9,9,materials:grade-1-titanium | materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-3-titanium | materials:grade-4-titanium | materials:grade-5-titanium
+ISO 9001,9,9,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium
+titanium-cnc-machining,9,9,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture
+defence,8,8,materials:ta15-titanium | materials:ti-10v-2fe-3al | materials:ti-5al-2sn | materials:ti-6al-2sn-4zr-2mo | processes:titanium-forging | standards:as9100d
+astm-f136,8,8,industries:aerospace-titanium-parts | evidence:grade-23-material-properties | evidence:ti-6al-4v-material-properties | comparisons:grade-5-vs-grade-23 | cases:grade-23-orthopedic-component | cases:medical-fixture
+5-axis-tolerances,8,8,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture
+energy,7,7,materials:grade-12-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-5-titanium | materials:grade-7-titanium | processes:5-axis-machining
+ISO 13485,7,7,materials:grade-23-titanium | materials:grade-4-titanium | materials:grade-5-titanium | cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture
+NADCAP,7,7,materials:grade-23-titanium | materials:grade-5-titanium | materials:ti-10v-2fe-3al | materials:ti-6al-2sn-4zr-2mo | industries:aerospace-titanium-parts | cases:5-axis-structural-bracket
+astm-b348,7,7,industries:aerospace-titanium-parts | evidence:grade-23-material-properties | evidence:ti-6al-4v-material-properties | comparisons:grade-5-vs-grade-23 | comparisons:titanium-vs-inconel-718 | cases:grade-23-orthopedic-component
+ASTM B381,6,6,materials:grade-1-titanium | materials:grade-11-titanium | materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium | materials:grade-7-titanium
+ASTM F136,6,6,materials:grade-23-titanium | materials:grade-5-titanium | cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture | cases:orthopedic-component
+astm-b265,6,6,industries:aerospace-titanium-parts | evidence:bead-blasting-surface-roughness | evidence:grade-5-milling-parameters | evidence:ti-6al-4v-material-properties | comparisons:grade-5-vs-grade-23 | comparisons:titanium-vs-inconel-718
+iso-2768,6,6,evidence:5-axis-tolerances | cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:semiconductor-vacuum-component | cases:thin-wall-aerospace-housing
+grade-5-vs-grade-23,6,6,cases:5-axis-structural-bracket | cases:complex-5-axis-titanium-bracket | cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture | cases:orthopedic-component
+wire-edm,5,5,materials:grade-2-titanium | materials:grade-23-titanium | materials:grade-5-titanium | industries:aerospace-titanium-parts | evidence:ti-6al-4v-material-properties
+industrial,5,5,materials:grade-2-titanium | materials:grade-3-titanium | materials:grade-4-titanium | standards:astm-b265 | standards:astm-b348
+additive-manufacturing,5,5,materials:grade-23-titanium | materials:grade-5-titanium | materials:ta15-titanium | evidence:bead-blasting-surface-roughness | comparisons:cnc-machining-vs-dmls
+automotive,5,5,materials:grade-5-titanium | materials:grade-9-titanium | materials:ti-10v-2fe-3al | materialSelection:titanium-vs-aluminum | materialSelection:titanium-vs-carbon-steel
+grade-23-material-properties,5,5,cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture | cases:orthopedic-component | cases:semiconductor-vacuum-component
+oil-and-gas,4,4,materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-7-titanium | corrosion:seawater
+grade-9-titanium,4,4,processes:5-axis-machining | standards:as9100d | standards:astm-b348 | heatTreatment:overview
+vacuum-furnace,4,4,heatTreatment:annealing | heatTreatment:overview | heatTreatment:solution-treatment-aging | heatTreatment:stress-relief
+ISO 2768-f,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+as9100d,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+aerospace-titanium-components,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+aerospace-housing,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+grade-5-milling-parameters,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+5-axis-vs-3-axis-machining,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+Mazak i700 5-Axis,4,4,cases:5-axis-structural-bracket | cases:aerospace-thin-wall-housing | cases:complex-5-axis-titanium-bracket | cases:thin-wall-aerospace-housing
+iso-13485,4,4,cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture | cases:orthopedic-component
+medical-titanium-components,4,4,cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture | cases:orthopedic-component
+grade-23-titanium-machining,4,4,cases:grade-23-orthopedic-component | cases:medical-fixture | cases:medical-implant-fixture | cases:orthopedic-component
+ASME BPV Code,3,3,materials:grade-11-titanium | materials:grade-12-titanium | materials:grade-7-titanium
+NACE MR0175,3,3,materials:grade-12-titanium | materials:grade-7-titanium | corrosion:overview
+semiconductor,3,3,materials:grade-23-titanium | materials:grade-5-titanium | processes:5-axis-machining
+bead-blasting,3,3,materials:grade-23-titanium | materials:grade-5-titanium | materials:ti-10v-2fe-3al
+grade-7-titanium,3,3,materialSelection:titanium-grades-chart | corrosion:acid-resistance | corrosion:overview
+PED,2,2,materials:grade-1-titanium | materials:grade-2-titanium
+robotics,2,2,materials:grade-5-titanium | processes:5-axis-machining
+forging,2,2,materials:ti-10v-2fe-3al | materials:ti-6al-2sn-4zr-2mo
+heat-treatment,2,2,materials:ti-10v-2fe-3al | materials:ti-6al-2sn-4zr-2mo
+power-generation,2,2,materials:ti-6al-2sn-4zr-2mo | materialSelection:titanium-vs-inconel
+ti-10v-2fe-3al,2,2,processes:titanium-forging | heatTreatment:solution-treatment-aging
+nadcap,2,2,cases:5-axis-structural-bracket | cases:complex-5-axis-titanium-bracket
+5-axis-titanium-machining,2,2,cases:5-axis-structural-bracket | cases:complex-5-axis-titanium-bracket
+structural-bracket,2,2,cases:5-axis-structural-bracket | cases:complex-5-axis-titanium-bracket
+Mazak Integrex i-200,2,2,cases:5-axis-structural-bracket | cases:complex-5-axis-titanium-bracket
+thin-wall-machining,2,2,cases:aerospace-thin-wall-housing | cases:thin-wall-aerospace-housing
+bone-plate,2,2,cases:grade-23-orthopedic-component | cases:orthopedic-component
+dental-implant,2,2,cases:grade-23-orthopedic-component | cases:orthopedic-component
+Mazak i500 5-Axis,2,2,cases:grade-23-orthopedic-component | cases:orthopedic-component
+micro-machining,2,2,cases:medical-fixture | cases:medical-implant-fixture
+medical-implant,2,2,cases:medical-fixture | cases:medical-implant-fixture
+surgical-instrument,2,2,cases:medical-fixture | cases:medical-implant-fixture
+DMG Mori NMV 5000,2,2,cases:medical-fixture | cases:medical-implant-fixture
+architectural,1,1,materials:grade-1-titanium
+ISO 5832-2,1,1,materials:grade-1-titanium
+ASME SB265,1,1,materials:grade-12-titanium
+ISO 5832-3,1,1,materials:grade-23-titanium
+electropolishing,1,1,materials:grade-23-titanium
+FDA 21 CFR 820,1,1,materials:grade-23-titanium
+ASTM F67,1,1,materials:grade-4-titanium
+AMS 4911,1,1,materials:grade-5-titanium
+AMS 4928,1,1,materials:grade-5-titanium
+hydroforming,1,1,materials:grade-9-titanium
+sporting-goods,1,1,materials:grade-9-titanium
+ASTM B861,1,1,materials:grade-9-titanium
+AMS 4945,1,1,materials:grade-9-titanium
+GB/T 3621,1,1,materials:ta15-titanium
+GJB 1538,1,1,materials:ta15-titanium
+GJB 9001,1,1,materials:ta15-titanium
+AMS 4983,1,1,materials:ti-10v-2fe-3al
+AMS 4984,1,1,materials:ti-10v-2fe-3al
+AMS 4926,1,1,materials:ti-5al-2sn
+AMS 4909,1,1,materials:ti-5al-2sn
+AMS 4919,1,1,materials:ti-6al-2sn-4zr-2mo
+AMS 4975,1,1,materials:ti-6al-2sn-4zr-2mo
+mazak-5-axis,1,1,processes:5-axis-machining
+dmg-mori,1,1,processes:5-axis-machining
+dmls-machine,1,1,processes:dmls-vs-ebm
+ebm-machine,1,1,processes:dmls-vs-ebm
+investment-casting-furnace,1,1,processes:titanium-casting
+hydraulic-press,1,1,processes:titanium-forging
+press-brake,1,1,processes:titanium-sheet-metal
+tig-welder,1,1,processes:titanium-welding
+laser-welder,1,1,processes:titanium-welding
+electron-beam-welder,1,1,processes:titanium-welding
+space,1,1,standards:as9100d
+dental,1,1,standards:iso-13485
+grade-1-titanium,1,1,materialSelection:titanium-grades-chart
+grade-3-titanium,1,1,materialSelection:titanium-grades-chart
+grade-4-titanium,1,1,materialSelection:titanium-grades-chart
+construction,1,1,materialSelection:titanium-vs-carbon-steel
+iso-286,1,1,evidence:5-axis-tolerances
+SEMI E67,1,1,cases:semiconductor-vacuum-component
+ISO 2768-m,1,1,cases:semiconductor-vacuum-component
+semi-e67,1,1,cases:semiconductor-vacuum-component
+semiconductor-titanium-parts,1,1,cases:semiconductor-vacuum-component
+vacuum-chamber,1,1,cases:semiconductor-vacuum-component
+wafer-fixture,1,1,cases:semiconductor-vacuum-component
+DMG Mori CLX 350,1,1,cases:semiconductor-vacuum-component
+CNC milling center,1,1,cases:semiconductor-vacuum-component

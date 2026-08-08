@@ -6,7 +6,7 @@ import { resolveRoute } from "../../i18n/routes";
 import type { Locale } from "../../lib/site-config";
 
 export interface Props {
-  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion";
+  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion" | "evidence" | "procurement" | "applications";
   pageTitle: string;
   pageDescription: string;
   locale: Locale;
@@ -15,6 +15,8 @@ export interface Props {
 }
 
 const { collectionName, pageTitle, pageDescription, locale, path, jsonLd } = Astro.props as Props;
+const enOnlyModules = ["evidence", "procurement", "applications"];
+const enOnly = enOnlyModules.includes(collectionName);
 
 const entries = (await getCollection(collectionName))
   .filter((entry: any) => entry.data.locale === locale)
@@ -31,6 +33,9 @@ const collectionLabels: Record<string, string> = {
   "failure-analysis": "knowledge.failureAnalysis",
   "heat-treatment": "knowledge.heatTreatment",
   corrosion: "knowledge.corrosion",
+  evidence: "knowledge.evidence",
+  procurement: "knowledge.procurement",
+  applications: "knowledge.applications",
 };
 ---
 
@@ -39,6 +44,7 @@ const collectionLabels: Record<string, string> = {
   description={pageDescription}
   locale={locale}
   path={path}
+  hreflangLocales={enOnly ? ["en"] : undefined}
   jsonLd={jsonLd}
 >
   <section class="container py-16">
