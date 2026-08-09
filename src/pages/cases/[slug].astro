@@ -1,0 +1,10 @@
+---
+import CaseStudyDetail from "../_shared/_CaseStudyDetail.astro";
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const entries = await getCollection("cases");
+  return entries.filter((e: any) => e.data.locale === "en").map((e: any) => ({ params: { slug: e.id }, props: { entry: e, locale: "en" as const } }));
+}
+const { entry } = Astro.props as { entry: any; locale: "en" };
+---
+<CaseStudyDetail slug={entry.id} />

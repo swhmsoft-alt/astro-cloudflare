@@ -6,7 +6,7 @@ import { resolveRoute } from "../../i18n/routes";
 import type { Locale } from "../../lib/site-config";
 
 export interface Props {
-  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion" | "evidence" | "procurement" | "applications";
+  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion" | "evidence" | "procurement" | "applications" | "cases";
   pageTitle: string;
   pageDescription: string;
   locale: Locale;
@@ -15,7 +15,7 @@ export interface Props {
 }
 
 const { collectionName, pageTitle, pageDescription, locale, path, jsonLd } = Astro.props as Props;
-const enOnlyModules = ["evidence", "procurement", "applications"];
+const enOnlyModules = ["evidence", "procurement", "applications", "cases"];
 const enOnly = enOnlyModules.includes(collectionName);
 
 const entries = (await getCollection(collectionName))
@@ -36,6 +36,7 @@ const collectionLabels: Record<string, string> = {
   evidence: "knowledge.evidence",
   procurement: "knowledge.procurement",
   applications: "knowledge.applications",
+  cases: "knowledge.cases",
 };
 ---
 

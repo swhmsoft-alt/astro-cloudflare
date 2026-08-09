@@ -1,0 +1,123 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import { getCollection, render } from "astro:content";
+import { resolveRoute } from "../../i18n/routes";
+import { siteConfig } from "../../config/site.config";
+import type { Locale } from "../../lib/site-config";
+import { buildTechArticleSchema, buildBreadcrumbSchema } from "../../lib/schema";
+import JsonLd from "../../components/seo/JsonLd.astro";
+import RelatedContent from "../../components/sections/RelatedContent.astro";
+
+export interface Props { slug: string; }
+const { slug } = Astro.props as Props;
+const locale = (Astro.currentLocale || "en") as Locale;
+const all = await getCollection("cases");
+const entry = all.find((e: any) => e.id === slug && e.data.locale === locale);
+if (!entry) return Astro.redirect("/404");
+const data = entry.data as any;
+const pageUrl = siteConfig.url + resolveRoute(locale, `/cases/${slug}/`);
+const breadcrumbs = [
+  { label: "Home", href: siteConfig.url + "/" },
+  { label: "Case Studies", href: siteConfig.url + resolveRoute(locale, "/cases/") },
+  { label: data.title, href: pageUrl },
+];
+const schemas = [
+  buildTechArticleSchema({ headline: data.title, description: data.description, datePublished: new Date().toISOString(), keywords: [data.industry, data.material, "titanium case study"], url: pageUrl, inLanguage: locale }),
+  buildBreadcrumbSchema(breadcrumbs),
+];
+const { Content } = await render(entry);
+const facts: Array<[string, string]> = [];
+if (data.application) facts.push(["Application", data.application]);
+if (data.material) facts.push(["Material", data.material]);
+if (Array.isArray(data.processes) && data.processes.length) facts.push(["Processes", data.processes.join(", ")]);
+if (Array.isArray(data.equipment) && data.equipment.length) facts.push(["Equipment", data.equipment.join(", ")]);
+if (data.surfaceFinish) facts.push(["Surface Finish", data.surfaceFinish]);
+if (Array.isArray(data.standards) && data.standards.length) facts.push(["Standards", data.standards.join(", ")]);
+if (data.quantity) facts.push(["Quantity", data.quantity]);
+if (data.tolerance) facts.push(["Tolerance", data.tolerance]);
+if (data.leadTime) facts.push(["Lead Time", data.leadTime]);
+---
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/cases/${slug}/`} hreflangLocales={["en"]}>
+  <JsonLd schema={schemas} />
+  <article class="case-detail container py-16">
+    <nav class="case-bc"><a href={resolveRoute(locale, "/")}>Home</a> / <a href={resolveRoute(locale, "/cases/")}>Case Studies</a> / <span>{data.title}</span></nav>
+    <header class="case-hdr">
+      {data.industry && <span class="case-badge">{data.industry}</span>}
+      <h1 class="case-title">{data.title}</h1>
+      <p class="case-desc">{data.description}</p>
+    </header>
+
+    {facts.length > 0 && (
+      <section class="case-sec">
+        <h2>Case Facts</h2>
+        <table class="case-table">
+          <tbody>{facts.map(([k, v]) => (<tr><th>{k}</th><td>{v}</td></tr>))}</tbody>
+        </table>
+      </section>
+    )}
+
+    {data.challenge && (
+      <section class="case-sec"><h2>Challenge</h2><p class="case-p">{data.challenge}</p></section>
+    )}
+    {data.solution && (
+      <section class="case-sec"><h2>Solution</h2><p class="case-p">{data.solution}</p></section>
+    )}
+    {data.result && (
+      <section class="case-sec"><h2>Result</h2><p class="case-p">{data.result}</p></section>
+    )}
+
+    {Array.isArray(data.keyMetrics) && data.keyMetrics.length > 0 && (
+      <section class="case-sec">
+        <h2>Key Metrics</h2>
+        <table class="case-table"><thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead>
+          <tbody>{data.keyMetrics.map((m: any) => (
+            <tr><td>{m.label}</td><td>{m.before ?? "-"}</td><td>{m.after}</td></tr>
+          ))}</tbody>
+        </table>
+      </section>
+    )}
+
+    {Array.isArray(data.lessonsLearned) && data.lessonsLearned.length > 0 && (
+      <section class="case-sec">
+        <h2>Lessons Learned</h2>
+        <ul class="case-list">{data.lessonsLearned.map((l: string) => <li>{l}</li>)}</ul>
+      </section>
+    )}
+
+    <div class="case-content prose prose-gray dark:prose-invert max-w-none"><Content /></div>
+
+    <footer class="case-ftr">
+      {Array.isArray(data.relatedMaterials) && data.relatedMaterials.length > 0 && (
+        <div><h3>Related Materials</h3><ul>{data.relatedMaterials.map((s: string) => (
+          <li><a href={resolveRoute(locale, `/grades/${s}/`)}>{s.replace(/-/g, " ")}</a></li>
+        ))}</ul></div>
+      )}
+      {Array.isArray(data.relatedStandards) && data.relatedStandards.length > 0 && (
+        <div><h3>Related Standards</h3><ul>{data.relatedStandards.map((s: string) => (
+          <li><a href={resolveRoute(locale, `/standards/${s}/`)}>{s.replace(/-/g, " ").toUpperCase()}</a></li>
+        ))}</ul></div>
+      )}
+      {Array.isArray(data.relatedEvidence) && data.relatedEvidence.length > 0 && (
+        <div><h3>Supporting Data</h3><ul>{data.relatedEvidence.map((s: string) => (
+          <li><a href={resolveRoute(locale, `/evidence/${s}/`)}>{s.replace(/-/g, " ")}</a></li>
+        ))}</ul></div>
+      )}
+      {Array.isArray(data.relatedComparisons) && data.relatedComparisons.length > 0 && (
+        <div><h3>Comparisons</h3><ul>{data.relatedComparisons.map((s: string) => (
+          <li><a href={resolveRoute(locale, `/compare/${s}/`)}>{s.replace(/-/g, " ")}</a></li>
+        ))}</ul></div>
+      )}
+    </footer>
+    <RelatedContent collectionName="cases" currentSlug={slug} standards={data.relatedStandards || []} locale={locale} />
+  </article>
+</MarketingLayout>
+
+<style>
+  .case-bc { font-size: .85rem; color: var(--color-text-secondary); margin-bottom: var(--space-md); } .case-bc a { color: var(--color-brand-primary); text-decoration: none; }
+  .case-hdr { margin-bottom: var(--space-xl); } .case-badge { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .2rem .6rem; border-radius: var(--radius-full); background: var(--color-bg-tertiary); color: var(--color-text-secondary); margin-bottom: var(--space-sm); }
+  .case-title { margin: 0 0 var(--space-sm); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--color-text-primary); } .case-desc { margin: 0; color: var(--color-text-secondary); font-size: 1.05rem; line-height: 1.6; }
+  .case-sec { margin-bottom: var(--space-xl); } .case-sec h2 { font-size: 1.2rem; color: var(--color-text-primary); margin: 0 0 var(--space-sm); } .case-p { margin: 0; color: var(--color-text-secondary); line-height: 1.7; }
+  .case-table { width: 100%; border-collapse: collapse; } .case-table th, .case-table td { border: 1px solid var(--color-border); padding: .5rem .75rem; font-size: .9rem; text-align: left; } .case-table thead th { background: var(--color-bg-tertiary); color: var(--color-text-secondary); } .case-table tbody th { width: 32%; color: var(--color-text-primary); font-weight: 600; }
+  .case-list { margin: 0; padding-left: 1.25rem; color: var(--color-text-secondary); line-height: 1.7; }
+  .case-ftr { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-border); } .case-ftr h3 { margin: 0 0 var(--space-xs); font-size: 1rem; color: var(--color-text-primary); } .case-ftr ul { list-style: none; margin: 0 0 var(--space-md); padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; } .case-ftr li a { display: inline-block; padding: .2rem .6rem; border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: .8rem; color: var(--color-text-secondary); text-decoration: none; } .case-ftr li a:hover { border-color: var(--color-brand-primary); color: var(--color-brand-primary); }
+</style>
