@@ -5,7 +5,7 @@ import { buildCollectionPageSchema, buildItemListSchema } from "../../../lib/sch
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
-export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+export async function getStaticPaths(){return ["de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
 const locale = (Astro.props.locale || "en") as Locale;
 
 const entries = (await getCollection("equipment"))

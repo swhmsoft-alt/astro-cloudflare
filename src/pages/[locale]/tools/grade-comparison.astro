@@ -6,7 +6,7 @@ import type { Locale } from "../../../lib/site-config";
 import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../../lib/schema";
 
 export async function getStaticPaths() {
-  return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l) {
+  return ["de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l) {
     return { params: { locale: l, slug: "grade-comparison" }, props: { locale: l } };
   });
 }
