@@ -1,0 +1,96 @@
+﻿
+> astro-cloudflare@1.0.0 build C:\Users\User\Desktop\astro-cloudflare-starter-main
+> astro build && node scripts/postbuild.js
+
+[2m16:40:05[22m [34m[content][39m Syncing content
+[2m16:40:05[22m [34m[content][39m Synced content
+[2m16:40:05[22m [34m[types][39m Generated [2m3.02s[22m
+[2m16:40:05[22m [34m[build][39m output: [34m"static"[39m
+[2m16:40:05[22m [34m[build][39m mode: [34m"static"[39m
+[2m16:40:05[22m [34m[build][39m directory: [34mC:\Users\User\Desktop\astro-cloudflare-starter-main\dist\[39m
+[2m16:40:05[22m [34m[build][39m Collecting build info...
+[2m16:40:05[22m [34m[build][39m [32m鉁?Completed in 4.29s.[39m
+[2m16:40:05[22m [34m[build][39m Building static entrypoints...
+node.exe : [31m[1m16:40:10[22m [ERROR] [vite][39m [31m鉁
+?[39m Build failed in 4.86s
+所在位置 C:\Users\User\AppData\Roaming\npm\pnpm.ps1:24 字符: 5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.mjs
+" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31m[1m16:40:
+...failed in 4.86s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+The service was stopped
+  [1mStack trace:[22m
+[2m    at C:\Users\User\Desktop\astro-cloudflare-starter-ma
+in\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\li
+b\main.js:999:38
+    at Socket.afterClose (C:\Users\User\Desktop\astro-cloudf
+lare-starter-main\node_modules\.pnpm\esbuild@0.28.1\node_mod
+ules\esbuild\lib\main.js:875:28)
+    at endReadableNT (node:internal/streams/readable:1744:12
+)
+    at C:\Users\User\Desktop\astro-cloudflare-starter-main\n
+ode_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\ma
+in.js:999:38
+    at Socket.afterClose (C:\Users\User\Desktop\astro-cloudf
+lare-starter-main\node_modules\.pnpm\esbuild@0.28.1\node_mod
+ules\esbuild\lib\main.js:875:28)
+    at endReadableNT (node:internal/streams/readable:1744:12
+)
+    at C:\Users\User\Desktop\astro-cloudflare-starter-main\n
+ode_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\ma
+in.js:999:38
+    at Socket.afterClose (C:\Users\User\Desktop\astro-cloudf
+lare-starter-main\node_modules\.pnpm\esbuild@0.28.1\node_mod
+ules\esbuild\lib\main.js:875:28)
+    at endReadableNT (node:internal/streams/readable:1744:12
+)
+    at C:\Users\User\Desktop\astro-cloudflare-starter-main\n
+ode_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\ma
+in.js:999:38
+    at Socket.afterClose (C:\Users\User\Desktop\astro-cloudf
+lare-starter-main\node_modules\.pnpm\esbuild@0.28.1\node_mod
+ules\esbuild\lib\main.js:875:28)
+    at endReadableNT (node:internal/streams/readable:1744:12
+)
+    at C:\Users\User\Desktop\astro-cloudflare-starter-main\n
+ode_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\ma
+in.js:999:38
+    at start (C:\Users\User\Desktop\astro-cloudflare-starter
+-main\node_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild
+\lib\main.js:998:9)
+    at C:\Users\User\Desktop\astro-cloudflare-starter-main\n
+ode_modules\.pnpm\esbuild@0.28.1\node_modules\esbuild\lib\ma
+in.js:2333:77
+    at Object.transform (C:\Users\User\Desktop\astro-cloudfl
+are-starter-main\node_modules\.pnpm\esbuild@0.28.1\node_modu
+les\esbuild\lib\main.js:2333:36)
+    at replaceDefine (file:///C:/Users/User/Desktop/astro-cl
+oudflare-starter-main/node_modules/.pnpm/astro@7.0.7_@emnapi
++core@1.11.2_@emnapi+runtime@1.11.2_@types+node@20.19.43/nod
+e_modules/astro/dist/env/vite-plugin-import-meta-env.js:26:2
+4)
+    at aggregateBindingErrorsIntoJsError (file:///C:/Users/U
+ser/Desktop/astro-cloudflare-starter-main/node_modules/.pnpm
+/rolldown@1.1.5/node_modules/rolldown/dist/shared/error-BHRS
+I0R7.mjs:48:18)
+    at #build (file:///C:/Users/User/Desktop/astro-cloudflar
+e-starter-main/node_modules/.pnpm/rolldown@1.1.5/node_module
+s/rolldown/dist/shared/rolldown-build-CtPvmZgJ.mjs:3276:34)
+    at async Object.build (file:///C:/Users/User/Desktop/ast
+ro-cloudflare-starter-main/node_modules/.pnpm/vite@8.1.4_@ty
+pes+node@20.19.43_esbuild@0.28.1/node_modules/vite/dist/node
+/chunks/node.js:33433:19)
+    at async Object.buildApp (file:///C:/Users/User/Desktop/
+astro-cloudflare-starter-main/node_modules/.pnpm/vite@8.1.4_
+@types+node@20.19.43_esbuild@0.28.1/node_modules/vite/dist/n
+ode/chunks/node.js:33425:6)
+    at async viteBuild (file:///C:/Users/User/Desktop/astro-
+cloudflare-starter-main/node_modules/.pnpm/astro@7.0.7_@emna
+pi+core@1.11.2_@emnapi+runtime@1.11.2_@types+node@20.19.43/n
+ode_modules/astro/dist/core/build/static-build.js:68:3)[22m
+
+鈥塃LIFECYCLE鈥?Command failed with exit code 1.

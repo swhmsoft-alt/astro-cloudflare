@@ -9,7 +9,7 @@ import { buildDefinedTermSchema, buildProductSchema, buildFAQSchema, buildBreadc
 import RelatedContent from "../../components/sections/RelatedContent.astro";
 
 export interface Props {
-  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "material-selection" | "failure-analysis" | "heat-treatment" | "corrosion" | "evidence" | "applications";
+  collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "materialSelection" | "failureAnalysis" | "heatTreatment" | "corrosion" | "evidence" | "applications";
   slug: string;
 }
 
@@ -22,7 +22,7 @@ const entry = allEntries.find((e: any) => e.id === slug && e.data.locale === loc
 if (!entry) return Astro.redirect("/404");
 
 const data = entry.data as any;
-const pillarPath = `/${collectionName === "materials" ? "grades" : collectionName === "surfaceFinishes" ? "finishes" : collectionName === "material-selection" ? "select" : collectionName === "failure-analysis" ? "failures" : collectionName === "heat-treatment" ? "heat-treatment" : collectionName === "corrosion" ? "corrosion" : collectionName}/`;
+const pillarPath = `/${collectionName === "materials" ? "grades" : collectionName === "surfaceFinishes" ? "finishes" : collectionName === "materialSelection" ? "select" : collectionName === "failureAnalysis" ? "failures" : collectionName === "heatTreatment" ? "heat-treatment" : collectionName === "corrosion" ? "corrosion" : collectionName}/`;
 const pageUrl = siteConfig.url + resolveRoute(locale, `${pillarPath}${slug}/`);
 const definedTermSchema = (collectionName === "materials" || collectionName === "standards" || collectionName === "evidence" || collectionName === "applications")
   ? buildDefinedTermSchema({ name: data.title, description: data.description, termCode: slug, inSetName: collectionName, url: pageUrl }) : null;

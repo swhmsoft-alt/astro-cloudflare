@@ -1,22 +1,29 @@
 ---
 import EntityDetail from "../_shared/_EntityDetail.astro";
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+type MaterialSelectionEntry = CollectionEntry<"materialSelection">;
 
 export async function getStaticPaths() {
-  const entries = await getCollection("material-selection");
+  const entries = await getCollection("materialSelection");
   return entries
-    .filter((e: any) => e.data.locale === "en")
-    .map((e: any) => ({
+    .filter((e: CollectionEntry<"materialSelection">) => e.data.locale === "en")
+    .map((e: CollectionEntry<"materialSelection">) => ({
       params: { slug: e.id },
       props: { entry: e, locale: "en" as const },
     }));
 }
 
-const { entry } = Astro.props as { entry: any; locale: "en" };
+interface PageProps {
+  entry: MaterialSelectionEntry;
+  locale: "en";
+}
+
+const { entry } = Astro.props as PageProps;
 const { Content } = await render(entry);
 ---
 
-<EntityDetail collectionName="material-selection" slug={entry.id}>
+<EntityDetail collectionName="materialSelection" slug={entry.id}>
   <div class="prose prose-gray dark:prose-invert max-w-none">
     <Content />
   </div>

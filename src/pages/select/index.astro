@@ -7,7 +7,7 @@ import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../lib/site-config";
 const locale = (Astro.currentLocale || "en") as Locale;
 
-const entries = (await getCollection("material-selection"))
+const entries = (await getCollection("materialSelection"))
   .filter((e: any) => e.data.locale === locale)
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
@@ -33,7 +33,7 @@ const schemas = [collectionSchema, itemListSchema].filter(
 );
 ---
 <EntityPillar
-  collectionName="material-selection"
+  collectionName="materialSelection"
   pageTitle="Titanium Material Selection Guides"
   pageDescription="Expert guides for selecting the right titanium grade for your application. Compare properties across grades."
   locale={locale}

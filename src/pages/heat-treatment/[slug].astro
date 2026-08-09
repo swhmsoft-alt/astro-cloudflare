@@ -3,7 +3,7 @@ import EntityDetail from "../_shared/_EntityDetail.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("heat-treatment");
+  const entries = await getCollection("heatTreatment");
   return entries
     .filter((e: any) => e.data.locale === "en")
     .map((e: any) => ({
@@ -16,7 +16,7 @@ const { entry } = Astro.props as { entry: any; locale: "en" };
 const { Content } = await render(entry);
 ---
 
-<EntityDetail collectionName="heat-treatment" slug={entry.id}>
+<EntityDetail collectionName="heatTreatment" slug={entry.id}>
   <div class="prose prose-gray dark:prose-invert max-w-none">
     <Content />
   </div>

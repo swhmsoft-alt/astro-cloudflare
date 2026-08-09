@@ -8,7 +8,7 @@ import EntityPillar from "../../../pages/_shared/_EntityPillar.astro";
 export async function getStaticPaths(){return ["en","de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
 const locale = (Astro.props.locale || "en") as Locale;
 
-const entries = (await getCollection("failure-analysis"))
+const entries = (await getCollection("failureAnalysis"))
   .filter((e: any) => e.data.locale === locale)
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
@@ -34,7 +34,7 @@ const schemas = [collectionSchema, itemListSchema].filter(
 );
 ---
 <EntityPillar
-  collectionName="failure-analysis"
+  collectionName="failureAnalysis"
   pageTitle="Titanium Failure Analysis"
   pageDescription="Technical guides on titanium failure modes: hydrogen embrittlement, stress corrosion cracking, fatigue, and prevention."
   locale={locale}
