@@ -1,3 +1,0 @@
-blog dir exists: false
-[locale]/blog.astro exists: false
-[locale]/blog dir exists: true

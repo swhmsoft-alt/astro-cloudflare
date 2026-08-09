@@ -4,6 +4,10 @@ description: "Surface roughness ranges achieved by bead blasting titanium compon
 locale: en
 evidenceCategory: "surface-roughness"
 source: "ASM Handbook Volume 5: Surface Engineering"
+sourceAuthority: "MEDIUM"
+claimSupport: "PARTIALLY_SUPPORTED"
+claimScope: "TYPICAL_VALUE"
+
 relatedMaterials:
   - "grade-5-titanium"
   - "grade-2-titanium"
@@ -70,6 +74,14 @@ Bead blasting titanium produces surface roughness of 0.8-3.2 µm Ra depending on
 - Can be used before anodizing for consistent color appearance
 - Not recommended for sealing surfaces or bearing journals
 - For fatigue-critical parts, consult with the engineering team about shot peening as an alternative
+
+## Evidence Basis
+
+Based on surface-engineering guidance from ASM Handbook Volume 5 and ASTM B600. ASM documents the general bead-blasting process capability; the specific Ra bands listed here are typical/indicative values derived from industry practice, not certified finish guarantees for every configuration.
+
+## Engineering Interpretation (titanium.blog)
+
+(titanium.blog) Bead blasting is a surface-conditioning process, not a precision-finishing one: treat the 0.8-3.2 µm Ra band as a capability range, not a guaranteed tolerance. It is suitable for cosmetic matte finishes and pre-anodizing texture; for fatigue-critical or sealing surfaces, prefer controlled shot peening or machined finishes instead.
 
 ## Sources
 

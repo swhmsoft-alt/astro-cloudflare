@@ -4,6 +4,9 @@ description: "Quantified tolerance capabilities for 5-axis CNC machining of tita
 locale: en
 evidenceCategory: "tolerances"
 source: "ISO 2768 / ISO 286 / Production validation data"
+sourceAuthority: "MEDIUM"
+claimSupport: "PARTIALLY_SUPPORTED"
+claimScope: "STANDARD_REQUIREMENT"
 relatedMaterials:
   - "grade-5-titanium"
   - "grade-23-titanium"
@@ -85,3 +88,11 @@ faqs:
 - ISO 2768 — General tolerances (Part 1: linear/angular, Part 2: geometrical)
 - ISO 286 — ISO code system for tolerances
 - ASME Y14.5 — Dimensioning and tolerancing
+
+## Evidence Basis
+
+Based on ISO 2768 / ISO 286 tolerance classes plus production validation data. The ISO tolerance classes are standard requirements; the "high-precision ±0.005 mm" and "±0.01 mm true position" figures are demonstrated production capabilities, not ISO-mandated values.
+
+## Engineering Interpretation (titanium.blog)
+
+(titanium.blog) Titanium's low elastic modulus (114 GPa) produces significant springback and thermal response, so tight tolerances require a thermally stable machine (warmed up), short tool overhang, and rigid workholding. The high-precision class is achievable per-feature, not across the whole part envelope.

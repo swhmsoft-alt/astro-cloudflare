@@ -12,7 +12,14 @@ export interface Props {
 
 const { currentLocale, currentPath } = Astro.props as Props;
 
-// Show ALL locales in the dropdown; the current one is marked with isCurrent.
+// En-only modules: only the default (en) locale exists for these route roots.
+// Do NOT offer non-en links on them (those URLs would 404).
+const EN_ONLY_ROOTS = ['/evidence/', '/procurement/', '/applications/'];
+const isEnOnly = EN_ONLY_ROOTS.some((root) => currentPath.startsWith(root));
+const allLocales = SITE_CONFIG.locales as Locale[];
+const availableLocales: Locale[] = isEnOnly ? allLocales.filter((l) => l === 'en') : allLocales;
+
+// Show the available locales in the dropdown; the current one is marked with isCurrent.
 
 interface LocaleInfo {
  code: Locale;
@@ -22,7 +29,7 @@ interface LocaleInfo {
  isCurrent: boolean;
 }
 
-const localeInfos: LocaleInfo[] = SITE_CONFIG.locales.map((locale) => ({
+const localeInfos: LocaleInfo[] = availableLocales.map((locale) => ({
  code: locale,
  label: t(locale, 'locale.switch'),
  nativeLabel: SITE_CONFIG.localeLabels[locale],

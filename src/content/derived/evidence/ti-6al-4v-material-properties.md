@@ -8,6 +8,7 @@ sourceUrl: "https://www.astm.org/b0265-24.html"
 relatedMaterials:
   - "grade-23-titanium"
   - "grade-2-titanium"
+  - "grade-5-titanium"
 relatedProcesses:
   - "cnc-machining"
   - "milling"
@@ -72,6 +73,12 @@ faqs:
     answer: "Yes, compared to steel or aluminum. Its low thermal conductivity (6.7 W/m·K vs Al 6061 at 167 W/m·K) causes heat to stay in the cutting zone. Use sharp carbide tools, rigid setups, and adequate coolant pressure."
   - question: "What standards govern Ti-6Al-4V material properties?"
     answer: "ASTM B265 (sheet/strip/plate), ASTM B348 (bars/billets), ASTM F136 (medical implant grade), AMS 4928, and ISO 5832-3."
+sourceAuthority: "HIGH"
+claimSupport: "SUPPORTED"
+claimScope: "GENERAL_PROPERTY"
+relatedDecisions:
+  - "/compare/grade-5-vs-grade-23/"
+  - "/select/titanium-grades-chart/"
 ---
 
 ## Quick Answer
@@ -127,3 +134,9 @@ Approximately 500-600 MPa at 10⁷ cycles (smooth, unnotched specimens).
 
 **Does Ti-6Al-4V require special handling for medical implants?**
 Yes. For medical implants, specify Grade 23 (Ti-6Al-4V ELI) per ASTM F136, which has tighter interstitial element controls for improved fracture toughness.
+## Engineering Interpretation
+
+The numerical values above are authoritative material data from ASTM B265/B348 and ASM Handbook Volume 2. Engineering interpretation (titanium.blog): the combination of low thermal conductivity (6.7 W/m-K) and a high strength-to-weight ratio makes Ti-6Al-4V the default aerospace and medical alloy, but the same low conductivity concentrates heat in the cutting zone, so rigid setups, sharp carbide tooling and high-pressure coolant are the practical levers for productive machining.
+## Evidence Basis
+
+Based on published material-property data from ASTM B265 / ASTM B348 and ASM Materials Handbook Volume 2.

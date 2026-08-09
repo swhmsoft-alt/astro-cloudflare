@@ -7,6 +7,7 @@ source: "ASTM F136 / ASTM B348 / ASM Materials Handbook"
 sourceUrl: "https://www.astm.org/f0136-24.html"
 relatedMaterials:
   - "grade-5-titanium"
+  - "grade-23-titanium"
 relatedProcesses:
   - "cnc-machining"
   - "milling"
@@ -53,6 +54,12 @@ faqs:
     answer: "Grade 23 (Ti-6Al-4V ELI) has tighter limits on interstitial elements — oxygen (0.13% max vs 0.20%), carbon, nitrogen, and hydrogen. This improves fracture toughness and crack propagation resistance, making it preferred for medical implants."
   - question: "Is Grade 23 harder to machine than Grade 5?"
     answer: "Grade 23 is slightly less abrasive and has somewhat lower strength, so it can be marginally easier to machine. The difference is small — same tooling, same parameters, similar techniques."
+sourceAuthority: "HIGH"
+claimSupport: "SUPPORTED"
+claimScope: "GENERAL_PROPERTY"
+relatedDecisions:
+  - "/compare/grade-5-vs-grade-23/"
+  - "/select/medical-grade-titanium/"
 ---
 
 ## Quick Answer
@@ -91,3 +98,9 @@ Ti-6Al-4V ELI (Grade 23) has a density of 4.43 g/cm³, ultimate tensile strength
 - ASTM F136 — Standard Specification for Wrought Titanium-6Al-4V ELI
 - ASTM B348 — Standard Specification for Titanium Bars and Billets
 - ASM Materials Handbook, Volume 2: Properties and Selection
+## Engineering Interpretation
+
+These are authoritative values from ASTM F136 and ASTM B348. Engineering interpretation (titanium.blog): the lower maximum oxygen (0.13% vs 0.20% for Grade 5) is the defining differentiator that raises fracture toughness and fatigue-crack resistance. For machining, Grade 23 is only marginally easier than Grade 5, but for medical implants its selection is a specification requirement driven by ASTM F136, not by machinability.
+## Evidence Basis
+
+Based on published material-property data from ASTM F136 / ASTM B348 and ASM Materials Handbook.

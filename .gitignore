@@ -62,3 +62,48 @@ install_progress.txt
 install.bat
 pnpm_dirs.txt
 dirs.txt
+#  Local-only research / audit / investigation (NOT committed/deployed) 
+audit/
+scripts/geo-audit/
+docs/plans/
+docs/geo-phase2-entity-graph.md
+
+# Scratch / investigation files at repo root
+Page Model.txt
+Ti Data.txt
+blog-detail.png
+blog-list.png
+build_err.txt
+commit.bat
+export_knowledge.ps1
+fix-content-config.ps1
+lines.txt
+out.txt
+progress.txt
+_append_entity.ps1
+_blog_probe.txt
+_blogcheck.txt
+_edit_out.txt
+_genlocale.cjs
+_pagegen.cjs
+_re2.cjs
+_test.json
+_verify.txt
+_verify2.txt
+
+#  Junk fragment / corrupt scratch files at repo root (local-only) 
+/$null
+/({
+/0
+/0)console.log(i+'
+/0}).forEach(function(f){console.log(f)})
+/127
+/24
+/50MB)']
+/console.log(f))
+/l.indexOf('Industries')
+/pnpm
+
+# Generated research reports / scratch scripts (local-only)
+knowledge-generator/reports/
+scripts/_*

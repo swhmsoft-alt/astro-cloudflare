@@ -1,10 +1,38 @@
-﻿---
+---
 title: "Titanium Welding Parameters and Procedures"
 description: "Welding parameters for titanium alloys including TIG MIG parameters shielding gas requirements and joint preparation."
 locale: en
 evidenceCategory: process-capabilities
 source: "AWS D1.9 Structural Welding Code - Titanium"
-sourceUrl: "/knowledge/evidence/titanium-welding-data"
+sourceUrl: ""
+sourceAuthority: "MEDIUM"
+claimSupport: "PARTIALLY_SUPPORTED"
+claimScope: "MANUFACTURER_RECOMMENDATION"
+dataPoints:
+  - property: "TIG Current (1.5mm)"
+    value: "60-90"
+    unit: "A"
+    notes: "Typical starting value"
+  - property: "TIG Current (3.0mm)"
+    value: "100-140"
+    unit: "A"
+    notes: ""
+  - property: "TIG Current (6.0mm)"
+    value: "160-220"
+    unit: "A"
+    notes: ""
+  - property: "Torch Argon Flow"
+    value: "10-15"
+    unit: "L/min"
+    notes: "99.995% Ar"
+  - property: "Trailing Argon Flow"
+    value: "15-25"
+    unit: "L/min"
+    notes: ""
+  - property: "Backing Argon Flow"
+    value: "5-10"
+    unit: "L/min"
+    notes: ""
 materials:
   - grade-2-titanium
   - grade-5-titanium
@@ -30,3 +58,11 @@ processes:
 - Remove oxide layer to bright metal
 - Wire brush with stainless steel brush (titanium-only)
 - No chlorinated solvents (causes stress corrosion cracking)
+
+## Evidence Basis
+
+Based on AWS D1.9 (Structural Welding Code — Titanium) for welding procedure qualification and shielding requirements, plus typical TIG parameters. AWS D1.9 governs procedure/operator qualification and weld quality, not fixed current/voltage values — the parameters here are typical starting values.
+
+## Engineering Interpretation (titanium.blog)
+
+(titanium.blog) Titanium must be welded under a fully inert argon shield (torch, trailing, and backing zones) because it absorbs oxygen/nitrogen above ~540°C, embrittling the weld. AWS D1.9 defines the acceptance criteria and procedure-qualification route; the listed currents are typical starting points to be validated in a qualified procedure. Shielding is non-negotiable.

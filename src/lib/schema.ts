@@ -355,6 +355,80 @@ export function buildItemListSchema(
   } satisfies WithContext<any>;
 }
 
+/**
+ * GEO evidence/citation-asset schema.
+ *
+ * Models an evidence page as a machine-verifiable Citation Asset:
+ *   - a `CreativeWork` node keyed by the page URL (@id)
+ *   - an explicit `citation` to the authoritative source (CreativeWork), only
+ *     when a real external source/URL exists (never fabricate — keep GAP empty)
+ *   - structured engineering data points as a `Dataset` → `variableMeasured`
+ *     (PropertyValue list) so LLMs can extract the tabular facts directly
+ *   - `isBasedOn` links to related standards (DefinedTerm)
+ *
+ * No publish dates are invented: evidence entries carry no pubDate, so we do
+ * NOT emit a TechArticle (which schema-dts/Google require dated for rich
+ * results). A dated CreativeWork/Dataset is honest and LLM-friendly without
+ * fabricating metadata.
+ */
+export interface EvidenceDataPoint {
+  property: string;
+  value: string;
+  unit?: string;
+  notes?: string;
+}
+
+export function buildEvidenceSchema(e: {
+  name: string;
+  description: string;
+  url: string;
+  source?: string;
+  sourceUrl?: string;
+  dataPoints?: EvidenceDataPoint[];
+  relatedStandards?: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": e.url,
+    name: e.name,
+    description: e.description,
+    mainEntityOfPage: { "@type": "WebPage", "@id": e.url },
+    ...(e.source
+      ? {
+          citation: {
+            "@type": "CreativeWork",
+            name: e.source,
+            ...(e.sourceUrl ? { url: e.sourceUrl } : {}),
+          },
+        }
+      : {}),
+    ...(e.dataPoints && e.dataPoints.length > 0
+      ? {
+          subjectOf: {
+            "@type": "Dataset",
+            name: `${e.name} — Engineering Data Points`,
+            variableMeasured: e.dataPoints.map((dp) => ({
+              "@type": "PropertyValue",
+              name: dp.property,
+              value: dp.value,
+              ...(dp.unit ? { unitText: dp.unit } : {}),
+              ...(dp.notes ? { description: dp.notes } : {}),
+            })),
+          },
+        }
+      : {}),
+    ...(e.relatedStandards && e.relatedStandards.length > 0
+      ? {
+          isBasedOn: e.relatedStandards.map((s) => ({
+            "@type": "DefinedTerm",
+            name: s,
+          })),
+        }
+      : {}),
+  } satisfies WithContext<any>;
+}
+
 export function buildTechArticleSchema(
   article: {
     headline: string;

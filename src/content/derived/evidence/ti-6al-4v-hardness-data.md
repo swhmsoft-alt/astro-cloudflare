@@ -4,12 +4,31 @@ description: "Hardness data for Ti-6Al-4V Grade 5 titanium in various heat treat
 locale: en
 evidenceCategory: material-properties
 source: "ASM Handbook Vol 4"
-sourceUrl: "/knowledge/evidence/ti-6al-4v-hardness-data"
+
 materials:
   - grade-5-titanium
   - grade-23-titanium
 processes:
   - heat-treatment
+sourceAuthority: "MEDIUM"
+claimSupport: "SUPPORTED"
+claimScope: "TYPICAL_VALUE"
+sourceUrl: ""
+dataPoints:
+  - property: "Hardness (Annealed)"
+    value: "30-36"
+    unit: "HRC"
+    notes: "Typical"
+  - property: "Hardness (STA)"
+    value: "36-42"
+    unit: "HRC"
+    notes: "Typical"
+  - property: "Hardness (Beta Annealed)"
+    value: "32-38"
+    unit: "HRC"
+    notes: "Typical"
+relatedMaterials:
+  - "grade-5-titanium"
 ---
 ## Hardness by Condition
 | Condition | HRC | Tensile (MPa) |
@@ -23,3 +42,10 @@ processes:
 | 480°C | 8h | 42 |
 | 540°C | 6h | 39 |
 | 595°C | 4h | 36 |
+
+## Evidence Basis
+
+Based on typical hardness data for Ti-6Al-4V by heat-treatment condition (ASM Handbook Vol 4).
+## Engineering Interpretation
+
+Engineering interpretation (titanium.blog): hardness is condition-dependent, not a single guaranteed value; STA raises strength/hardness at some loss of ductility, so specify condition before quoting a value.

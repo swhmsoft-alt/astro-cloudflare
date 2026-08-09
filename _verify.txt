@@ -1,6 +1,0 @@
-blog.astro exists: false
-blog dir exists: true
-[locale]/blog.astro exists: true
-[locale]/blog dir exists: true
-nav has /blog/: false
-registry has Blog page: false

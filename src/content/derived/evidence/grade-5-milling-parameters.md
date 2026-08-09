@@ -46,6 +46,9 @@ faqs:
     answer: "Titanium's low thermal conductivity (6.7 W/m·K) means heat stays in the cutting zone rather than being carried away by chips. Lower speeds keep cutting temperatures manageable and prevent tool failure."
   - question: "What tool material is recommended for milling Ti-6Al-4V?"
     answer: "Carbide tools with AlTiN or TiAlN coatings are standard. For higher productivity, consider PCD-tipped tools for finishing operations."
+sourceAuthority: "MEDIUM"
+claimSupport: "SUPPORTED"
+claimScope: "MANUFACTURER_RECOMMENDATION"
 ---
 
 ## Quick Answer
@@ -82,3 +85,9 @@ For milling Ti-6Al-4V, use cutting speeds of 40-90 m/min, feed rates of 0.05-0.2
 - Sandvik Coromant Titanium Machining Guide
 - Machining Data Handbook, 3rd Edition, Metcut Research Associates
 - Seco Tools Titanium Machining Recommendations
+## Engineering Interpretation
+
+The cutting data are from the Machining Data Handbook (Metcut Research Associates) and the Sandvik Coromant titanium machining guidance. Engineering interpretation (titanium.blog): titanium cutting speeds sit far below steel because low thermal conductivity traps heat at the tool edge; the practical levers for tool life are climb milling, holding radial engagement at 30-50% of cutter diameter, and high-pressure through-spindle coolant (70+ bar). These are recommendations to validate per-machine, not absolutes.
+## Evidence Basis
+
+Based on published cutting data from the Machining Data Handbook (Metcut Research Associates) and Sandvik Coromant titanium machining guidance.

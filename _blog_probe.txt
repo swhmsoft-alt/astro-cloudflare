@@ -1,2 +1,0 @@
-src\pages\blog\[slug].astro
-src\pages\[locale]\blog\[slug].astro
