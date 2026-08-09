@@ -1,0 +1,41 @@
+name: GEO Citation Monitor
+
+on:
+  schedule:
+    - cron: '0 6 * * 0' # every Sunday 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geo-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run GEO monitor
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/geo-monitor/geo-monitor.mjs
+      - name: Commit & push reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/geo-reports
+          if ! git diff --cached --quiet; then
+            git commit -m "GEO monitor: $(date -u +%F) [skip ci]"
+            git push
+          else
+            echo "No report changes to commit."
+          fi
