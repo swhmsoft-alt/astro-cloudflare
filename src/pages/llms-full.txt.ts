@@ -34,37 +34,37 @@ export const GET: APIRoute = async () => {
 
   const corePages: LlmLink[] = [
     { label: "Home", path: "/", description: siteConfig.description },
-    { label: "Knowledge Base", path: "/knowledge", description: "Comprehensive titanium engineering knowledge base." },
-    { label: "Titanium Materials", path: "/knowledge/materials", description: "Technical specs for all titanium grades." },
-    { label: "Manufacturing Processes", path: "/knowledge/processes", description: "CNC machining, 5-axis, turning, wire EDM, DMLS." },
-    { label: "Industry Applications", path: "/knowledge/industries", description: "Aerospace, medical, semiconductor, energy." },
-    { label: "Standards", path: "/knowledge/standards", description: "ASTM, ISO, AS9100D, NADCAP, ISO 13485." },
-    { label: "Surface Finishes", path: "/knowledge/surface-finishes", description: "Anodizing, passivation, bead blasting." },
-    { label: "Material Selection", path: "/knowledge/material-selection", description: "Grade comparison and selection guides." },
-    { label: "Failure Analysis", path: "/knowledge/failure-analysis", description: "Hydrogen embrittlement, SCC, defect prevention." },
-    { label: "Heat Treatment", path: "/knowledge/heat-treatment", description: "Annealing, solution treatment, aging." },
-    { label: "Corrosion Resistance", path: "/knowledge/corrosion", description: "Titanium in corrosive environments." },
-    { label: "Applications", path: "/knowledge/applications", description: "Use cases across industries." },
+    { label: "Knowledge Base", path: "/grades", description: "Comprehensive titanium engineering knowledge base." },
+    { label: "Titanium Materials", path: "/grades", description: "Technical specs for all titanium grades." },
+    { label: "Manufacturing Processes", path: "/processes", description: "CNC machining, 5-axis, turning, wire EDM, DMLS." },
+    { label: "Industry Applications", path: "/industries", description: "Aerospace, medical, semiconductor, energy." },
+    { label: "Standards", path: "/standards", description: "ASTM, ISO, AS9100D, NADCAP, ISO 13485." },
+    { label: "Surface Finishes", path: "/finishes", description: "Anodizing, passivation, bead blasting." },
+    { label: "Material Selection", path: "/select", description: "Grade comparison and selection guides." },
+    { label: "Failure Analysis", path: "/failures", description: "Hydrogen embrittlement, SCC, defect prevention." },
+    { label: "Heat Treatment", path: "/heat-treatment", description: "Annealing, solution treatment, aging." },
+    { label: "Corrosion Resistance", path: "/corrosion", description: "Titanium in corrosive environments." },
+    { label: "Applications", path: "/applications", description: "Use cases across industries." },
   ];
 
-  const materials: LlmLink[] = await loadLinks("materials", "/knowledge/materials", (e: any) =>
+  const materials: LlmLink[] = await loadLinks("materials", "/grades", (e: any) =>
     `${e.data.description}${e.data.properties ? " Density: " + e.data.properties.density + "." : ""}`);
-  const processes: LlmLink[] = await loadLinks("processes", "/knowledge/processes", (e: any) =>
+  const processes: LlmLink[] = await loadLinks("processes", "/processes", (e: any) =>
     `${e.data.description}${e.data.tolerances ? " Tolerances: " + e.data.tolerances + "." : ""}`);
-  const industries: LlmLink[] = await loadLinks("industries", "/knowledge/industries", (e: any) => e.data.description);
-  const standards: LlmLink[] = await loadLinks("standards", "/knowledge/standards", (e: any) =>
+  const industries: LlmLink[] = await loadLinks("industries", "/industries", (e: any) => e.data.description);
+  const standards: LlmLink[] = await loadLinks("standards", "/standards", (e: any) =>
     `${e.data.description} Issuing body: ${e.data.issuingBody}.`);
-  const finishes: LlmLink[] = await loadLinks("surfaceFinishes", "/knowledge/surface-finishes", (e: any) =>
+  const finishes: LlmLink[] = await loadLinks("surfaceFinishes", "/finishes", (e: any) =>
     `${e.data.description}${e.data.raRange ? " Ra: " + e.data.raRange + "." : ""}`);
-  const applications: LlmLink[] = await loadLinks("applications", "/knowledge/applications", (e: any) =>
+  const applications: LlmLink[] = await loadLinks("applications", "/applications", (e: any) =>
     `${e.data.description}${e.data.industry ? " Industry: " + e.data.industry + "." : ""}`);
-  const cases: LlmLink[] = await loadLinks("cases", "/knowledge/cases", (e: any) =>
+  const cases: LlmLink[] = await loadLinks("cases", "/cases", (e: any) =>
     `${e.data.description} Material: ${e.data.material}.`);
-  const evdata: LlmLink[] = await loadLinks("evidence", "/knowledge/evidence", (e: any) =>
+  const evdata: LlmLink[] = await loadLinks("evidence", "/evidence", (e: any) =>
     `${e.data.description} Category: ${e.data.evidenceCategory}.`);
   const comparisons: LlmLink[] = await loadLinks("comparisons", "/compare", (e: any) =>
     `${e.data.description} Quick answer: ${e.data.quickAnswer}.`);
-  const procurement: LlmLink[] = await loadLinks("procurement", "/knowledge/procurement", (e: any) =>
+  const procurement: LlmLink[] = await loadLinks("procurement", "/procurement", (e: any) =>
     `${e.data.description} Quick answer: ${e.data.quickAnswer}.`);
 
   const blogPosts: LlmLink[] = (await getCollection("blog"))
