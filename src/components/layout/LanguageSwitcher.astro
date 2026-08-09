@@ -16,8 +16,11 @@ const { currentLocale, currentPath } = Astro.props as Props;
 // Do NOT offer non-en links on them (those URLs would 404).
 const EN_ONLY_ROOTS = ['/evidence/', '/procurement/', '/applications/'];
 const isEnOnly = EN_ONLY_ROOTS.some((root) => currentPath.startsWith(root));
-const allLocales = SITE_CONFIG.locales as Locale[];
-const availableLocales: Locale[] = isEnOnly ? allLocales.filter((l) => l === 'en') : allLocales;
+// SITE_CONFIG.locales is a readonly tuple; derive a mutable Locale[] instead of
+// casting it (a readonly->mutable cast triggers TS 2352).
+const availableLocales: Locale[] = isEnOnly
+  ? SITE_CONFIG.locales.filter((l) => l === 'en')
+  : [...SITE_CONFIG.locales];
 
 // Show the available locales in the dropdown; the current one is marked with isCurrent.
 
