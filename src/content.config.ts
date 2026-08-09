@@ -334,7 +334,7 @@ const comparisons = defineCollection({
   }),
 });
 
-const procurement = defineCollection({loader:glob({pattern:"**/*.md",base:"./src/content/derived/procurement",generateId:({entry})=>entry.replace(/\.md$/,"")}),schema:z.object({locale:localeSchema,title:z.string(),description:z.string(),procurementCategory:z.enum(["rfq-preparation","lead-time","certification","commercial","quality-inspection"]),audience:z.array(z.string()).default([]),quickAnswer:z.string(),checklist:z.array(z.string()).optional(),typicalValues:z.array(z.object({label:z.string(),value:z.string(),notes:z.string().optional()})).optional(),relatedServices:z.array(z.string()).default([]),relatedStandards:z.array(z.string()).default([]),faqs:z.array(z.object({question:z.string(),answer:z.string()})).optional(),order:z.number().default(0)}),});
+const procurement = defineCollection({loader:glob({pattern:"**/*.md",base:"./src/content/derived/procurement",generateId:({entry})=>entry.replace(/\.md$/,"")}),schema:z.object({locale:localeSchema,title:z.string(),description:z.string(),procurementCategory:z.enum(["rfq-preparation","lead-time","certification","commercial","quality-inspection"]),audience:z.array(z.string()).default([]),quickAnswer:z.string(),decisionType:z.enum(["CHECKLIST","PROCEDURE","VENDOR_CONFIRM"]).optional(),checklist:z.array(z.string()).optional(),typicalValues:z.array(z.object({label:z.string(),value:z.string(),notes:z.string().optional(),sourceUrl:z.string().optional()})).optional(),relatedServices:z.array(z.string()).default([]),relatedStandards:z.array(z.string()).default([]),faqs:z.array(z.object({question:z.string(),answer:z.string()})).optional(),order:z.number().default(0)}),});
 
 const guides = defineCollection({
   loader: glob({

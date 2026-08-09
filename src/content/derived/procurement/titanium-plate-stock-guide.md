@@ -1,12 +1,25 @@
-﻿---
-title: "Titanium Plate Stock Selection Guide"
-description: "Guide to selecting titanium plate thickness ranges and grades."
-locale: en
-procurementCategory: "rfq-preparation"
-quickAnswer: "Specify titanium sheet for 0.4-4.8mm plate for 4.8-100mm heavy plate for 100-200mm. ASTM B265 or AMS 4911 for aerospace."
 ---
-## Thickness Ranges
-Sheet: 0.4-4.8mm Grades 1/2/5/9. Plate: 4.8-100mm Grades 2/5/23. Heavy Plate: 100-200mm Grades 5/23.
+title: "Titanium Plate Stock Procurement Guide"
+description: "Neutral buyer guidance on procuring titanium plate — grade, thickness, standard reference, and verification."
+locale: en
+procurementCategory: rfq-preparation
+audience:
+  - "Procurement"
+  - "Engineers"
+quickAnswer: "When buying titanium plate, specify grade, thickness, width and length, condition, and the applicable standard (for example ASTM B265), and require a mill test report for traceability."
+decisionType: CHECKLIST
+checklist:
+  - "Specify grade and condition"
+  - "State thickness, width, length, and flatness requirements"
+  - "Reference the applicable standard (e.g. ASTM B265)"
+  - "Require a mill test report (MTR)"
+  - "Confirm traceability and lot marking"
+order: 6
+---
 
-## Specifications
-ASTM B265 all grades. AMS 4911 Grade 5 aerospace. AMS 4909 Grade 6.
+## Plate procurement essentials
+The buyer should pin down dimensional requirements and reference the correct material standard so the supplier can certify conformity.
+
+## KEEP THE GAP
+Plate availability, minimums, and pricing are vendor-specific. titanium.blog does not publish market data.
+

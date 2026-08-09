@@ -1,15 +1,25 @@
-﻿---
-title: "Titanium Forging Guide for Engineers"
-description: "Guide to titanium forging processes temperatures and specifications."
-locale: en
-procurementCategory: "quality-inspection"
-quickAnswer: "Titanium forging per ASTM B381. Open die for simple shapes closed die for complex. Forge at 900-980°C for Grade 5."
 ---
-## Forging Temperatures
-Grade 2: 850-950°C beta transus 913°C. Grade 5: 900-980°C beta 995°C. Ti-6242: 930-1010°C beta 1010°C.
+title: "Titanium Forging Procurement Guide"
+description: "Neutral buyer guidance on procuring titanium forgings — spec, standard, inspection, and what to verify."
+locale: en
+procurementCategory: rfq-preparation
+audience:
+  - "Procurement"
+  - "Engineers"
+quickAnswer: "For titanium forgings, specify the grade, forging process, heat treatment condition, the applicable standard, and the inspection and certification deliverables you require."
+decisionType: CHECKLIST
+checklist:
+  - "Specify grade and material condition"
+  - "State forging and heat-treatment requirements"
+  - "Reference the applicable forging / material standard"
+  - "Define inspection scope (dimensional, NDT, mechanical)"
+  - "Require certification documents (MTR, FAI if required)"
+order: 8
+---
 
-## Forging Types
-Open Die: simple shapes low tooling cost. Closed Die: complex shapes excellent material use. Ring Rolling: seamless rings.
+## Forgings need defined acceptance
+Because forging is a process-sensitive route, the buyer should specify the process and the inspection scope, not just the final dimensions.
 
-## Standards
-ASTM B381 forgings. AMS 4965 STA Grade 5. AMS 4975 Ti-6242.
+## KEEP THE GAP
+Process capabilities and acceptance schemes are supplier-specific. titanium.blog does not publish process limits.
+

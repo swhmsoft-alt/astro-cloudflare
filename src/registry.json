@@ -1,7 +1,11 @@
 {
   "name": "astro-cloudflare",
   "description": "Machine-readable catalog of the three-tier architecture: Components -> Sections -> Pages.",
-  "tiers": ["component", "section", "page"],
+  "tiers": [
+    "component",
+    "section",
+    "page"
+  ],
   "importAliases": {
     "sections": "src/components/sections (barrel)",
     "ui": "src/components/ui (barrel)"
@@ -11,196 +15,333 @@
       "name": "Button",
       "tier": "component",
       "path": "src/components/ui/form/Button/Button.astro",
-      "props": ["variant", "size", "href", "type", "loading", "class"],
+      "props": [
+        "variant",
+        "size",
+        "href",
+        "type",
+        "loading",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Icon",
       "tier": "component",
       "path": "src/components/ui/primitives/Icon/Icon.astro",
-      "props": ["name", "size", "color", "decorative", "class"],
+      "props": [
+        "name",
+        "size",
+        "color",
+        "decorative",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Badge",
       "tier": "component",
       "path": "src/components/ui/data-display/Badge/Badge.astro",
-      "props": ["variant", "size", "class"],
+      "props": [
+        "variant",
+        "size",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Alert",
       "tier": "component",
       "path": "src/components/ui/feedback/Alert/Alert.astro",
-      "props": ["variant", "dismissible", "class"],
+      "props": [
+        "variant",
+        "dismissible",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Card",
       "tier": "component",
       "path": "src/components/ui/data-display/Card/Card.astro",
-      "props": ["hover", "class"],
+      "props": [
+        "hover",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Avatar",
       "tier": "component",
       "path": "src/components/ui/data-display/Avatar/Avatar.astro",
-      "props": ["name", "src", "alt", "size"],
+      "props": [
+        "name",
+        "src",
+        "alt",
+        "size"
+      ],
       "i18nAware": false
     },
     {
       "name": "AvatarGroup",
       "tier": "component",
       "path": "src/components/ui/data-display/AvatarGroup/AvatarGroup.astro",
-      "props": ["items", "max"],
+      "props": [
+        "items",
+        "max"
+      ],
       "i18nAware": false
     },
     {
       "name": "Table",
       "tier": "component",
       "path": "src/components/ui/data-display/Table/Table.astro",
-      "props": ["class"],
+      "props": [
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Skeleton",
       "tier": "component",
       "path": "src/components/ui/data-display/Skeleton/Skeleton.astro",
-      "props": ["width", "height", "rounded"],
+      "props": [
+        "width",
+        "height",
+        "rounded"
+      ],
       "i18nAware": false
     },
     {
       "name": "Pagination",
       "tier": "component",
       "path": "src/components/ui/data-display/Pagination/Pagination.astro",
-      "props": ["currentPage", "totalPages", "basePath", "query", "locale"],
+      "props": [
+        "currentPage",
+        "totalPages",
+        "basePath",
+        "query",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "Prose",
       "tier": "component",
       "path": "src/components/ui/content/Prose/Prose.astro",
-      "props": ["as", "size", "class"],
+      "props": [
+        "as",
+        "size",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Container",
       "tier": "component",
       "path": "src/components/ui/layout/Container/Container.astro",
-      "props": ["size", "class"],
+      "props": [
+        "size",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Section",
       "tier": "component",
       "path": "src/components/ui/layout/Section/Section.astro",
-      "props": ["spacing", "class"],
+      "props": [
+        "spacing",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Grid",
       "tier": "component",
       "path": "src/components/ui/layout/Grid/Grid.astro",
-      "props": ["cols", "gap", "class"],
+      "props": [
+        "cols",
+        "gap",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Input",
       "tier": "component",
       "path": "src/components/ui/form/Input/Input.astro",
-      "props": ["id", "name", "label", "type", "placeholder", "value", "helperText", "errorText", "required", "class"],
+      "props": [
+        "id",
+        "name",
+        "label",
+        "type",
+        "placeholder",
+        "value",
+        "helperText",
+        "errorText",
+        "required",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Select",
       "tier": "component",
       "path": "src/components/ui/form/Select/Select.astro",
-      "props": ["id", "name", "label", "options", "value", "helperText", "errorText", "required", "class"],
+      "props": [
+        "id",
+        "name",
+        "label",
+        "options",
+        "value",
+        "helperText",
+        "errorText",
+        "required",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Textarea",
       "tier": "component",
       "path": "src/components/ui/form/Textarea/Textarea.astro",
-      "props": ["id", "name", "label", "rows", "placeholder", "value", "helperText", "errorText", "required", "class"],
+      "props": [
+        "id",
+        "name",
+        "label",
+        "rows",
+        "placeholder",
+        "value",
+        "helperText",
+        "errorText",
+        "required",
+        "class"
+      ],
       "i18nAware": false
     },
     {
       "name": "Checkbox",
       "tier": "component",
       "path": "src/components/ui/form/Checkbox/Checkbox.astro",
-      "props": ["id", "name", "label", "checked"],
+      "props": [
+        "id",
+        "name",
+        "label",
+        "checked"
+      ],
       "i18nAware": false
     },
     {
       "name": "Switch",
       "tier": "component",
       "path": "src/components/ui/form/Switch/Switch.astro",
-      "props": ["id", "name", "label", "checked"],
+      "props": [
+        "id",
+        "name",
+        "label",
+        "checked"
+      ],
       "i18nAware": false
     },
     {
       "name": "Logo",
       "tier": "component",
       "path": "src/components/ui/marketing/Logo/Logo.astro",
-      "props": ["href"],
+      "props": [
+        "href"
+      ],
       "i18nAware": false
     },
     {
       "name": "BlogCard",
       "tier": "component",
       "path": "src/components/blog/BlogCard.astro",
-      "props": ["post", "variant", "locale", "headingLevel"],
+      "props": [
+        "post",
+        "variant",
+        "locale",
+        "headingLevel"
+      ],
       "i18nAware": true
     },
     {
       "name": "ArticleHero",
       "tier": "component",
       "path": "src/components/blog/ArticleHero.astro",
-      "props": ["post", "locale"],
+      "props": [
+        "post",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "RelatedPosts",
       "tier": "component",
       "path": "src/components/blog/RelatedPosts.astro",
-      "props": ["currentPost", "allPosts", "limit", "locale"],
+      "props": [
+        "currentPost",
+        "allPosts",
+        "limit",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "ShareButtons",
       "tier": "component",
       "path": "src/components/blog/ShareButtons.astro",
-      "props": ["url", "title", "locale"],
+      "props": [
+        "url",
+        "title",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "BlogImageSVG",
       "tier": "component",
       "path": "src/components/blog/BlogImageSVG.astro",
-      "props": ["slug", "title"],
+      "props": [
+        "slug",
+        "title"
+      ],
       "i18nAware": false
     },
     {
       "name": "TagList",
       "tier": "component",
       "path": "src/components/blog/TagList.astro",
-      "props": ["tags", "basePath", "locale"],
+      "props": [
+        "tags",
+        "basePath",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "TableOfContents",
       "tier": "component",
       "path": "src/components/blog/TableOfContents.astro",
-      "props": ["headings", "layout", "maxDepth", "minHeadings", "title", "locale"],
+      "props": [
+        "headings",
+        "layout",
+        "maxDepth",
+        "minHeadings",
+        "title",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "ServiceCard",
       "tier": "component",
       "path": "src/components/services/ServiceCard.astro",
-      "props": ["service", "locale", "headingLevel"],
+      "props": [
+        "service",
+        "locale",
+        "headingLevel"
+      ],
       "i18nAware": true
     }
   ],
@@ -209,14 +350,25 @@
       "name": "Hero",
       "tier": "section",
       "path": "src/components/hero/Hero.astro",
-      "props": ["variant", "size", "eyebrow", "headline", "subheadline", "primaryCta", "secondaryCta", "locale"],
+      "props": [
+        "variant",
+        "size",
+        "eyebrow",
+        "headline",
+        "subheadline",
+        "primaryCta",
+        "secondaryCta",
+        "locale"
+      ],
       "i18nAware": true
     },
     {
       "name": "FeatureTabs",
       "tier": "section",
       "path": "src/components/landing/FeatureTabs.tsx",
-      "props": ["tabs"],
+      "props": [
+        "tabs"
+      ],
       "island": "react",
       "i18nAware": true
     },
@@ -224,91 +376,142 @@
       "name": "StackMarquee",
       "tier": "section",
       "path": "src/components/landing/StackMarquee.astro",
-      "props": ["items", "pauseOnHover"],
+      "props": [
+        "items",
+        "pauseOnHover"
+      ],
       "i18nAware": false
     },
     {
       "name": "TechStack",
       "tier": "section",
       "path": "src/components/landing/TechStack.astro",
-      "props": ["items"],
+      "props": [
+        "items"
+      ],
       "i18nAware": false
     },
     {
       "name": "Credibility",
       "tier": "section",
       "path": "src/components/landing/Credibility.astro",
-      "props": ["stats", "logos"],
+      "props": [
+        "stats",
+        "logos"
+      ],
       "i18nAware": true
     },
     {
       "name": "LighthouseScores",
       "tier": "section",
       "path": "src/components/landing/LighthouseScores.astro",
-      "props": ["scores"],
+      "props": [
+        "scores"
+      ],
       "i18nAware": false
     },
     {
       "name": "CTA",
       "tier": "section",
       "path": "src/components/ui/marketing/CTA/CTA.astro",
-      "props": ["eyebrow", "title", "content", "primaryText", "primaryHref", "secondaryText", "secondaryHref", "centered"],
+      "props": [
+        "eyebrow",
+        "title",
+        "content",
+        "primaryText",
+        "primaryHref",
+        "secondaryText",
+        "secondaryHref",
+        "centered"
+      ],
       "i18nAware": true
     },
     {
       "name": "SocialProof",
       "tier": "section",
       "path": "src/components/ui/marketing/SocialProof/SocialProof.astro",
-      "props": ["title", "items"],
+      "props": [
+        "title",
+        "items"
+      ],
       "i18nAware": true
     },
     {
       "name": "FeatureGrid",
       "tier": "section",
       "path": "src/components/FeatureGrid.astro",
-      "props": ["title", "features", "columns"],
+      "props": [
+        "title",
+        "features",
+        "columns"
+      ],
       "i18nAware": true
     },
     {
       "name": "FAQ",
       "tier": "section",
       "path": "src/components/FAQ.astro",
-      "props": ["title", "items"],
+      "props": [
+        "title",
+        "items"
+      ],
       "i18nAware": true
     },
     {
       "name": "Newsletter",
       "tier": "section",
       "path": "src/components/sections/Newsletter.astro",
-      "props": ["title", "description", "placeholder", "buttonLabel", "action"],
+      "props": [
+        "title",
+        "description",
+        "placeholder",
+        "buttonLabel",
+        "action"
+      ],
       "i18nAware": true
     },
     {
       "name": "Pricing",
       "tier": "section",
       "path": "src/components/sections/Pricing.astro",
-      "props": ["title", "description", "plans"],
+      "props": [
+        "title",
+        "description",
+        "plans"
+      ],
       "i18nAware": true
     },
     {
       "name": "Team",
       "tier": "section",
       "path": "src/components/sections/Team.astro",
-      "props": ["title", "description", "members"],
+      "props": [
+        "title",
+        "description",
+        "members"
+      ],
       "i18nAware": true
     },
     {
       "name": "Comparison",
       "tier": "section",
       "path": "src/components/sections/Comparison.astro",
-      "props": ["title", "description", "columns", "rows"],
+      "props": [
+        "title",
+        "description",
+        "columns",
+        "rows"
+      ],
       "i18nAware": true
     },
     {
       "name": "LogoCloud",
       "tier": "section",
       "path": "src/components/sections/LogoCloud.astro",
-      "props": ["title", "logos"],
+      "props": [
+        "title",
+        "logos"
+      ],
       "i18nAware": true
     },
     {
@@ -320,59 +523,229 @@
     }
   ],
   "pages": [
-    { "name": "Home", "path": "src/pages/index.astro", "locales": ["en"] },
-    { "name": "About", "path": "src/pages/about.astro", "locales": ["en"] },
-    { "name": "Solutions", "path": "src/pages/solutions/index.astro", "locales": ["en"] },
-    { "name": "Solution Detail", "path": "src/pages/solutions/[slug].astro", "locales": ["en"] },
-    { "name": "Services", "path": "src/pages/services.astro", "locales": ["en"] },
-    { "name": "Pricing", "path": "src/pages/pricing.astro", "locales": ["en"] },
-    { "name": "Contact", "path": "src/pages/contact.astro", "locales": ["en"] },
-    { "name": "Sections showcase", "path": "src/pages/sections.astro", "locales": ["en"] },
-    { "name": "Pages overview", "path": "src/pages/pages.astro", "locales": ["en"] },
-    { "name": "Case Library", "path": "src/pages/cases/index.astro", "locales": ["en"] },
-    { "name": "Case Detail", "path": "src/pages/cases/[slug].astro", "locales": ["en"] },
-    { "name": "FAQ", "path": "src/pages/faq.astro", "locales": ["en"] },
-    { "name": "Guides", "path": "src/pages/guides.astro", "locales": ["en"] },
-    { "name": "Materials Index", "path": "src/pages/knowledge/materials/index.astro", "locales": ["en"] },
-    { "name": "Material Detail", "path": "src/pages/knowledge/materials/[slug].astro", "locales": ["en"] },
-    { "name": "Processes Index", "path": "src/pages/knowledge/processes/index.astro", "locales": ["en"] },
-    { "name": "Process Detail", "path": "src/pages/knowledge/processes/[slug].astro", "locales": ["en"] },
-    { "name": "Applications Index", "path": "src/pages/applications/index.astro", "locales": ["en"] },
-    { "name": "Application Detail", "path": "src/pages/applications/[slug].astro", "locales": ["en"] },
-    { "name": "Equipment Index", "path": "src/pages/knowledge/equipment.astro", "locales": ["en"] },
-    { "name": "Equipment Detail", "path": "src/pages/knowledge/equipment/[slug].astro", "locales": ["en"] },
-    { "name": "Standards Index", "path": "src/pages/knowledge/standards.astro", "locales": ["en"] },
-    { "name": "Standards Detail", "path": "src/pages/knowledge/standards/[slug].astro", "locales": ["en"] },
-    { "name": "Industries Index", "path": "src/pages/knowledge/industries.astro", "locales": ["en"] },
-    { "name": "Industries Detail", "path": "src/pages/knowledge/industries/[slug].astro", "locales": ["en"] },
-    { "name": "Surface Finishes Index", "path": "src/pages/knowledge/surface-finishes.astro", "locales": ["en"] },
-    { "name": "Surface Finishes Detail", "path": "src/pages/knowledge/surface-finishes/[slug].astro", "locales": ["en"] },
-    { "name": "Evidence Index", "path": "src/pages/evidence/index.astro", "locales": ["en"] },
-    { "name": "Evidence Detail", "path": "src/pages/evidence/[slug].astro", "locales": ["en"] },
-    { "name": "Comparisons Index", "path": "src/pages/compare.astro", "locales": ["en"] },
-    { "name": "Comparison Detail", "path": "src/pages/compare/[slug].astro", "locales": ["en"] },
-    { "name": "Equipment Index", "path": "src/pages/knowledge/equipment/index.astro", "locales": ["en"] },
-    { "name": "Equipment Detail", "path": "src/pages/knowledge/equipment/[slug].astro", "locales": ["en"] },
-    { "name": "Industries Index", "path": "src/pages/knowledge/industries/index.astro", "locales": ["en"] },
-    { "name": "Industries Detail", "path": "src/pages/knowledge/industries/[slug].astro", "locales": ["en"] },
-    { "name": "Standards Index", "path": "src/pages/knowledge/standards/index.astro", "locales": ["en"] },
-    { "name": "Standards Detail", "path": "src/pages/knowledge/standards/[slug].astro", "locales": ["en"] },
-    { "name": "Surface Finishes Index", "path": "src/pages/knowledge/surface-finishes/index.astro", "locales": ["en"] },
-    { "name": "Surface Finishes Detail", "path": "src/pages/knowledge/surface-finishes/[slug].astro", "locales": ["en"] },
-    { "name": "Procurement Index", "path": "src/pages/procurement/index.astro", "locales": ["en"] },
-    { "name": "Procurement Detail", "path": "src/pages/procurement/[slug].astro", "locales": ["en"] },
-    { "name": "Guides Detail", "path": "src/pages/guides/[slug].astro", "locales": ["en"] },
-    { "name": "Aerospace Hub", "path": "src/pages/industries/aerospace/index.astro", "locales": ["en"] },
-    { "name": "Medical Hub", "path": "src/pages/industries/medical/index.astro", "locales": ["en"] },
-    { "name": "Semiconductor Hub", "path": "src/pages/industries/semiconductor/index.astro", "locales": ["en"] },
-    { "name": "Automotive Hub", "path": "src/pages/industries/automotive/index.astro", "locales": ["en"] },
-    { "name": "Oil & Gas Hub", "path": "src/pages/industries/oil-and-gas/index.astro", "locales": ["en"] },
-    { "name": "Chemical Processing Hub", "path": "src/pages/industries/chemical-processing/index.astro", "locales": ["en"] },
-    { "name": "Marine Hub", "path": "src/pages/industries/marine/index.astro", "locales": ["en"] },
-    { "name": "AM System Detail", "path": "src/pages/solutions/systems/additive-manufacturing.astro", "locales": ["en"] },
-    { "name": "CNC 5-Axis System Detail", "path": "src/pages/solutions/systems/5axis-cnc-machining.astro", "locales": ["en"] },
-    { "name": "Turn-Mill System Detail", "path": "src/pages/solutions/systems/turn-mill-machining.astro", "locales": ["en"] },
-    { "name": "Defence Hub", "path": "src/pages/industries/defence/index.astro", "locales": ["en"] }
+    {
+      "name": "Home",
+      "path": "src/pages/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "About",
+      "path": "src/pages/about.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Solutions",
+      "path": "src/pages/solutions/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Solution Detail",
+      "path": "src/pages/solutions/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Pricing",
+      "path": "src/pages/pricing.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Contact",
+      "path": "src/pages/contact.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Sections showcase",
+      "path": "src/pages/sections.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Pages overview",
+      "path": "src/pages/pages.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Case Library",
+      "path": "src/pages/cases/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Case Detail",
+      "path": "src/pages/cases/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "FAQ",
+      "path": "src/pages/faq.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Guides",
+      "path": "src/pages/guides.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Applications Index",
+      "path": "src/pages/applications/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Application Detail",
+      "path": "src/pages/applications/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Evidence Index",
+      "path": "src/pages/evidence/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Evidence Detail",
+      "path": "src/pages/evidence/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Comparisons Index",
+      "path": "src/pages/compare.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Comparison Detail",
+      "path": "src/pages/compare/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Procurement Index",
+      "path": "src/pages/procurement/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Procurement Detail",
+      "path": "src/pages/procurement/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Guides Detail",
+      "path": "src/pages/guides/[slug].astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Aerospace Hub",
+      "path": "src/pages/industries/aerospace/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Medical Hub",
+      "path": "src/pages/industries/medical/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Semiconductor Hub",
+      "path": "src/pages/industries/semiconductor/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Automotive Hub",
+      "path": "src/pages/industries/automotive/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Oil & Gas Hub",
+      "path": "src/pages/industries/oil-and-gas/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Chemical Processing Hub",
+      "path": "src/pages/industries/chemical-processing/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Marine Hub",
+      "path": "src/pages/industries/marine/index.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "AM System Detail",
+      "path": "src/pages/solutions/systems/additive-manufacturing.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "CNC 5-Axis System Detail",
+      "path": "src/pages/solutions/systems/5axis-cnc-machining.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Turn-Mill System Detail",
+      "path": "src/pages/solutions/systems/turn-mill-machining.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
+      "name": "Defence Hub",
+      "path": "src/pages/industries/defence/index.astro",
+      "locales": [
+        "en"
+      ]
+    }
   ]
 }
-

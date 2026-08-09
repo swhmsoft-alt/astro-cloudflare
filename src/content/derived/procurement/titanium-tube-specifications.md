@@ -1,12 +1,25 @@
-﻿---
-title: "Titanium Tubing Specifications Guide"
-description: "Guide to titanium tubing seamless welded sizes and standards."
-locale: en
-procurementCategory: "rfq-preparation"
-quickAnswer: "Seamless titanium tube per ASTM B861 or AMS 4945. Welded tube per ASTM B862. Grade 9 for aerospace hydraulic."
 ---
-## Tubing Types
-Seamless: 6-100mm OD ASTM B861 AMS 4945. Welded: 6-200mm OD ASTM B862. Capillary: 1-6mm OD.
+title: "Titanium Tube Specifications for Buyers"
+description: "Neutral guidance on specifying titanium tube and pipe — grade, dimensions, standard reference, and what to verify."
+locale: en
+procurementCategory: rfq-preparation
+audience:
+  - "Procurement"
+  - "Engineers"
+quickAnswer: "When specifying titanium tube, define the grade, outside diameter, wall thickness, length, condition, and the applicable standard, and require a mill test report."
+decisionType: CHECKLIST
+checklist:
+  - "Specify grade and condition"
+  - "State outside diameter, wall thickness, and length"
+  - "Reference the applicable standard for tube and pipe"
+  - "Require a mill test report"
+  - "Confirm pressure / service requirements if applicable"
+order: 7
+---
 
-## Grade Selection
-Grade 2: chemical/marine. Grade 9: aerospace hydraulic. Grade 5: structural. Grade 7: corrosive chemical.
+## Tube specifications
+Titanium tube is specified by grade, dimension, and the governing standard. Clarity here avoids costly re-qualification.
+
+## KEEP THE GAP
+Sizes, minimums, and pricing vary by supplier. titanium.blog does not publish market data.
+
