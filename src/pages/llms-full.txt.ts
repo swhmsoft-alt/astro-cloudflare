@@ -40,7 +40,7 @@ export const GET: APIRoute = async () => {
     { label: "Industry Applications", path: "/industries", description: "Aerospace, medical, semiconductor, energy." },
     { label: "Standards", path: "/standards", description: "ASTM, ISO, AS9100D, NADCAP, ISO 13485." },
     { label: "Surface Finishes", path: "/finishes", description: "Anodizing, passivation, bead blasting." },
-    { label: "Material Selection", path: "/select", description: "Grade comparison and selection guides." },
+    { label: "Material Selection", path: "/selection", description: "Grade comparison and selection guides." },
     { label: "Failure Analysis", path: "/failures", description: "Hydrogen embrittlement, SCC, defect prevention." },
     { label: "Heat Treatment", path: "/heat-treatment", description: "Annealing, solution treatment, aging." },
     { label: "Corrosion Resistance", path: "/corrosion", description: "Titanium in corrosive environments." },

@@ -72,8 +72,8 @@ export const knowledgeMegaMenu: NavItem[][] = [
       { href: "/finishes/polishing/", labelKey: "nav.polishing" },
       { href: "/finishes/", labelKey: "nav.viewAllFinishes" },
     ]},
-    { href: "/select/", labelKey: "nav.materialSelection", groupLabel: "nav.materialSelection", children: [
-      { href: "/select/", labelKey: "nav.materialSelection" },
+    { href: "/selection/", labelKey: "nav.materialSelection", groupLabel: "nav.materialSelection", children: [
+      { href: "/selection/", labelKey: "nav.materialSelection" },
     ]},
     { href: "/failures/", labelKey: "nav.failureAnalysis", groupLabel: "nav.failureAnalysis", children: [
       { href: "/failures/", labelKey: "nav.failureAnalysis" },
@@ -100,7 +100,7 @@ export const footerNav = {
     { href: "/industries/", labelKey: "nav.industries" },
     { href: "/standards/", labelKey: "nav.standards" },
     { href: "/finishes/", labelKey: "nav.surfaceFinishes" },
-    { href: "/select/", labelKey: "nav.materialSelection" },
+    { href: "/selection/", labelKey: "nav.materialSelection" },
     { href: "/failures/", labelKey: "nav.failureAnalysis" },
     { href: "/heat-treatment/", labelKey: "nav.heatTreatment" },
     { href: "/corrosion/", labelKey: "nav.corrosionResistance" },

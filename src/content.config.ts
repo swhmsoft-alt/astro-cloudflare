@@ -480,7 +480,7 @@ const failureAnalysis = defineCollection({
 const materialSelection = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./src/content/core/material-selection",
+    base: "./src/content/core/selection",
     generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
   }),
   schema: z.object({

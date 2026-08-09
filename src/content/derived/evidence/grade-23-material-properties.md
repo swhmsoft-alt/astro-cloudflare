@@ -59,7 +59,7 @@ claimSupport: "SUPPORTED"
 claimScope: "GENERAL_PROPERTY"
 relatedDecisions:
   - "/compare/grade-5-vs-grade-23/"
-  - "/select/medical-grade-titanium/"
+  - "/selection/medical-grade-titanium/"
 ---
 
 ## Quick Answer

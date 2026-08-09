@@ -44,7 +44,7 @@ const COLLECTION_DIRS = {
   heatTreatment: "src/content/core/heat-treatment",
   corrosion: "src/content/core/corrosion",
   failureAnalysis: "src/content/core/failure-analysis",
-  materialSelection: "src/content/core/material-selection",
+  materialSelection: "src/content/core/selection",
   evidence: "src/content/derived/evidence",
   comparisons: "src/content/derived/comparisons",
   procurement: "src/content/derived/procurement",

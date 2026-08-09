@@ -31,7 +31,7 @@ export const GET: APIRoute = async () => {
     { label: "Industry Applications", path: "/industries", description: "Titanium applications in aerospace, medical, semiconductor, and energy industries." },
     { label: "Standards & Certifications", path: "/standards", description: "ASTM, ISO, AS9100D, NADCAP standards for titanium engineering." },
     { label: "Surface Finishes", path: "/finishes", description: "Anodizing, passivation, bead blasting, and polishing for titanium." },
-    { label: "Material Selection", path: "/select", description: "Application-based grade comparison and selection guides for titanium alloys." },
+    { label: "Material Selection", path: "/selection", description: "Application-based grade comparison and selection guides for titanium alloys." },
     { label: "Failure Analysis", path: "/failures", description: "Hydrogen embrittlement, stress corrosion cracking, deformation, and defect prevention." },
     { label: "Heat Treatment", path: "/heat-treatment", description: "Annealing, solution treatment, aging, and microstructure control for titanium alloys." },
     { label: "Corrosion Resistance", path: "/corrosion", description: "Titanium performance in seawater, acid, chloride, and high-temperature environments." },

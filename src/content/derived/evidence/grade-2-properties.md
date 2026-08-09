@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Grade 2 Titanium Material Properties"
 description: "Complete property data for Grade 2 CP titanium including mechanical, thermal, and physical properties."
 locale: en
@@ -44,7 +44,7 @@ relatedMaterials:
   - "grade-2-titanium"
 relatedDecisions:
   - "/compare/grade-2-vs-grade-5/"
-  - "/select/titanium-grades-chart/"
+  - "/selection/titanium-grades-chart/"
 relatedStandards:
   - "astm-b348"
 ---

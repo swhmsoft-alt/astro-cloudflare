@@ -1,18 +1,18 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import EntityDetail from "../../../pages/_shared/_EntityDetail.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("materialSelection");
   return entries
-    .filter((e: any) => e.data.locale === "en")
-    .map((e: any) => ({
+    .filter((e: CollectionEntry<"materialSelection">) => e.data.locale === "en")
+    .map((e: CollectionEntry<"materialSelection">) => ({
       params: { slug: e.id, locale: e.data.locale },
       props: { entry: e, locale: "en" as const },
     }));
 }
 
-const { entry } = Astro.props as { entry: any; locale: "en" };
+const { entry } = Astro.props as { entry: CollectionEntry<"materialSelection">; locale: "en" };
 const { Content } = await render(entry);
 ---
 

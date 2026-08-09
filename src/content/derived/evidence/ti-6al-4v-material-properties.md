@@ -78,7 +78,7 @@ claimSupport: "SUPPORTED"
 claimScope: "GENERAL_PROPERTY"
 relatedDecisions:
   - "/compare/grade-5-vs-grade-23/"
-  - "/select/titanium-grades-chart/"
+  - "/selection/titanium-grades-chart/"
 ---
 
 ## Quick Answer
