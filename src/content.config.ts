@@ -458,6 +458,27 @@ const corrosion = defineCollection({
   }),
 });
 
+const equipment = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/core/equipment",
+    generateId: ({ entry }) => entry.replace(/\.[^/.]+$/, ""),
+  }),
+  schema: z.object({
+    locale: z.enum(["en"]).optional(),
+    title: z.string(),
+    description: z.string(),
+    category: z.string().optional(),
+    manufacturer: z.string().optional(),
+    model: z.string().optional(),
+    specs: z.record(z.union([z.string(), z.number(), z.boolean()])).default({}),
+    applications: z.array(z.string()).default([]),
+    industries: z.array(z.string()).default([]),
+    order: z.number().default(0),
+    translationKey: z.string().optional(),
+  }),
+});
+
 const failureAnalysis = defineCollection({
   loader: glob({
     pattern: "**/*.md",
@@ -517,6 +538,7 @@ export const collections = {
    applications,
   heatTreatment,
   corrosion,
+  equipment,
   failureAnalysis,
   materialSelection,
 };
