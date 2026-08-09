@@ -746,6 +746,13 @@
       "locales": [
         "en"
       ]
+    },
+    {
+      "name": "Equipment Index",
+      "path": "src/pages/equipment/index.astro",
+      "locales": [
+        "en"
+      ]
     }
   ]
 }
