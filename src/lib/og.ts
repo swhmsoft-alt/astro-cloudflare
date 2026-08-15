@@ -62,3 +62,13 @@ export async function buildOGResponse(svg: string) {
     },
   });
 }
+
+
+/**
+ * ogImagePath (i18n-safe) - default locale (en) carries NO prefix:
+ * /og/page/about/ instead of /og/page/en/about/. Zero tolerance on /en/.
+ */
+export function ogImagePath(kind: string, locale: string, rest: string): string {
+  const prefix = "/" + locale;
+  return "/og/" + kind + prefix + rest;
+}

@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "locale": "fr",
+    "language_native": "Français",
+    "reviewed": false,
+    "version": "2026-08-14"
+  },
+  "materials": {
+    "titanium alloy": "alliage de titane",
+    "commercially pure titanium": "titane commercialement pur",
+    "alpha-beta alloy": "alliage alpha-bêta",
+    "near-alpha alloy": "alliage quasi-alpha",
+    "beta alloy": "alliage bêta",
+    "titanium grade": "nuance de titane",
+    "titanium bar": "barre de titane",
+    "titanium plate": "plaque de titane",
+    "titanium sheet": "tôle de titane",
+    "titanium wire": "fil de titane"
+  },
+  "properties": {
+    "yield strength": "limite d'élasticité",
+    "ultimate tensile strength": "résistance à la traction",
+    "elongation": "allongement",
+    "fatigue strength": "limite de fatigue",
+    "creep resistance": "résistance au fluage",
+    "corrosion resistance": "résistance à la corrosion",
+    "specific strength": "résistance spécifique",
+    "hardness": "dureté",
+    "tensile strength": "résistance à la traction",
+    "reduction of area": "striction",
+    "impact toughness": "résilience",
+    "fracture toughness": "ténacité à la rupture",
+    "notch sensitivity": "sensibilité à l'entaille"
+  },
+  "heat_treatment": {
+    "annealing": "recuit",
+    "stress relief": "détensionnement",
+    "solution treatment": "mise en solution",
+    "aging": "vieillissement",
+    "beta transus": "transus bêta",
+    "mill annealed": "recuit de laminage",
+    "duplex annealed": "recuit duplex",
+    "solution treated and aged": "mis en solution et vieilli",
+    "beta annealed": "recuit bêta"
+  },
+  "processes": {
+    "forging": "forgeage",
+    "investment casting": "moulage à cire perdue",
+    "5-axis machining": "usinage 5 axes",
+    "wire EDM": "électroérosion à fil",
+    "additive manufacturing": "fabrication additive",
+    "deep drawing": "emboutissage profond",
+    "rolling": "laminage",
+    "extrusion": "extrusion",
+    "heat treatment": "traitement thermique",
+    "hot isostatic pressing": "pressage isostatique à chaud",
+    "machining": "usinage",
+    "welding": "soudage"
+  },
+  "surface_finish": {
+    "anodizing": "anodisation",
+    "passivation": "passivation",
+    "pickling": "décapage",
+    "bead blasting": "grenaillage aux billes",
+    "alpha case removal": "élimination de la couche alpha",
+    "polishing": "polissage",
+    "grinding": "meulage",
+    "shot blasting": "grenaillage"
+  },
+  "failure": {
+    "hydrogen embrittlement": "fragilisation par l'hydrogène",
+    "stress corrosion cracking": "fissuration par corrosion sous contrainte",
+    "fatigue failure": "rupture par fatigue",
+    "creep failure": "rupture par fluage",
+    "galvanic corrosion": "corrosion galvanique",
+    "pitting": "piqûration",
+    "cracking": "fissuration",
+    "wear": "usure"
+  },
+  "testing_certification": {
+    "mill test report": "certificat de réception usine",
+    "ultrasonic testing": "contrôle par ultrasons",
+    "tensile test": "essai de traction",
+    "impact test": "essai de résilience",
+    "traceability": "traçabilité",
+    "conformance": "conformité",
+    "non-destructive testing": "contrôle non destructif",
+    "chemical analysis": "analyse chimique",
+    "mechanical testing": "essai mécanique"
+  },
+  "procurement": {
+    "request for quote": "demande de devis",
+    "lead time": "délai de livraison",
+    "minimum order quantity": "quantité minimale de commande",
+    "tolerance": "tolérance",
+    "surface roughness": "rugosité de surface",
+    "raw material": "matière première",
+    "certification": "certification",
+    "inspection": "inspection",
+    "dimensional inspection": "contrôle dimensionnel"
+  }
+}

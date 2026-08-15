@@ -48,10 +48,17 @@ export function canonicalUrl(locale: Locale, path: string): string {
 }
 
 /**
- * Generate hreflang link elements for the current page across all locales.
- * Handles Astro i18n prefix routing.
+ * Generate hreflang link elements for the current page.
+ * @param path - Current page path (may include locale prefix)
+ * @param locales - Explicit array of available locales for this page.
+ *                  Must be provided by the caller. NEVER falls back to all locales.
+ * @param includeXDefault - Whether to include x-default tag (default: true for root pages)
  */
-export function hreflangLinks(path: string, locales?: string[]): Array<{
+export function hreflangLinks(
+  path: string,
+  locales?: string[],
+  includeXDefault = true,
+): Array<{
   rel: string;
   href: string;
   hreflang: string;
@@ -59,11 +66,28 @@ export function hreflangLinks(path: string, locales?: string[]): Array<{
   // Strip locale prefix to get the content path
   const contentPath = stripLocale(path);
 
-  return (locales ?? siteConfig.i18n.locales).map((loc) => ({
+  if (!locales || locales.length === 0) {
+    // No locales provided — only output canonical (no multilingual hreflang).
+    // Used for English-only detail pages like /grades/grade-5/.
+    return [];
+  }
+
+  const links = locales.map((loc) => ({
     rel: "alternate",
     href: canonicalUrl(loc as Locale, contentPath),
     hreflang: loc,
   }));
+
+  // Add x-default pointing to the English version (canonical fallback)
+  if (includeXDefault) {
+    links.push({
+      rel: "alternate",
+      href: canonicalUrl("en", contentPath),
+      hreflang: "x-default",
+    });
+  }
+
+  return links;
 }
 
 /**

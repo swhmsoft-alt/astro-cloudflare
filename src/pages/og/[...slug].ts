@@ -139,7 +139,7 @@ export async function getStaticPaths() {
   for (const locale of siteConfig.i18n.locales) {
     for (const kind of listKinds) {
       paths.push({
-        params: { slug: `${kind}/${locale}` },
+      params: { slug: `${kind}/${locale}` },
         props: { kind, locale, slug: [] },
       });
     }

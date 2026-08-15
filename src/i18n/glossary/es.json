@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "locale": "es",
+    "language_native": "Español",
+    "reviewed": false,
+    "version": "2026-08-14"
+  },
+  "materials": {
+    "titanium alloy": "aleación de titanio",
+    "commercially pure titanium": "titanio comercialmente puro",
+    "alpha-beta alloy": "aleación alfa-beta",
+    "near-alpha alloy": "aleación casi alfa",
+    "beta alloy": "aleación beta",
+    "titanium grade": "grado de titanio",
+    "titanium bar": "barra de titanio",
+    "titanium plate": "placa de titanio",
+    "titanium sheet": "chapa de titanio",
+    "titanium wire": "alambre de titanio"
+  },
+  "properties": {
+    "yield strength": "límite elástico",
+    "ultimate tensile strength": "resistencia a la tracción",
+    "elongation": "alargamiento",
+    "fatigue strength": "límite de fatiga",
+    "creep resistance": "resistencia a la fluencia",
+    "corrosion resistance": "resistencia a la corrosión",
+    "specific strength": "resistencia específica",
+    "hardness": "dureza",
+    "tensile strength": "resistencia a la tracción",
+    "reduction of area": "estricción",
+    "impact toughness": "tenacidad al impacto",
+    "fracture toughness": "tenacidad a la fractura",
+    "notch sensitivity": "sensibilidad a la entalla"
+  },
+  "heat_treatment": {
+    "annealing": "recocido",
+    "stress relief": "alivio de tensiones",
+    "solution treatment": "tratamiento de solución",
+    "aging": "envejecimiento",
+    "beta transus": "transus beta",
+    "mill annealed": "recocido de laminación",
+    "duplex annealed": "recocido dúplex",
+    "solution treated and aged": "tratado en solución y envejecido",
+    "beta annealed": "recocido beta"
+  },
+  "processes": {
+    "forging": "forja",
+    "investment casting": "fundición a la cera perdida",
+    "5-axis machining": "mecanizado de 5 ejes",
+    "wire EDM": "electroerosión por hilo",
+    "additive manufacturing": "fabricación aditiva",
+    "deep drawing": "embutición profunda",
+    "rolling": "laminado",
+    "extrusion": "extrusión",
+    "heat treatment": "tratamiento térmico",
+    "hot isostatic pressing": "prensado isostático en caliente",
+    "machining": "mecanizado",
+    "welding": "soldadura"
+  },
+  "surface_finish": {
+    "anodizing": "anodizado",
+    "passivation": "pasivación",
+    "pickling": "decapado",
+    "bead blasting": "chorreado con perlas",
+    "alpha case removal": "eliminación de capa alfa",
+    "polishing": "pulido",
+    "grinding": "esmerilado",
+    "shot blasting": "chorreado"
+  },
+  "failure": {
+    "hydrogen embrittlement": "fragilización por hidrógeno",
+    "stress corrosion cracking": "agrietamiento por corrosión bajo tensión",
+    "fatigue failure": "fallo por fatiga",
+    "creep failure": "fallo por fluencia",
+    "galvanic corrosion": "corrosión galvánica",
+    "pitting": "picadura",
+    "cracking": "agrietamiento",
+    "wear": "desgaste"
+  },
+  "testing_certification": {
+    "mill test report": "certificado de fábrica",
+    "ultrasonic testing": "ensayo ultrasónico",
+    "tensile test": "ensayo de tracción",
+    "impact test": "ensayo de impacto",
+    "traceability": "trazabilidad",
+    "conformance": "conformidad",
+    "non-destructive testing": "ensayo no destructivo",
+    "chemical analysis": "análisis químico",
+    "mechanical testing": "ensayo mecánico"
+  },
+  "procurement": {
+    "request for quote": "solicitud de cotización",
+    "lead time": "plazo de entrega",
+    "minimum order quantity": "cantidad mínima de pedido",
+    "tolerance": "tolerancia",
+    "surface roughness": "rugosidad superficial",
+    "raw material": "materia prima",
+    "certification": "certificación",
+    "inspection": "inspección",
+    "dimensional inspection": "inspección dimensional"
+  }
+}

@@ -1,7 +1,9 @@
 ---
+import { ogImagePath } from "../lib/og";
 import BaseLayout from "./BaseLayout.astro";
 import SEO from "../components/seo/SEO.astro";
 import { type Locale } from "../lib/site-config";
+import { AVAILABILITY } from "../i18n/availability";
 
 export interface Props {
   title: string;
@@ -13,7 +15,15 @@ export interface Props {
   hreflangLocales?: string[];
 }
 
-const { title, description, locale, path, jsonLd, hreflangLocales } = Astro.props as Props;
+const { title, description, locale, path, jsonLd } = Astro.props as Props;
+let { hreflangLocales } = Astro.props as Props;
+
+// ── Derive hreflangLocales from path if not explicitly provided ──
+if (!hreflangLocales) {
+  const pageId = path.replace(/^\/+|\/+$/g, "") || "index";
+  // Try direct lookup, then with "/index" suffix (for /corrosion/ → "corrosion/index")
+  hreflangLocales = AVAILABILITY[pageId] || AVAILABILITY[pageId + "/index"] || ["en"];
+}
 ---
 
 <BaseLayout
@@ -29,7 +39,7 @@ const { title, description, locale, path, jsonLd, hreflangLocales } = Astro.prop
     description={description}
     locale={locale}
     path={path}
-    ogImage={path === "/" ? `/og/home/${locale}` : `/og/page/${locale}${path}`}
+    ogImage={ogImagePath(path === "/" ? "home" : "page", locale, path === "/" ? "" : path)}
     hreflangLocales={hreflangLocales}
     jsonLd={jsonLd}
   />

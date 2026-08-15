@@ -5,10 +5,9 @@ import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
 import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../../lib/schema";
 
+import { buildLocalePaths } from "../../../i18n/availability";
 export async function getStaticPaths() {
-  return ["de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l) {
-    return { params: { locale: l, slug: "grade-comparison" }, props: { locale: l } };
-  });
+  return buildLocalePaths("tools/grade-comparison").map((l) => ({ params: { locale: l, slug: "grade-comparison" }, props: { locale: l } }));
 }
 const locale = (Astro.props.locale || "en") as Locale;
 const pageTitle = "Titanium Grade Comparison Tool";

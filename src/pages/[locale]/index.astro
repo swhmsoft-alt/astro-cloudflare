@@ -1,6 +1,9 @@
 ---
 
-export async function getStaticPaths(){return ["de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import { buildLocalePaths } from "../../i18n/availability";
+export async function getStaticPaths() {
+  return buildLocalePaths("index").map((l) => ({ params: { locale: l }, props: { locale: l } }));
+}
 import M from"../../layouts/MarketingLayout.astro";
 import H from"../../components/Hero.astro";
 import Q from"../../components/FAQ.astro";

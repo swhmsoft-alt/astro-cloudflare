@@ -41,7 +41,7 @@ const EQUIVALENT_ROUTES: Record<string, boolean> = {
  * and target locale. Uses the translation key mapping to find
  * equivalent content items.
  *
- * Example: getEquivalentPath("/id/services", "en") → "/en/services"
+ * Example: getEquivalentPath("/de/services", "en") → "/en/services"
  */
 export function getEquivalentPath(
   currentPath: string,
@@ -52,8 +52,7 @@ export function getEquivalentPath(
 
   // If the route is known to have an equivalent, map it
   if (EQUIVALENT_ROUTES[contentPath]) {
-    // contentPath === "/" → return prefix || "/" so that English (empty prefix)
-    // resolves to "/" instead of an empty string.
+    // contentPath === "/" → return prefix || "/" (safety fallback)
     return contentPath === "/"
       ? prefix || "/"
       : `${prefix}${contentPath}`;

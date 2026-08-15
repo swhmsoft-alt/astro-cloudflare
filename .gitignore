@@ -107,3 +107,8 @@ _verify2.txt
 # Generated research reports / scratch scripts (local-only)
 knowledge-generator/reports/
 scripts/_*
+# Translation pipeline
+secrets/
+.translation-cache.json
+reports/qa-*.md
+

@@ -5,7 +5,10 @@ import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../lib/site-config";
 import EntityPillar from "../../../pages/_shared/_EntityPillar.astro";
-export async function getStaticPaths(){return ["de","ja","fr","es","pt","it","ko","nl","pl","ru","ar","pt-br","tr","cs","sv"].map(function(l){return{params:{locale:l},props:{locale:l}}})}
+import { buildLocalePaths } from "../../../i18n/availability";
+export async function getStaticPaths() {
+  return buildLocalePaths("selection/index").map((l) => ({ params: { locale: l }, props: { locale: l } }));
+}
 const locale = (Astro.props.locale || "en") as Locale;
 
 const entries = (await getCollection("materialSelection"))

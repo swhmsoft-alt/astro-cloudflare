@@ -12,24 +12,24 @@ export type Locale =
  | 'ja'
  | 'fr'
  | 'es'
- | 'pt'
+ | 'pt-br'
  | 'it'
  | 'ko'
  | 'nl'
  | 'pl'
+ | 'sv'
+ | 'tr'
  | 'ru'
  | 'ar'
- | 'pt-br'
- | 'tr'
  | 'cs'
- | 'sv';
+ | 'vi';
 
 export const SITE_CONFIG = {
  url: 'https://astro-cloudflare-starter.pages.dev',
  defaultLocale: 'en' as const,
  locales: [
- 'en','de','ja','fr','es','pt','it','ko',
- 'nl','pl','ru','ar','pt-br','tr','cs','sv'
+ 'en','de','ja','fr','es','pt-br','it','ko',
+ 'nl','pl','sv','tr','ru','ar','cs','vi'
  ] as const,
  localeLabels: {
     en: 'English',
@@ -37,23 +37,23 @@ export const SITE_CONFIG = {
     ja: '日本語',
     fr: 'Français',
     es: 'Español',
-    pt: 'Português',
+    'pt-br': 'Português (Brasil)',
     it: 'Italiano',
     ko: '한국어',
     nl: 'Nederlands',
     pl: 'Polski',
+    sv: 'Svenska',
+    tr: 'Türkçe',
     ru: 'Русский',
     ar: 'العربية',
-    'pt-br': 'Português (Brasil)',
-    tr: 'Türkçe',
     cs: 'Čeština',
-    sv: 'Svenska',
+    vi: 'Tiếng Việt',
   } as const,
  localePrefixes: {
  en:'en',de:'de',ja:'ja',fr:'fr',es:'es',
- pt:'pt',it:'it',ko:'ko',nl:'nl',
- pl:'pl',ru:'ru',ar:'ar','pt-br':'pt-br',
- tr:'tr',cs:'cs',sv:'sv'
+ 'pt-br':'pt-br',it:'it',ko:'ko',nl:'nl',
+ pl:'pl',sv:'sv',tr:'tr',ru:'ru',ar:'ar',
+ cs:'cs',vi:'vi'
  } as const,
  name: 'Astro Cloudflare',
  description: 'Marketing, blog, and docs starter — multilanguage-ready.',

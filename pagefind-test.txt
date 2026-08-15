@@ -1,0 +1,143 @@
+
+Running Pagefind v1.5.2 (Extended)
+Running from: "C:\\Users\\User\\Desktop\\astro-cloudflare-starter-main"
+Source:       "dist"
+Output:       "dist\\pagefind"
+
+[Walking source directory]
+Found 522 files matching **/*.{html}
+
+[Parsing files]
+Found a data-pagefind-body element on the site.
+↳ Ignoring pages without this tag.
+77 pages found without an <html> element. 
+Pages without an outer <html> element will not be processed by default. 
+If adding this element is not possible, use the root selector config to target a different root element.
+  * "/grades/grade-23-titanium-eli/" has no <html> element
+  * "/grades/grade-5-titanium-ti6al4v/" has no <html> element
+  * "/knowledge/corrosion/acid-resistance/" has no <html> element
+  * "/knowledge/corrosion/chloride-scc/" has no <html> element
+  * "/knowledge/corrosion/galvanic/" has no <html> element
+  * "/knowledge/corrosion/overview/" has no <html> element
+  * "/knowledge/corrosion/prevention/" has no <html> element
+  * "/knowledge/corrosion/seawater/" has no <html> element
+  * "/knowledge/failure-analysis/alpha-case/" has no <html> element
+  * "/knowledge/failure-analysis/fatigue/" has no <html> element
+  * "/knowledge/failure-analysis/hydrogen-embritlement/" has no <html> element
+  * "/knowledge/failure-analysis/machining-defects/" has no <html> element
+  * "/knowledge/failure-analysis/overview/" has no <html> element
+  * "/knowledge/failure-analysis/welding-defects/" has no <html> element
+  * "/knowledge/heat-treatment/annealing/" has no <html> element
+  * "/knowledge/heat-treatment/defects/" has no <html> element
+  * "/knowledge/heat-treatment/grade-guide/" has no <html> element
+  * "/knowledge/heat-treatment/overview/" has no <html> element
+  * "/knowledge/heat-treatment/solution-treatment-aging/" has no <html> element
+  * "/knowledge/heat-treatment/stress-relief/" has no <html> element
+  * "/knowledge/" has no <html> element
+  * "/knowledge/industries/aerospace-titanium-parts/" has no <html> element
+  * "/knowledge/industries/automotive/" has no <html> element
+  * "/knowledge/industries/chemical-processing/" has no <html> element
+  * "/knowledge/industries/defence/" has no <html> element
+  * "/knowledge/industries/marine/" has no <html> element
+  * "/knowledge/industries/medical-device/" has no <html> element
+  * "/knowledge/industries/oil-and-gas/" has no <html> element
+  * "/knowledge/industries/semiconductor-manufacturing/" has no <html> element
+  * "/knowledge/materials/grade-1-titanium/" has no <html> element
+  * "/knowledge/materials/grade-11-titanium/" has no <html> element
+  * "/knowledge/materials/grade-12-titanium/" has no <html> element
+  * "/knowledge/materials/grade-2-titanium/" has no <html> element
+  * "/knowledge/materials/grade-23-titanium/" has no <html> element
+  * "/knowledge/materials/grade-3-titanium/" has no <html> element
+  * "/knowledge/materials/grade-4-titanium/" has no <html> element
+  * "/knowledge/materials/grade-5-titanium/" has no <html> element
+  * "/knowledge/materials/grade-7-titanium/" has no <html> element
+  * "/knowledge/materials/grade-9-titanium/" has no <html> element
+  * "/knowledge/materials/ta15-titanium/" has no <html> element
+  * "/knowledge/materials/ti-10v-2fe-3al/" has no <html> element
+  * "/knowledge/materials/ti-5al-2sn/" has no <html> element
+  * "/knowledge/materials/ti-6al-2sn-4zr-2mo/" has no <html> element
+  * "/knowledge/processes/5-axis-machining/" has no <html> element
+  * "/knowledge/processes/cnc-machining/" has no <html> element
+  * "/knowledge/processes/cnc-milling/" has no <html> element
+  * "/knowledge/processes/cnc-turning/" has no <html> element
+  * "/knowledge/processes/dmls/" has no <html> element
+  * "/knowledge/processes/dmls-vs-ebm/" has no <html> element
+  * "/knowledge/processes/edm/" has no <html> element
+  * "/knowledge/processes/hot-isostatic-pressing/" has no <html> element
+  * "/knowledge/processes/laser-cutting/" has no <html> element
+  * "/knowledge/processes/titanium-casting/" has no <html> element
+  * "/knowledge/processes/titanium-forging/" has no <html> element
+  * "/knowledge/processes/titanium-sheet-metal/" has no <html> element
+  * "/knowledge/processes/titanium-welding/" has no <html> element
+  * "/knowledge/processes/waterjet-cutting/" has no <html> element
+  * "/knowledge/processes/wire-edm/" has no <html> element
+  * "/knowledge/standards/ams-4911/" has no <html> element
+  * "/knowledge/standards/ams-4928/" has no <html> element
+  * "/knowledge/standards/ams-4965/" has no <html> element
+  * "/knowledge/standards/as9100d/" has no <html> element
+  * "/knowledge/standards/astm-b265/" has no <html> element
+  * "/knowledge/standards/astm-b348/" has no <html> element
+  * "/knowledge/standards/astm-b381/" has no <html> element
+  * "/knowledge/standards/astm-f136/" has no <html> element
+  * "/knowledge/standards/astm-f2066/" has no <html> element
+  * "/knowledge/standards/iso-13485/" has no <html> element
+  * "/knowledge/standards/iso-9001/" has no <html> element
+  * "/knowledge/standards/nadcap/" has no <html> element
+  * "/knowledge/surface-finishes/bead-blasting/" has no <html> element
+  * "/knowledge/surface-finishes/chemical-etching/" has no <html> element
+  * "/knowledge/surface-finishes/electropolishing/" has no <html> element
+  * "/knowledge/surface-finishes/passivation/" has no <html> element
+  * "/knowledge/surface-finishes/polishing/" has no <html> element
+  * "/knowledge/surface-finishes/pvd-coating/" has no <html> element
+  * "/knowledge/surface-finishes/titanium-anodizing/" has no <html> element
+
+[Reading languages]
+Discovered 16 languages: it, de, pt-br, es, ar, ru, en, cs, ko, nl, ja, fr, vi, tr, sv, pl
+
+[Building search indexes]
+Total: 
+  Indexed 16 languages
+  Indexed 144 pages
+  Indexed 11886 words
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language cs. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language ko. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language ja. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language vi. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language cs. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language ko. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language ja. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language vi. 
+Search will still work, but will not match across root words.
+
+Finished in 4.705 seconds
+2 configuration warning(s):
+
+The `bundle-dir` option is deprecated as of Pagefind 1.0. Use either `output-subdir` or `output-path` instead:
+
+cli:    --output-subdir
+config: output_subdir
+env:    PAGEFIND_OUTPUT_SUBDIR
+└─ "Where to output the search files, relative to the processed site"
+
+cli:    --output-path
+config: output_path
+env:    PAGEFIND_OUTPUT_PATH
+└─ "Where to output the search files, relative to the working directory of the command"
+
+
+The `source` option is deprecated as of Pagefind 1.0. The `source` option has been renamed to `site`:
+
+cli:    --site
+config: site
+env:    PAGEFIND_SITE
+└─ "The location of your built static website"
+

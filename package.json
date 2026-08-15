@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/postbuild.js",
+    "build": "scripts\\build.cmd",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run check:geo && pnpm run check:procurement && pnpm run validate:registry && pnpm run check:imports && pnpm run check:unique && pnpm run check:mojibake && pnpm run sync:i18n && pnpm run validate:i18n && pnpm run validate:secrets",
@@ -41,7 +41,8 @@
     "validate:i18n": "node scripts/validate-i18n.js",
     "validate:secrets": "node scripts/validate-secrets.cjs",
     "postbuild": "node scripts/generate-media-manifest.cjs",
-    "generate": "node knowledge-generator/run.mjs"
+    "generate": "node knowledge-generator/run.mjs",
+    "translate": "node scripts/translate.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",
@@ -64,7 +65,8 @@
     "sharp": "^0.35.3",
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "^4.3.2",
-    "zod": "^4.4.3"
+    "zod": "^4.4.3",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "locale": "de",
+    "language_native": "Deutsch",
+    "reviewed": false,
+    "version": "2026-08-14"
+  },
+  "materials": {
+    "titanium alloy": "Titanlegierung",
+    "commercially pure titanium": "technisch reines Titan",
+    "alpha-beta alloy": "Alpha-Beta-Legierung",
+    "near-alpha alloy": "Nah-Alpha-Legierung",
+    "beta alloy": "Beta-Legierung",
+    "titanium grade": "Titansorte",
+    "titanium bar": "Titanstange",
+    "titanium plate": "Titanplatte",
+    "titanium sheet": "Titanblech",
+    "titanium wire": "Titandraht"
+  },
+  "properties": {
+    "yield strength": "Streckgrenze",
+    "ultimate tensile strength": "Zugfestigkeit",
+    "elongation": "Bruchdehnung",
+    "fatigue strength": "Dauerfestigkeit",
+    "creep resistance": "Kriechbeständigkeit",
+    "corrosion resistance": "Korrosionsbeständigkeit",
+    "specific strength": "spezifische Festigkeit",
+    "hardness": "Härte",
+    "tensile strength": "Zugfestigkeit",
+    "reduction of area": "Querschnittsverminderung",
+    "impact toughness": "Kerbschlagzähigkeit",
+    "fracture toughness": "Bruchzähigkeit",
+    "notch sensitivity": "Kerbenpfindlichkeit"
+  },
+  "heat_treatment": {
+    "annealing": "Glühen",
+    "stress relief": "Spannungsarmglühen",
+    "solution treatment": "Lösungsglühen",
+    "aging": "Altern",
+    "beta transus": "Beta-Transus",
+    "mill annealed": "Hüllenglühen",
+    "duplex annealed": "Duplexglühen",
+    "solution treated and aged": "lösungsgeglüht und gealtert",
+    "beta annealed": "Beta-Geglüht"
+  },
+  "processes": {
+    "forging": "Schmieden",
+    "investment casting": "Feinguss",
+    "5-axis machining": "5-Achsen-Bearbeitung",
+    "wire EDM": "Drahterodieren",
+    "additive manufacturing": "additive Fertigung",
+    "deep drawing": "Tiefziehen",
+    "rolling": "Walzen",
+    "extrusion": "Strangpressen",
+    "heat treatment": "Wärmebehandlung",
+    "hot isostatic pressing": "heißisostatisches Pressen",
+    "machining": "Zerspanung",
+    "welding": "Schweißen"
+  },
+  "surface_finish": {
+    "anodizing": "Eloxieren",
+    "passivation": "Passivierung",
+    "pickling": "Beizen",
+    "bead blasting": "Glasperlenstrahlen",
+    "alpha case removal": "Alpha-Case-Entfernung",
+    "polishing": "Polieren",
+    "grinding": "Schleifen",
+    "shot blasting": "Kugelstrahlen"
+  },
+  "failure": {
+    "hydrogen embrittlement": "Wasserstoffversprödung",
+    "stress corrosion cracking": "Spannungsrisskorrosion",
+    "fatigue failure": "Ermüdungsbruch",
+    "creep failure": "Kriechbruch",
+    "galvanic corrosion": "galvanische Korrosion",
+    "pitting": "Lochfraß",
+    "cracking": "Rissbildung",
+    "wear": "Verschleiß"
+  },
+  "testing_certification": {
+    "mill test report": "Mühlenprüfzeugnis",
+    "ultrasonic testing": "Ultraschallprüfung",
+    "tensile test": "Zugversuch",
+    "impact test": "Kerbschlagversuch",
+    "traceability": "Rückverfolgbarkeit",
+    "conformance": "Konformität",
+    "non-destructive testing": "zerstörungsfreie Prüfung",
+    "chemical analysis": "chemische Analyse",
+    "mechanical testing": "mechanische Prüfung"
+  },
+  "procurement": {
+    "request for quote": "Angebotsanfrage",
+    "lead time": "Lieferzeit",
+    "minimum order quantity": "Mindestbestellmenge",
+    "tolerance": "Toleranz",
+    "surface roughness": "Oberflächenrauheit",
+    "raw material": "Rohmaterial",
+    "certification": "Zertifizierung",
+    "inspection": "Inspektion",
+    "dimensional inspection": "Maßprüfung"
+  }
+}

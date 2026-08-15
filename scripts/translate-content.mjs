@@ -16,7 +16,7 @@
  *
  * Requires DEEPSEEK_API_KEY in the environment (see knowledge-generator/lib/deepseek.mjs).
  */
-import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, dirname, basename, extname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -30,6 +30,8 @@ const { load: yamlLoad, dump: yamlDump } = await import(pathToFileURL(JSYAML).hr
 import { generate } from "../knowledge-generator/lib/deepseek.mjs";
 
 // Collection name → content directory (relative to repo root).
+// For collections using Starlight subdirectory mode (e.g. docs),
+// the source dir points to the English subdirectory.
 const COLLECTION_DIRS = {
   blog: "src/content/site/blog",
   pages: "src/content/site/pages",
@@ -51,7 +53,14 @@ const COLLECTION_DIRS = {
   guides: "src/content/derived/guides",
   cases: "src/content/derived/cases",
   applications: "src/content/applications",
+  // Starlight docs collection (locale subdirectory mode)
+  docs: "src/content/docs/en",
 };
+
+// Collections that use Starlight locale subdirectories instead of suffix filenames.
+// When true, the target file is written to `src/content/docs/{locale}/...` mirroring
+// the directory structure under the source locale subdirectory.
+const STARLIGHT_SUBDIR_MODE = new Set(["docs"]);
 
 // Files that live in these dirs carry a `locale` frontmatter field and should be translated.
 const COLLECTION_EXTS = [".md", ".mdx", ".json"];
@@ -89,10 +98,17 @@ function resolveSourceDir(cfg) {
 
 function listSourceFiles(dir) {
   if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((f) => COLLECTION_EXTS.includes(extname(f).toLowerCase()))
-    .map((f) => join(dir, f))
-    .sort();
+  const entries = readdirSync(dir, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...listSourceFiles(full));
+    } else if (COLLECTION_EXTS.includes(extname(entry.name).toLowerCase())) {
+      files.push(full);
+    }
+  }
+  return files.sort();
 }
 
 /** Split a raw content file into { frontmatterRaw, body }. */
@@ -206,6 +222,19 @@ function parseResponse(raw) {
 function targetFileName(sourceFile, cfg) {
   const ext = extname(sourceFile);
   const base = basename(sourceFile, ext);
+  // Starlight subdirectory mode: write to src/content/docs/{locale}/...
+  if (cfg.collection && STARLIGHT_SUBDIR_MODE.has(cfg.collection)) {
+    const srcDir = resolveSourceDir(cfg);
+    if (!srcDir) return join(dirname(sourceFile), `${base}-${cfg.locale}${ext}`);
+    // sourceFile is under srcDir (e.g. src/content/docs/en/getting-started/overview.md)
+    // → relative path: getting-started/overview.md
+    const relative = sourceFile.startsWith(srcDir)
+      ? sourceFile.slice(srcDir.length).replace(/^[/\\]/, "")
+      : basename(sourceFile);
+    // → target: src/content/docs/{locale}/getting-started/overview.md
+    const targetDir = join(dirname(srcDir), cfg.locale);
+    return join(targetDir, relative);
+  }
   return join(dirname(sourceFile), `${base}-${cfg.locale}${ext}`);
 }
 
@@ -283,6 +312,7 @@ async function run() {
       parsed.locale = cfg.locale;
       outBody = "---\n" + serializeFrontmatter(parsed) + "---\n\n" + (result.body ?? body);
     }
+    mkdirSync(dirname(target), { recursive: true });
     writeFileSync(target, outBody, "utf8");
     console.log(`[ok] ${basename(file)} → ${basename(target)} (${translatedStrings.length} strings translated)`);
     done++;

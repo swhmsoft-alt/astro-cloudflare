@@ -5,9 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, extname, basename, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { siteConfig } from "./src/config/site.config";
+import { SITE_CONFIG } from "./src/lib/site-config";
 
 async function collectFiles(dir: string, extensions: string[]): Promise<string[]> {
   const results: string[] = [];
@@ -92,7 +94,7 @@ function contentValidationIntegration() {
           ),
         );
 
-        const supportedLocales = ["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"];
+        const supportedLocales = ["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl", "sv", "tr", "ru", "ar", "cs", "vi"];
         for (const collection of entries) {
           validateDuplicates(collection, supportedLocales);
         }
@@ -101,13 +103,48 @@ function contentValidationIntegration() {
   };
 }
 
+/**
+ * Generates the final `_redirects` file at the build output root for Cloudflare Pages.
+ *
+ * Historically this wrote splat fallback rules (`/{locale}/* /en/:splat 302`) for every
+ * non-English locale. That was incorrect: Cloudflare's `_redirects` rules are "always
+ * followed, regardless of whether or not an asset matches", so the splat rules hijacked
+ * pages that DO have a translation (e.g. `/de/about/`) and 302'd them to the English
+ * equivalent. Precise per-page rules are infeasible too (~5,400 needed vs. the 2,100 rule
+ * limit). Locale fallback therefore lives in `functions/_middleware.ts` checked in to the
+ * repo, and this integration only preserves the hand-written rules from `public/_redirects`.
+ */
+function redirectsIntegration() {
+  return {
+    name: "redirects-generator",
+    hooks: {
+      "astro:build:done": async ({ dir }) => {
+        // `dir` is a file:// URL for the build output (dist). On Windows,
+        // `dir.pathname` is "/C:/..." and must not be fed to path.join directly
+        // (it would produce a mangled "C:\C:\..." path). Convert to a real path.
+        const outputDir = fileURLToPath(dir);
+
+        // Preserve hand-written rules from public/_redirects (Astro already copies
+        // public/* into dist, but this hook re-emits the file to keep behavior explicit
+        // and forward-compatible if we later need to synthesize more rules).
+        const lines: string[] = [];
+        try {
+          const src = await readFile(join(process.cwd(), "public", "_redirects"), "utf-8");
+          lines.push(...src.split(/\r?\n/).filter((l) => l.trim() !== ""));
+        } catch (error) {
+          console.warn("[redirects] public/_redirects not found; writing empty _redirects", error);
+        }
+        lines.push(""); // trailing newline
+
+        await writeFile(join(outputDir, "_redirects"), lines.join("\n"), "utf-8");
+        console.log(`[redirects] Wrote dist/_redirects with ${lines.length - 1} preserved rule(s)`);
+      },
+    },
+  };
+}
+
 export default defineConfig({
   site: siteConfig.url,
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"],
-    prefixDefaultLocale: false,
-  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "hover",
@@ -129,6 +166,26 @@ export default defineConfig({
   integrations: [
     starlight({
       title: siteConfig.name,
+  defaultLocale: "root",
+      locales: {
+        root: { label: "English", lang: "en" },
+        de: { label: "Deutsch", lang: "de" },
+        fr: { label: "Français", lang: "fr" },
+        es: { label: "Español", lang: "es" },
+        "pt-br": { label: "Português (Brasil)", lang: "pt-BR" },
+        it: { label: "Italiano", lang: "it" },
+        ja: { label: "日本語", lang: "ja" },
+        ko: { label: "한국어", lang: "ko" },
+        nl: { label: "Nederlands", lang: "nl" },
+        pl: { label: "Polski", lang: "pl" },
+        sv: { label: "Svenska", lang: "sv" },
+        tr: { label: "Türkçe", lang: "tr" },
+        ru: { label: "Русский", lang: "ru" },
+        ar: { label: "العربية", lang: "ar", dir: "rtl" },
+        cs: { label: "Čeština", lang: "cs" },
+        vi: { label: "Tiếng Việt", lang: "vi" },
+      },
+      pagefind: process.env.SKIP_PAGEFIND !== "true",
       customCss: ["./src/styles/starlight.css"],
       components: {
         SiteTitle: "./src/components/docs/SiteTitle.astro",
@@ -143,51 +200,53 @@ export default defineConfig({
         {
           label: "Getting Started",
           items: [
-            { label: "Overview", slug: "docs/getting-started/overview" },
-            { label: "Quick Start", slug: "docs/getting-started/quick-start" },
-            { label: "Project Structure", slug: "docs/getting-started/project-structure" },
+            { label: "Overview", slug: "getting-started/overview" },
+            { label: "Quick Start", slug: "getting-started/quick-start" },
+            { label: "Project Structure", slug: "getting-started/project-structure" },
           ],
         },
         {
           label: "Guides",
           items: [
-            { label: "Content Management", slug: "docs/guides/content-management" },
-            { label: "Internationalization", slug: "docs/guides/internationalization" },
-            { label: "Customization", slug: "docs/guides/customization" },
-            { label: "AI-assisted development", slug: "docs/guides/ai-assisted-development" },
+            { label: "Content Management", slug: "guides/content-management" },
+            { label: "Internationalization", slug: "guides/internationalization" },
+            { label: "Customization", slug: "guides/customization" },
+            { label: "AI-assisted development", slug: "guides/ai-assisted-development" },
           ],
         },
         {
           label: "Deployment",
           items: [
-            { label: "Cloudflare Pages", slug: "docs/deployment/cloudflare-pages" },
-            { label: "Environment Variables", slug: "docs/deployment/environment-variables" },
+            { label: "Cloudflare Pages", slug: "deployment/cloudflare-pages" },
+            { label: "Environment Variables", slug: "deployment/environment-variables" },
           ],
         },
       ],
     }),
     mdx(),
     contentValidationIntegration(),
+    redirectsIntegration(),
     sitemap({
+      filter: (page) => !page.includes("/og/"),
       i18n: {
         defaultLocale: "en",
         locales: {
           en: "en-US",
           de: "de-DE",
-          ja: "ja-JP",
           fr: "fr-FR",
           es: "es-ES",
-          pt: "pt-PT",
+          "pt-br": "pt-BR",
           it: "it-IT",
+          ja: "ja-JP",
           ko: "ko-KR",
           nl: "nl-NL",
           pl: "pl-PL",
+          sv: "sv-SE",
+          tr: "tr-TR",
           ru: "ru-RU",
           ar: "ar-SA",
-          "pt-br": "pt-BR",
-          tr: "tr-TR",
           cs: "cs-CZ",
-          sv: "sv-SE",
+          vi: "vi-VN",
         },
       },
     }),
@@ -215,6 +274,7 @@ export default defineConfig({
   },
   build: {
     format: "directory",
+
   },
   markdown: {
     shikiConfig: {

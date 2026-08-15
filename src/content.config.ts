@@ -6,7 +6,7 @@ import { glob } from "astro/loaders";
 
 
 // Add locale codes here when introducing new languages.
-const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt", "it", "ko", "nl", "pl", "ru", "ar", "pt-br", "tr", "cs", "sv"]);
+const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl", "sv", "tr", "ru", "ar", "cs", "vi"]);
 
 const blog = defineCollection({
   loader: glob({
