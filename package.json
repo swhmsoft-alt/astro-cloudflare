@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "scripts\\build.cmd",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run check:geo && pnpm run check:procurement && pnpm run validate:registry && pnpm run check:imports && pnpm run check:unique && pnpm run check:mojibake && pnpm run sync:i18n && pnpm run validate:i18n && pnpm run validate:secrets",
