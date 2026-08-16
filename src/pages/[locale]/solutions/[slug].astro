@@ -1,0 +1,119 @@
+---
+import { buildLocalePaths } from "../../../i18n/availability";
+import type { Locale } from "../../../lib/site-config";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Hero from "../../../components/Hero.astro";
+import CTA from "../../../components/CTA.astro";
+
+export async function getStaticPaths() {
+  const allPages: CollectionEntry<"pages">[] = await getCollection("pages");
+  const solutionEntries = allPages.filter(
+    (p) => p.data.slug?.startsWith("solutions/"),
+  );
+
+  // Group by sub-slug (e.g. "aerospace-defense")
+  const bySubSlug = new Map<string, CollectionEntry<"pages">[]>();
+  for (const entry of solutionEntries) {
+    const subSlug = entry.data.slug.replace("solutions/", "");
+    const arr = bySubSlug.get(subSlug) || [];
+    arr.push(entry);
+    bySubSlug.set(subSlug, arr);
+  }
+
+  const paths = [];
+  for (const [subSlug, entries] of bySubSlug) {
+    const locales = buildLocalePaths(`solutions/${subSlug}`);
+    for (const loc of locales) {
+      const entry = entries.find((e) => e.data.locale === loc);
+      if (!entry) continue;
+      paths.push({
+        params: { locale: loc, slug: subSlug },
+        props: { entry, locale: loc as Locale },
+      });
+    }
+  }
+  return paths;
+}
+
+const { entry, locale } = Astro.props as {
+  entry: CollectionEntry<"pages">;
+  locale: Locale;
+};
+const { Content } = await render(entry);
+const subSlug = entry.data.slug.replace("solutions/", "");
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  locale={locale}
+  path={`/${locale === "en" ? "" : locale + "/"}solutions/${subSlug}`}
+>
+  <Hero
+    variant="centered"
+    size="md"
+    eyebrow="Solutions"
+    title={entry.data.title}
+    content={entry.data.description}
+    locale={locale}
+  />
+
+  <section class="c py-16">
+    <div class="prose-wrapper">
+      <Content />
+    </div>
+  </section>
+
+  <CTA
+    eyebrow="Neutral engineering reference"
+    title="Continue exploring the titanium knowledge base"
+    content="Neutral, vendor-independent technical guidance on titanium grades, processes, and standards to support your engineering decisions."
+    ctaText="Browse Titanium Grades"
+    ctaHref="/grades/"
+    secondaryText="Compare Materials"
+    secondaryHref="/compare/"
+    locale={locale}
+  />
+</BaseLayout>
+
+<style>
+  .prose-wrapper {
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+  .prose-wrapper :global(h2) {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .prose-wrapper :global(h3) {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .prose-wrapper :global(p) {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+  .prose-wrapper :global(ul) {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+    list-style: disc;
+  }
+  .prose-wrapper :global(li) {
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+  .prose-wrapper :global(strong) {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+</style>

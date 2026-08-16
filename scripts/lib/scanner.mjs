@@ -23,7 +23,7 @@ const CONTENT_DIR = resolve(ROOT, "src", "content");
 // ── Collection definitions ────────────────────────────────────────────────────
 const COLLECTIONS = {
   // Starlight docs (locale subdirectory mode)
-  docs: { dir: "docs/en", isStarlight: true },
+  docs: { dir: "docs", isStarlight: true },
   // Site content
   blog: { dir: "site/blog", isStarlight: false },
   pages: { dir: "site/pages", isStarlight: false },
@@ -50,6 +50,8 @@ const COLLECTIONS = {
 };
 
 const VALID_EXTS = new Set([".md", ".mdx", ".json"]);
+const LOCALE_CODES = new Set(["en","de","ja","fr","es","pt-br","it","ko","nl","pl","sv","tr","ru","ar","cs","vi"]);
+const LOCALE_SUFFIX_RE = new RegExp("-(" + Array.from(LOCALE_CODES).join("|") + ")$");
 
 // ── Public API ────────────────────────────────────────────────────────────────
 
@@ -72,13 +74,21 @@ export function scan({ locale, from = "en", collection, dir, force = false }) {
     throw new Error(`Source directory not found: ${srcDir}`);
   }
 
+  const cfg = COLLECTIONS[collection];
   const files = [];
   walkDir(srcDir, (filePath) => {
     const ext = extname(filePath).toLowerCase();
     if (!VALID_EXTS.has(ext)) return;
 
+    // Skip files that already have any locale suffix (they are not source files)
+    const base = basename(filePath, ext);
+    if (LOCALE_SUFFIX_RE.test(base)) return;
+
     const relPath = relative(srcDir, filePath);
     const targetPath = resolveTargetPath(filePath, relPath, srcDir, collection, locale, from);
+
+    // Skip if no target can be resolved (e.g. file already has locale suffix)
+    if (!targetPath) return;
 
     // Skip if target already exists and not forced
     if (!force && existsSync(targetPath)) return;
@@ -90,7 +100,7 @@ export function scan({ locale, from = "en", collection, dir, force = false }) {
       stats: statSync(filePath),
       ext,
     });
-  });
+  }, cfg && cfg.isStarlight ? LOCALE_CODES : null);
 
   // Sort by path for deterministic ordering
   files.sort((a, b) => a.relativePath.localeCompare(b.relativePath));
@@ -106,7 +116,7 @@ export function listCollections() {
     const dir = resolve(CONTENT_DIR, cfg.dir);
     let fileCount = 0;
     if (existsSync(dir)) {
-      walkDir(dir, () => { fileCount++; });
+      walkDir(dir, () => { fileCount++; }, cfg.isStarlight ? LOCALE_CODES : null);
     }
     result.push({ name, dir: cfg.dir, isStarlight: cfg.isStarlight, fileCount });
   }
@@ -129,8 +139,7 @@ function resolveTargetPath(filePath, relPath, srcDir, collection, locale, from) 
 
   if (cfg?.isStarlight) {
     // Starlight subdirectory mode: src/content/docs/en/... → src/content/docs/{locale}/...
-    const parentDir = dirname(srcDir); // e.g. src/content/docs
-    return resolve(parentDir, locale, relPath);
+    return resolve(srcDir, locale, relPath);
   }
 
   // Suffix mode: file.md → file-{locale}.md
@@ -141,7 +150,7 @@ function resolveTargetPath(filePath, relPath, srcDir, collection, locale, from) 
   return resolve(dirname(filePath), `${base}-${locale}${ext}`);
 }
 
-function walkDir(dir, callback) {
+function walkDir(dir, callback, skipDirs) {
   let entries;
   try {
     entries = readdirSync(dir, { withFileTypes: true });
@@ -151,7 +160,8 @@ function walkDir(dir, callback) {
   for (const entry of entries) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
-      walkDir(full, callback);
+      if (skipDirs && skipDirs.has(entry.name)) continue;
+      walkDir(full, callback, skipDirs);
     } else if (entry.isFile()) {
       callback(full);
     }
