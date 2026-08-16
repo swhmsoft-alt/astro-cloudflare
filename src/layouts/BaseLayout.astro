@@ -43,11 +43,11 @@ const {
 } = restProps;
 
 function defaultOgImage(routePath: string) {
-  if (routePath === "/") return ogImagePath("home", locale);
-  if (routePath === "/blog") return ogImagePath("blog-list", locale);
+  if (routePath === "/") return ogImagePath("home", locale, "/");
+  if (routePath === "/blog") return ogImagePath("blog-list", locale, "/blog");
   if (routePath.startsWith("/blog/"))
     return ogImagePath("blog", locale, "/" + routePath.slice("/blog/".length));
-  if (routePath === "/services") return ogImagePath("services-list", locale);
+  if (routePath === "/services") return ogImagePath("services-list", locale, "/services");
   if (routePath.startsWith("/services/"))
     return ogImagePath("service", locale, "/" + routePath.slice("/services/".length));
   return ogImagePath("page", locale, routePath);
