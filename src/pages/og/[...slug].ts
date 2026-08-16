@@ -118,7 +118,7 @@ const BLOG_BY_ID: Record<string, { title: string; description: string }> =
     ),
   );
 
-const SERVICE_BY_SLUG: Record<string, { title: string; description: string }> = {};
+const _SERVICE_BY_SLUG: Record<string, { title: string; description: string }> = {};
 const PAGE_BY_LOCALE_AND_SLUG: Record<
   string,
   { title: string; description: string }

@@ -471,7 +471,7 @@ const equipment = defineCollection({
     category: z.string().optional(),
     manufacturer: z.string().optional(),
     model: z.string().optional(),
-    specs: z.record(z.union([z.string(), z.number(), z.boolean()])).default({}),
+    specs: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).default({}),
     applications: z.array(z.string()).default([]),
     industries: z.array(z.string()).default([]),
     order: z.number().default(0),
