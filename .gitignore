@@ -115,3 +115,5 @@ reports/qa-*.md
 
 # External agent tool directory (local-only — Kilo agent runtime)
 .kilo/
+# AI session handoff (local-only scratch — not committed)
+__session_handoff.md
