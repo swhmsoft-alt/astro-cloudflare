@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { siteConfig } from "../config/site.config";
 import { countTags, filterByTag, sortTagsByCount } from "./tags";
 import { calcReadingTime, slugify } from "./utils";
-import type { Locale } from "./site-config";
+import type { Locale } from "../config/site.config";
 
 export type BlogPost = CollectionEntry<"blog">;
 

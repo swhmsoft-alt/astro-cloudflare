@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { buildCollectionPageSchema, buildItemListSchema } from "../../../lib/schema";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../lib/site-config";
+import type { Locale } from "../../../config/site.config";
 import EntityPillar from "../../../pages/_shared/_EntityPillar.astro";
 import { buildLocalePaths } from "../../../i18n/availability";
 export async function getStaticPaths() {
@@ -38,8 +38,8 @@ const schemas = [collectionSchema, itemListSchema].filter(
 ---
 <EntityPillar
   collectionName="surfaceFinishes"
-  pageTitle="Titanium Surface Finishes Guide"
-  pageDescription="Complete guide to titanium surface treatments: anodizing, passivation, polishing, bead blasting, and PVD coating."
+  pageTitleKey="finishes.pageTitle"
+  pageDescriptionKey="finishes.pageDescription"
   locale={locale}
   path="/finishes/"
   jsonLd={schemas}

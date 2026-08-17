@@ -1,5 +1,5 @@
-import type { Locale } from "../lib/site-config";
-import { SITE_CONFIG } from "../lib/site-config";
+import type { Locale } from "../config/site.config";
+import { SITE_CONFIG } from "../config/site.config";
 
 /**
  * Get the URL prefix for a given locale.

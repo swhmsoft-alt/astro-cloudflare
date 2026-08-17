@@ -1,6 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import { resolveRoute } from "../i18n/routes";
-import type { Locale } from "./site-config";
+import type { Locale } from "../config/site.config";
 
 export type BlogLinkEntry = CollectionEntry<"blog">;
 export type ServiceLinkEntry = CollectionEntry<"services">;

@@ -112,3 +112,6 @@ secrets/
 .translation-cache.json
 reports/qa-*.md
 
+
+# External agent tool directory (local-only — Kilo agent runtime)
+.kilo/

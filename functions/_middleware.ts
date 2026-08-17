@@ -20,8 +20,8 @@
  *     default). Without it Cloudflare Pages assumes SPA mode and serves the
  *     root index for unmatched paths, which would defeat the 404 detection.
  *
- * Locale list below must stay in sync with SITE_CONFIG.locales
- * (src/lib/site-config.ts) — only the non-English members.
+ * Locale list below must stay in sync with `siteConfig.i18n.locales`
+ * (src/config/site.config.ts) — only the non-English members.
  */
 
 interface MiddlewareContext {
@@ -39,12 +39,6 @@ const NON_EN_LOCALES = new Set([
   "ko",
   "nl",
   "pl",
-  "sv",
-  "tr",
-  "ru",
-  "ar",
-  "cs",
-  "vi",
 ]);
 
 export async function onRequest(context: MiddlewareContext): Promise<Response> {

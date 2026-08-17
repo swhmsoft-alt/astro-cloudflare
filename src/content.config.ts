@@ -6,7 +6,9 @@ import { glob } from "astro/loaders";
 
 
 // Add locale codes here when introducing new languages.
-const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl", "sv", "tr", "ru", "ar", "cs", "vi"]);
+// Active set is governed by `.clinerules/translation-governance.md` and the
+// `LOCALES` constant in `src/config/site.config.ts`.
+const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl"]);
 
 const blog = defineCollection({
   loader: glob({

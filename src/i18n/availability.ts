@@ -10,8 +10,8 @@
  * 当新翻译文件添加后，更新 SITE_PAGES_TRANSLATIONS 和 COLLECTION_TRANSLATIONS。
  */
 
-import type { Locale } from "../lib/site-config";
-import { SITE_CONFIG } from "../lib/site-config";
+import type { Locale } from "../config/site.config";
+import { SITE_CONFIG } from "../config/site.config";
 
 /**
  * PageId = 路由路径标识（不含语言前缀，首尾无斜杠）。
@@ -89,7 +89,12 @@ export function getAvailableLocales(pageId: PageId): Locale[] {
     return [...SITE_CONFIG.locales] as Locale[];
   }
 
-  // 4. 未知页面，只返回 en（安全兜底）
+  // 4. 检查 AVAILABILITY 显式声明的页面
+  if (AVAILABILITY[pageId]) {
+    return AVAILABILITY[pageId];
+  }
+
+  // 5. 未知页面，只返回 en（安全兜底）
   return ["en"];
 }
 
@@ -123,17 +128,22 @@ export const AVAILABILITY: Record<string, Locale[]> = {
   "solutions/medical-device":     ["en", "de", "es"],
   "solutions/semiconductor":      ["en", "de", "es"],
 
-  // ── 纯 UI / 集合页面（仅英文） ──
-  "compare":          ["en"],
-  "guides":           ["en"],
-  "faq":              ["en"],
-  "corrosion/index":  ["en"],
-  "equipment/index":  ["en"],
-  "failures/index":   ["en"],
-  "finishes/index":   ["en"],
-  "grades/index":     ["en"],
-  "heat-treatment/index": ["en"],
-  "industries/index": ["en"],
+  // ── 知识库页面（已有 de 翻译） ──
+  "compare":          ["en", "de"],
+  "guides":           ["en", "de"],
+  "faq":              ["en", "de"],
+  "corrosion/index":  ["en", "de"],
+  "equipment/index":  ["en", "de"],
+  "failures/index":   ["en", "de"],
+  "finishes/index":   ["en", "de"],
+  "grades/index":     ["en", "de"],
+  "heat-treatment/index": ["en", "de"],
+  "industries/index": ["en", "de"],
+  "processes/index":  ["en", "de"],
+  "selection/index":  ["en", "de"],
+  "standards/index":  ["en", "de"],
+
+  // ── 行业子页面（尚未翻译，仅英文） ──
   "industries/aerospace": ["en"],
   "industries/automotive": ["en"],
   "industries/chemical-processing": ["en"],
@@ -142,9 +152,6 @@ export const AVAILABILITY: Record<string, Locale[]> = {
   "industries/medical": ["en"],
   "industries/oil-and-gas": ["en"],
   "industries/semiconductor": ["en"],
-  "processes/index":  ["en"],
-  "selection/index":  ["en"],
-  "standards/index":  ["en"],
   "tools/index":      ["en"],
   "tools/grade-comparison": ["en"],
   "tools/hardness-converter": ["en"],
@@ -154,16 +161,6 @@ export const AVAILABILITY: Record<string, Locale[]> = {
 // 核心集合（core/*）尚无翻译，所有页面仅 en 可用
 // ──────────────────────────────────────────────
 const EN_ONLY_PAGES = new Set([
-  "compare",
-  "guides",
-  "faq",
-  "corrosion/index",
-  "equipment/index",
-  "failures/index",
-  "finishes/index",
-  "grades/index",
-  "heat-treatment/index",
-  "industries/index",
   "industries/aerospace",
   "industries/automotive",
   "industries/chemical-processing",
@@ -172,12 +169,14 @@ const EN_ONLY_PAGES = new Set([
   "industries/medical",
   "industries/oil-and-gas",
   "industries/semiconductor",
-  "processes/index",
-  "selection/index",
-  "standards/index",
   "tools/index",
   "tools/grade-comparison",
   "tools/hardness-converter",
+  // ── 仅英文内容集合 ──
+  "evidence/index",
+  "procurement/index",
+  "applications/index",
+  "cases/index",
 ]);
 /**
  * buildLocalePaths - getStaticPaths params for [locale] routes.

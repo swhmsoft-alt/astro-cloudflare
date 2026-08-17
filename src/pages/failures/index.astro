@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../lib/site-config";
+import type { Locale } from "../../config/site.config";
 const locale = (Astro.currentLocale || "en") as Locale;
 
 const entries = (await getCollection("failureAnalysis"))

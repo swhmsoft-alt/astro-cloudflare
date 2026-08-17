@@ -29,6 +29,11 @@ sidebar:
 
 ## Key Patterns
 
-- **Locale routing**: default-locale routes live at the root; add `src/pages/[locale]/` routes when introducing more languages.
-- **Content collections**: Markdown files in `src/content/` with a `locale` frontmatter field (English by default).
+- **Locale routing**: the default locale (`en`) lives at the root; the
+  nine prefixed locales (`de`, `ja`, `fr`, `es`, `pt-br`, `it`, `ko`,
+  `nl`, `pl`) are served under `src/pages/[locale]/`. The active set is
+  governed by `.clinerules/translation-governance.md`.
+- **Content collections**: Markdown files in `src/content/` with a `locale`
+  frontmatter field (English by default). The `locale` enum is validated by
+  `src/content.config.ts`.
 - **Content editing**: pure Git/Markdown — edit files and open a pull request.

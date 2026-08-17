@@ -7,7 +7,8 @@ export async function getStaticPaths() {
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
 import { resolveRoute } from "../../i18n/routes";
-import type { Locale } from "../../lib/site-config";
+import { t } from "../../i18n/ui";
+import type { Locale } from "../../config/site.config";
 
 const locale = (Astro.props.locale || "en") as Locale;
 
@@ -16,26 +17,26 @@ const entries = (await getCollection("comparisons"))
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
 const typeLabels: Record<string, string> = {
-  "material": "Material Comparison",
-  "process": "Process Comparison",
-  "surface-finish": "Surface Finish Comparison",
-  "commercial": "Commercial Decision",
+  "material": t(locale, "compare.type.material"),
+  "process": t(locale, "compare.type.process"),
+  "surface-finish": t(locale, "compare.type.surfaceFinish"),
+  "commercial": t(locale, "compare.type.commercial"),
 };
 
 ---
 
 <MarketingLayout
-  title="Titanium Manufacturing Comparisons — Choose the Right Material, Process & Finish"
-  description="Side-by-side comparisons for titanium manufacturing decisions. Material selection, process comparison, surface finish comparison, and cost analysis guides for engineers and procurement managers."
+  title={t(locale, "compare.pageTitle")}
+  description={t(locale, "compare.pageDescription")}
   locale={locale}
   path="/compare/"
 >
   <section class="container py-16">
     <header class="section-head">
-      <p class="section-head__eyebrow">Decision Guides</p>
-      <h1 class="section-head__title">Titanium Manufacturing Comparisons</h1>
+      <p class="section-head__eyebrow">{t(locale, "compare.eyebrow")}</p>
+      <h1 class="section-head__title">{t(locale, "compare.heading")}</h1>
       <p class="section-head__lead">
-        Evidence-based side-by-side comparisons to help engineers and procurement managers make informed decisions about materials, processes, and surface finishes for titanium components.
+        {t(locale, "compare.lead")}
       </p>
     </header>
 
@@ -54,7 +55,7 @@ const typeLabels: Record<string, string> = {
               <span class="cmp-card__entity">{entry.data.entityB}</span>
             </div>
             <div class="cmp-card__quick">{entry.data.quickAnswer.slice(0, 120)}...</div>
-            <span class="cmp-card__cta">View full comparison &rarr;</span>
+            <span class="cmp-card__cta">{t(locale, "compare.viewFull")}</span>
           </a>
         );
       })}

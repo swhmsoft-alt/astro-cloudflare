@@ -1,4 +1,4 @@
-import type { Locale } from "../lib/site-config";
+import type { Locale } from "../config/site.config";
 import en from "./en.json";
 import de from "./de.json";
 import ja from "./ja.json";
@@ -9,12 +9,11 @@ import it from "./it.json";
 import ko from "./ko.json";
 import nl from "./nl.json";
 import pl from "./pl.json";
-import sv from "./sv.json";
-import tr from "./tr.json";
-import ru from "./ru.json";
-import ar from "./ar.json";
-import cs from "./cs.json";
-import vi from "./vi.json";
+
+// The dormant JSON files (./sv.json, ./tr.json, ./ru.json, ./ar.json,
+// ./cs.json, ./vi.json) are kept on disk for future re-enablement per
+// `.clinerules/translation-governance.md` §1, but their imports are
+// intentionally NOT registered here — they would fail the `Locale` type.
 
 export type TranslationDict = Record<string, string>;
 
@@ -30,12 +29,6 @@ export const translations: Partial<Record<Locale, TranslationDict>> = {
   ko,
   nl,
   pl,
-  sv,
-  tr,
-  ru,
-  ar,
-  cs,
-  vi,
 };
 
 /**

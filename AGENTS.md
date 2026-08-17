@@ -22,8 +22,9 @@ This repo is built to be operated by AI coding agents. Stay **on-system**.
   no Tailwind palette utilities (`bg-blue-500`). Use semantic tokens
   (`bg-primary`, `text-foreground`, `var(--muted-foreground)`).
 - Dark mode must keep working (class strategy). Never hand-invert colors.
-- Preserve i18n (en default + `/id/`), Cloudflare Pages, SEO/OG/RSS/sitemap,
-  Pagefind, and Starlight docs.
+- Preserve i18n (en default + 9 prefixed locales `de, ja, fr, es, pt-br, it, ko, nl, pl`),
+  Cloudflare Pages, SEO/OG/RSS/sitemap, Pagefind, and Starlight docs.
+  See `.clinerules/translation-governance.md` for the locale matrix and translation rules.
 - New routes ship in both locales: `src/pages/x.astro` **and** `src/pages/[locale]/x.astro`.
 
 ---

@@ -15,7 +15,7 @@ import {
   siteConfig as defaultSiteConfig,
   type SiteConfig,
 } from "../config/site.config";
-import { ensureTrailingSlash } from "./site-config";
+import { ensureTrailingSlash } from "../config/site.config";
 
 export function buildWebSiteSchema(
   site: Pick<SiteConfig, "name" | "url" | "description"> = defaultSiteConfig,

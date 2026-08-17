@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import { buildCollectionPageSchema, buildItemListSchema } from "../../../lib/schema";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../lib/site-config";
+import type { Locale } from "../../../config/site.config";
 import { buildLocalePaths } from "../../../i18n/availability";
 export async function getStaticPaths() {
   return buildLocalePaths("equipment/index").map((l) => ({ params: { locale: l }, props: { locale: l } }));
@@ -38,8 +38,8 @@ const schemas = [collectionSchema, itemListSchema].filter(
 ---
 <EntityPillar
   collectionName="equipment"
-  pageTitle="Titanium Manufacturing Machines & Equipment"
-  pageDescription="Comprehensive equipment specification sheets for CNC machining, additive manufacturing, metrology, heat treatment, and surface finishing."
+  pageTitleKey="equipment.pageTitle"
+  pageDescriptionKey="equipment.pageDescription"
   locale={locale}
   path="/equipment/"
   jsonLd={schemas}

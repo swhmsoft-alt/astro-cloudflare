@@ -48,7 +48,7 @@ if (existsSync("dist")) {
   const localeCounts = {};
   for (const f of items) {
     const parts = f.replace(/\\/g, "/").split("/");
-    const locale = parts[0] === "en" || parts[0] === "de" || parts[0] === "ja" || parts[0] === "fr" || parts[0] === "es" || parts[0] === "pt-br" || parts[0] === "it" || parts[0] === "ko" || parts[0] === "nl" || parts[0] === "pl" || parts[0] === "sv" || parts[0] === "tr" || parts[0] === "ru" || parts[0] === "ar" || parts[0] === "cs" || parts[0] === "vi" ? parts[0] : "root";
+    const locale = parts[0] === "en" || parts[0] === "de" || parts[0] === "ja" || parts[0] === "fr" || parts[0] === "es" || parts[0] === "pt-br" || parts[0] === "it" || parts[0] === "ko" || parts[0] === "nl" || parts[0] === "pl" ? parts[0] : "root";
     localeCounts[locale] = (localeCounts[locale] || 0) + 1;
   }
   console.log("Page distribution:", JSON.stringify(localeCounts, null, 2));

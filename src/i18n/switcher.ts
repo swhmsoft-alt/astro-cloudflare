@@ -1,4 +1,4 @@
-import type { Locale } from "../lib/site-config";
+import type { Locale } from "../config/site.config";
 import { stripLocale, localePrefix } from "./routes";
 
 /**

@@ -3,7 +3,7 @@ import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import { siteConfig } from "../../../config/site.config";
 import { buildFAQSchema } from "../../../lib/schema";
 import { resolveRoute } from "../../../i18n/routes";
-import type { Locale } from "../../../lib/site-config";
+import type { Locale } from "../../../config/site.config";
 import cncData from "../../../content/core/cnc-5axis.json";
 
 const locale = (Astro.currentLocale || "en") as Locale;

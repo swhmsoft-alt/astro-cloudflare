@@ -11,7 +11,7 @@ import Q from"../../components/FAQ.astro";
 import{t}from"../../i18n/ui";
 import{resolveRoute}from"../../i18n/routes";
 import{siteConfig as s}from"../../config/site.config";
-import type{Locale as L}from"../../lib/site-config";
+import type{Locale as L}from"../../config/site.config";
 import J from"../../components/seo/JsonLd.astro";
 import{buildWebSiteSchema as ws,buildOrganizationSchema as o,buildBreadcrumbSchema as b,buildFAQSchema as q}from"../../lib/schema";
 const lc=(Astro.props.locale||'en')as L;

@@ -17,7 +17,7 @@ import {
 import { t } from "../../i18n/ui";
 import { buildBreadcrumbSchema } from "../../lib/schema";
 import JsonLd from "../seo/JsonLd.astro";
-import type { Locale } from "../../lib/site-config";
+import type { Locale } from "../../config/site.config";
 
 const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 const locale = detectLocale(pathname) as Locale;

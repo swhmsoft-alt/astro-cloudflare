@@ -1,5 +1,5 @@
 import { siteConfig } from "../config/site.config";
-import { ensureTrailingSlash, type Locale } from "./site-config";
+import { ensureTrailingSlash, type Locale } from "../config/site.config";
 import { localePrefix, stripLocale } from "../i18n/routes";
 import {
   buildWebSiteSchema,

@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { siteConfig } from "../config/site.config";
 import { countTags, filterByTag, sortTagsByCount } from "./tags";
-import type { Locale } from "./site-config";
+import type { Locale } from "../config/site.config";
 
 /**
  * Services collection is not used. This project is a knowledge graph hub.

@@ -19,7 +19,7 @@ export interface I18nConfig {
 
 export const i18nConfig: I18nConfig = {
   enabled: true,
-  locales: ["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl", "sv", "tr", "ru", "ar", "cs", "vi"],
+  locales: ["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl"],
   defaultLocale: "en",
   routing: {
     prefixDefaultLocale: false,

@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { buildCollectionPageSchema, buildItemListSchema } from "../../../lib/schema";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../lib/site-config";
+import type { Locale } from "../../../config/site.config";
 import EntityPillar from "../../../pages/_shared/_EntityPillar.astro";
 import { buildLocalePaths } from "../../../i18n/availability";
 export async function getStaticPaths() {
@@ -38,8 +38,8 @@ const schemas = [collectionSchema, itemListSchema].filter(
 ---
 <EntityPillar
   collectionName="materialSelection"
-  pageTitle="Titanium Material Selection Guides"
-  pageDescription="Expert guides for selecting the right titanium grade for your application. Compare properties across grades."
+  pageTitleKey="selection.pageTitle"
+  pageDescriptionKey="selection.pageDescription"
   locale={locale}
   path="/selection/"
   jsonLd={schemas}

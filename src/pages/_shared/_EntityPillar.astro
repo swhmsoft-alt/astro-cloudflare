@@ -3,18 +3,22 @@ import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
 import { t } from "../../i18n/ui";
 import { resolveRoute } from "../../i18n/routes";
-import type { Locale } from "../../lib/site-config";
+import type { Locale } from "../../config/site.config";
 
 export interface Props {
   collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "materialSelection" | "failureAnalysis" | "heatTreatment" | "corrosion" | "evidence" | "procurement" | "applications" | "cases";
-  pageTitle: string;
-  pageDescription: string;
+  pageTitle?: string;
+  pageDescription?: string;
+  pageTitleKey?: string;
+  pageDescriptionKey?: string;
   locale: Locale;
   path: string;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const { collectionName, pageTitle, pageDescription, locale, path, jsonLd } = Astro.props as Props;
+const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, locale, path, jsonLd } = Astro.props as Props;
+const resolvedTitle = pageTitleKey ? t(locale, pageTitleKey) : (pageTitle || "");
+const resolvedDescription = pageDescriptionKey ? t(locale, pageDescriptionKey) : (pageDescription || "");
 const enOnlyModules = ["evidence", "procurement", "applications", "cases"];
 const enOnly = enOnlyModules.includes(collectionName);
 
@@ -41,8 +45,8 @@ const collectionLabels: Record<string, string> = {
 ---
 
 <MarketingLayout
-  title={pageTitle}
-  description={pageDescription}
+  title={resolvedTitle}
+  description={resolvedDescription}
   locale={locale}
   path={path}
   hreflangLocales={enOnly ? ["en"] : undefined}
@@ -51,8 +55,8 @@ const collectionLabels: Record<string, string> = {
   <section class="container py-16">
     <header class="section-head">
       <p class="section-head__eyebrow">{t(locale, collectionLabels[collectionName] || collectionName)}</p>
-      <h1 class="section-head__title">{pageTitle}</h1>
-      <p class="section-head__lead">{pageDescription}</p>
+      <h1 class="section-head__title">{resolvedTitle}</h1>
+      <p class="section-head__lead">{resolvedDescription}</p>
     </header>
 
     <div class="entity-grid">

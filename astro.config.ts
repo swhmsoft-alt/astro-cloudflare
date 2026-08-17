@@ -9,7 +9,6 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, extname, basename, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { siteConfig } from "./src/config/site.config";
-import { SITE_CONFIG } from "./src/lib/site-config";
 
 async function collectFiles(dir: string, extensions: string[]): Promise<string[]> {
   const results: string[] = [];
@@ -94,7 +93,8 @@ function contentValidationIntegration() {
           ),
         );
 
-        const supportedLocales = ["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl", "sv", "tr", "ru", "ar", "cs", "vi"];
+        // Keep in sync with `LOCALES` in src/config/site.config.ts (10 languages).
+        const supportedLocales = ["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl"];
         for (const collection of entries) {
           validateDuplicates(collection, supportedLocales);
         }
@@ -145,6 +145,20 @@ function redirectsIntegration() {
 
 export default defineConfig({
   site: siteConfig.url,
+  // Astro 7 built-in i18n routing.
+  // - defaultLocale + locales are driven by siteConfig.i18n (10 languages).
+  // - prefixDefaultLocale: false → English lives at the root.
+  // - fallbackType: "redirect" → missing translations 302 to the English equivalent
+  //   (handled by `functions/_middleware.ts` for static assets; this setting
+  //   covers dynamic i18n URLs Astro generates internally).
+  i18n: {
+    defaultLocale: siteConfig.i18n.defaultLocale,
+    locales: [...siteConfig.i18n.locales],
+    routing: {
+      prefixDefaultLocale: siteConfig.i18n.routing.prefixDefaultLocale,
+      fallbackType: "redirect",
+    },
+  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "hover",
@@ -166,25 +180,6 @@ export default defineConfig({
   integrations: [
     starlight({
       title: siteConfig.name,
-  defaultLocale: "root",
-      locales: {
-        root: { label: "English", lang: "en" },
-        de: { label: "Deutsch", lang: "de" },
-        fr: { label: "Français", lang: "fr" },
-        es: { label: "Español", lang: "es" },
-        "pt-br": { label: "Português (Brasil)", lang: "pt-BR" },
-        it: { label: "Italiano", lang: "it" },
-        ja: { label: "日本語", lang: "ja" },
-        ko: { label: "한국어", lang: "ko" },
-        nl: { label: "Nederlands", lang: "nl" },
-        pl: { label: "Polski", lang: "pl" },
-        sv: { label: "Svenska", lang: "sv" },
-        tr: { label: "Türkçe", lang: "tr" },
-        ru: { label: "Русский", lang: "ru" },
-        ar: { label: "العربية", lang: "ar", dir: "rtl" },
-        cs: { label: "Čeština", lang: "cs" },
-        vi: { label: "Tiếng Việt", lang: "vi" },
-      },
       pagefind: process.env.SKIP_PAGEFIND !== "true",
       customCss: ["./src/styles/starlight.css"],
       components: {
@@ -241,12 +236,6 @@ export default defineConfig({
           ko: "ko-KR",
           nl: "nl-NL",
           pl: "pl-PL",
-          sv: "sv-SE",
-          tr: "tr-TR",
-          ru: "ru-RU",
-          ar: "ar-SA",
-          cs: "cs-CZ",
-          vi: "vi-VN",
         },
       },
     }),
