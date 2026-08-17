@@ -94,7 +94,7 @@ function contentValidationIntegration() {
         );
 
         // Keep in sync with `LOCALES` in src/config/site.config.ts (10 languages).
-        const supportedLocales = ["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl"];
+        const supportedLocales = ["en"];
         for (const collection of entries) {
           validateDuplicates(collection, supportedLocales);
         }
@@ -145,20 +145,7 @@ function redirectsIntegration() {
 
 export default defineConfig({
   site: siteConfig.url,
-  // Astro 7 built-in i18n routing.
-  // - defaultLocale + locales are driven by siteConfig.i18n (10 languages).
-  // - prefixDefaultLocale: false → English lives at the root.
-  // - fallbackType: "redirect" → missing translations 302 to the English equivalent
-  //   (handled by `functions/_middleware.ts` for static assets; this setting
-  //   covers dynamic i18n URLs Astro generates internally).
-  i18n: {
-    defaultLocale: siteConfig.i18n.defaultLocale,
-    locales: [...siteConfig.i18n.locales],
-    routing: {
-      prefixDefaultLocale: siteConfig.i18n.routing.prefixDefaultLocale,
-      fallbackType: "redirect",
-    },
-  },
+  // i18n block removed — site is English-only.
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "hover",
@@ -223,21 +210,7 @@ export default defineConfig({
     redirectsIntegration(),
     sitemap({
       filter: (page) => !page.includes("/og/"),
-      i18n: {
-        defaultLocale: "en",
-        locales: {
-          en: "en-US",
-          de: "de-DE",
-          fr: "fr-FR",
-          es: "es-ES",
-          "pt-br": "pt-BR",
-          it: "it-IT",
-          ja: "ja-JP",
-          ko: "ko-KR",
-          nl: "nl-NL",
-          pl: "pl-PL",
-        },
-      },
+
     }),
     react(),
     icon(),

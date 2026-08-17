@@ -15,23 +15,6 @@ test.describe('navigation chrome', () => {
  });
  });
 
- test('language switcher button is visible and opens menu', async ({ page }) => {
- test.setTimeout(60_000);
- await page.goto('/', { waitUntil: 'domcontentloaded' });
- const trigger = page.locator('.language-switcher-trigger').first();
- await expect(trigger).toBeVisible({ timeout: 30_000 });
- await expect(trigger).toHaveAttribute('aria-haspopup', 'true');
- // Click to open dropdown
- await trigger.click();
- const menu = page.locator('.language-switcher-dropdown');
- await expect(menu).toBeVisible({ timeout: 10_000 });
- // Verify at least one locale link exists
- const firstItem = page.locator('.language-switcher-item').first();
- await expect(firstItem).toBeVisible();
- const href = await firstItem.getAttribute('href');
- expect(href).toBeTruthy();
- });
-
  test('dark mode toggle flips the html dark class', async ({ page }) => {
  test.setTimeout(60_000);
  await page.goto('/', { waitUntil: 'domcontentloaded' });
