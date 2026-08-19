@@ -50,8 +50,12 @@ export interface Props {
    * per-node JSON-LD blobs passed here are still emitted as separate
    * `<script>` tags alongside site-wide defaults for backwards
    * compatibility, but pages that supply a `pageGraph` should drop this.
+   *
+   * Typed as `unknown` to accept schema-dts `WithContext<T>` payloads (which
+   * lack a string index signature) and hand-rolled objects. The component
+   * only serialises the value via `JSON.stringify`, so `unknown` is safe.
    */
-  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  jsonLd?: unknown | unknown[];
 }
 
 const {
@@ -88,7 +92,7 @@ const verification = siteConfig.verification;
 // defaults). Otherwise fall back to the legacy behavior (Organization +
 // WebSite + any per-node `jsonLd` blobs).
 let emitPageGraph: Record<string, unknown> | null = null;
-let emitLegacySchemas: Record<string, unknown>[] = [];
+let emitLegacySchemas: unknown[] = [];
 if (pageGraph) {
   emitPageGraph = pageGraph;
 } else {

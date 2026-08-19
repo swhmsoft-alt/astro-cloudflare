@@ -10,8 +10,13 @@ export interface Props {
   description: string;
   locale: Locale;
   path: string;
-  /** Page-specific JSON-LD entries merged alongside site-wide defaults. */
-  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /**
+   * Page-specific JSON-LD entries merged alongside site-wide defaults.
+   * Typed as `unknown` to accept both schema-dts `WithContext<T>` payloads
+   * (which lack a string index signature) and hand-rolled objects. See
+   * `JsonLd.astro` for the same rationale.
+   */
+  jsonLd?: unknown | unknown[];
   /**
    * Page-specific `@graph` JSON-LD document. When provided, this single
    * document REPLACES the site-wide defaults (Organization + WebSite) and

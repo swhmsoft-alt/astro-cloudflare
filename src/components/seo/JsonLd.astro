@@ -1,6 +1,13 @@
 ---
 export interface Props {
-  schema: Record<string, unknown> | Array<Record<string, unknown>>;
+  /**
+   * Any JSON-LD payload: a single `@graph` document, a legacy per-node
+   * schema, or an array of either. Typed as `unknown` because schema-dts
+   * `WithContext<T>` types lack a string index signature and therefore
+   * cannot be assigned to `Record<string, unknown>`. The component only
+   * serialises the value via `JSON.stringify`, so `unknown` is safe.
+   */
+  schema: unknown | unknown[];
 }
 
 const { schema } = Astro.props as Props;

@@ -28,8 +28,13 @@ export interface Props {
   pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
   /** Open Graph object type ("article" for knowledge articles). */
   ogType?: "website" | "article" | "profile";
-  /** Legacy per-node JSON-LD blobs. */
-  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /**
+   * Legacy per-node JSON-LD blobs. Typed as `unknown` to accept both
+   * schema-dts `WithContext<T>` payloads (which lack a string index
+   * signature) and hand-rolled objects. See `JsonLd.astro` for the same
+   * rationale.
+   */
+  jsonLd?: unknown | unknown[];
   /** Disable the inline BreadcrumbList JSON-LD (when the page already emits it inside its `@graph`). */
   emitBreadcrumbJsonLd?: boolean;
 }

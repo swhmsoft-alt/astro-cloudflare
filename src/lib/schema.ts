@@ -8,7 +8,6 @@ import type {
   HowToStep,
   Organization,
   Person,
-  Product,
   Service,
   WebSite,
   WithContext,
