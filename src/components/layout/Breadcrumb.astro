@@ -8,6 +8,11 @@
  *
  * Does NOT render on the root homepage or locale root (e.g. /ja/).
  * No props required — reads directly from Astro.url.
+ *
+ * Set `emitJsonLd={false}` when the page already includes a BreadcrumbList
+ * inside its own unified `@graph` document (see `buildKnowledgeArticleGraph`
+ * / `buildPillarGraph` in `lib/schema.ts`) to avoid emitting a duplicate
+ * BreadcrumbList block. Defaults to `true` for legacy pages.
  */
 import {
   detectLocale,
@@ -18,6 +23,18 @@ import { t } from "../../i18n/ui";
 import { buildBreadcrumbSchema } from "../../lib/schema";
 import JsonLd from "../seo/JsonLd.astro";
 import type { Locale } from "../../config/site.config";
+
+export interface Props {
+  /**
+   * Emit a separate `<script type="application/ld+json">` for the
+   * BreadcrumbList. Set to `false` when the page already includes a
+   * BreadcrumbList inside its own `@graph` document.
+   * @default true
+   */
+  emitJsonLd?: boolean;
+}
+
+const { emitJsonLd = true } = Astro.props as Props;
 
 const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 const locale = detectLocale(pathname) as Locale;
@@ -131,7 +148,7 @@ const jsonLd = buildBreadcrumbSchema(
   )
 }
 
-<JsonLd schema={jsonLd} />
+{emitJsonLd && <JsonLd schema={jsonLd} />}
 
 <style>
   .breadcrumb {

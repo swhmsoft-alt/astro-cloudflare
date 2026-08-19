@@ -1,14 +1,17 @@
 ---
-import { type Locale } from "../../config/site.config";
+import { type Locale, type SiteConfig } from "../../config/site.config";
 import {
   canonicalUrl,
   hreflangLinks,
   ogMeta,
-  jsonLdWebSite,
-  jsonLdOrganization,
 } from "../../lib/seo";
 import { siteConfig } from "../../config/site.config";
 import JsonLd from "./JsonLd.astro";
+import {
+  buildWebSiteSchema,
+  buildOrganizationSchema,
+  graphContainsSiteWide,
+} from "../../lib/schema";
 
 export interface SEOArticle {
   publishedTime?: string;
@@ -26,7 +29,28 @@ export interface Props {
   canonical?: string;
   hreflangLocales?: string[];
   article?: SEOArticle;
-  /** Page-specific JSON-LD entries merged alongside site-wide defaults. */
+  /**
+   * Open Graph object type. Defaults to "website". Pass "article" for
+   * knowledge articles (TechArticle / DefinedTerm pages) so social cards
+   * reflect the correct schema.
+   */
+  ogType?: "website" | "article" | "profile";
+  /**
+   * Page-specific `@graph` JSON-LD document. When provided, this single
+   * document REPLACES the site-wide defaults (Organization + WebSite) and
+   * should itself contain the necessary site identity nodes so the page
+   * does not produce duplicate `@type: Organization` entries.
+   *
+   * Use {@link import("../../lib/schema").buildKnowledgeArticleGraph} or
+   * {@link import("../../lib/schema").buildPillarGraph} to construct it.
+   */
+  pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
+  /**
+   * @deprecated Prefer `pageGraph` (a single `@graph` document). Legacy
+   * per-node JSON-LD blobs passed here are still emitted as separate
+   * `<script>` tags alongside site-wide defaults for backwards
+   * compatibility, but pages that supply a `pageGraph` should drop this.
+   */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
@@ -39,6 +63,8 @@ const {
   canonical,
   hreflangLocales,
   article,
+  ogType,
+  pageGraph,
   jsonLd,
 } = Astro.props as Props;
 
@@ -53,24 +79,36 @@ const og = ogMeta({
   locale,
   path,
   image: ogImage,
+  ogType,
 });
 const verification = siteConfig.verification;
 
-// ── JSON-LD: site-wide defaults + page-specific ──
-const siteWideSchemas = [
-  jsonLdOrganization(), // Organization (logo, social, contact)
-  jsonLdWebSite(), // WebSite (name, search action)
-];
-
-// Page-specific schemas from the parent (BlogPosting, Service, FAQPage, etc.)
-const pageSchemas = jsonLd
-  ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])
-  : [];
-
-const schemas = [
-  ...siteWideSchemas,
-  ...pageSchemas,
-];
+// ── JSON-LD: unified `@graph` document ──
+// If the page supplied a `pageGraph`, emit ONLY that graph (no site-wide
+// defaults). Otherwise fall back to the legacy behavior (Organization +
+// WebSite + any per-node `jsonLd` blobs).
+let emitPageGraph: Record<string, unknown> | null = null;
+let emitLegacySchemas: Record<string, unknown>[] = [];
+if (pageGraph) {
+  emitPageGraph = pageGraph;
+} else {
+  // For legacy callers, check whether the supplied `jsonLd` blob already
+  // contains site-wide identity nodes (rare, but supported) so we can
+  // dedupe them.
+  const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const { hasOrg, hasWebSite } = graphContainsSiteWide(
+    { "@graph": jsonLdArray } as Record<string, unknown>,
+    siteConfig as unknown as SiteConfig,
+  );
+  // Legacy path: emit Organization + WebSite, plus page-specific entries.
+  emitLegacySchemas = [
+    ...(hasOrg ? [] : [buildOrganizationSchema(siteConfig as unknown as SiteConfig, locale)]),
+    ...(hasWebSite ? [] : [buildWebSiteSchema(siteConfig as unknown as SiteConfig, locale)]),
+  ];
+  if (jsonLd) {
+    emitLegacySchemas.push(...jsonLdArray);
+  }
+}
 ---
 
 <title>{fullTitle}</title>
@@ -109,4 +147,5 @@ const schemas = [
 {article?.author && <meta property="article:author" content={article.author} />}
 {article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
 
-{schemas.map((entry) => <JsonLd schema={entry} />)}
+{emitPageGraph && <JsonLd schema={emitPageGraph} />}
+{emitLegacySchemas.map((entry) => <JsonLd schema={entry} />)}

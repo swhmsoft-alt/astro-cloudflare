@@ -2,7 +2,9 @@
 import MarketingLayout from "../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
 import { resolveRoute } from "../i18n/routes";
+import { siteConfig as s } from "../config/site.config";
 import type { Locale } from "../config/site.config";
+import { buildPillarGraph } from "../lib/schema";
 
 const locale = (Astro.currentLocale || "en") as Locale;
 
@@ -17,6 +19,31 @@ const typeLabels: Record<string, string> = {
   "commercial": "Commercial Decision",
 };
 
+// Unified `@graph` for the comparisons pillar index: site identity anchors
+// + CollectionPage + ItemList + DefinedTermSet + BreadcrumbList, so the page
+// emits exactly ONE <script type="application/ld+json"> block.
+const compareUrl = s.url + resolveRoute(locale, "/compare/");
+const pageGraph = buildPillarGraph(
+  {
+    name: "Titanium Manufacturing Comparisons",
+    description:
+      "Side-by-side comparisons for titanium manufacturing decisions. Material selection, process comparison, surface finish comparison, and cost analysis guides for engineers and procurement managers.",
+    url: compareUrl,
+    collectionKey: "comparisons",
+    locale,
+    items: entries.map((e: any) => ({
+      name: e.data.title,
+      description: e.data.description,
+      url: s.url + resolveRoute(locale, `/compare/${e.id}/`),
+    })),
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: "Comparisons", href: compareUrl },
+    ],
+  },
+  s,
+);
+
 ---
 
 <MarketingLayout
@@ -24,6 +51,7 @@ const typeLabels: Record<string, string> = {
   description="Side-by-side comparisons for titanium manufacturing decisions. Material selection, process comparison, surface finish comparison, and cost analysis guides for engineers and procurement managers."
   locale={locale}
   path="/compare/"
+  pageGraph={pageGraph}
 >
   <section class="container py-16">
     <header class="section-head">

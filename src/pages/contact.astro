@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { t } from "../i18n/ui";
 import { siteConfig } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 import Hero from "../components/Hero.astro";
 import { Button, Icon } from "../components/ui/index";
 
@@ -57,6 +58,23 @@ const methods = (featuresSection?.items || []).map((item) => ({
   description: item.description || "",
   icon: iconByTitle[item.title || ""] || "lucide:circle",
 }));
+
+// Unified `@graph` for the Contact page: site identity + WebPage + breadcrumb.
+const contactUrl = siteConfig.url + "/contact";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: page?.data.title || t(locale, "nav.contact"),
+    description: page?.data.description || siteConfig.description,
+    url: contactUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: siteConfig.url + "/" },
+      { label: t(locale, "nav.contact"), href: contactUrl },
+    ],
+  },
+  siteConfig,
+);
 ---
 
 <BaseLayout
@@ -64,6 +82,7 @@ const methods = (featuresSection?.items || []).map((item) => ({
   description={page?.data.description}
   locale={locale}
   path={"/contact"}
+  pageGraph={pageGraph}
 >
   {
     heroSection && (

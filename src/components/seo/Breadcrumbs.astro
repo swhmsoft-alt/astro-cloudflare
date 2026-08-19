@@ -8,9 +8,17 @@ export interface Crumb {
 
 export interface Props {
   crumbs: Crumb[];
+  /**
+   * Emit a separate `<script type="application/ld+json">` for the
+   * BreadcrumbList. Set to `false` when the page already includes a
+   * BreadcrumbList inside its own `@graph` document (see
+   * `buildKnowledgeArticleGraph` / `buildPillarGraph` in `lib/schema.ts`).
+   * @default true
+   */
+  emitJsonLd?: boolean;
 }
 
-const { crumbs } = Astro.props as Props;
+const { crumbs, emitJsonLd = true } = Astro.props as Props;
 const visibleCrumbs = [{ label: "Home", href: "/" }, ...crumbs];
 
 const jsonLd = {
@@ -50,7 +58,7 @@ const jsonLd = {
   </ol>
 </nav>
 
-<JsonLd schema={jsonLd} />
+{emitJsonLd && <JsonLd schema={jsonLd} />}
 
 <style>
   .breadcrumbs__list {

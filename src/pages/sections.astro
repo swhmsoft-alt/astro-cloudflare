@@ -1,8 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionsShowcase from "../components/showcase/SectionsShowcase.astro";
+import { siteConfig as s } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 
 const locale = (Astro.currentLocale || "en") as "en";
+
+// Unified `@graph` for the Sections showcase page.
+const sectionsUrl = s.url + "/sections";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: "Sections",
+    description: "A gallery of ready-to-use, token-driven sections.",
+    url: sectionsUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: "Sections", href: sectionsUrl },
+    ],
+  },
+  s,
+);
 ---
 
 <BaseLayout
@@ -10,6 +29,7 @@ const locale = (Astro.currentLocale || "en") as "en";
   description="A gallery of ready-to-use, token-driven sections."
   locale={locale}
   path={"/sections"}
+  pageGraph={pageGraph}
 >
   <div class="container">
     <SectionsShowcase locale={locale} />

@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { t } from "../i18n/ui";
+import { siteConfig as s } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 
 const locale = (Astro.currentLocale || "en") as "en";
 
@@ -12,6 +14,23 @@ const page = allPages.find(
 );
 const rendered = page ? await render(page) : null;
 const Content = rendered?.Content;
+
+// Unified `@graph` for the Terms page: site identity + WebPage + breadcrumb.
+const termsUrl = s.url + "/terms";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: page?.data.title || t(locale, "footer.terms"),
+    description: page?.data.description || s.description,
+    url: termsUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: t(locale, "footer.terms"), href: termsUrl },
+    ],
+  },
+  s,
+);
 ---
 
 <BaseLayout
@@ -19,6 +38,7 @@ const Content = rendered?.Content;
   description={page?.data.description}
   locale={locale}
   path={"/terms"}
+  pageGraph={pageGraph}
 >
   <article class="legal-page container">
     <header class="legal-page__head">

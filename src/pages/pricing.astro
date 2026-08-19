@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { t } from "../i18n/ui";
+import { siteConfig as s } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 import Hero from "../components/Hero.astro";
 import CTA from "../components/CTA.astro";
 import { Button, Icon } from "../components/ui/index";
@@ -74,6 +76,23 @@ const plans: Plan[] = [
     cta: { label: "Contact sales", href: "/contact" },
   },
 ];
+
+// Unified `@graph` for the Pricing page: site identity + WebPage + breadcrumb.
+const pricingUrl = s.url + "/pricing";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: page?.data.title || t(locale, "nav.pricing"),
+    description: page?.data.description || s.description,
+    url: pricingUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: t(locale, "nav.pricing"), href: pricingUrl },
+    ],
+  },
+  s,
+);
 ---
 
 <BaseLayout
@@ -81,6 +100,7 @@ const plans: Plan[] = [
   description={page?.data.description}
   locale={locale}
   path={"/pricing"}
+  pageGraph={pageGraph}
 >
   {
     heroSection && (

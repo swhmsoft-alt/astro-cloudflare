@@ -1,7 +1,7 @@
 ---
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection } from "astro:content";
-import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
+import { buildPillarGraph } from "../../lib/schema";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../config/site.config";
@@ -12,25 +12,21 @@ const entries = (await getCollection("materials"))
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
 const listUrl = siteConfig.url + resolveRoute(locale, "/grades/");
-const collectionSchema = buildCollectionPageSchema({
+// Unified `@graph` document: WebSite + Organization + WebPage + CollectionPage
+// + ItemList + DefinedTermSet all share stable @ids so this pillar page
+// emits exactly ONE <script type="application/ld+json"> block.
+const pageGraph = buildPillarGraph({
   name: "Titanium Materials Guide",
   description: "Comprehensive technical specifications and guides for all titanium grades and alloys. Compare properties, machinability, and applications.",
   url: listUrl,
-  numberOfItems: entries.length,
-});
-const itemListSchema = entries.length > 0 ? buildItemListSchema({
-  itemType: "DefinedTerm",
-  numberOfItems: entries.length,
-  url: listUrl,
-  itemListElement: entries.map((e: any) => ({
+  collectionKey: "materials",
+  locale,
+  items: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
     url: siteConfig.url + resolveRoute(locale, "/grades/" + e.id + "/"),
   })),
-}) : null;
-const schemas = [collectionSchema, itemListSchema].filter(
-  (s): s is NonNullable<typeof s> => s !== null,
-);
+}, siteConfig);
 ---
 <EntityPillar
   collectionName="materials"
@@ -38,5 +34,5 @@ const schemas = [collectionSchema, itemListSchema].filter(
   pageDescription="Comprehensive technical specifications and guides for all titanium grades and alloys. Compare properties, machinability, and applications."
   locale={locale}
   path="/grades/"
-  jsonLd={schemas}
+  pageGraph={pageGraph}
 />

@@ -4,8 +4,11 @@ import { getCollection } from "astro:content";
 import { t } from "../../i18n/ui";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../config/site.config";
-import { buildDefinedTermSchema, buildProductSchema, buildFAQSchema, buildBreadcrumbSchema, buildEvidenceSchema } from "../../lib/schema";
+import {
+  buildEvidenceGraph,
+  buildKnowledgeArticleGraph,
+  type CollectionSetKey,
+} from "../../lib/schema";
 import RelatedContent from "../../components/sections/RelatedContent.astro";
 
 export interface Props {
@@ -14,7 +17,8 @@ export interface Props {
 }
 
 const { collectionName, slug } = Astro.props as Props;
-const locale = (Astro.currentLocale || "en") as Locale;
+// EN-only project (see system/globals/en-only-constraint.md): locale is pinned to "en".
+const locale = "en" as const;
 
 const allEntries = await getCollection(collectionName);
 const entry = allEntries.find((e: any) => e.id === slug && e.data.locale === locale);
@@ -24,11 +28,6 @@ if (!entry) return Astro.redirect("/404");
 const data = entry.data as any;
 const pillarPath = `/${collectionName === "materials" ? "grades" : collectionName === "surfaceFinishes" ? "finishes" : collectionName === "materialSelection" ? "selection" : collectionName === "failureAnalysis" ? "failures" : collectionName === "heatTreatment" ? "heat-treatment" : collectionName === "corrosion" ? "corrosion" : collectionName}/`;
 const pageUrl = siteConfig.url + resolveRoute(locale, `${pillarPath}${slug}/`);
-const definedTermSchema = (collectionName === "materials" || collectionName === "standards" || collectionName === "evidence" || collectionName === "applications")
-  ? buildDefinedTermSchema({ name: data.title, description: data.description, termCode: slug, inSetName: collectionName, url: pageUrl }) : null;
-const productSchema = (collectionName === "materials" || collectionName === "equipment")
-  ? buildProductSchema({ name: data.title, description: data.description, url: pageUrl, category: collectionName, material: data.alloy || undefined }) : null;
-
 // Evidence source model: resolve internal /evidence/* stubs and never emit them.
 function resolveEvidenceSource(d: any) {
   const src = (d.source || "").trim();
@@ -40,28 +39,76 @@ function resolveEvidenceSource(d: any) {
 }
 const evSource = collectionName === "evidence" ? resolveEvidenceSource(data) : null;
 
-const evidenceSchema = (collectionName === "evidence")
-  ? buildEvidenceSchema({
+const breadcrumbCrumbs = [
+  { label: "Home", href: siteConfig.url + "/" },
+  { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, pillarPath) },
+  { label: data.title, href: pageUrl },
+];
+// Map collectionName → CollectionSetKey for the DefinedTermSet anchor.
+const collectionKey = collectionName as CollectionSetKey;
+
+// Build `mentions` URLs for related entities (internal links become absolute).
+const mentionSet = new Set<string>();
+function pushMention(relSlug: string | undefined, pillar: string) {
+  if (!relSlug) return;
+  const slugified = relSlug.toLowerCase().replace(/\s+/g, "-");
+  mentionSet.add(siteConfig.url + resolveRoute(locale, `/${pillar}/${slugified}/`));
+}
+if (Array.isArray(data.relatedMaterials)) data.relatedMaterials.forEach((m: string) => pushMention(m, "grades"));
+if (Array.isArray(data.relatedProcesses)) data.relatedProcesses.forEach((p: string) => pushMention(p, "processes"));
+if (Array.isArray(data.relatedStandards)) data.relatedStandards.forEach((s: string) => pushMention(s, "standards"));
+if (Array.isArray(data.relatedIndustries) || Array.isArray(data.industries)) {
+  (data.relatedIndustries ?? data.industries ?? []).forEach((i: string) => pushMention(i, "industries"));
+}
+
+// JSON-LD strategy (post-refactor):
+//   Every knowledge page emits ONE unified `@graph` document via
+//   `buildKnowledgeArticleGraph` (or `buildEvidenceGraph` for evidence
+//   entries). The graph is self-contained: WebSite + Organization + WebPage
+//   + TechArticle + DefinedTerm + DefinedTermSet + BreadcrumbList + (optional)
+//   Dataset / FAQPage / CreativeWork all share stable @ids, so Google + AI
+//   engines dedupe across the site into one Knowledge Graph node per entity.
+//
+//   This single graph is passed to MarketingLayout as `pageGraph`, which
+//   causes SEO.astro to SKIP emitting its own Organization/WebSite defaults
+//   (preventing the duplicate-node issue that affected ~30 pages pre-refactor).
+const pageGraph = (() => {
+  if (collectionName === "evidence") {
+    return buildEvidenceGraph({
       name: data.title,
       description: data.description,
       url: pageUrl,
+      collectionSetName: collectionName,
       source: evSource?.text || undefined,
       sourceUrl: evSource?.type === "EXTERNAL" ? evSource.url : undefined,
       dataPoints: Array.isArray(data.dataPoints) ? data.dataPoints : undefined,
       relatedStandards: Array.isArray(data.relatedStandards) ? data.relatedStandards : undefined,
-    })
-  : null;
+      breadcrumb: breadcrumbCrumbs,
+      faqs: Array.isArray(data.faqs) && data.faqs.length > 0 ? data.faqs : undefined,
+      locale,
+    });
+  }
 
-
-const faqSchema = (data.faqs && data.faqs.length > 0) ? buildFAQSchema(data.faqs) : null;
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { label: "Home", href: siteConfig.url + "/" },
-  { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, pillarPath) },
-  { label: data.title, href: pageUrl },
-]);
+  return buildKnowledgeArticleGraph(
+    {
+      name: data.title,
+      description: data.description,
+      url: pageUrl,
+      collectionKey,
+      locale,
+      datePublished: data.datePublished ?? undefined,
+      dateModified: data.dateModified ?? undefined,
+      authorName: data.authorName ?? undefined,
+      keywords: Array.isArray(data.keywords) ? data.keywords : undefined,
+      breadcrumb: breadcrumbCrumbs,
+      faqs: Array.isArray(data.faqs) && data.faqs.length > 0 ? data.faqs : undefined,
+      mentions: mentionSet.size > 0 ? Array.from(mentionSet) : undefined,
+    },
+    siteConfig,
+  );
+})();
 ---
-
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`${pillarPath}${slug}/`} hreflangLocales={(collectionName === "evidence" || collectionName === "applications") ? ["en"] : undefined} jsonLd={[...(definedTermSchema ? [definedTermSchema] : []), ...(productSchema ? [productSchema] : []), ...(evidenceSchema ? [evidenceSchema] : []), breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])]}>
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`${pillarPath}${slug}/`} hreflangLocales={(collectionName === "evidence" || collectionName === "applications") ? ["en"] : undefined} pageGraph={pageGraph} ogType="article">
 
   <article class="container py-16 entity-article">
     <header class="entity-header">

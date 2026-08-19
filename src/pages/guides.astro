@@ -3,7 +3,13 @@ import MarketingLayout from "../layouts/MarketingLayout.astro";
 import { t } from "../i18n/ui";
 import { resolveRoute } from "../i18n/routes";
 import { siteConfig } from "../config/site.config";
-import { buildCollectionPageSchema, buildItemListSchema } from "../lib/schema";
+import {
+  buildWebSiteSchema,
+  buildOrganizationSchema,
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildItemListSchema,
+} from "../lib/schema";
 import type { Locale } from "../config/site.config";
 
 const locale = (Astro.currentLocale || "en") as Locale;
@@ -26,9 +32,41 @@ const itemListSchema = buildItemListSchema({
     url: siteConfig.url + resolveRoute(locale, `/guides/#${g}`),
   })),
 });
-const schemas = [collectionSchema, itemListSchema].filter(
-  (s): s is NonNullable<typeof s> => s !== null,
-);
+
+// Strip the per-node `@context` so the legacy schemas can be embedded inside
+// our unified `@graph` document (the document already declares `@context`).
+const schemas = [collectionSchema, itemListSchema]
+  .filter((s): s is NonNullable<typeof s> => s !== null)
+  .map(({ "@context": _ctx, ...rest }) => rest as Record<string, unknown>);
+
+// Unified `@graph` for the Guides hub: site identity + WebPage + CollectionPage
+// + ItemList + BreadcrumbList — all in one document so the page emits a single
+// `<script type="application/ld+json">` block.
+const pageGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    buildWebSiteSchema(siteConfig, locale),
+    buildOrganizationSchema(siteConfig, locale),
+    {
+      "@type": "WebPage",
+      "@id": listUrl,
+      url: listUrl,
+      name: t(locale, "guides.pageTitle"),
+      description: t(locale, "guides.pageDescription"),
+      isPartOf: { "@id": siteConfig.url.replace(/\/$/, "") + "/#website" },
+      publisher: { "@id": siteConfig.url.replace(/\/$/, "") + "/#organization" },
+      inLanguage: locale,
+    },
+    ...schemas,
+    buildBreadcrumbSchema(
+      [
+        { label: "Home", href: siteConfig.url + "/" },
+        { label: t(locale, "guides.pageTitle"), href: listUrl },
+      ],
+      siteConfig.url,
+    ),
+  ],
+};
 
 interface GuideStep {
   label: string;
@@ -107,7 +145,7 @@ const guideCategories: GuideCategory[] = [
   description={t(locale, "guides.pageDescription")}
   locale={locale}
   path="/guides/"
-  jsonLd={schemas}
+  pageGraph={pageGraph}
 >
   <section class="guides-hub container">
     <header class="section-head">

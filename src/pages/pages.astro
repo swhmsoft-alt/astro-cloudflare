@@ -1,8 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PagesOverview from "../components/showcase/PagesOverview.astro";
+import { siteConfig as s } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 
 const locale = (Astro.currentLocale || "en") as "en";
+
+// Unified `@graph` for the Pages showcase page.
+const pagesUrl = s.url + "/pages";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: "Pages",
+    description: "Overview of every page, available in both locales.",
+    url: pagesUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: "Pages", href: pagesUrl },
+    ],
+  },
+  s,
+);
 ---
 
 <BaseLayout
@@ -10,6 +29,7 @@ const locale = (Astro.currentLocale || "en") as "en";
   description="Overview of every page, available in both locales."
   locale={locale}
   path={"/pages"}
+  pageGraph={pageGraph}
 >
   <div class="container">
     <PagesOverview locale={locale} />

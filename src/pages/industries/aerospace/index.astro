@@ -5,11 +5,7 @@ import CTA from "../../../components/CTA.astro";
 import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
 import type { Locale } from "../../../config/site.config";
-import JsonLd from "../../../components/seo/JsonLd.astro";
-import {
-  buildBreadcrumbSchema,
-  buildCollectionPageSchema,
-} from "../../../lib/schema";
+import { buildPillarGraph } from "../../../lib/schema";
 
 const locale = (Astro.currentLocale || "en") as Locale;
 
@@ -39,25 +35,27 @@ const spokePages = [
   },
 ];
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { label: "Home", href: siteConfig.url + "/" },
-  {
-    label: "Industries",
-    href: siteConfig.url + "/industries/",
-  },
-  {
-    label: "Aerospace",
-    href: listUrl,
-  },
-]);
-
-const collectionSchema = buildCollectionPageSchema({
+// Unified `@graph` document for the industry hub: WebSite + Organization +
+// WebPage + CollectionPage + ItemList + DefinedTermSet + BreadcrumbList all
+// share stable @ids so this hub page emits exactly ONE JSON-LD script.
+const pageGraph = buildPillarGraph({
   name: "Aerospace Titanium Manufacturing",
   description:
     "End-to-end titanium manufacturing solutions for aerospace. Precision machining, material expertise, and quality systems for flight-critical components.",
   url: listUrl,
-  numberOfItems: spokePages.length,
-});
+  collectionKey: "industriesAerospace",
+  locale,
+  items: spokePages.map((p) => ({
+    name: p.title,
+    description: p.description,
+    url: siteConfig.url + resolveRoute(locale, p.href),
+  })),
+  breadcrumb: [
+    { label: "Home", href: siteConfig.url + "/" },
+    { label: "Industries", href: siteConfig.url + "/industries/" },
+    { label: "Aerospace", href: listUrl },
+  ],
+}, siteConfig);
 ---
 
 <BaseLayout
@@ -65,8 +63,8 @@ const collectionSchema = buildCollectionPageSchema({
   description="AS9100D certified titanium machining for aerospace. 5-axis CNC milling and turning of flight-critical components with full traceability and NADCAP accredited processes."
   locale={locale}
   path={"/industries/aerospace"}
+  pageGraph={pageGraph}
 >
-  <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
 
   <!-- Hero -->
   <Hero

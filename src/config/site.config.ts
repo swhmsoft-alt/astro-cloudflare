@@ -75,12 +75,28 @@ export interface SiteConfig {
   email: string;
   authorImage?: string;
 
-  /* Social media and contact links */
+  /* Default content language for SEO (BCP-47). Defaults to defaultLocale. */
+  inLanguage?: string;
+
+  /* Site authority / E-E-A-T signals for Knowledge Graph */
+  founder?: string;
+  foundingDate?: string; // ISO 8601 (YYYY-MM-DD)
+
+  /* Social media and contact links (UI display — header, contact, footer). */
   socialLinks: Array<{
     platform: string;
     url: string;
     icon?: string;
     label?: string;
+  }>;
+
+  /* Canonical identity URLs for Organization.sameAs. FILTERED to http(s) only
+   * at the schema-factory layer — mailto:, tel:, and other non-identity URIs
+   * are NOT valid sameAs values per Schema.org. Each entry should be a stable
+   * authority anchor (LinkedIn, Wikidata Q-ID, Wikipedia, GitHub, Crunchbase). */
+  sameAsLinks: Array<{
+    platform: string;
+    url: string;
   }>;
 
   /* Header configuration */
@@ -161,7 +177,14 @@ export const siteConfig: SiteConfig = {
   email: "hello@titanium.blog",
   authorImage: "/images/author.jpg",
 
-  /* Social links */
+  /* Default content language for Schema.org inLanguage and SEO. */
+  inLanguage: "en",
+
+  /* E-E-A-T anchors for Knowledge Graph + Google Business Profile. */
+  founder: "Titanium Blog Editorial Team",
+  foundingDate: "2024-01-01",
+
+  /* Social links (UI display — header, footer). */
   socialLinks: [
     {
       platform: "linkedin",
@@ -169,6 +192,23 @@ export const siteConfig: SiteConfig = {
       label: "LinkedIn",
     },
     { platform: "email", url: "mailto:hello@titanium.blog", label: "Email" },
+  ],
+
+  /* Canonical identity URLs for Organization.sameAs.
+   * Only http(s) URLs are valid; mailto:/tel: are REJECTED at schema-factory
+   * time. Add Wikidata Q-ID, Wikipedia, GitHub, Crunchbase when available.
+   *
+   * TODO[geo-foundation]: Add Wikidata Q-ID once registered
+   *   URL pattern: https://www.wikidata.org/wiki/Q<id>
+   * TODO[geo-foundation]: Add Wikipedia article URL if/when one exists
+   * TODO[geo-foundation]: Add GitHub organization URL if/when one exists
+   * TODO[geo-foundation]: Add Crunchbase URL if/when one exists
+   */
+  sameAsLinks: [
+    {
+      platform: "linkedin",
+      url: "https://linkedin.com/company/titanium-blog",
+    },
   ],
 
   /* Header settings */

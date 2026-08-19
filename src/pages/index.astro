@@ -8,17 +8,29 @@ import{t}from"../i18n/ui";
 import{resolveRoute}from"../i18n/routes";
 import{siteConfig as s}from"../config/site.config";
 import type{Locale as L}from"../config/site.config";
-import J from"../components/seo/JsonLd.astro";
-import{buildWebSiteSchema as ws,buildOrganizationSchema as o,buildBreadcrumbSchema as b,buildFAQSchema as q}from"../lib/schema";
+import {buildKnowledgeArticleGraph} from "../lib/schema";
 const lc=(Astro.currentLocale||'en')as L;
 const k=[{t:'Grades',d:'Complete specs and properties for all titanium grades.',h:'/grades/',c:'15+'},{t:'Processes',d:'CNC, 5-axis, turning, EDM, forging, welding, casting, additive.',h:'/processes/',c:'16+'},{t:'Standards',d:'ASTM, AMS, ASME, ISO certification references.',h:'/standards/',c:'6+'},{t:'Industries',d:'Aerospace, medical, semiconductor, energy, marine.',h:'/industries/',c:'5+'},{t:'Finishes',d:'Anodizing, passivation, polishing, bead blasting, PVD coating.',h:'/finishes/',c:'4+'},{t:'Material Selection',d:'Grade comparison and selection guides for engineers.',h:'/selection/',c:'8+'},{t:'Failure Analysis',d:'Hydrogen embrittlement, SCC, fatigue, creep, prevention.',h:'/failures/',c:'6+'},{t:'Heat Treatment',d:'Annealing, solution treatment, aging, stress relief.',h:'/heat-treatment/',c:'1+'},{t:'Corrosion',d:'Seawater, acids, chlorides, high-temp environments.',h:'/corrosion/',c:'6+'},{t:'Solutions',d:'Engineering guides for aerospace, medical, semiconductor, industrial.',h:'/solutions/',c:'7+'},{t:'Applications',d:'Aerospace, medical, semiconductor and industrial use cases for titanium components.',h:'/applications/',c:'4+'},{t:'Case Studies',d:'Real manufacturing case studies spanning aerospace, medical and industrial titanium.',h:'/cases/',c:'15+'},{t:'Technical Evidence',d:'Cited engineering evidence, data points and cross-verifiable references.',h:'/evidence/',c:'30+'},{t:'Comparisons',d:'Side-by-side grade and material comparisons to support selection decisions.',h:'/compare/',c:'16+'},{t:'Technical Guides',d:'Step-by-step guides from material selection through to production.',h:'/guides/',c:'11+'},{t:'Procurement',d:'Vendor-independent buying guides and RFQ best practices for titanium parts.',h:'/procurement/',c:'25+'},{t:'Tools',d:'Interactive grade comparison and hardness conversion reference tools.',h:'/tools/',c:'2'},{t:'Machines & Equipment',d:'Machines and equipment used across titanium manufacturing processes.',h:'/equipment/',c:'New'}];
 const qq=[{q:'What titanium grades are most common?',a:'Grade 2, Grade 5 (Ti-6Al-4V), and Grade 23 (Ti-6Al-4V ELI) are the most widely used.'},{q:'How do I select the right grade?',a:'Consider strength, corrosion resistance, formability, and temperature. Compare properties across grades.'},{q:'What heat treatments apply to titanium?',a:'Stress relief, annealing, solution treatment, and aging control alpha-beta phase proportions.'},{q:'Is titanium resistant to corrosion?',a:'Yes. Titanium forms a stable passive oxide layer, resisting seawater, chlorides, and oxidizing acids.'},{q:'What causes titanium failure?',a:'Hydrogen embrittlement, SCC, fatigue, and creep are common failure modes.'}];
 const formattedQq=qq.map(i=>({question:i.q,answer:i.a}));
-const br=[{label:'Home',href:s.url+'/'}];
-const w=ws(s);const or=o(s);const fq=q(formattedQq);const bc=b(br);
+const homepageUrl = s.url + "/";
+// Unified `@graph` document for the homepage: WebSite + Organization +
+// WebPage + FAQPage + BreadcrumbList share stable @ids so the page emits
+// exactly ONE <script type="application/ld+json"> block (replacing the
+// previous 4 duplicate-prone blocks: WebSite + Organization + FAQPage +
+// BreadcrumbList all separately).
+const pageGraph = buildKnowledgeArticleGraph({
+  name: t(lc, "hero.title"),
+  description: s.description,
+  url: homepageUrl,
+  collectionKey: "guides", // homepage is a top-level guide; uses the stable "guides" set anchor
+  locale: lc,
+  keywords: ["titanium", "titanium alloys", "engineering knowledge hub", "material selection"],
+  breadcrumb: [{ label: "Home", href: homepageUrl }],
+  faqs: formattedQq,
+}, s);
 ---
-<M title={t(lc,"hero.title")} description={s.description} locale={lc} path="/">
-<J schema={[w,or,fq,bc]}/>
+<M title={t(lc,"hero.title")} description={s.description} locale={lc} path="/" pageGraph={pageGraph}>
 <H variant="centered" eyebrow="Titanium Engineering Knowledge Hub" headline={t(lc,"hero.title")} subheadline={t(lc,"hero.subtitle")} primaryCta={{label:"Browse All Grades",href:"/grades/"}} secondaryCta={{label:"Browse Solutions",href:"/solutions/"}} locale={lc}/>
 
 <section class="c py-16"><header class="section-head"><p class="section-head__eyebrow">Engineering Knowledge Base</p><h2 class="section-head__title">Complete Titanium Engineering Reference</h2><p class="section-head__lead">Authoritative technical resources covering titanium alloys, processes, selection, and applications.</p></header><div class="hg">{k.map(i=><a href={resolveRoute(lc,i.h)} class="hc"><div class="hch"><h3 class="hct">{i.t}</h3><span class="hcc">{i.c}</span></div><p class="hcd">{i.d}</p><span class="hcta">Browse &rarr;</span></a>)}</div></section>

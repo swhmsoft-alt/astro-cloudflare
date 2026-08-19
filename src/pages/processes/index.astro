@@ -1,7 +1,7 @@
 ---
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection } from "astro:content";
-import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
+import { buildPillarGraph } from "../../lib/schema";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../config/site.config";
@@ -12,25 +12,18 @@ const entries = (await getCollection("processes"))
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
 const listUrl = siteConfig.url + resolveRoute(locale, "/processes/");
-const collectionSchema = buildCollectionPageSchema({
+const pageGraph = buildPillarGraph({
   name: "Titanium Manufacturing Processes",
   description: "Comprehensive technical guides for all titanium manufacturing processes. Compare capabilities, tolerances, surface finishes, and applications.",
   url: listUrl,
-  numberOfItems: entries.length,
-});
-const itemListSchema = entries.length > 0 ? buildItemListSchema({
-  itemType: "TechArticle",
-  numberOfItems: entries.length,
-  url: listUrl,
-  itemListElement: entries.map((e: any) => ({
+  collectionKey: "processes",
+  locale,
+  items: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
     url: siteConfig.url + resolveRoute(locale, "/processes/" + e.id + "/"),
   })),
-}) : null;
-const schemas = [collectionSchema, itemListSchema].filter(
-  (s): s is NonNullable<typeof s> => s !== null,
-);
+}, siteConfig);
 ---
 <EntityPillar
   collectionName="processes"
@@ -38,5 +31,5 @@ const schemas = [collectionSchema, itemListSchema].filter(
   pageDescription="Comprehensive technical guides for all titanium manufacturing processes. Compare capabilities, tolerances, surface finishes, and applications."
   locale={locale}
   path="/processes/"
-  jsonLd={schemas}
+  pageGraph={pageGraph}
 />

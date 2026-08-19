@@ -172,8 +172,14 @@ export function breadcrumbFromPath(
  * Generate Open Graph and Twitter meta tags.
  * Now includes og:image and og:image:secure_url, og:image:width, og:image:height
  * when an image URL is provided.
+ *
+ * `ogType` defaults to "website". Pass "article" for knowledge articles
+ * (TechArticle / DefinedTerm pages) so social card metadata reflects the
+ * correct Open Graph object type.
  */
-export function ogMeta(meta: SeoMeta) {
+export function ogMeta(
+  meta: SeoMeta & { ogType?: "website" | "article" | "profile" },
+) {
   const url = canonicalUrl(meta.locale, meta.path);
   const imageUrl =
     meta.image ||
@@ -187,7 +193,7 @@ export function ogMeta(meta: SeoMeta) {
     "og:url": url,
     "og:locale": meta.locale,
     "og:site_name": siteConfig.name,
-    "og:type": "website",
+    "og:type": meta.ogType ?? "website",
     "twitter:card": "summary_large_image",
     "twitter:title": meta.title,
     "twitter:description": meta.description,

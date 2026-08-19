@@ -14,9 +14,10 @@ export interface Props {
   locale: Locale;
   path: string;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
 }
 
-const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, locale, path, jsonLd } = Astro.props as Props;
+const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, locale, path, jsonLd, pageGraph } = Astro.props as Props;
 const resolvedTitle = pageTitleKey ? t(locale, pageTitleKey) : (pageTitle || "");
 const resolvedDescription = pageDescriptionKey ? t(locale, pageDescriptionKey) : (pageDescription || "");
 const enOnlyModules = ["evidence", "procurement", "applications", "cases"];
@@ -51,6 +52,7 @@ const collectionLabels: Record<string, string> = {
   path={path}
   hreflangLocales={enOnly ? ["en"] : undefined}
   jsonLd={jsonLd}
+  pageGraph={pageGraph}
 >
   <section class="container py-16">
     <header class="section-head">

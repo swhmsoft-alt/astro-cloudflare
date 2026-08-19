@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { t } from "../i18n/ui";
+import { siteConfig as s } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 import Hero from "../components/Hero.astro";
 import FeatureGrid from "../components/FeatureGrid.astro";
 import CTA from "../components/CTA.astro";
@@ -29,6 +31,24 @@ const featuresSection = sections.find((s) => s.type === "features");
 const ctaSection = sections.find((s) => s.type === "cta");
 const featureItems = featuresSection?.items || [];
 const featureColumns = featureItems.length % 2 === 0 ? 2 : 3;
+
+// Unified `@graph` for the About page: site identity + WebPage + breadcrumb.
+// Reuses the `guides` collection set anchor (about is a top-level guide page).
+const aboutUrl = s.url + "/about";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: page?.data.title || t(locale, "nav.about"),
+    description: page?.data.description || s.description,
+    url: aboutUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: t(locale, "nav.about"), href: aboutUrl },
+    ],
+  },
+  s,
+);
 ---
 
 <BaseLayout
@@ -36,6 +56,7 @@ const featureColumns = featureItems.length % 2 === 0 ? 2 : 3;
   description={page?.data.description}
   locale={locale}
   path={"/about"}
+  pageGraph={pageGraph}
 >
   {
     heroSection && (

@@ -12,10 +12,22 @@ export interface Props {
   path: string;
   /** Page-specific JSON-LD entries merged alongside site-wide defaults. */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /**
+   * Page-specific `@graph` JSON-LD document. When provided, this single
+   * document REPLACES the site-wide defaults (Organization + WebSite) and
+   * should itself contain the necessary site identity nodes so the page
+   * does not produce duplicate `@type: Organization` entries.
+   *
+   * Use `buildKnowledgeArticleGraph` / `buildPillarGraph` from `lib/schema.ts`.
+   */
+  pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
+  /** Open Graph object type ("article" for knowledge articles). */
+  ogType?: "website" | "article" | "profile";
   hreflangLocales?: string[];
 }
 
-const { title, description, locale, path, jsonLd } = Astro.props as Props;
+const { title, description, locale, path, jsonLd, pageGraph, ogType } =
+  Astro.props as Props;
 let { hreflangLocales } = Astro.props as Props;
 
 // ── Derive hreflangLocales from path if not explicitly provided ──
@@ -41,6 +53,8 @@ if (!hreflangLocales) {
     path={path}
     ogImage={ogImagePath(path === "/" ? "home" : "page", locale, path === "/" ? "" : path)}
     hreflangLocales={hreflangLocales}
+    ogType={ogType}
+    pageGraph={pageGraph}
     jsonLd={jsonLd}
   />
   <slot />

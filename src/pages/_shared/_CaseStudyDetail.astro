@@ -4,8 +4,7 @@ import { getCollection, render } from "astro:content";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../config/site.config";
-import { buildTechArticleSchema, buildBreadcrumbSchema } from "../../lib/schema";
-import JsonLd from "../../components/seo/JsonLd.astro";
+import { buildKnowledgeArticleGraph } from "../../lib/schema";
 import RelatedContent from "../../components/sections/RelatedContent.astro";
 
 export interface Props { slug: string; }
@@ -21,10 +20,39 @@ const breadcrumbs = [
   { label: "Case Studies", href: siteConfig.url + resolveRoute(locale, "/cases/") },
   { label: data.title, href: pageUrl },
 ];
-const schemas = [
-  buildTechArticleSchema({ headline: data.title, description: data.description, datePublished: new Date().toISOString(), keywords: [data.industry, data.material, "titanium case study"], url: pageUrl, inLanguage: locale }),
-  buildBreadcrumbSchema(breadcrumbs),
-];
+
+// Build mention URLs for related entities (case studies usually link to
+// materials / standards / evidence / comparisons — those become `mentions`
+// edges in the unified TechArticle graph).
+const mentionSet = new Set<string>();
+function pushMention(slugRef: string | undefined, pillar: string) {
+  if (!slugRef) return;
+  mentionSet.add(siteConfig.url + resolveRoute(locale, `/${pillar}/${slugRef}/`));
+}
+(data.relatedMaterials ?? []).forEach((m: string) => pushMention(m, "grades"));
+(data.relatedStandards ?? []).forEach((s: string) => pushMention(s, "standards"));
+(data.relatedEvidence ?? []).forEach((e: string) => pushMention(e, "evidence"));
+(data.relatedComparisons ?? []).forEach((c: string) => pushMention(c, "compare"));
+
+// Unified `@graph` document: WebSite + Organization + WebPage + TechArticle
+// + DefinedTerm + DefinedTermSet + BreadcrumbList share stable @ids so the
+// page emits exactly one <script type="application/ld+json"> block.
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: data.title,
+    description: data.description,
+    url: pageUrl,
+    collectionKey: "cases",
+    locale,
+    datePublished: entry.data.datePublished ?? undefined,
+    dateModified: entry.data.dateModified ?? undefined,
+    keywords: [data.industry, data.material, "titanium case study"].filter(Boolean) as string[],
+    breadcrumb: breadcrumbs,
+    mentions: mentionSet.size > 0 ? Array.from(mentionSet) : undefined,
+  },
+  siteConfig,
+);
+
 const { Content } = await render(entry);
 const facts: Array<[string, string]> = [];
 if (data.application) facts.push(["Application", data.application]);
@@ -37,8 +65,7 @@ if (data.quantity) facts.push(["Quantity", data.quantity]);
 if (data.tolerance) facts.push(["Tolerance", data.tolerance]);
 if (data.leadTime) facts.push(["Lead Time", data.leadTime]);
 ---
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/cases/${slug}/`} hreflangLocales={["en"]}>
-  <JsonLd schema={schemas} />
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/cases/${slug}/`} hreflangLocales={["en"]} pageGraph={pageGraph} ogType="article">
   <article class="case-detail container py-16">
     <nav class="case-bc"><a href={resolveRoute(locale, "/")}>Home</a> / <a href={resolveRoute(locale, "/cases/")}>Case Studies</a> / <span>{data.title}</span></nav>
     <header class="case-hdr">

@@ -4,8 +4,7 @@ import { getCollection, render } from "astro:content";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../config/site.config";
-import { buildTechArticleSchema, buildFAQSchema, buildBreadcrumbSchema } from "../../lib/schema";
-import JsonLd from "../../components/seo/JsonLd.astro";
+import { buildKnowledgeArticleGraph } from "../../lib/schema";
 import RelatedContent from "../../components/sections/RelatedContent.astro";
 
 export interface Props { slug: string; }
@@ -21,15 +20,34 @@ const breadcrumbs = [
   { label: "Procurement", href: siteConfig.url + resolveRoute(locale, "/procurement/") },
   { label: data.title, href: pageUrl },
 ];
-const schemas = [
-  buildTechArticleSchema({ headline: data.title, description: data.description, datePublished: new Date().toISOString(), keywords: [data.procurementCategory, "titanium procurement"], url: pageUrl, inLanguage: locale }),
-  buildBreadcrumbSchema(breadcrumbs),
-  ...(data.faqs?.length ? [buildFAQSchema(data.faqs)] : []),
-];
+
+// Build mention URLs for related standards.
+const mentionSet = new Set<string>();
+(data.relatedStandards ?? []).forEach((s: string) => {
+  mentionSet.add(siteConfig.url + resolveRoute(locale, `/standards/${s}/`));
+});
+
+// Unified `@graph` document for procurement pages.
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: data.title,
+    description: data.description,
+    url: pageUrl,
+    collectionKey: "procurement",
+    locale,
+    datePublished: entry.data.datePublished ?? undefined,
+    dateModified: entry.data.dateModified ?? undefined,
+    keywords: [data.procurementCategory, "titanium procurement"].filter(Boolean) as string[],
+    breadcrumb: breadcrumbs,
+    faqs: Array.isArray(data.faqs) && data.faqs.length > 0 ? data.faqs : undefined,
+    mentions: mentionSet.size > 0 ? Array.from(mentionSet) : undefined,
+  },
+  siteConfig,
+);
+
 const { Content } = await render(entry);
 ---
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/procurement/${slug}/`} hreflangLocales={["en"]}>
-  <JsonLd schema={schemas} />
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/procurement/${slug}/`} hreflangLocales={["en"]} pageGraph={pageGraph} ogType="article">
   <article class="proc-detail container py-16">
     <nav class="proc-bc"><a href={resolveRoute(locale, "/")}>Home</a> / <a href={resolveRoute(locale, "/procurement/")}>Procurement</a> / <span>{data.title}</span></nav>
     <header class="proc-hdr">

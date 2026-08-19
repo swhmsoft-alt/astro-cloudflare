@@ -2,9 +2,8 @@
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection, render } from "astro:content";
 import { resolveRoute } from "../../i18n/routes";
-import { siteConfig } from "../../config/site.config";
-import JsonLd from "../../components/seo/JsonLd.astro";
-import { buildBreadcrumbSchema, buildTechArticleSchema, buildFAQSchema } from "../../lib/schema";
+import { siteConfig as s } from "../../config/site.config";
+import { buildKnowledgeArticleGraph } from "../../lib/schema";
 
 export async function getStaticPaths() {
   const entries = await getCollection("comparisons");
@@ -16,28 +15,28 @@ export async function getStaticPaths() {
 
 const { entry, locale } = Astro.props as { entry: any; locale: "en" };
 const data = entry.data;
-const pageUrl = siteConfig.url + resolveRoute(locale, `/compare/${entry.id}/`);
-const breadcrumbs = [
-  { label: "Home", href: siteConfig.url + "/" },
-  { label: "Comparisons", href: siteConfig.url + "/compare/" },
-  { label: data.title, href: pageUrl },
-];
-const ts = buildTechArticleSchema({
-  headline: data.title,
-  description: data.description,
-  datePublished: new Date().toISOString(),
-  keywords: ["comparison", data.comparisonType, data.entityA, data.entityB],
-  url: pageUrl,
-  inLanguage: locale,
-});
-const bc = buildBreadcrumbSchema(breadcrumbs);
-const fq = data.faqs?.length > 0 ? buildFAQSchema(data.faqs) : null;
-const schemas = [bc, ts, ...(fq ? [fq] : [])];
+const pageUrl = s.url + resolveRoute(locale, `/compare/${entry.id}/`);
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: data.title,
+    description: data.description,
+    url: pageUrl,
+    collectionKey: "comparisons",
+    locale,
+    keywords: ["comparison", data.comparisonType, data.entityA, data.entityB],
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: "Comparisons", href: s.url + "/compare/" },
+      { label: data.title, href: pageUrl },
+    ],
+    faqs: data.faqs,
+  },
+  s,
+);
 const { Content } = await render(entry);
 ---
 
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/compare/${entry.id}/`}>
-<JsonLd schema={schemas} />
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/compare/${entry.id}/`} pageGraph={pageGraph}>
 <article class="cmp-detail container py-16">
 <nav class="cmp-bc"><a href={resolveRoute(locale,"/")}>Home</a> / <a href={resolveRoute(locale,"/compare/")}>Comparisons</a> / <span>{data.title}</span></nav>
 <header class="cmp-hdr">

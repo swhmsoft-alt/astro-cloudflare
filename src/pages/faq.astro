@@ -2,7 +2,8 @@
 import MarketingLayout from "../layouts/MarketingLayout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { t } from "../i18n/ui";
-import type { Locale } from "../config/site.config";
+import { siteConfig as s, type Locale } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
 import FAQ from "../components/FAQ.astro";
 
 const locale = (Astro.currentLocale || "en") as Locale;
@@ -24,6 +25,23 @@ const categoryOrder = ["materials", "machining", "manufacturing", "quality", "pr
 const sortedCategories = Object.entries(grouped).sort(
   ([a], [b]) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b),
 );
+
+// Unified `@graph` for the FAQ hub: site identity + WebPage + breadcrumb.
+const faqUrl = s.url + "/faq/";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: t(locale, "faq.pageTitle"),
+    description: t(locale, "faq.pageDescription"),
+    url: faqUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: t(locale, "faq.pageTitle"), href: faqUrl },
+    ],
+  },
+  s,
+);
 ---
 
 <MarketingLayout
@@ -31,6 +49,7 @@ const sortedCategories = Object.entries(grouped).sort(
   description={t(locale, "faq.pageDescription")}
   locale={locale}
   path="/faq/"
+  pageGraph={pageGraph}
 >
   <section class="faq-hub container">
     <header class="section-head">
