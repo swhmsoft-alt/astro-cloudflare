@@ -14,7 +14,7 @@ industries:
   - "semiconductor"
   - "tool-and-die"
 equipment:
-  - "wire-edm"
+  - "mitsubishi-ev3000"
 tolerances: "±0.002 mm (standard), ±0.001 mm (precision)"
 surfaceFinish: "0.8 µm Ra (standard), 0.2 µm Ra (finish)"
 maxPartSize: "1500 mm x 1000 mm x 500 mm"

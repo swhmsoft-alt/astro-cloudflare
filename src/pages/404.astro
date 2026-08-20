@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SEO from "../components/seo/SEO.astro";
+import Button from "../components/ui/form/Button/Button.astro";
+import { t } from "../i18n/ui";
+import { resolveRoute } from "../i18n/routes";
+import { siteConfig as s } from "../config/site.config";
+import type { Locale as L } from "../config/site.config";
+
+const lc = (Astro.currentLocale || "en") as L;
+
+// 404 页面：兜底所有未匹配路由。Astro 会在构建时把它输出为 dist/404.html，
+// Cloudflare Pages 在未命中路径时自动 serve 该文件。
+const title = `404 — ${t(lc, "notfound.title")}`;
+const description = t(lc, "notfound.desc");
+const homeLabel = t(lc, "notfound.back");
+const homeHref = resolveRoute(lc, "/");
+// canonical 强制指向首页，避免搜索引擎把 /404/ 当成有效收录页
+const canonical = s.url + "/";
+---
+<BaseLayout
+  title={title}
+  description={description}
+  locale={lc}
+  path="/404"
+>
+  <Fragment slot="seo">
+    <SEO
+      title={title}
+      description={description}
+      locale={lc}
+      path="/404"
+      canonical={canonical}
+      hreflangLocales={["en"]}
+      ogType="website"
+    />
+  </Fragment>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex,nofollow" />
+  </Fragment>
+
+  <section class="not-found" aria-labelledby="not-found-heading">
+    <div class="not-found__inner">
+      <p class="not-found__code" aria-hidden="true">404</p>
+      <h1 id="not-found-heading" class="not-found__title">
+        {t(lc, "notfound.title")}
+      </h1>
+      <p class="not-found__desc">{description}</p>
+      <div class="not-found__actions">
+        <Button href={homeHref} variant="primary" size="lg">
+          {homeLabel}
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: calc(100vh - 8rem);
+    display: grid;
+    place-items: center;
+    padding: clamp(3rem, 8vw, 6rem) var(--space-md);
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+  .not-found__inner {
+    max-width: 36rem;
+    text-align: center;
+    display: grid;
+    gap: var(--space-md);
+  }
+  .not-found__code {
+    margin: 0;
+    font-family:
+      "Outfit", "Outfit Fallback", var(--font-display, system-ui), sans-serif;
+    font-size: clamp(6rem, 16vw, 10rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+  .not-found__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-foreground);
+    line-height: 1.2;
+  }
+  .not-found__desc {
+    margin: 0;
+    font-size: 1.125rem;
+    color: var(--color-muted-foreground);
+    line-height: 1.6;
+  }
+  .not-found__actions {
+    margin-top: var(--space-sm);
+    display: flex;
+    justify-content: center;
+  }
+</style>

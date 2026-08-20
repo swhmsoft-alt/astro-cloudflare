@@ -168,6 +168,8 @@ export default defineConfig({
     starlight({
       title: siteConfig.name,
       pagefind: process.env.SKIP_PAGEFIND !== "true",
+      // 让 src/pages/404.astro 接管全站 404 页面，避免与 Starlight 自带 404 冲突。
+      disable404Route: true,
       customCss: ["./src/styles/starlight.css"],
       components: {
         SiteTitle: "./src/components/docs/SiteTitle.astro",
