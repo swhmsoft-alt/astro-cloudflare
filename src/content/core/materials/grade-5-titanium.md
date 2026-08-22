@@ -126,3 +126,10 @@ Grade 5 titanium is more challenging to machine than aluminium or steel due to i
 - **Welding** — TIG and laser weldable; requires inert gas shielding and stress relief
 - **Heat Treatment** — Solution treatment and aging (STA) can increase strength to 1170 MPa
 
+## Compatible Surface Finishes
+
+- [Titanium Anodizing](/finishes/titanium-anodizing/) — Type II color anodizing at 15–80 V for aerospace identification; Type III hard anodizing (AMS 2488) for wear surfaces. Al/V alloying shifts the voltage-to-colour window slightly higher (+3–5 V vs CP titanium).
+- **Passivation** — Nitric/citric acid treatment that strengthens the native oxide for medical and aerospace parts; often used as pre-treatment before anodizing.
+- **Bead Blasting** — Glass or alumina media at 40–80 PSI for matte aerospace textures.
+- **Polishing** — Mechanical or electropolishing to ≤ 0.2 µm Ra for premium cosmetic surfaces.
+

@@ -7,7 +7,7 @@
   "packageManager": "pnpm@8.15.0",
   "type": "module",
   "engines": {
-    "node": ">=24",
+    "node": "^24.0.0",
     "pnpm": "8.15.0"
   },
   "scripts": {
@@ -15,7 +15,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run check:geo && pnpm run check:procurement && pnpm run validate:registry && pnpm run check:imports && pnpm run check:unique && pnpm run check:mojibake && pnpm run sync:i18n && pnpm run validate:i18n && pnpm run validate:secrets",
+    "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run check:geo && pnpm run check:procurement && pnpm run validate:registry && pnpm run check:imports && pnpm run check:unique && pnpm run check:mojibake && pnpm run sync:i18n && pnpm run validate:i18n && pnpm run check:content-density && pnpm run validate:secrets",
     "lint:js": "eslint . --ignore-pattern dist --ignore-pattern .astro --ignore-pattern .wrangler --ignore-pattern node_modules --ignore-pattern \"src/components/layout/Analytics.astro\"",
     "lint:css": "stylelint src/styles/",
     "check:kpis": "node scripts/check-kpis.mjs",
@@ -25,8 +25,7 @@
     "validate:registry": "node scripts/validate-registry.mjs",
     "check:mojibake": "node scripts/check-mojibake.mjs",
     "check:imports": "node scripts/check-imports.mjs",
-        "check:unique": "node scripts/check-unique.mjs",
-
+    "check:unique": "node scripts/check-unique.mjs",
     "sync:i18n": "node scripts/sync-i18n-keys.mjs",
     "sync": "astro sync",
     "type-check": "astro sync && astro check",
@@ -42,7 +41,12 @@
     "validate:secrets": "node scripts/validate-secrets.cjs",
     "postbuild": "node scripts/generate-media-manifest.cjs",
     "generate": "node knowledge-generator/run.mjs",
-    "translate": "node scripts/translate.mjs"
+    "translate": "node scripts/translate.mjs",
+    "audit:page": "node scripts/audit/index.mjs audit:page",
+    "audit:site": "node scripts/audit/index.mjs audit:site",
+    "audit:density-matrix": "node scripts/audit/density-matrix.mjs --write",
+    "check:content-density": "node scripts/audit/density-matrix.mjs --write",
+    "build:skip-pagefind": "node scripts/build-no-pagefind.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",
@@ -79,6 +83,7 @@
     "@typescript-eslint/eslint-plugin": "^8.62.0",
     "@typescript-eslint/parser": "^8.62.0",
     "astro-eslint-parser": "^3.0.0",
+    "cheerio": "^1.0.0",
     "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^3.0.0",

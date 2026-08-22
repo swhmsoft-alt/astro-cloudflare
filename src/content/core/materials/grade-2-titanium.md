@@ -110,6 +110,13 @@ Grade 2 is the most machinable of the titanium grades due to its lower strength 
 - **CNC Machining** — Grade 2 machines readily with standard carbide tooling
 - **Sheet Metal Forming** — Excellent ductility supports deep drawing, bending, and hydroforming
 - **Welding** — TIG and MIG weldable with proper shielding; filler metal typically same grade
-- **Anodizing** — Produces protective oxide layer; colour anodizing possible with voltage control
+- [Anodizing](/finishes/titanium-anodizing/) — Produces protective oxide layer; colour anodizing possible with voltage control
 - **Passivation** — Enhances native corrosion resistance for chemical and medical applications
+
+## Compatible Surface Finishes
+
+- [Titanium Anodizing](/finishes/titanium-anodizing/) — Type II sulfuric-acid anodizing at 15–80 V is the most repeatable colour-anodizing process on CP titanium. Typical thicknesses 0.02–0.5 µm; voltage controls colour directly. Ideal for medical device colour-coding per ASTM F86.
+- **Passivation** — Nitric or citric acid treatment for chemical processing equipment; the natural oxide (~2–7 nm) is thickened and stabilized.
+- **Polishing** — Mechanical polishing to ≤ 0.4 µm Ra before anodizing maximizes colour brightness on architectural and consumer parts.
+- **Electropolishing** — Produces a bright, hydrogen-free surface at ~0.05 µm Ra; often paired with anodizing for premium cosmetic components.
 

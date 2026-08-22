@@ -13,6 +13,58 @@ globs:
 alwaysApply: true
 ---
 
+> ## 🚨 HARD RULE — Site runtime is EN-only (locked 2026-08-22)
+> 
+> **The site runs EN-only at runtime.** Every 10-locale declaration below
+> (`LOCALES` in `src/config/site.config.ts`, `i18n.locales` in `astro.config.ts`,
+> dormant `src/i18n/{ar,cs,ru,sv,tr,vi}.json`, `src/pages/[locale]/` route
+> skeleton, `_EntityPillar.astro` `enOnlyModules`, Starlight `locales` map,
+> sitemap `i18n.locales`) is an **inert forward-compatibility declaration** —
+> NOT an active translation surface. See `__session_handoff.md` ("i18n
+> discussion is closed · No code changes · Architecture prevents i18n
+> revival structurally").
+> 
+> **DO NOT** (in any session, unless the user explicitly requests
+> re-enablement by referencing this rule and `__session_handoff.md`):
+> 
+> 1. Create files under `src/pages/[locale]/` (the directory is a skeleton
+>    only; no `x.astro` files should be added there).
+> 2. Add sibling `*.de.md` / `*.ja.md` / `*.fr.md` / `*.es.md` / `*.pt-br.md`
+>    / `*.it.md` / `*.ko.md` / `*.nl.md` / `*.pl.md` translations inside
+>    `src/content/**`. Sibling translations DO NOT activate; they create
+>    schema orphan files.
+> 3. Translate or refresh `src/i18n/*.json` non-`en` files (the 6 dormant
+>    JSONs are intentional; do not activate them).
+> 4. Modify `functions/_middleware.ts` away from its current pass-through
+>    state — its only job is to keep the Cloudflare Functions build slot
+>    stable.
+> 5. Widen `hreflang` beyond the existing en-only modules
+>    (`evidence`, `procurement`, `applications`, `cases`, `surfaceFinishes`).
+>    All other modules must stay as-is or be added to `enOnlyModules` first.
+>    The authoritative list lives in
+>    `config/audit.config.mjs → locales.enOnlyCollections`; the renderer
+>    mirror is `src/pages/_shared/_EntityPillar.astro → enOnlyModules`.
+> 6. Register `Organization.sameAs` Wikidata/Wikipedia/GitHub/Crunchbase
+>    links in `src/config/site.config.ts` that imply a multilingual brand
+>    presence (LinkedIn is fine; authority-graph nodes for non-existent
+>    locales are not).
+> 7. Run `pnpm translate` for non-`en` targets — that pipeline is dormant.
+> 
+> **Reason**: sitemap.xml + hreflang would emit 9/10 non-existent locale
+> URLs per page. Google treats this as **declarative multilingual thin-content
+> spam** and demotes the entire site. The user has confirmed (session
+> 2026-08-22) that **i18n is closed**.
+> 
+> **Pre-deploy verification**: spot-check `dist/sitemap-*.xml` and
+> `dist/<page>/index.html` `<head>` `<link rel="alternate" hreflang="…">`
+> blocks. Any hreflang pointing to a path that does not exist as a rendered
+> page is a regression.
+> 
+> **Re-enabling i18n** is a deliberate, breaking SEO change. It requires
+> the user to override this rule explicitly and to seed real content for
+> every added locale before `pnpm build` is run.
+
+# Translation Governance — titanium.blog
 # Translation Governance — titanium.blog
 
 This rule freezes the **translational surface area** of the site. It binds
