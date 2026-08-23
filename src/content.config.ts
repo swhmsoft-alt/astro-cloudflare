@@ -249,10 +249,50 @@ const surfaceFinishes = defineCollection({
     locale: localeSchema,
     title: z.string(),
     description: z.string(),
+    // EEAT
+    author: z.string().optional(),
+    publishDate: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
+    reviewer: z.string().optional(),
+    lastReviewedBy: z.string().optional(),
+    // Spoke taxonomy
     materials: z.array(z.string()).default([]),
     industries: z.array(z.string()).default([]),
+    processes: z.array(z.string()).default([]),
     raRange: z.string().optional(),
+    finishType: z.string().optional(),
     image: z.string().optional(),
+    // GEO evidence fields
+    source: z.string().optional(),
+    sourceUrl: z.string().optional(),
+    sourceAuthority: z.enum(["HIGH", "MEDIUM", "LOW"]).optional(),
+    claimSupport: z.enum(["SUPPORTED", "PARTIALLY_SUPPORTED", "NOT_SUPPORTED", "UNVERIFIED"]).optional(),
+    claimScope: z.enum([
+      "GENERAL_PROPERTY",
+      "STANDARD_REQUIREMENT",
+      "TYPICAL_VALUE",
+      "MANUFACTURER_RECOMMENDATION",
+      "ENGINEERING_INTERPRETATION",
+      "FIRST_PARTY_CAPABILITY",
+    ]).optional(),
+    relatedMaterials: z.array(z.string()).default([]),
+    relatedProcesses: z.array(z.string()).default([]),
+    relatedStandards: z.array(z.string()).default([]),
+    relatedDecisions: z.array(z.string()).default([]),
+    relatedEntities: z.array(z.string()).default([]),
+    dataPoints: z
+      .array(
+        z.object({
+          property: z.string(),
+          value: z.string(),
+          unit: z.string().optional(),
+          notes: z.string().optional(),
+        }),
+      )
+      .default([]),
+    faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+    // Behaviour
+    isHub: z.boolean().default(false),
     order: z.number().default(0),
     translationKey: z.string().optional(),
   }),

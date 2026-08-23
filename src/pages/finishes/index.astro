@@ -1,15 +1,22 @@
 ---
 import EntityPillar from "../_shared/_EntityPillar.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
 import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import type { Locale } from "../../config/site.config";
 const locale = (Astro.currentLocale || "en") as Locale;
 
+// Spoke entries (excludes the `_hub` entry via `isHub` flag — see schema).
 const entries = (await getCollection("surfaceFinishes"))
-  .filter((e: any) => e.data.locale === locale)
+  .filter((e: any) => e.data.locale === locale && !e.data.isHub)
   .sort((a: any, b: any) => a.data.order - b.data.order);
+
+// Hub content: a long-form article rendered above the card grid. The
+// `_hub.md` entry lives in the same collection but is filtered out of
+// the card list; its body is rendered inline as the hub intro.
+const hubEntry = await getEntry("surfaceFinishes", "_hub");
+const HubContent = hubEntry ? (await render(hubEntry)).Content : null;
 
 const listUrl = siteConfig.url + resolveRoute(locale, "/finishes/");
 const collectionSchema = buildCollectionPageSchema({
@@ -39,4 +46,6 @@ const schemas = [collectionSchema, itemListSchema].filter(
   locale={locale}
   path="/finishes/"
   jsonLd={schemas}
-/>
+>
+  {HubContent && <HubContent slot="hubIntro" />}
+</EntityPillar>

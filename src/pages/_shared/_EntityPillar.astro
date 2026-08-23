@@ -29,7 +29,7 @@ const enOnlyModules = ["evidence", "procurement", "applications", "cases", "surf
 const enOnly = enOnlyModules.includes(collectionName);
 
 const entries = (await getCollection(collectionName))
-  .filter((entry: any) => entry.data.locale === locale)
+  .filter((entry: any) => entry.data.locale === locale && !entry.data.isHub)
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
 const collectionLabels: Record<string, string> = {
@@ -65,6 +65,10 @@ const collectionLabels: Record<string, string> = {
       <h1 class="section-head__title">{resolvedTitle}</h1>
       <p class="section-head__lead">{resolvedDescription}</p>
     </header>
+
+    <div class="hub-intro">
+      <slot name="hubIntro" />
+    </div>
 
     <div class="entity-grid">
       {entries.length === 0 && (
@@ -160,5 +164,61 @@ const collectionLabels: Record<string, string> = {
     border-radius: var(--radius-full);
     color: var(--color-text-secondary);
     background: var(--color-bg-tertiary);
+  }
+
+  .hub-intro {
+    margin-top: var(--space-2xl);
+  }
+  .hub-intro :global(h2) {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+  }
+  .hub-intro :global(h3) {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    font-size: 1.15rem;
+    color: var(--color-text-primary);
+  }
+  .hub-intro :global(p),
+  .hub-intro :global(ul),
+  .hub-intro :global(ol) {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+  .hub-intro :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-md) 0 var(--space-lg);
+    font-size: 0.92rem;
+  }
+  .hub-intro :global(th),
+  .hub-intro :global(td) {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .hub-intro :global(th) {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+  .hub-intro :global(blockquote) {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) var(--space-lg);
+    border-left: 3px solid var(--color-brand-primary);
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+  .hub-intro :global(strong) {
+    color: var(--color-text-primary);
+  }
+  .hub-intro :global(a) {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 </style>
