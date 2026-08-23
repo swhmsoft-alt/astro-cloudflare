@@ -84,9 +84,9 @@ export function getAvailableLocales(pageId: PageId): Locale[] {
     return ["en"];
   }
 
-  // 3. 首页（index）— 纯 UI，全部走 t()，所有语言可用
+  // 3. 首页（index）— 纯 UI，EN-only runtime (Session 1 of i18n cleanup, 2026-08-23)
   if (pageId === "index" || pageId === "/") {
-    return [...SITE_CONFIG.locales] as Locale[];
+    return ["en"];
   }
 
   // 4. 检查 AVAILABILITY 显式声明的页面
@@ -104,44 +104,44 @@ export function getAvailableLocales(pageId: PageId): Locale[] {
  */
 export const AVAILABILITY: Record<string, Locale[]> = {
   // ── 首页 ──
-  "index": [...SITE_CONFIG.locales] as Locale[],
+  "index": ["en"],
 
   // ── site/pages 内容页面（有 de/es 翻译） ──
-  "about":      ["en", "de", "es"],
-  "contact":    ["en", "de", "es"],
-  "pricing":    ["en", "de", "es"],
-  "privacy":    ["en", "de", "es"],
-  "terms":      ["en", "de", "es"],
+  "about":      ["en"],
+  "contact":    ["en"],
+  "pricing":    ["en"],
+  "privacy":    ["en"],
+  "terms":      ["en"],
 
   // ── solutions 系列 ──
-  "solutions/index":              ["en", "de", "es"],
-  "solutions/aerospace-defense":  ["en", "de", "es"],
-  "solutions/automotive-motorsports": ["en", "de", "es"],
-  "solutions/chemical-processing": ["en", "de", "es"],
-  "solutions/consumer-electronics": ["en", "de", "es"],
-  "solutions/cycling-bicycle":     ["en", "de", "es"],
-  "solutions/electroplating-surface-finishing": ["en", "de", "es"],
-  "solutions/energy":             ["en", "de", "es"],
-  "solutions/environmental-engineering": ["en", "de", "es"],
-  "solutions/general-industrial": ["en", "de", "es"],
-  "solutions/marine-offshore":    ["en", "de", "es"],
-  "solutions/medical-device":     ["en", "de", "es"],
-  "solutions/semiconductor":      ["en", "de", "es"],
+  "solutions/index":              ["en"],
+  "solutions/aerospace-defense":  ["en"],
+  "solutions/automotive-motorsports": ["en"],
+  "solutions/chemical-processing": ["en"],
+  "solutions/consumer-electronics": ["en"],
+  "solutions/cycling-bicycle":     ["en"],
+  "solutions/electroplating-surface-finishing": ["en"],
+  "solutions/energy":             ["en"],
+  "solutions/environmental-engineering": ["en"],
+  "solutions/general-industrial": ["en"],
+  "solutions/marine-offshore":    ["en"],
+  "solutions/medical-device":     ["en"],
+  "solutions/semiconductor":      ["en"],
 
   // ── 知识库页面（已有 de 翻译） ──
-  "compare":          ["en", "de"],
-  "guides":           ["en", "de"],
-  "faq":              ["en", "de"],
-  "corrosion/index":  ["en", "de"],
-  "equipment/index":  ["en", "de"],
-  "failures/index":   ["en", "de"],
-  "finishes/index":   ["en", "de"],
-  "grades/index":     ["en", "de"],
-  "heat-treatment/index": ["en", "de"],
-  "industries/index": ["en", "de"],
-  "processes/index":  ["en", "de"],
-  "selection/index":  ["en", "de"],
-  "standards/index":  ["en", "de"],
+  "compare":          ["en"],
+  "guides":           ["en"],
+  "faq":              ["en"],
+  "corrosion/index":  ["en"],
+  "equipment/index":  ["en"],
+  "failures/index":   ["en"],
+  "finishes/index":   ["en"],
+  "grades/index":     ["en"],
+  "heat-treatment/index": ["en"],
+  "industries/index": ["en"],
+  "processes/index":  ["en"],
+  "selection/index":  ["en"],
+  "standards/index":  ["en"],
 
   // ── 行业子页面（尚未翻译，仅英文） ──
   "industries/aerospace": ["en"],
