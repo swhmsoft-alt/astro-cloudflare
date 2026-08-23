@@ -106,12 +106,12 @@ The process is **not recommended** on titanium-aluminide intermetallics (γ-TiAl
 
 Titanium anodizing sits within a wider surface-treatment portfolio; engineers typically select finishes by required function:
 
-- [Passivation of Titanium](/finishes/passivation-titanium/) — strengthens the native oxide without colour change; often used as a pre-treatment before anodizing.
-- [Electropolishing of Titanium](/finishes/electropolishing-titanium/) — produces the smoothest pre-anodizing substrate (~0.05 µm Ra) and the brightest colours.
-- [PVD Coating for Titanium](/finishes/pvd-coating-titanium/) — adds a 1–2 µm ceramic layer (TiN, TiAlN, DLC) for wear performance beyond what anodizing alone achieves.
-- [Bead Blasting for Titanium](/finishes/bead-blasting-titanium/) — matte texture; usually applied *before* anodizing for non-reflective surfaces.
-- [Polishing of Titanium](/finishes/polishing-titanium/) — mirror finish substrate for premium cosmetic anodizing.
-- [Chemical Etching of Titanium](/finishes/chemical-etching-titanium/) — pattern or grain-boundary reveal prior to selective anodizing.
+- [Passivation of Titanium](/finishes/passivation/) — strengthens the native oxide without colour change; often used as a pre-treatment before anodizing.
+- [Electropolishing of Titanium](/finishes/electropolishing/) — produces the smoothest pre-anodizing substrate (~0.05 µm Ra) and the brightest colours.
+- [PVD Coating for Titanium](/finishes/pvd-coating/) — adds a 1–2 µm ceramic layer (TiN, TiAlN, DLC) for wear performance beyond what anodizing alone achieves.
+- [Bead Blasting for Titanium](/finishes/bead-blasting/) — matte texture; usually applied *before* anodizing for non-reflective surfaces.
+- [Polishing of Titanium](/finishes/polishing/) — mirror finish substrate for premium cosmetic anodizing.
+- [Chemical Etching of Titanium](/finishes/chemical-etching/) — pattern or grain-boundary reveal prior to selective anodizing.
 
 ## Limitations and Failure Modes
 
