@@ -19,4 +19,11 @@ const pageGraph = buildPillarGraph({
   })),
 }, siteConfig);
 ---
-<EntityPillar collectionName="procurement" pageTitle="Titanium Procurement Guides" pageDescription="RFQ preparation, certifications, lead times, inspection, and supplier decisions for titanium component procurement." locale={locale} path="/procurement/" pageGraph={pageGraph} />
+<EntityPillar collectionName="procurement" pageTitle="Titanium Procurement Guides" pageDescription="RFQ preparation, certifications, lead times, inspection, and supplier decisions for titanium component procurement." locale={locale} path="/procurement/" pageGraph={pageGraph}>
+  <nav slot="hubIntro" class="hub-featured" aria-label="Featured procurement reference">
+    <h2>Featured Procurement Reference</h2>
+    <ul>
+      <li><a href="/procurement/coa-vs-coc/">COA vs COC</a> — when to request a Certificate of Analysis (composition data) vs a Certificate of Compliance (conformance statement) for titanium mill shipments, and how to recognise when an MTR is the right document instead.</li>
+    </ul>
+  </nav>
+</EntityPillar>

@@ -17,6 +17,12 @@
 
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import { join, relative, sep, basename } from "node:path";
+import {
+  extractAliases,
+  deriveSearchTerms,
+  extractRelationships,
+  extractFrontmatterKeys,
+} from "./lib/relationships.mjs";
 
 const ROOT = process.cwd();
 
@@ -89,26 +95,43 @@ function parseFrontmatter(raw) {
   const m = raw.match(/^---\n([\s\S]*?)\n---\n/);
   if (!m) return {};
   const out = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    if (!line.trim() || line.trim().startsWith("#")) continue;
+  const lines = m[1].split(/\r?\n/);
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) { i++; continue; }
     const km = line.match(/^([A-Za-z_][A-Za-z0-9_]*)\s*:\s*(.*)$/);
-    if (!km) continue;
+    if (!km) { i++; continue; }
     const key = km[1];
     let v = km[2].trim();
+    // YAML block sequence: empty value + following lines start with "  - "
+    if (v === "" && i + 1 < lines.length && /^\s*-\s/.test(lines[i + 1])) {
+      const items = [];
+      i++;
+      while (i < lines.length && /^\s*-\s/.test(lines[i])) {
+        const item = lines[i].replace(/^\s*-\s+/, "").trim();
+        items.push(item.replace(/^["']|["']$/g, ""));
+        i++;
+      }
+      out[key] = items;
+      continue;
+    }
     if (
       (v.startsWith('"') && v.endsWith('"')) ||
       (v.startsWith("'") && v.endsWith("'"))
     )
       v = v.slice(1, -1);
-    if (v === "" && line.endsWith(":")) { out[key] = []; continue; }
+    if (v === "" && line.endsWith(":")) { out[key] = []; i++; continue; }
     if (v.startsWith("[") && v.endsWith("]")) {
       try { out[key] = JSON.parse(v.replace(/'/g, '"')); }
       catch { out[key] = v.slice(1, -1).split(",").map((s) => s.trim()); }
-      continue;
+      i++; continue;
     }
-    if (v === "true") { out[key] = true; continue; }
-    if (v === "false") { out[key] = false; continue; }
+    if (v === "true") { out[key] = true; i++; continue; }
+    if (v === "false") { out[key] = false; i++; continue; }
     out[key] = v;
+    i++;
   }
   return out;
 }
@@ -134,7 +157,9 @@ async function scanOneContentRoot(relRoot) {
     const fm = parseFrontmatter(raw);
     const id = basename(file).replace(/\.mdx?$/, "");
     const isHub = fm.isHub === true || /^_hub\b/.test(id);
-    out.push({
+    const aliases = extractAliases(fm);
+    const relationships = extractRelationships(fm);
+    const entity = {
       key: id,
       collection: collection || "unknown",
       url: urlPrefix ? `${urlPrefix}${id}/` : null,
@@ -143,7 +168,13 @@ async function scanOneContentRoot(relRoot) {
       exists: true,
       type: isHub ? "hub" : "spoke",
       isHub,
-    });
+      aliases,
+      searchTerms: [], // filled below once key+title+aliases are settled
+      relationships,
+      frontmatterKeys: extractFrontmatterKeys(fm),
+    };
+    entity.searchTerms = deriveSearchTerms(entity);
+    out.push(entity);
   }
   return out;
 }
@@ -190,10 +221,28 @@ async function main() {
   console.log("=== entity registry ===");
   console.log("total:", unique.length);
   console.log("by collection:", JSON.stringify(snap.byCollection));
+  const withAliases = unique.filter((e) => (e.aliases || []).length > 0).length;
+  const withRelations = unique.filter(
+    (e) => e.relationships && Object.keys(e.relationships).length > 0,
+  ).length;
+  const totalRefEdges = unique.reduce(
+    (n, e) =>
+      n +
+      (e.relationships
+        ? Object.values(e.relationships).reduce((s, arr) => s + arr.length, 0)
+        : 0),
+    0,
+  );
+  console.log("with aliases       :", withAliases);
+  console.log("with relationships :", withRelations);
+  console.log("total ref edges    :", totalRefEdges);
   console.log("");
   for (const e of unique) {
+    const relKeys = e.relationships
+      ? Object.keys(e.relationships).join(",")
+      : "";
     console.log(
-      `[${e.collection.padEnd(18)}] ${e.key.padEnd(34)} → ${e.url || "(no URL)"} ${e.isHub ? "[HUB]" : ""}`,
+      `[${e.collection.padEnd(18)}] ${e.key.padEnd(34)} → ${e.url || "(no URL)"} ${e.isHub ? "[HUB]" : ""} ${relKeys ? `(${relKeys})` : ""}`,
     );
   }
 }

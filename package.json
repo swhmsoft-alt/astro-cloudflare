@@ -15,7 +15,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run check:geo && pnpm run check:procurement && pnpm run validate:registry && pnpm run check:imports && pnpm run check:unique && pnpm run check:mojibake && pnpm run sync:i18n && pnpm run validate:i18n && pnpm run check:content-density && pnpm run validate:secrets",
+    "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run type-check && pnpm run check:kpis && pnpm run check:geo && pnpm run check:procurement && pnpm run validate:registry && pnpm run check:imports && pnpm run check:unique && pnpm run check:mojibake && pnpm run sync:i18n && pnpm run validate:i18n && pnpm run check:content-density && pnpm run check:entity-coverage && pnpm run validate:secrets",
     "lint:js": "eslint . --ignore-pattern dist --ignore-pattern .astro --ignore-pattern .wrangler --ignore-pattern node_modules --ignore-pattern \"src/components/layout/Analytics.astro\"",
     "lint:css": "stylelint src/styles/",
     "check:kpis": "node scripts/check-kpis.mjs",
@@ -46,6 +46,8 @@
     "audit:site": "node scripts/audit/index.mjs audit:site",
     "audit:density-matrix": "node scripts/audit/density-matrix.mjs --write",
     "check:content-density": "node scripts/audit/density-matrix.mjs --write",
+    "audit:entity-coverage": "node scripts/audit-entity-coverage.mjs",
+    "check:entity-coverage": "node scripts/audit-entity-coverage.mjs --zero-only",
     "build:skip-pagefind": "node scripts/build-no-pagefind.mjs"
   },
   "dependencies": {

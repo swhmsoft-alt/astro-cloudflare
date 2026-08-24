@@ -45,4 +45,10 @@ const schemas = [collectionSchema, itemListSchema].filter(
   jsonLd={schemas}
 >
   {HubContent && <HubContent slot="hubIntro" />}
+  <nav slot="hubIntro" class="hub-featured" aria-label="Featured surface finish reference">
+    <h2>Featured Surface Finish Reference</h2>
+    <ul>
+      <li><a href="/finishes/electropolishing/">Electropolishing of Titanium</a> — electrochemical finishing that reaches 0.05–0.2 µm Ra on medical implants, semiconductor UHV components, and aerospace fuel-system hardware; hydrogen pickup typically &lt;5 ppm per AMS 2700F reference cycle.</li>
+    </ul>
+  </nav>
 </EntityPillar>

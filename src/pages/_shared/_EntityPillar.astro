@@ -218,4 +218,34 @@ const collectionLabels: Record<string, string> = {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+
+  /* Shared "Featured reference" callout rendered in the hubIntro slot.
+     Used by cluster hubs to surface zero-coverage entities (or any
+     editorial pick) as inline cross-references. Token-only styles. */
+  .hub-featured {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
+    border-left: 3px solid var(--color-brand-primary);
+    background: var(--color-bg-tertiary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .hub-featured h2 {
+    margin: 0 0 var(--space-sm);
+    font-size: 1.15rem;
+    color: var(--color-text-primary);
+  }
+  .hub-featured ul {
+    margin: 0;
+    padding-left: var(--space-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+  .hub-featured li {
+    margin-bottom: var(--space-sm);
+  }
+  .hub-featured a {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 </style>

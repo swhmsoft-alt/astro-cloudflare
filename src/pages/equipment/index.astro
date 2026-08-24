@@ -45,4 +45,12 @@ const schemas = [collectionSchema, itemListSchema].filter(
   locale={locale}
   path="/equipment/"
   jsonLd={schemas}
-/>
+>
+  <nav slot="hubIntro" class="hub-featured" aria-label="Featured equipment references">
+    <h2>Featured Equipment References</h2>
+    <ul>
+      <li><a href="/equipment/laser-tracker/">Laser Tracker</a> — portable coordinate-measurement system (Leica AT401) for large aerospace assembly verification, with ±15 µm + 10 µm/m accuracy over 60–80 m radius.</li>
+      <li><a href="/equipment/mitsubishi-ev3000/">Mitsubishi EV3000 Wire EDM</a> — 5-axis simultaneous wire EDM for thin-wall titanium aerospace and medical-implant features with ±2 µm positioning tolerance.</li>
+    </ul>
+  </nav>
+</EntityPillar>
