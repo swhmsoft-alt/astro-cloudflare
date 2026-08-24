@@ -2,14 +2,12 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Hero from "../../../components/hero/Hero.astro";
 import CTA from "../../../components/CTA.astro";
-import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../config/site.config";
 import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
 
-const locale = (Astro.currentLocale || "en") as Locale;
-const listUrl = siteConfig.url + resolveRoute(locale, "/industries/oil-and-gas/");
+const locale = "en";
+const listUrl = siteConfig.url + "/industries/oil-and-gas/";
 const spokePages = [
   { title: "Oil & Gas Titanium Machining", description: "NACE MR0175 compliant titanium components for oil and gas. Subsea manifolds, seawater injection systems, riser components, and stress joints.", href: "/services/titanium-cnc-machining/", cta: "View CNC Machining Service →" },
   { title: "Oil & Gas Applications & Materials", description: "Guide to titanium in oil and gas: sour service resistance, NACE compliance, subsea equipment, and material selection for extreme environments.", href: "/industries/oil-and-gas/", cta: "Read Oil & Gas Guide →" },
@@ -26,7 +24,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Oil & Gas Titanium M
     <tr><td>CP-Ti Grade 2</td><td>Seawater piping, heat exchangers, injection systems</td></tr>
     <tr><td>Ti-Grade 7</td><td>Extreme corrosion resistance for chemical injection</td></tr>
     <tr><td>Ti-Grade 12</td><td>High-temperature downhole components, heat exchangers</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={"/grades/"}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">NACE MR0175</span><span class="cert-badge">ASTM B381</span><span class="cert-badge">ASME BPVC</span><span class="cert-badge">ISO 9001</span><span class="cert-badge">API</span><span class="cert-badge">CMM</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -42,7 +40,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Oil & Gas Titanium M
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
   <Hero variant="centered" size="md" eyebrow="Oil & Gas" headline="Titanium Manufacturing for Oil & Gas Applications" subheadline="Titanium resists seawater corrosion and sour gas (H2S) with a high strength-to-weight ratio, making it ideal for subsea and downhole applications. We supply NACE MR0175 compliant titanium components certified for extreme environments." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/oil-and-gas/" }} locale={locale} />
-  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Oil & Gas</p><h2 class="section-head__title">Complete Oil & Gas Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
+  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Oil & Gas</p><h2 class="section-head__title">Complete Oil & Gas Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={page.href} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
   .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }

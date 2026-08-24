@@ -84,7 +84,7 @@ export const GET: APIRoute = async () => {
     ? `\n## FAQ\n\n${faqEntries.map((f: CollectionEntry<"faqs">) => `- **${f.data.question}**: ${f.data.answer}`).join("\n")}\n`
     : "";
 
-  const body = `# ${siteConfig.name}\n\n> ${siteConfig.description}.\n\n## Quick Facts\n\n- **URL**: ${siteConfig.url}\n- **Author**: ${siteConfig.author}\n- **Contact**: ${siteConfig.email}\n- **Languages**: ${siteConfig.i18n.locales.join(", ")}\n- **Tech Stack**: Astro, Starlight, Tailwind CSS, Cloudflare Pages, Pagefind${section("Core Pages", corePages, base)}${section("Blog Posts", blogLinks, base)}${section("Content Pages", pageLinks, base)}${section("Documentation", docLinks, base)}${faqSection}${section("Stack", stack, base)}\n\n---\n\n*Last updated: ${new Date().toISOString().slice(0, 10)}.*\n`;
+  const body = `# ${siteConfig.name}\n\n> ${siteConfig.description}.\n\n## Quick Facts\n\n- **URL**: ${siteConfig.url}\n- **Author**: ${siteConfig.author}\n- **Contact**: ${siteConfig.email}\n- **Languages**: English\n- **Tech Stack**: Astro, Starlight, Tailwind CSS, Cloudflare Pages, Pagefind${section("Core Pages", corePages, base)}${section("Blog Posts", blogLinks, base)}${section("Content Pages", pageLinks, base)}${section("Documentation", docLinks, base)}${faqSection}${section("Stack", stack, base)}\n\n---\n\n*Last updated: ${new Date().toISOString().slice(0, 10)}.*\n`;
 
   return new Response(body, {
     headers: { "Content-Type": "text/plain; charset=utf-8" },

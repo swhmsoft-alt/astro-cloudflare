@@ -2,11 +2,8 @@
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection, getEntry, render } from "astro:content";
 import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../config/site.config";
-const locale = (Astro.currentLocale || "en") as Locale;
-
+const locale = "en";
 // Spoke entries (excludes the `_hub` entry via `isHub` flag — see schema).
 const entries = (await getCollection("surfaceFinishes"))
   .filter((e: any) => e.data.locale === locale && !e.data.isHub)
@@ -18,7 +15,7 @@ const entries = (await getCollection("surfaceFinishes"))
 const hubEntry = await getEntry("surfaceFinishes", "_hub");
 const HubContent = hubEntry ? (await render(hubEntry)).Content : null;
 
-const listUrl = siteConfig.url + resolveRoute(locale, "/finishes/");
+const listUrl = siteConfig.url + "/finishes/";
 const collectionSchema = buildCollectionPageSchema({
   name: "Titanium Surface Finishes Guide",
   description: "Complete guide to titanium surface treatments: anodizing, passivation, polishing, bead blasting, and PVD coating.",
@@ -32,7 +29,7 @@ const itemListSchema = entries.length > 0 ? buildItemListSchema({
   itemListElement: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
-    url: siteConfig.url + resolveRoute(locale, "/finishes/" + e.id + "/"),
+    url: siteConfig.url + "/finishes/" + e.id + "/",
   })),
 }) : null;
 const schemas = [collectionSchema, itemListSchema].filter(

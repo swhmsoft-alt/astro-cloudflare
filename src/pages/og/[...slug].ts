@@ -135,13 +135,12 @@ export async function getStaticPaths() {
   }> = [];
 
   const listKinds: OgKind[] = ["home", "blog-list"];
-  for (const locale of siteConfig.i18n.locales) {
-    for (const kind of listKinds) {
-      paths.push({
-      params: { slug: `${kind}/${locale}` },
-        props: { kind, locale, slug: [] },
-      });
-    }
+  // EN-only project (2026-08-23): only the default locale emits list-kind OG images.
+  for (const kind of listKinds) {
+    paths.push({
+      params: { slug: `${kind}/en` },
+      props: { kind, locale: "en", slug: [] },
+    });
   }
 
   for (const entry of BLOG.filter(

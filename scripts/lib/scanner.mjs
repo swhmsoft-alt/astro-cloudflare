@@ -51,7 +51,7 @@ const COLLECTIONS = {
 
 const VALID_EXTS = new Set([".md", ".mdx", ".json"]);
 // Keep in sync with `LOCALES` in src/config/site.config.ts.
-const LOCALE_CODES = new Set(["en","de","ja","fr","es","pt-br","it","ko","nl","pl"]);
+const LOCALE_CODES = new Set(["en"]);
 const LOCALE_SUFFIX_RE = new RegExp("-(" + Array.from(LOCALE_CODES).join("|") + ")$");
 
 // ── Public API ────────────────────────────────────────────────────────────────

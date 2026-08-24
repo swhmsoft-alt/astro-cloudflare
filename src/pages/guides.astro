@@ -1,7 +1,6 @@
 ---
 import MarketingLayout from "../layouts/MarketingLayout.astro";
 import { t } from "../i18n/ui";
-import { resolveRoute } from "../i18n/routes";
 import { siteConfig } from "../config/site.config";
 import {
   buildWebSiteSchema,
@@ -10,12 +9,10 @@ import {
   buildCollectionPageSchema,
   buildItemListSchema,
 } from "../lib/schema";
-import type { Locale } from "../config/site.config";
 
-const locale = (Astro.currentLocale || "en") as Locale;
-
+const locale = "en";
 const guideTypes = ["material-selection", "machining", "design", "procurement", "industry"];
-const listUrl = siteConfig.url + resolveRoute(locale, "/guides/");
+const listUrl = siteConfig.url + "/guides/";
 const collectionSchema = buildCollectionPageSchema({
   name: "Titanium Engineering Guides",
   description: "Step-by-step guides for titanium material selection, machining, design, procurement, and industry applications.",
@@ -29,7 +26,7 @@ const itemListSchema = buildItemListSchema({
   itemListElement: guideTypes.map((g) => ({
     name: g.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
     description: `Step-by-step guide for titanium ${g.replace(/-/g, " ")}.`,
-    url: siteConfig.url + resolveRoute(locale, `/guides/#${g}`),
+    url: siteConfig.url + `/guides/#${g}`,
   })),
 });
 
@@ -174,7 +171,7 @@ const guideCategories: GuideCategory[] = [
                 <li class="guide-card__step">
                   <span class="guide-card__step-num"></span>
                   <a
-                    href={resolveRoute(locale, step.href)}
+                    href={step.href}
                     class="guide-card__step-link"
                   >
                     {step.label}
@@ -182,7 +179,7 @@ const guideCategories: GuideCategory[] = [
                 </li>
               ))}
             </ol>
-            <a href={resolveRoute(locale, cat.cta.href)} class="guide-card__cta">
+            <a href={cat.cta.href} class="guide-card__cta">
               {cat.cta.label} &rarr;
             </a>
           </article>

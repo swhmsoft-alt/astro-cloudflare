@@ -3,18 +3,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SEO from "../components/seo/SEO.astro";
 import Button from "../components/ui/form/Button/Button.astro";
 import { t } from "../i18n/ui";
-import { resolveRoute } from "../i18n/routes";
 import { siteConfig as s } from "../config/site.config";
-import type { Locale as L } from "../config/site.config";
 
-const lc = (Astro.currentLocale || "en") as L;
-
+const lc = "en";
 // 404 页面：兜底所有未匹配路由。Astro 会在构建时把它输出为 dist/404.html，
 // Cloudflare Pages 在未命中路径时自动 serve 该文件。
 const title = `404 — ${t(lc, "notfound.title")}`;
 const description = t(lc, "notfound.desc");
 const homeLabel = t(lc, "notfound.back");
-const homeHref = resolveRoute(lc, "/");
+const homeHref = "/";
 // canonical 强制指向首页，避免搜索引擎把 /404/ 当成有效收录页
 const canonical = s.url + "/";
 ---

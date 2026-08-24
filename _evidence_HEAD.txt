@@ -2,11 +2,12 @@
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection } from "astro:content";
 import { buildPillarGraph } from "../../lib/schema";
+import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-// EN-only project (2026-08-23): locale pinned; src/i18n/routes.ts removed in Session 6.
-const locale = "en";
+import type { Locale } from "../../config/site.config";
+const locale = (Astro.currentLocale || "en") as Locale;
 const entries = (await getCollection("evidence")).filter((e: any) => e.data.locale === locale).sort((a: any, b: any) => (a.data.order || 0) - (b.data.order || 0));
-const listUrl = siteConfig.url + "/evidence/";
+const listUrl = siteConfig.url + resolveRoute(locale, "/evidence/");
 const pageGraph = buildPillarGraph({
   name: "Titanium Engineering Evidence & Data",
   description: "Structured technical data, cutting parameters, tolerances, surface roughness, and material properties for titanium manufacturing.",
@@ -16,7 +17,7 @@ const pageGraph = buildPillarGraph({
   items: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
-    url: siteConfig.url + "/evidence/" + e.id + "/",
+    url: siteConfig.url + resolveRoute(locale, "/evidence/" + e.id + "/"),
   })),
 }, siteConfig);
 ---

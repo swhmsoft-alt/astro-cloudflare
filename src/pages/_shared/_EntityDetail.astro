@@ -1,8 +1,6 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
-import { t } from "../../i18n/ui";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import {
   buildEvidenceGraph,
@@ -10,6 +8,7 @@ import {
   type CollectionSetKey,
 } from "../../lib/schema";
 import RelatedContent from "../../components/sections/RelatedContent.astro";
+import { t } from "../../i18n/ui";
 
 export interface Props {
   collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "materialSelection" | "failureAnalysis" | "heatTreatment" | "corrosion" | "evidence" | "applications";
@@ -27,7 +26,7 @@ if (!entry) return Astro.redirect("/404");
 
 const data = entry.data as any;
 const pillarPath = `/${collectionName === "materials" ? "grades" : collectionName === "surfaceFinishes" ? "finishes" : collectionName === "materialSelection" ? "selection" : collectionName === "failureAnalysis" ? "failures" : collectionName === "heatTreatment" ? "heat-treatment" : collectionName === "corrosion" ? "corrosion" : collectionName}/`;
-const pageUrl = siteConfig.url + resolveRoute(locale, `${pillarPath}${slug}/`);
+const pageUrl = siteConfig.url + `${pillarPath}${slug}/`;
 // Evidence source model: resolve internal /evidence/* stubs and never emit them.
 function resolveEvidenceSource(d: any) {
   const src = (d.source || "").trim();
@@ -41,7 +40,7 @@ const evSource = collectionName === "evidence" ? resolveEvidenceSource(data) : n
 
 const breadcrumbCrumbs = [
   { label: "Home", href: siteConfig.url + "/" },
-  { label: "Knowledge", href: siteConfig.url + resolveRoute(locale, pillarPath) },
+  { label: "Knowledge", href: siteConfig.url + pillarPath },
   { label: data.title, href: pageUrl },
 ];
 // Map collectionName → CollectionSetKey for the DefinedTermSet anchor.
@@ -52,7 +51,7 @@ const mentionSet = new Set<string>();
 function pushMention(relSlug: string | undefined, pillar: string) {
   if (!relSlug) return;
   const slugified = relSlug.toLowerCase().replace(/\s+/g, "-");
-  mentionSet.add(siteConfig.url + resolveRoute(locale, `/${pillar}/${slugified}/`));
+  mentionSet.add(siteConfig.url + `/${pillar}/${slugified}/`);
 }
 if (Array.isArray(data.relatedMaterials)) data.relatedMaterials.forEach((m: string) => pushMention(m, "grades"));
 if (Array.isArray(data.relatedProcesses)) data.relatedProcesses.forEach((p: string) => pushMention(p, "processes"));
@@ -158,7 +157,7 @@ const pageGraph = (() => {
           <div class="related-section">
             <h3>Standards</h3>
             <ul>{data.standards.map((s: string) => (
-              <li><a href={resolveRoute(locale, `/standards/${s.toLowerCase().replace(/\s+/g, "-")}/`)}>{s}</a></li>
+              <li><a href={`/standards/${s.toLowerCase().replace(/\s+/g, "-")}/`}>{s}</a></li>
             ))}</ul>
           </div>
         )}
@@ -166,7 +165,7 @@ const pageGraph = (() => {
           <div class="related-section">
             <h3>Industries</h3>
             <ul>{data.industries.map((i: string) => (
-              <li><a href={resolveRoute(locale, `/industries/${i.toLowerCase().replace(/\s+/g, "-")}/`)}>{i}</a></li>
+              <li><a href={`/industries/${i.toLowerCase().replace(/\s+/g, "-")}/`}>{i}</a></li>
             ))}</ul>
           </div>
         )}
@@ -174,7 +173,7 @@ const pageGraph = (() => {
           <div class="related-section">
             <h3>Related Materials</h3>
             <ul>{data.relatedMaterials.map((m: string) => (
-              <li><a href={resolveRoute(locale, `/grades/${m}/`)}>{m.replace(/-/g, " ")}</a></li>
+              <li><a href={`/grades/${m}/`}>{m.replace(/-/g, " ")}</a></li>
             ))}</ul>
           </div>
         )}
@@ -182,7 +181,7 @@ const pageGraph = (() => {
           <div class="related-section">
             <h3>Related Processes</h3>
             <ul>{data.relatedProcesses.map((p: string) => (
-              <li><a href={resolveRoute(locale, `/processes/${p}/`)}>{p.replace(/-/g, " ")}</a></li>
+              <li><a href={`/processes/${p}/`}>{p.replace(/-/g, " ")}</a></li>
             ))}</ul>
           </div>
         )}
@@ -190,7 +189,7 @@ const pageGraph = (() => {
           <div class="related-section">
             <h3>Related Standards</h3>
             <ul>{data.relatedStandards.map((s: string) => (
-              <li><a href={resolveRoute(locale, `/standards/${s}/`)}>{s.replace(/-/g, " ").toUpperCase()}</a></li>
+              <li><a href={`/standards/${s}/`}>{s.replace(/-/g, " ").toUpperCase()}</a></li>
             ))}</ul>
           </div>
         )}
@@ -200,7 +199,7 @@ const pageGraph = (() => {
       <div class="related-section">
         <h3>Related Decisions</h3>
         <ul>{data.relatedDecisions.map((d: string) => (
-          <li><a href={resolveRoute(locale, d)}>{d.replace(/^\/|\/$/g, "").split("/").filter(Boolean).pop()!.replace(/-/g, " ")}</a></li>
+          <li><a href={d}>{d.replace(/^\/|\/$/g, "").split("/").filter(Boolean).pop()!.replace(/-/g, " ")}</a></li>
         ))}</ul>
       </div>
     )}

@@ -93,7 +93,8 @@ function contentValidationIntegration() {
           ),
         );
 
-        // Keep in sync with `LOCALES` in src/config/site.config.ts (10 languages).
+        // EN-only project (2026-08-23): site ships English only; any
+        // non-"en" locale in frontmatter is flagged during build.
         const supportedLocales = ["en"];
         for (const collection of entries) {
           validateDuplicates(collection, supportedLocales);
@@ -193,7 +194,6 @@ export default defineConfig({
           label: "Guides",
           items: [
             { label: "Content Management", slug: "guides/content-management" },
-            { label: "Internationalization", slug: "guides/internationalization" },
             { label: "Customization", slug: "guides/customization" },
             { label: "AI-assisted development", slug: "guides/ai-assisted-development" },
           ],

@@ -1,7 +1,6 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection, render } from "astro:content";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig as s } from "../../config/site.config";
 import { buildKnowledgeArticleGraph } from "../../lib/schema";
 
@@ -15,7 +14,7 @@ export async function getStaticPaths() {
 
 const { entry, locale } = Astro.props as { entry: any; locale: "en" };
 const data = entry.data;
-const pageUrl = s.url + resolveRoute(locale, `/compare/${entry.id}/`);
+const pageUrl = s.url + `/compare/${entry.id}/`;
 const pageGraph = buildKnowledgeArticleGraph(
   {
     name: data.title,
@@ -38,7 +37,7 @@ const { Content } = await render(entry);
 
 <MarketingLayout title={data.title} description={data.description} locale={locale} path={`/compare/${entry.id}/`} pageGraph={pageGraph}>
 <article class="cmp-detail container py-16">
-<nav class="cmp-bc"><a href={resolveRoute(locale,"/")}>Home</a> / <a href={resolveRoute(locale,"/compare/")}>Comparisons</a> / <span>{data.title}</span></nav>
+<nav class="cmp-bc"><a href={"/"}>Home</a> / <a href={"/compare/"}>Comparisons</a> / <span>{data.title}</span></nav>
 <header class="cmp-hdr">
 <h1 class="cmp-title">{data.title}</h1>
 <p class="cmp-desc">{data.description}</p>
@@ -47,7 +46,7 @@ const { Content } = await render(entry);
 <section class="cmp-qa"><h2>Quick Answer</h2><p>{data.quickAnswer}</p></section>
 <div class="cmp-content prose prose-gray dark:prose-invert max-w-none"><Content /></div>
 {data.relatedMaterials?.length>0||data.relatedProcesses?.length>0||data.relatedStandards?.length>0?<footer class="cmp-ftr">
-{data.relatedStandards?.length>0&&<div><h3>Related Standards</h3><ul>{data.relatedStandards.map((s:string)=>(<li><a href={resolveRoute(locale,"/standards/"+s+"/")}>{s.replace(/-/g," ").toUpperCase()}</a></li>))}</ul></div>}
+{data.relatedStandards?.length>0&&<div><h3>Related Standards</h3><ul>{data.relatedStandards.map((s:string)=>(<li><a href={"/standards/"+s+"/"}>{s.replace(/-/g," ").toUpperCase()}</a></li>))}</ul></div>}
 </footer>:null}
 </article></MarketingLayout>
 <style>

@@ -1,6 +1,5 @@
 import { siteConfig } from "../config/site.config";
 import { ensureTrailingSlash, type Locale } from "../config/site.config";
-import { localePrefix, stripLocale } from "../i18n/routes";
 import {
   buildWebSiteSchema,
   buildOrganizationSchema,
@@ -12,7 +11,12 @@ import {
 export interface SeoMeta {
   title: string;
   description: string;
-  locale: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). Accepted for back-compat
+   *   with legacy callers but no longer affects output. `og:locale` is
+   *   always `"en"`.
+   */
+  locale?: Locale;
   path: string;
   image?: string;
 }
@@ -30,70 +34,51 @@ export function isFileLikePath(path: string): boolean {
 }
 
 /**
- * Generate the canonical URL for a given locale and path.
+ * Generate the canonical URL for a path.
+ *
+ * EN-only project (2026-08-23): no locale prefix is ever prepended.
+ * The `locale` argument is accepted (and ignored) for backward
+ * compatibility with existing callers — it has no effect on the result.
  *
  * Hard rule: page URLs always end with a trailing slash to match Astro's
- * `trailingSlash: 'always'`, keeping canonical / og:url / hreflang / breadcrumb
- * / JSON-LD identical to the real rendered URL (SEO/GEO/visitor consistency).
- * File/API paths (js, css, txt, xml, og images, …) are left untouched.
- * Handles Astro i18n prefix routing (prefixDefaultLocale: false).
+ * `trailingSlash: 'always'`, keeping canonical / og:url / breadcrumb /
+ * JSON-LD identical to the real rendered URL. File/API paths (js, css,
+ * txt, xml, og images, …) are left untouched.
  */
-export function canonicalUrl(locale: Locale, path: string): string {
-  const prefix = localePrefix(locale);
+export function canonicalUrl(_locale: string | Locale | undefined, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   const finalPath = isFileLikePath(normalized)
     ? normalized
     : ensureTrailingSlash(normalized);
-  return `${siteConfig.url}${prefix}${finalPath}`;
+  return `${siteConfig.url}${finalPath}`;
 }
 
 /**
  * Generate hreflang link elements for the current page.
- * @param path - Current page path (may include locale prefix)
- * @param locales - Explicit array of available locales for this page.
- *                  Must be provided by the caller. NEVER falls back to all locales.
- * @param includeXDefault - Whether to include x-default tag (default: true for root pages)
+ * @deprecated EN-only project (2026-08-23). Always returns []. Kept as a
+ *   no-op for any external caller that still imports it; new code should
+ *   render only `<link rel="canonical">`.
  */
 export function hreflangLinks(
-  path: string,
-  locales?: string[],
-  includeXDefault = true,
+  _path?: string,
+  _locales?: string[],
+  _includeXDefault?: boolean,
 ): Array<{
   rel: string;
   href: string;
   hreflang: string;
 }> {
-  // Strip locale prefix to get the content path
-  const contentPath = stripLocale(path);
-
-  if (!locales || locales.length === 0) {
-    // No locales provided — only output canonical (no multilingual hreflang).
-    // Used for English-only detail pages like /grades/grade-5/.
-    return [];
-  }
-
-  const links = locales.map((loc) => ({
-    rel: "alternate",
-    href: canonicalUrl(loc as Locale, contentPath),
-    hreflang: loc,
-  }));
-
-  // Add x-default pointing to the English version (canonical fallback)
-  if (includeXDefault) {
-    links.push({
-      rel: "alternate",
-      href: canonicalUrl("en", contentPath),
-      hreflang: "x-default",
-    });
-  }
-
-  return links;
+  return [];
 }
 
 /**
  * Delegate to schema.ts — the single source of truth for all JSON-LD schemas.
  * These thin wrappers keep the public API stable while the schema definitions
  * live in schema.ts with full schema-dts type safety.
+ *
+ * EN-only project (2026-08-23): the `locale` argument on each helper is
+ * accepted but no longer changes output (defaults to "en" inside schema.ts).
+ * Retained for back-compat with legacy callers.
  */
 
 /** WebSite schema (default fallback for pages without explicit jsonLd). */
@@ -140,16 +125,18 @@ export function jsonLdBreadcrumb(items: Array<{ name: string; url: string }>) {
 /**
  * Generate a BreadcrumbList from a URL path by splitting on "/".
  * Returns null for top-level paths (/) to avoid single-node breadcrumbs.
+ * @deprecated EN-only: use `Breadcrumb.astro` directly. Kept for any
+ *   external caller that still imports it.
  */
 export function breadcrumbFromPath(
-  locale: Locale,
+  _locale: string | Locale | undefined,
   path: string,
 ): Array<{ name: string; url: string }> | null {
   const segments = path.replace(/\/$/, "").split("/").filter(Boolean);
   if (segments.length === 0) return null; // homepage — skip single-node breadcrumb
 
   const crumbs: Array<{ name: string; url: string }> = [
-    { name: "Home", url: canonicalUrl(locale, "/") },
+    { name: "Home", url: canonicalUrl(undefined, "/") },
   ];
 
   let accumulated = "";
@@ -161,7 +148,7 @@ export function breadcrumbFromPath(
       .replace(/\b\w/g, (c) => c.toUpperCase());
     crumbs.push({
       name: label,
-      url: canonicalUrl(locale, accumulated),
+      url: canonicalUrl(undefined, accumulated),
     });
   }
 
@@ -180,18 +167,18 @@ export function breadcrumbFromPath(
 export function ogMeta(
   meta: SeoMeta & { ogType?: "website" | "article" | "profile" },
 ) {
-  const url = canonicalUrl(meta.locale, meta.path);
+  const url = canonicalUrl(undefined, meta.path);
   const imageUrl =
     meta.image ||
     (meta.path
-      ? canonicalUrl(meta.locale, meta.path.replace(/^\//, "/"))
+      ? canonicalUrl(undefined, meta.path.replace(/^\//, "/"))
       : undefined);
 
   const base: Record<string, string> = {
     "og:title": meta.title,
     "og:description": meta.description,
     "og:url": url,
-    "og:locale": meta.locale,
+    "og:locale": "en",
     "og:site_name": siteConfig.name,
     "og:type": meta.ogType ?? "website",
     "twitter:card": "summary_large_image",

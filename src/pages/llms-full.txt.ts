@@ -75,7 +75,7 @@ export const GET: APIRoute = async () => {
       description: `${e.data.description} Published: ${e.data.publishDate.toISOString().slice(0, 10)}.`,
     }));
 
-  let body = `# ${siteConfig.name} (Full Index)\n\n> ${siteConfig.description}. Full page-level summaries for deep AI indexing.\n\n## Quick Facts\n\n- **URL**: ${siteConfig.url}\n- **Languages**: ${siteConfig.i18n.locales.join(", ")}\n`;
+  let body = `# ${siteConfig.name} (Full Index)\n\n> ${siteConfig.description}. Full page-level summaries for deep AI indexing.\n\n## Quick Facts\n\n- **URL**: ${siteConfig.url}\n- **Languages**: English\n`;
   body += section("Core Pages", corePages, base);
   body += section("Titanium Materials", materials, base);
   body += section("Manufacturing Processes", processes, base);

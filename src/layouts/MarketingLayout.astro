@@ -2,13 +2,15 @@
 import { ogImagePath } from "../lib/og";
 import BaseLayout from "./BaseLayout.astro";
 import SEO from "../components/seo/SEO.astro";
-import { type Locale } from "../config/site.config";
-import { AVAILABILITY } from "../i18n/availability";
 
 export interface Props {
   title: string;
   description: string;
-  locale: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). Accepted for back-compat but
+   *   no longer affects output. All routes use the default locale.
+   */
+  locale?: string;
   path: string;
   /**
    * Page-specific JSON-LD entries merged alongside site-wide defaults.
@@ -28,19 +30,17 @@ export interface Props {
   pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
   /** Open Graph object type ("article" for knowledge articles). */
   ogType?: "website" | "article" | "profile";
+  /**
+   * @deprecated EN-only project (2026-08-23). No longer renders any
+   *   `<link rel="alternate" hreflang="...">` entries. Ignored.
+   */
   hreflangLocales?: string[];
 }
 
-const { title, description, locale, path, jsonLd, pageGraph, ogType } =
+// EN-only project (2026-08-23): locale is pinned at the layout boundary.
+const locale = "en";
+const { title, description, path, jsonLd, pageGraph, ogType } =
   Astro.props as Props;
-let { hreflangLocales } = Astro.props as Props;
-
-// ── Derive hreflangLocales from path if not explicitly provided ──
-if (!hreflangLocales) {
-  const pageId = path.replace(/^\/+|\/+$/g, "") || "index";
-  // Try direct lookup, then with "/index" suffix (for /corrosion/ → "corrosion/index")
-  hreflangLocales = AVAILABILITY[pageId] || AVAILABILITY[pageId + "/index"] || ["en"];
-}
 ---
 
 <BaseLayout
@@ -57,7 +57,6 @@ if (!hreflangLocales) {
     locale={locale}
     path={path}
     ogImage={ogImagePath(path === "/" ? "home" : "page", locale, path === "/" ? "" : path)}
-    hreflangLocales={hreflangLocales}
     ogType={ogType}
     pageGraph={pageGraph}
     jsonLd={jsonLd}

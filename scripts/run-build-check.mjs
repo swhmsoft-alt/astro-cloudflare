@@ -48,7 +48,9 @@ if (existsSync("dist")) {
   const localeCounts = {};
   for (const f of items) {
     const parts = f.replace(/\\/g, "/").split("/");
-    const locale = parts[0] === "en" || parts[0] === "de" || parts[0] === "ja" || parts[0] === "fr" || parts[0] === "es" || parts[0] === "pt-br" || parts[0] === "it" || parts[0] === "ko" || parts[0] === "nl" || parts[0] === "pl" ? parts[0] : "root";
+    // EN-only project (2026-08-23): only "en" is recognised as a locale
+    // prefix at runtime; every other first-segment maps to "root".
+    const locale = parts[0] === "en" ? parts[0] : "root";
     localeCounts[locale] = (localeCounts[locale] || 0) + 1;
   }
   console.log("Page distribution:", JSON.stringify(localeCounts, null, 2));

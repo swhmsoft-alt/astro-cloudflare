@@ -7,18 +7,11 @@
 // Active thresholds and rationale live in `.clinerules/audit-tool.md`
 // (see also §4 of the audit plan that introduced this tool).
 
-const ACTIVE_LOCALES = [
-  "en",
-  "de",
-  "ja",
-  "fr",
-  "es",
-  "pt-br",
-  "it",
-  "ko",
-  "nl",
-  "pl",
-];
+// EN-only project (2026-08-23, Session 2 of i18n cleanup): site ships
+// English only. There is no multilingual hreflang surface to audit;
+// `enOnlyCollections` is therefore the only collection set (everything
+// is en-only by definition). `locales.active` is fixed to `["en"]`.
+const ACTIVE_LOCALES = ["en"];
 
 export default {
   site: {
@@ -27,19 +20,13 @@ export default {
   },
   locales: {
     active: ACTIVE_LOCALES,
-    // EN-only modules. At runtime, _EntityDetail.astro's explicit
-    // condition + MarketingLayout's AVAILABILITY fallback both treat the
-    // five modules below as en-only (emit only `en` + `x-default` hreflang,
-    // never the 10-locale set). The audit MUST mirror runtime — drift
-    // here produces false IG-13 failures.
+    // Every collection is en-only at runtime — the entire hreflang surface
+    // is `en`. Previously this list was a 5-module subset; after Session 2
+    // it degenerates to the whole collection set, so we keep it empty and
+    // let IG-13 (information-gain.mjs) short-circuit when `expectedHreflangs`
+    // is `["en"]` for every page.
     enOnly: ["en"],
-    enOnlyCollections: [
-      "evidence",
-      "procurement",
-      "applications",
-      "cases",
-      "surfaceFinishes",
-    ],
+    enOnlyCollections: [],
   },
   thresholds: {
     blockIds: [

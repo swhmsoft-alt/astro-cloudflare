@@ -1,30 +1,29 @@
 ﻿---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection, render } from "astro:content";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../config/site.config";
 import { buildKnowledgeArticleGraph } from "../../lib/schema";
 import RelatedContent from "../../components/sections/RelatedContent.astro";
 
 export interface Props { slug: string; }
 const { slug } = Astro.props as Props;
-const locale = (Astro.currentLocale || "en") as Locale;
+// EN-only project (2026-08-23): locale is pinned at the boundary.
+const locale = "en";
 const all = await getCollection("procurement");
 const entry = all.find((e: any) => e.id === slug && e.data.locale === locale);
 if (!entry) return Astro.redirect("/404");
 const data = entry.data as any;
-const pageUrl = siteConfig.url + resolveRoute(locale, `/procurement/${slug}/`);
+const pageUrl = siteConfig.url + `/procurement/${slug}/`;
 const breadcrumbs = [
   { label: "Home", href: siteConfig.url + "/" },
-  { label: "Procurement", href: siteConfig.url + resolveRoute(locale, "/procurement/") },
+  { label: "Procurement", href: siteConfig.url + "/procurement/" },
   { label: data.title, href: pageUrl },
 ];
 
 // Build mention URLs for related standards.
 const mentionSet = new Set<string>();
 (data.relatedStandards ?? []).forEach((s: string) => {
-  mentionSet.add(siteConfig.url + resolveRoute(locale, `/standards/${s}/`));
+  mentionSet.add(siteConfig.url + `/standards/${s}/`);
 });
 
 // Unified `@graph` document for procurement pages.
@@ -47,9 +46,9 @@ const pageGraph = buildKnowledgeArticleGraph(
 
 const { Content } = await render(entry);
 ---
-<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/procurement/${slug}/`} hreflangLocales={["en"]} pageGraph={pageGraph} ogType="article">
+<MarketingLayout title={data.title} description={data.description} locale={locale} path={`/procurement/${slug}/`} pageGraph={pageGraph} ogType="article">
   <article class="proc-detail container py-16">
-    <nav class="proc-bc"><a href={resolveRoute(locale, "/")}>Home</a> / <a href={resolveRoute(locale, "/procurement/")}>Procurement</a> / <span>{data.title}</span></nav>
+    <nav class="proc-bc"><a href="/">Home</a> / <a href="/procurement/">Procurement</a> / <span>{data.title}</span></nav>
     <header class="proc-hdr">
       {data.procurementCategory && <span class="proc-badge">{data.procurementCategory.replace(/-/g, " ")}</span>}
       <h1 class="proc-title">{data.title}</h1>
@@ -81,7 +80,7 @@ const { Content } = await render(entry);
       )}
       {(Array.isArray(data.relatedStandards) && data.relatedStandards.length > 0) && (
         <div><h3>Related Standards</h3><ul>{data.relatedStandards.map((s: string) => (
-          <li><a href={resolveRoute(locale, `/standards/${s}/`)}>{s.replace(/-/g, " ").toUpperCase()}</a></li>
+          <li><a href={`/standards/${s}/`}>{s.replace(/-/g, " ").toUpperCase()}</a></li>
         ))}</ul></div>
       )}
     </footer>

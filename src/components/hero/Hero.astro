@@ -1,6 +1,5 @@
 ---
 import { type Locale } from "../../config/site.config";
-import { resolveRoute } from "../../i18n/routes";
 import { Button } from "../ui/index";
 import { heroVariantClasses, type HeroVariant } from "./hero.variants";
 
@@ -55,13 +54,13 @@ const hasImageSlot = Astro.slots.has("image");
       (primaryCta || props.secondaryCta) && (
         <div class="hero__actions">
           {primaryCta && (
-            <Button href={primaryCta.href.startsWith("http") ? primaryCta.href : resolveRoute(locale, primaryCta.href)}>
+            <Button href={primaryCta.href.startsWith("http") ? primaryCta.href : primaryCta.href}>
               {primaryCta.label}
             </Button>
           )}
           {props.secondaryCta && (
             <Button
-              href={props.secondaryCta.href.startsWith("http") ? props.secondaryCta.href : resolveRoute(locale, props.secondaryCta.href)}
+              href={props.secondaryCta.href.startsWith("http") ? props.secondaryCta.href : props.secondaryCta.href}
               variant="secondary"
             >
               {props.secondaryCta.label}

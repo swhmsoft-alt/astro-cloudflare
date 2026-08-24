@@ -1,13 +1,11 @@
-﻿---
+---
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection } from "astro:content";
 import { buildPillarGraph } from "../../lib/schema";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../config/site.config";
-const locale = (Astro.currentLocale || "en") as Locale;
+const locale = "en";
 const entries = (await getCollection("applications")).filter((e: any) => e.data.locale === locale).sort((a: any, b: any) => (a.data.order || 0) - (b.data.order || 0));
-const listUrl = siteConfig.url + resolveRoute(locale, "/applications/");
+const listUrl = siteConfig.url + "/applications/";
 const pageGraph = buildPillarGraph({
   name: "Titanium Applications",
   description: "Titanium applications and use cases across aerospace, medical, semiconductor, and industrial components.",
@@ -17,7 +15,7 @@ const pageGraph = buildPillarGraph({
   items: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
-    url: siteConfig.url + resolveRoute(locale, "/applications/" + e.id + "/"),
+    url: siteConfig.url + "/applications/" + e.id + "/",
   })),
 }, siteConfig);
 ---

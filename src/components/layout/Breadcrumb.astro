@@ -2,27 +2,24 @@
 /**
  * Breadcrumb.astro — Unified, self-contained breadcrumb navigation.
  *
- * Parses the current URL automatically, handles i18n locale prefixes,
- * maps known path segments to translation keys, and renders accessible
- * breadcrumb markup with JSON-LD schema.
+ * Parses the current URL automatically, maps known path segments to
+ * translation keys, and renders accessible breadcrumb markup with JSON-LD
+ * schema.
  *
- * Does NOT render on the root homepage or locale root (e.g. /ja/).
+ * Does NOT render on the root homepage.
  * No props required — reads directly from Astro.url.
+ *
+ * EN-only project (2026-08-23): no locale prefix stripping; the pathname
+ * is the content path verbatim.
  *
  * Set `emitJsonLd={false}` when the page already includes a BreadcrumbList
  * inside its own unified `@graph` document (see `buildKnowledgeArticleGraph`
  * / `buildPillarGraph` in `lib/schema.ts`) to avoid emitting a duplicate
  * BreadcrumbList block. Defaults to `true` for legacy pages.
  */
-import {
-  detectLocale,
-  stripLocale,
-  localePrefix,
-} from "../../i18n/routes";
 import { t } from "../../i18n/ui";
 import { buildBreadcrumbSchema } from "../../lib/schema";
 import JsonLd from "../seo/JsonLd.astro";
-import type { Locale } from "../../config/site.config";
 
 export interface Props {
   /**
@@ -36,9 +33,11 @@ export interface Props {
 
 const { emitJsonLd = true } = Astro.props as Props;
 
+// EN-only project (2026-08-23): locale is pinned at the boundary; the
+// pathname is already the content path (no locale prefix).
+const locale = "en";
 const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
-const locale = detectLocale(pathname) as Locale;
-const contentPath = stripLocale(pathname);
+const contentPath = pathname;
 
 // Split the content path into segments, ignoring the leading "/"
 const segments = contentPath.split("/").filter(Boolean);
@@ -93,7 +92,7 @@ function segmentLabel(segment: string): string {
 
 // Build breadcrumb trail
 const crumbs: Array<{ label: string; href: string }> = [
-  { label: t(locale, "nav.home"), href: localePrefix(locale) || "/" },
+  { label: t(locale, "nav.home"), href: "/" },
 ];
 
 let accumulated = "";
@@ -101,7 +100,7 @@ for (const segment of segments) {
   accumulated += `/${segment}`;
   crumbs.push({
     label: segmentLabel(segment),
-    href: `${localePrefix(locale)}${accumulated}`,
+    href: accumulated,
   });
 }
 

@@ -3,7 +3,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { t } from "../../i18n/ui";
-import { resolveRoute } from "../../i18n/routes";
 import Hero from "../../components/Hero.astro";
 import CTA from "../../components/CTA.astro";
 
@@ -98,7 +97,7 @@ const solutionSlugs = [
               if (!item) return null;
               return (
                 <a
-                  href={resolveRoute(locale, `/solutions/${slug}/`)}
+                  href={`/solutions/${slug}/`}
                   class="solution-card"
                 >
                   <div class="solution-card__icon">
@@ -130,7 +129,7 @@ const solutionSlugs = [
               if (!slug) return null;
               return (
                 <a
-                  href={resolveRoute(locale, `/solutions/systems/${slug}/`)}
+                  href={`/solutions/systems/${slug}/`}
                   class="solution-card"
                 >
                   <div class="solution-card__icon">

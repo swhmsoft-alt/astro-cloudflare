@@ -1,7 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import { resolveRoute } from "../../i18n/routes";
-import type { Locale } from "../../config/site.config";
 
 export interface Props {
   /** The current collection name */
@@ -14,8 +12,11 @@ export interface Props {
   relatedFailures?: string[];
   standards?: string[];
   applications?: string[];
-  /** Current locale */
-  locale: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). Accepted for back-compat but
+   *   no longer affects output (always filters by "en").
+   */
+  locale?: string;
 }
 
 const {
@@ -26,8 +27,10 @@ const {
   relatedFailures = [],
   standards = [],
   applications = [],
-  locale,
 } = Astro.props as Props;
+
+// EN-only project (2026-08-23): related-content filter is always "en".
+const locale = "en";
 
 // Collect all content entries for related lookup
 const allCollections = ["materials", "processes", "industries", "standards", "surfaceFinishes", "evidence", "cases", "procurement", "applications"];
@@ -107,7 +110,7 @@ const collectionPaths: Record<string, string> = {
         const basePath = collectionPaths[col] || `/${col}/`;
         return (
           <a
-            href={resolveRoute(locale, `${basePath}${entry.id}/`)}
+            href={`${basePath}${entry.id}/`}
             class="related-card"
           >
             <span class="related-badge">

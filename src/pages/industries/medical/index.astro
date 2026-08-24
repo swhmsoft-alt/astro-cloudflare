@@ -2,14 +2,12 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Hero from "../../../components/hero/Hero.astro";
 import CTA from "../../../components/CTA.astro";
-import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../config/site.config";
 import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
 
-const locale = (Astro.currentLocale || "en") as Locale;
-const listUrl = siteConfig.url + resolveRoute(locale, "/industries/medical/");
+const locale = "en";
+const listUrl = siteConfig.url + "/industries/medical/";
 const spokePages = [
   { title: "Custom Medical Titanium Components", description: "ISO 13485 certified CNC machining of titanium medical components. Orthopedic implants, surgical instruments, dental implants, and custom medical devices.", href: "/services/medical-titanium-components/", cta: "View Medical Machining Service →" },
   { title: "Medical Device Applications & Materials", description: "Detailed guide to titanium grades and applications in medical device manufacturing. Ti-6Al-4V ELI, Grade 23, and commercially pure titanium.", href: "/industries/medical-device/", cta: "Read Medical Device Guide →" },
@@ -28,7 +26,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titan
     </header>
     <div class="hub-cards__grid">
       {spokePages.map((page) => (
-        <a href={resolveRoute(locale, page.href)} class="hub-card">
+        <a href={page.href} class="hub-card">
           <h3 class="hub-card__title">{page.title}</h3>
           <p class="hub-card__description">{page.description}</p>
           <span class="hub-card__cta">{page.cta}</span>
@@ -54,7 +52,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Medical Device Titan
       <tr><td>CP-Ti Grade 2</td><td>ASTM F67, ISO 5832-2</td><td>Surgical instruments, trays, non-load-bearing implants</td></tr>
       <tr><td>CP-Ti Grade 1</td><td>ASTM F67, ISO 5832-2</td><td>Custom patient-specific implants, craniofacial plates</td></tr>
     </tbody></table></div>
-    <p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p>
+    <p class="materials-link">→ <a href={"/grades/"}>Complete guide to all titanium materials</a></p>
   </section>
   <section class="certs-section container">
     <header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Medical Device Certifications &amp; Compliance</h2></header>

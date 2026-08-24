@@ -1,7 +1,6 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection, render } from "astro:content";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
 import { buildTechArticleSchema } from "../../lib/schema";
 
@@ -15,7 +14,7 @@ export async function getStaticPaths() {
 
 const { entry, locale } = Astro.props as { entry: any; locale: "en" };
 const data = entry.data;
-const pageUrl = siteConfig.url + resolveRoute(locale, `/guides/${entry.id}/`);
+const pageUrl = siteConfig.url + `/guides/${entry.id}/`;
 const ts = buildTechArticleSchema({
   headline: data.title, description: data.description,
   datePublished: new Date().toISOString(),

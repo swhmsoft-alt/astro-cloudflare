@@ -2,14 +2,12 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Hero from "../../../components/hero/Hero.astro";
 import CTA from "../../../components/CTA.astro";
-import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../config/site.config";
 import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
 
-const locale = (Astro.currentLocale || "en") as Locale;
-const listUrl = siteConfig.url + resolveRoute(locale, "/industries/semiconductor/");
+const locale = "en";
+const listUrl = siteConfig.url + "/industries/semiconductor/";
 const spokePages = [
   { title: "Custom Semiconductor Titanium Parts", description: "Precision titanium components for semiconductor manufacturing equipment. Vacuum chamber parts, wafer handling components, and process tooling with ultra-pure processing.", href: "/services/semiconductor-titanium-parts/", cta: "View Semiconductor Service →" },
   { title: "Semiconductor Applications & Materials", description: "Detailed guide to titanium in semiconductor fabrication: UHV compatibility, purity requirements, surface finish specifications, and applications.", href: "/industries/semiconductor-manufacturing/", cta: "Read Semiconductor Guide →" },
@@ -25,7 +23,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Semiconductor Titani
     <tr><td>Ti-6Al-4V ELI (Grade 23)</td><td>High-purity process components, wafer handling end-effectors</td></tr>
     <tr><td>CP-Ti Grade 2</td><td>Chemical delivery systems, wet process components, liners</td></tr>
     <tr><td>Ti-6242</td><td>High-temperature process chamber components</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={"/grades/"}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ISO 9001</span><span class="cert-badge">ASTM B265</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">UHV Compatible</span><span class="cert-badge">RoHS</span><span class="cert-badge">REACH</span><span class="cert-badge">CMM</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -41,7 +39,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Semiconductor Titani
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
   <Hero variant="centered" size="md" eyebrow="Semiconductor Equipment" headline="Titanium Manufacturing for Semiconductor Equipment" subheadline="Titanium is essential in semiconductor fabrication for its corrosion resistance, non-magnetic properties, and UHV compatibility with minimal outgassing. We provide precision-machined titanium components for wafer processing, vacuum chambers, and gas delivery systems." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/semiconductor-manufacturing/" }} locale={locale} />
-  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Semiconductor</p><h2 class="section-head__title">Complete Semiconductor Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
+  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Semiconductor</p><h2 class="section-head__title">Complete Semiconductor Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={page.href} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
   .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }

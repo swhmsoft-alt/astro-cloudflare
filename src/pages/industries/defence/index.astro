@@ -2,14 +2,12 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Hero from "../../../components/hero/Hero.astro";
 import CTA from "../../../components/CTA.astro";
-import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../config/site.config";
 import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
 
-const locale = (Astro.currentLocale || "en") as Locale;
-const listUrl = siteConfig.url + resolveRoute(locale, "/industries/defence/");
+const locale = "en";
+const listUrl = siteConfig.url + "/industries/defence/";
 const spokePages = [
   { title: "Defence Titanium Machining", description: "ITAR compliant, MIL-SPEC titanium machining for defence applications. Armour systems, aerospace structural components, naval systems, and ordnance parts.", href: "/services/aerospace-titanium-components/", cta: "View Defence Machining Service →" },
   { title: "Defence Applications & Materials", description: "Guide to titanium in defence: lightweight ballistic protection, military aircraft structures, naval systems, and soldier equipment.", href: "/industries/defence/", cta: "Read Defence Guide →" },
@@ -26,7 +24,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Defence Titanium Man
     <tr><td>Ti-5553</td><td>High-strength structural components, landing gear, armour</td></tr>
     <tr><td>Ti-6242</td><td>High-temperature engine components for military aircraft</td></tr>
     <tr><td>Ti-3Al-2.5V (Grade 9)</td><td>Hydraulic tubing, ducting for military platforms</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={"/grades/"}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">AS9100D</span><span class="cert-badge">NADCAP</span><span class="cert-badge">ITAR</span><span class="cert-badge">DFARS</span><span class="cert-badge">MIL-T-9046</span><span class="cert-badge">CMM</span><span class="cert-badge">NDT</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -42,7 +40,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Defence Titanium Man
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
   <Hero variant="centered" size="md" eyebrow="Defence & Military" headline="Titanium Manufacturing for Defence Applications" subheadline="Titanium provides lightweight ballistic protection, high-strength structural components for military aircraft, and corrosion-resistant naval systems. We manufacture to MIL-SPEC requirements with ITAR compliance and full traceability." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/defence/" }} locale={locale} />
-  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Defence</p><h2 class="section-head__title">Complete Defence Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
+  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Defence</p><h2 class="section-head__title">Complete Defence Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={page.href} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
   .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }

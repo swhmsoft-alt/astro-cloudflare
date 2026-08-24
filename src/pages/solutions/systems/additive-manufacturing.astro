@@ -2,14 +2,12 @@
 import MarketingLayout from "../../../layouts/MarketingLayout.astro";
 import { siteConfig } from "../../../config/site.config";
 import { buildFAQSchema } from "../../../lib/schema";
-import { resolveRoute } from "../../../i18n/routes";
-import type { Locale } from "../../../config/site.config";
 import amData from "../../../content/core/am.json";
 
-const locale = (Astro.currentLocale || "en") as Locale;
+const locale = "en";
 const data = amData;
 const path = "/solutions/systems/additive-manufacturing";
-const pageUrl = siteConfig.url + resolveRoute(locale, path);
+const pageUrl = siteConfig.url + path;
 
 const faqSchema = buildFAQSchema(data.faqs);
 const productSchema = {
@@ -192,10 +190,10 @@ const jsonLd = [faqSchema, productSchema];
         <h2 class="text-2xl font-bold tracking-tight">Explore Related Engineering Reference</h2>
         <p class="mt-4 text-muted-foreground">Neutral technical guidance on titanium materials, processes, and standards to support your engineering decisions.</p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href={resolveRoute(locale, "/grades/")} class="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+          <a href={"/grades/"} class="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
             Browse Titanium Grades &rarr;
           </a>
-          <a href={resolveRoute(locale, "/processes/")} class="inline-flex items-center rounded-lg border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-colors hover:bg-muted/50">
+          <a href={"/processes/"} class="inline-flex items-center rounded-lg border bg-card px-6 py-3 text-sm font-semibold shadow-sm transition-colors hover:bg-muted/50">
             Explore Manufacturing Processes &rarr;
           </a>
         </div>

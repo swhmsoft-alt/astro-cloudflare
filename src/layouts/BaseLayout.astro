@@ -6,9 +6,8 @@ import Breadcrumb from "../components/layout/Breadcrumb.astro";
 import SearchModal from "../components/layout/SearchModal.astro";
 import SEO from "../components/seo/SEO.astro";
 import Analytics from "../components/layout/Analytics.astro";
-import { SITE_CONFIG, type Locale } from "../config/site.config";
+import { SITE_CONFIG } from "../config/site.config";
 import { t } from "../i18n/ui";
-import { AVAILABILITY } from "../i18n/availability";
 import "../styles/global.css";
 // Preload the Latin subset of the heading + body variable fonts so the real
 // fonts are ready before first paint — eliminates the swap reflow (CLS).
@@ -18,7 +17,11 @@ import manropeLatin from "@fontsource-variable/manrope/files/manrope-latin-wght-
 export interface Props {
   title: string;
   description?: string;
-  locale?: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). Accepted for back-compat but
+   *   no longer affects output. `<html lang>` is always `en`.
+   */
+  locale?: string;
   path?: string;
   ogImage?: string;
   showHeader?: boolean;
@@ -39,15 +42,14 @@ export interface Props {
   emitBreadcrumbJsonLd?: boolean;
 }
 
-// For i18n routing, prefer path from Astro.currentRoute
-const { currentLocale, ...restProps } = Astro.props as Props & {
-  currentLocale?: Locale;
-};
+// EN-only project (2026-08-23): locale is pinned to "en" at the layout
+// boundary. `locale` is still accepted as a prop for legacy callers but
+// is ignored here.
+const locale = "en";
 
 const {
   title,
   description = SITE_CONFIG.description,
-  locale = currentLocale || SITE_CONFIG.defaultLocale,
   path = "/",
   ogImage,
   showHeader = true,
@@ -57,9 +59,10 @@ const {
   ogType,
   jsonLd,
   emitBreadcrumbJsonLd,
-} = restProps;
+} = Astro.props as Props;
 
 function defaultOgImage(routePath: string) {
+  // EN-only: locale segment is always "/en".
   if (routePath === "/") return ogImagePath("home", locale, "/");
   if (routePath === "/blog") return ogImagePath("blog-list", locale, "/blog");
   if (routePath.startsWith("/blog/"))
@@ -130,11 +133,6 @@ function defaultOgImage(routePath: string) {
           locale={locale}
           path={path}
           ogImage={ogImage ?? defaultOgImage(path)}
-          hreflangLocales={
-            AVAILABILITY[path.replace(/^\/+|\/+$/g, "") || "index"] ||
-            AVAILABILITY[(path.replace(/^\/+|\/+$/g, "") || "index") + "/index"] ||
-            ["en"]
-          }
           ogType={ogType}
           pageGraph={pageGraph}
           jsonLd={jsonLd}
@@ -155,7 +153,6 @@ function defaultOgImage(routePath: string) {
     {
       showHeader && (
         <Header
-          currentLocale={locale}
           currentPath={path}
           showThemeToggle={showThemeToggle}
         />
@@ -172,6 +169,6 @@ function defaultOgImage(routePath: string) {
 
     {Astro.slots.has("analytics") ? <slot name="analytics" /> : <Analytics />}
 
-    {showFooter && <Footer currentLocale={locale} />}
+    {showFooter && <Footer />}
   </body>
 </html>

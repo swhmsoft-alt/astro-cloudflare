@@ -1,6 +1,5 @@
 ---
 import type { Locale } from "../config/site.config";
-import { resolveRoute } from "../i18n/routes";
 import CTA from "./ui/marketing/CTA/CTA.astro";
 
 export interface Props {
@@ -31,8 +30,8 @@ const {
   title={title}
   content={content}
   primaryText={ctaText}
-  primaryHref={ctaHref ? resolveRoute(locale, ctaHref) : undefined}
+  primaryHref={ctaHref ? ctaHref : undefined}
   secondaryText={secondaryText}
-  secondaryHref={secondaryHref ? resolveRoute(locale, secondaryHref) : undefined}
+  secondaryHref={secondaryHref ? secondaryHref : undefined}
   centered={true}
 />

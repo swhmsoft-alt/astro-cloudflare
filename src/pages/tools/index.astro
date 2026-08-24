@@ -1,9 +1,6 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
-import { resolveRoute } from "../../i18n/routes";
-import type { Locale } from "../../config/site.config";
-const locale = (Astro.currentLocale || "en") as Locale;
-
+const locale = "en";
 const tools = [
   { title: "Titanium Grade Comparison Tool", desc: "Compare mechanical properties, corrosion resistance, and applications across all titanium grades side by side.", href: "/tools/grade-comparison/", icon: "📊" },
   { title: "Hardness Unit Converter", desc: "Convert between HRC, HB, ksi, and MPa hardness and tensile strength values for titanium alloys.", href: "/tools/hardness-converter/", icon: "🔄" },
@@ -19,7 +16,7 @@ const tools = [
     </header>
     <div class="tools-grid">
       {tools.map(t => (
-        <a href={resolveRoute(locale, t.href)} class="tool-card">
+        <a href={t.href} class="tool-card">
           <span class="tool-card__icon">{t.icon}</span>
           <h2 class="tool-card__title">{t.title}</h2>
           <p class="tool-card__desc">{t.desc}</p>

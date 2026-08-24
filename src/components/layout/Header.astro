@@ -1,33 +1,37 @@
 ---
 import { Icon } from "astro-icon/components";
-import type { Locale } from "../../config/site.config";
 import { t } from "../../i18n/ui";
-import { resolveRoute, detectLocale, stripLocale } from "../../i18n/routes";
 import { mainNav } from "../../config/nav.config";
 import { siteConfig } from "../../config/site.config";
 import Logo from "./Logo.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
 export interface Props {
-  currentLocale: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). Ignored. Kept so legacy
+   *   call sites (`<Header currentLocale=...>`) keep compiling.
+   */
+  currentLocale?: string;
   currentPath?: string;
   showThemeToggle?: boolean;
 }
 
+// EN-only project (2026-08-23): locale is pinned at the boundary.
+const effectiveLocale = "en";
+// Back-compat alias — older code paths (L46/60/65/75/106) still reference
+// `locale` directly. Both names point to the same value.
+const locale = effectiveLocale;
 const {
-  currentLocale,
   currentPath = "/",
   showThemeToggle = true,
 } = Astro.props as Props;
-// Prefer the explicit currentLocale prop over path-based detection,
-// because pages pass the content path (e.g. "/services") without a
-// locale prefix, which makes detectLocale() always return "en".
-const effectiveLocale = currentLocale || detectLocale(currentPath);
-const contentPath = stripLocale(currentPath);
+
+// EN-only: paths are already content paths — no locale prefix to strip.
+const contentPath = currentPath;
 
 const navLinks = mainNav.map((item) => ({
   ...item,
-  href: resolveRoute(effectiveLocale, item.href),
+  href: item.href,
   active: contentPath === item.href,
 }));
 
@@ -38,11 +42,11 @@ const githubUrl = siteConfig.socialLinks.find(
 
 <header class="header" data-header>
   <div class="header__bar container">
-    <Logo href={resolveRoute(effectiveLocale, "/")} />
+    <Logo href={"/"} />
 
     <nav
       class="header__desktop-nav"
-      aria-label={t(effectiveLocale, "nav.home")}
+      aria-label={t(locale, "nav.home")}
     >
       <ul class="header__list">
         {
@@ -56,12 +60,12 @@ const githubUrl = siteConfig.socialLinks.find(
                     href={item.href}
                     aria-current={item.active ? "page" : undefined}
                   >
-                    {t(effectiveLocale, item.labelKey)}
+                    {t(locale, item.labelKey)}
                   </a>
                   <div class="header__dropdown-panel">
                     {item.children.map((child) => (
-                      <a href={resolveRoute(effectiveLocale, child.href)}>
-                        {t(effectiveLocale, child.labelKey)}
+                      <a href={child.href}>
+                        {t(locale, child.labelKey)}
                       </a>
                     ))}
                   </div>
@@ -71,7 +75,7 @@ const githubUrl = siteConfig.socialLinks.find(
                   href={item.href}
                   aria-current={item.active ? "page" : undefined}
                 >
-                  {t(effectiveLocale, item.labelKey)}
+                  {t(locale, item.labelKey)}
                 </a>
               )}
             </li>
@@ -102,7 +106,7 @@ const githubUrl = siteConfig.socialLinks.find(
         type="button"
         class="header__icon-button header__search"
         data-search-trigger
-        aria-label={t(effectiveLocale, "aria.searchButton")}
+        aria-label={t(locale, "aria.searchButton")}
       >
         <Icon name="lucide:search" class="header__icon" aria-hidden="true" />
         <kbd class="header__kbd">⌘K</kbd>
@@ -146,7 +150,7 @@ const githubUrl = siteConfig.socialLinks.find(
                 <ul class="header__mobile-sublist">
                   {item.children.map((child) => (
                     <li>
-                      <a href={resolveRoute(effectiveLocale, child.href)}>
+                      <a href={child.href}>
                         {t(effectiveLocale, child.labelKey)}
                       </a>
                     </li>

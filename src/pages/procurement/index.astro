@@ -1,13 +1,11 @@
-﻿---
+---
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection } from "astro:content";
 import { buildPillarGraph } from "../../lib/schema";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../config/site.config";
-const locale = (Astro.currentLocale || "en") as Locale;
+const locale = "en";
 const entries = (await getCollection("procurement")).filter((e: any) => e.data.locale === locale).sort((a: any, b: any) => (a.data.order || 0) - (b.data.order || 0));
-const listUrl = siteConfig.url + resolveRoute(locale, "/procurement/");
+const listUrl = siteConfig.url + "/procurement/";
 const pageGraph = buildPillarGraph({
   name: "Titanium Procurement Guides",
   description: "RFQ preparation, certifications, lead times, inspection, and supplier decisions for titanium component procurement.",
@@ -17,7 +15,7 @@ const pageGraph = buildPillarGraph({
   items: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
-    url: siteConfig.url + resolveRoute(locale, "/procurement/" + e.id + "/"),
+    url: siteConfig.url + "/procurement/" + e.id + "/",
   })),
 }, siteConfig);
 ---

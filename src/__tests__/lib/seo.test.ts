@@ -15,7 +15,7 @@ describe("canonicalUrl", () => {
     expect(canonicalUrl("en", "/")).toBe(`${base}/`);
   });
 
-  it("ends default-locale pages with a trailing slash", () => {
+  it("ends page paths with a trailing slash", () => {
     expect(canonicalUrl("en", "/services/web-development")).toBe(
       `${base}/services/web-development/`,
     );
@@ -27,11 +27,17 @@ describe("canonicalUrl", () => {
     );
   });
 
-  it("ends non-default-locale pages with a trailing slash", () => {
+  // EN-only project (2026-08-23): the locale argument is ignored. Any
+  // previously-distinct non-en-locale URL (e.g. /de/...) is no longer
+  // produced; the canonical is always rooted at `siteConfig.url + path`.
+  it("ignores the locale argument (EN-only)", () => {
     expect(canonicalUrl("de", "/services/web-development")).toBe(
-      `${base}/de/services/web-development/`,
+      `${base}/services/web-development/`,
     );
-    expect(canonicalUrl("de", "/")).toBe(`${base}/de/`);
+    expect(canonicalUrl("ja", "/")).toBe(`${base}/`);
+    expect(canonicalUrl(undefined, "/grades/grade-5/")).toBe(
+      `${base}/grades/grade-5/`,
+    );
   });
 
   it("normalizes page paths without a leading slash", () => {
@@ -65,6 +71,5 @@ describe("isFileLikePath", () => {
     expect(isFileLikePath("/")).toBe(false);
     expect(isFileLikePath("/services/web-development")).toBe(false);
     expect(isFileLikePath("/blog/some-post")).toBe(false);
-    expect(isFileLikePath("/de/services/web-development")).toBe(false);
   });
 });

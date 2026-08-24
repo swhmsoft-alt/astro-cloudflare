@@ -7,7 +7,7 @@ export async function GET() {
   const publishedPosts = posts
     .filter(
       (post: CollectionEntry<"blog">) =>
-        post.data.locale === siteConfig.i18n.defaultLocale && !post.data.draft,
+        post.data.locale === "en" && !post.data.draft,
     )
     .sort(
       (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
@@ -28,6 +28,6 @@ export async function GET() {
       author: post.data.author,
       customData: post.data.featured ? "<featured>true</featured>" : "",
     })),
-    customData: `<language>${siteConfig.i18n.defaultLocale}</language>`,
+    customData: `<language>en</language>`,
   });
 }

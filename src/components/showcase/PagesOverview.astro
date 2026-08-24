@@ -1,6 +1,5 @@
 ---
 import type { Locale } from "../../config/site.config";
-import { resolveRoute } from "../../i18n/routes";
 
 export interface Props {
   locale: Locale;
@@ -33,7 +32,7 @@ const pages: { label: string; href: string; desc: string }[] = [
     {
       pages.map((page) => (
         <li>
-          <a class="pages-overview__card" href={resolveRoute(locale, page.href)}>
+          <a class="pages-overview__card" href={page.href}>
             <span class="pages-overview__name">{page.label}</span>
             <span class="pages-overview__desc">{page.desc}</span>
           </a>

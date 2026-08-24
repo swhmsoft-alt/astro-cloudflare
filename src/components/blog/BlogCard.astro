@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Card } from "../ui/index";
-import { resolveRoute } from "../../i18n/routes";
 import { type Locale } from "../../config/site.config";
 import { t } from "../../i18n/ui";
 import TagList from "./TagList.astro";
@@ -31,7 +30,7 @@ const excerpt =
   post.data.description.length > 180
     ? `${post.data.description.slice(0, 177)}...`
     : post.data.description;
-const href = resolveRoute(locale, `/blog/${post.id}`);
+const href = `/blog/${post.id}`;
 const dateLabel = publishDate.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",

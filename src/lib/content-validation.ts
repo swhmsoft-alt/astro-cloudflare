@@ -1,7 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join, extname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
-import { siteConfig } from "../config/site.config";
 
 interface EntryWithId {
   id: string;
@@ -124,10 +123,13 @@ export async function runContentValidation() {
 
   validateNoDuplicateUids(blog);
 
-  validateLocaleConsistency(blog, [...siteConfig.i18n.locales]);
-  validateLocaleConsistency(services, [...siteConfig.i18n.locales]);
-  validateLocaleConsistency(pages, [...siteConfig.i18n.locales]);
-  validateLocaleConsistency(faqs, [...siteConfig.i18n.locales]);
+  // EN-only project (2026-08-23): the active locale set is just `["en"]`.
+  // Any content frontmatter declaring a different locale is flagged.
+  const SUPPORTED_LOCALES = ["en"];
+  validateLocaleConsistency(blog, SUPPORTED_LOCALES);
+  validateLocaleConsistency(services, SUPPORTED_LOCALES);
+  validateLocaleConsistency(pages, SUPPORTED_LOCALES);
+  validateLocaleConsistency(faqs, SUPPORTED_LOCALES);
 
   return {
     blog: blog.length,

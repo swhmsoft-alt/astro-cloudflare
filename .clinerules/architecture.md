@@ -11,9 +11,11 @@ alwaysApply: true
 sections; compose sections from components. Register new sections in
 `src/components/sections/index.ts` and `src/registry.json`.
 
-**i18n:** English is the default locale (no prefix); Indonesian is under `/id/`.
-Every route must exist in **both** `src/pages/x.astro` and
-`src/pages/[locale]/x.astro`. Use `t(locale, key)` and `resolveRoute(locale, path)`.
+**i18n:** Site is EN-only at runtime (locked 2026-08-23). No locale prefix
+on any URL. The `t(locale, key)` UI helper still accepts a locale argument
+for back-compat but always resolves to `src/i18n/en.json`. Do not introduce
+hreflang tags, `<Locale>` types beyond `"en"`, or `[locale]` URL segments.
+See `.clinerules/translation-governance.md` for the locked state.
 
 **Preserve (never break):** Git-based Markdown content collections, Cloudflare
 Pages (+ optional R2), SEO (OG images, JSON-LD, sitemap, RSS, robots, llms.txt),

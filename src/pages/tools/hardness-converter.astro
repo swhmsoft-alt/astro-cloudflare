@@ -1,14 +1,11 @@
 ---
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
-import { resolveRoute } from "../../i18n/routes";
 import { siteConfig } from "../../config/site.config";
-import type { Locale } from "../../config/site.config";
 import { buildBreadcrumbSchema, buildTechArticleSchema } from "../../lib/schema";
-const locale = (Astro.currentLocale || "en") as Locale;
-
+const locale = "en";
 const pageTitle = "Titanium Hardness Unit Converter";
 const pageDesc = "Convert hardness and tensile strength values for titanium alloys between HRC, HB, HRB, ksi, and MPa.";
-const pageUrl = siteConfig.url + resolveRoute(locale, "/tools/hardness-converter/");
+const pageUrl = siteConfig.url + "/tools/hardness-converter/";
 const bc = buildBreadcrumbSchema([
   { label: "Home", href: siteConfig.url + "/" },
   { label: "Tools", href: siteConfig.url + "/tools/" },

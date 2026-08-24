@@ -1,8 +1,7 @@
 ---
-import { type Locale, type SiteConfig } from "../../config/site.config";
+import { type SiteConfig } from "../../config/site.config";
 import {
   canonicalUrl,
-  hreflangLinks,
   ogMeta,
 } from "../../lib/seo";
 import { siteConfig } from "../../config/site.config";
@@ -23,10 +22,19 @@ export interface SEOArticle {
 export interface Props {
   title: string;
   description?: string;
-  locale: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). `locale` is accepted for
+   *   back-compat but no longer affects output. `og:locale` is always `en`.
+   */
+  locale?: string;
   path: string;
   ogImage?: string;
   canonical?: string;
+  /**
+   * @deprecated EN-only project (2026-08-23). Previously controlled which
+   *   `<link rel="alternate" hreflang="...">` entries to emit. No longer
+   *   rendered; ignored.
+   */
   hreflangLocales?: string[];
   article?: SEOArticle;
   /**
@@ -61,26 +69,24 @@ export interface Props {
 const {
   title,
   description = siteConfig.description,
-  locale,
   path,
   ogImage,
   canonical,
-  hreflangLocales,
   article,
   ogType,
   pageGraph,
   jsonLd,
 } = Astro.props as Props;
 
+const effectiveLocale = "en"; // EN-only pin
+
 const fullTitle = title.includes(siteConfig.name)
   ? title
   : `${title} | ${siteConfig.name}`;
-const canonicalHref = canonical ?? canonicalUrl(locale, path);
-const links = hreflangLinks(path, hreflangLocales);
+const canonicalHref = canonical ?? canonicalUrl(effectiveLocale, path);
 const og = ogMeta({
   title: fullTitle,
   description,
-  locale,
   path,
   image: ogImage,
   ogType,
@@ -106,8 +112,8 @@ if (pageGraph) {
   );
   // Legacy path: emit Organization + WebSite, plus page-specific entries.
   emitLegacySchemas = [
-    ...(hasOrg ? [] : [buildOrganizationSchema(siteConfig as unknown as SiteConfig, locale)]),
-    ...(hasWebSite ? [] : [buildWebSiteSchema(siteConfig as unknown as SiteConfig, locale)]),
+    ...(hasOrg ? [] : [buildOrganizationSchema(siteConfig as unknown as SiteConfig, effectiveLocale)]),
+    ...(hasWebSite ? [] : [buildWebSiteSchema(siteConfig as unknown as SiteConfig, effectiveLocale)]),
   ];
   if (jsonLd) {
     emitLegacySchemas.push(...jsonLdArray);
@@ -125,12 +131,6 @@ if (pageGraph) {
   )
 }
 {verification.bing && <meta name="msvalidate.01" content={verification.bing} />}
-
-{
-  links.map((link) => (
-    <link rel={link.rel} href={link.href} hreflang={link.hreflang} />
-  ))
-}
 
 {
   Object.entries(og).map(([property, content]) => (

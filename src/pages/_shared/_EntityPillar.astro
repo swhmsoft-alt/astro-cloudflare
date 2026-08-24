@@ -2,8 +2,6 @@
 import MarketingLayout from "../../layouts/MarketingLayout.astro";
 import { getCollection } from "astro:content";
 import { t } from "../../i18n/ui";
-import { resolveRoute } from "../../i18n/routes";
-import type { Locale } from "../../config/site.config";
 
 export interface Props {
   collectionName: "materials" | "processes" | "industries" | "standards" | "surfaceFinishes" | "equipment" | "materialSelection" | "failureAnalysis" | "heatTreatment" | "corrosion" | "evidence" | "procurement" | "applications" | "cases";
@@ -11,22 +9,22 @@ export interface Props {
   pageDescription?: string;
   pageTitleKey?: string;
   pageDescriptionKey?: string;
-  locale: Locale;
+  /**
+   * @deprecated EN-only project (2026-08-23). Accepted for back-compat but
+   *   no longer affects output.
+   */
+  locale?: string;
   path: string;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
 }
 
-const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, locale, path, jsonLd, pageGraph } = Astro.props as Props;
+// EN-only project (2026-08-23): locale is pinned at the boundary.
+const locale = "en";
+
+const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, path, jsonLd, pageGraph } = Astro.props as Props;
 const resolvedTitle = pageTitleKey ? t(locale, pageTitleKey) : (pageTitle || "");
 const resolvedDescription = pageDescriptionKey ? t(locale, pageDescriptionKey) : (pageDescription || "");
-// KEEP IN SYNC with `config/audit.config.mjs → locales.enOnlyCollections`
-// and `scripts/audit/fixtures/locale-codes.mjs → EN_ONLY_COLLECTIONS`.
-// surfaceFinishes is also en-only at runtime (via MarketingLayout's
-// AVAILABILITY fallback); listing it here makes the explicit path
-// consistent and reduces fragility if AVAILABILITY is ever trimmed.
-const enOnlyModules = ["evidence", "procurement", "applications", "cases", "surfaceFinishes"];
-const enOnly = enOnlyModules.includes(collectionName);
 
 const entries = (await getCollection(collectionName))
   .filter((entry: any) => entry.data.locale === locale && !entry.data.isHub)
@@ -55,7 +53,6 @@ const collectionLabels: Record<string, string> = {
   description={resolvedDescription}
   locale={locale}
   path={path}
-  hreflangLocales={enOnly ? ["en"] : undefined}
   jsonLd={jsonLd}
   pageGraph={pageGraph}
 >
@@ -78,7 +75,7 @@ const collectionLabels: Record<string, string> = {
         entries.map((entry: any) => {
           const slug = entry.id;
           return (
-            <a href={resolveRoute(locale, `/${path.replace(/^\//, "").replace(/\/$/, "")}/${slug}/`)} class="entity-card">
+            <a href={`/${path.replace(/^\//, "").replace(/\/$/, "")}/${slug}/`} class="entity-card">
               <div class="entity-card__content">
                 <h2 class="entity-card__title">{entry.data.title}</h2>
                 <p class="entity-card__description">{entry.data.description}</p>

@@ -2,14 +2,12 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Hero from "../../../components/hero/Hero.astro";
 import CTA from "../../../components/CTA.astro";
-import { resolveRoute } from "../../../i18n/routes";
 import { siteConfig } from "../../../config/site.config";
-import type { Locale } from "../../../config/site.config";
 import JsonLd from "../../../components/seo/JsonLd.astro";
 import { buildBreadcrumbSchema, buildCollectionPageSchema } from "../../../lib/schema";
 
-const locale = (Astro.currentLocale || "en") as Locale;
-const listUrl = siteConfig.url + resolveRoute(locale, "/industries/marine/");
+const locale = "en";
+const listUrl = siteConfig.url + "/industries/marine/";
 const spokePages = [
   { title: "Marine Titanium Machining", description: "CNC machining of titanium components for marine applications. Propeller shafts, seawater piping, desalination components, and subsea housings.", href: "/services/titanium-cnc-machining/", cta: "View CNC Machining Service →" },
   { title: "Marine Applications & Materials", description: "Guide to titanium in marine: seawater corrosion resistance, material selection for permanent seawater service without coatings.", href: "/industries/marine/", cta: "Read Marine Guide →" },
@@ -26,7 +24,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Marine Titanium Manu
     <tr><td>Ti-6Al-4V ELI (Grade 23)</td><td>Fracture-critical subsea components, deepsea ROV parts</td></tr>
     <tr><td>Ti-Grade 7</td><td>High-corrosion marine environments, chemical injection</td></tr>
     <tr><td>Ti-3Al-2.5V (Grade 9)</td><td>Yacht fittings, rigging, lightweight marine components</td></tr>
-  </tbody></table></div><p class="materials-link">→ <a href={resolveRoute(locale, "/grades/")}>Complete guide to all titanium materials</a></p></section>
+  </tbody></table></div><p class="materials-link">→ <a href={"/grades/"}>Complete guide to all titanium materials</a></p></section>
   <section class="certs-section container"><header class="section-head"><p class="section-head__eyebrow">Quality Systems</p><h2 class="section-head__title">Certifications &amp; Compliance</h2></header><div class="certs-row"><span class="cert-badge">ASTM B265</span><span class="cert-badge">ASTM B348</span><span class="cert-badge">NACE MR0175</span><span class="cert-badge">ISO 9001</span><span class="cert-badge">DNV</span><span class="cert-badge">CMM</span></div></section>
   <CTA
   eyebrow="Neutral engineering reference"
@@ -42,7 +40,7 @@ const collectionSchema = buildCollectionPageSchema({ name: "Marine Titanium Manu
 
   <JsonLd schema={[breadcrumbSchema, collectionSchema]} />
   <Hero variant="centered" size="md" eyebrow="Marine & Subsea" headline="Titanium Manufacturing for Marine Applications" subheadline="Titanium is virtually immune to seawater corrosion, offering unlimited service life in marine environments without coatings or cathodic protection. We machine marine-grade titanium components for commercial, defence, and leisure vessels." primaryCta={{ label: "Browse Titanium Grades", href: "/grades/" }} secondaryCta={{ label: "View Applications →", href: "/industries/marine/" }} locale={locale} />
-  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Marine</p><h2 class="section-head__title">Complete Marine Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={resolveRoute(locale, page.href)} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
+  <section class="hub-cards container"><header class="section-head"><p class="section-head__eyebrow">Our Solutions for Marine</p><h2 class="section-head__title">Complete Marine Titanium Capabilities</h2></header><div class="hub-cards__grid">{spokePages.map((page) => (<a href={page.href} class="hub-card"><h3 class="hub-card__title">{page.title}</h3><p class="hub-card__description">{page.description}</p><span class="hub-card__cta">{page.cta}</span></a>))}</div></section>
 <style>
   .hub-cards { padding-block: var(--space-xl) var(--space-3xl); }
   .hub-cards__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin-top: var(--space-xl); }

@@ -5,7 +5,6 @@ import Q from"../components/FAQ.astro";
 import C from"../components/ui/marketing/CTA/CTA.astro";
 
 import{t}from"../i18n/ui";
-import{resolveRoute}from"../i18n/routes";
 import{siteConfig as s}from"../config/site.config";
 import type{Locale as L}from"../config/site.config";
 import {buildKnowledgeArticleGraph} from "../lib/schema";
@@ -33,7 +32,7 @@ const pageGraph = buildKnowledgeArticleGraph({
 <M title={t(lc,"hero.title")} description={s.description} locale={lc} path="/" pageGraph={pageGraph}>
 <H variant="centered" eyebrow="Titanium Engineering Knowledge Hub" headline={t(lc,"hero.title")} subheadline={t(lc,"hero.subtitle")} primaryCta={{label:"Browse All Grades",href:"/grades/"}} secondaryCta={{label:"Browse Solutions",href:"/solutions/"}} locale={lc}/>
 
-<section class="c py-16"><header class="section-head"><p class="section-head__eyebrow">Engineering Knowledge Base</p><h2 class="section-head__title">Complete Titanium Engineering Reference</h2><p class="section-head__lead">Authoritative technical resources covering titanium alloys, processes, selection, and applications.</p></header><div class="hg">{k.map(i=><a href={resolveRoute(lc,i.h)} class="hc"><div class="hch"><h3 class="hct">{i.t}</h3><span class="hcc">{i.c}</span></div><p class="hcd">{i.d}</p><span class="hcta">Browse &rarr;</span></a>)}</div></section>
+<section class="c py-16"><header class="section-head"><p class="section-head__eyebrow">Engineering Knowledge Base</p><h2 class="section-head__title">Complete Titanium Engineering Reference</h2><p class="section-head__lead">Authoritative technical resources covering titanium alloys, processes, selection, and applications.</p></header><div class="hg">{k.map(i=><a href={i.h} class="hc"><div class="hch"><h3 class="hct">{i.t}</h3><span class="hcc">{i.c}</span></div><p class="hcd">{i.d}</p><span class="hcta">Browse &rarr;</span></a>)}</div></section>
 <Q title="Titanium Engineering FAQ" items={formattedQq}/>
 <C eyebrow="Neutral engineering reference" title="Explore the titanium knowledge base" content="Vendor-independent technical resources covering titanium grades, processes, standards, and applications across the full supply chain." primaryText="Browse All Grades" primaryHref="/grades/" secondaryText="Compare Materials" secondaryHref="/compare/" />
 </M>

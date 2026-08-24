@@ -1,58 +1,21 @@
 /**
  * Site configuration — Centralized site settings following Astro Rocket reference
  * This is the single source of truth for all site-wide configuration,
- * including locale routing, content schemas, SEO canonical, OG, sitemap,
- * and Starlight docs. The legacy `src/config/site.config.ts` (now removed)
- * previously duplicated these fields — they are merged here.
+ * including SEO canonical, OG, sitemap, and Starlight docs.
+ *
+ * The site is EN-only at runtime (locked 2026-08-23, Session 2 of i18n cleanup).
+ * No locale registry, no hreflang emission, no `[locale]` URL prefixes.
+ * The `Locale` type is kept as `string` for backward compatibility with the
+ * many call sites that pass a locale argument to UI helpers.
  */
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/* Locale registry — single source of truth for active languages              */
-/* B0: converged from 16 to 10. See `.clinerules/translation-governance.md`.  */
-/* ────────────────────────────────────────────────────────────────────────── */
+/**
+ * Backward-compat locale type. The site only ships `"en"`; this alias lets
+ * legacy call sites keep their `locale: Locale` parameter without churn.
+ */
+export type Locale = string;
 
-export const LOCALES = [
-  "en",
-  "de",
-  "ja",
-  "fr",
-  "es",
-  "pt-br",
-  "it",
-  "ko",
-  "nl",
-  "pl",
-] as const;
-
-export type Locale = (typeof LOCALES)[number];
-
-export const DEFAULT_LOCALE: Locale = "en";
-
-export const LOCALE_LABELS: Record<Locale, string> = {
-  en: "English",
-  de: "Deutsch",
-  ja: "日本語",
-  fr: "Français",
-  es: "Español",
-  "pt-br": "Português (Brasil)",
-  it: "Italiano",
-  ko: "한국어",
-  nl: "Nederlands",
-  pl: "Polski",
-};
-
-export const LOCALE_PREFIXES: Record<Locale, string> = {
-  en: "en",
-  de: "de",
-  ja: "ja",
-  fr: "fr",
-  es: "es",
-  "pt-br": "pt-br",
-  it: "it",
-  ko: "ko",
-  nl: "nl",
-  pl: "pl",
-};
+export const DEFAULT_LOCALE = "en";
 
 /**
  * Ensure a path ends with exactly one trailing slash, except for empty/root.
@@ -154,16 +117,6 @@ export interface SiteConfig {
     };
     logo: { light: string; dark: string };
     favicon: string;
-  };
-
-  /* i18n configuration */
-  i18n: {
-    enabled: boolean;
-    locales: readonly Locale[];
-    defaultLocale: Locale;
-    routing: { prefixDefaultLocale: boolean };
-    localeLabels: Record<Locale, string>;
-    localePrefixes: Record<Locale, string>;
   };
 }
 
@@ -270,36 +223,23 @@ export const siteConfig: SiteConfig = {
     },
     favicon: "/favicon.svg",
   },
-
-  /* i18n configuration (single source of truth — see LOCALES above) */
-  i18n: {
-    enabled: true,
-    locales: LOCALES,
-    defaultLocale: DEFAULT_LOCALE,
-    routing: { prefixDefaultLocale: false },
-    localeLabels: LOCALE_LABELS,
-    localePrefixes: LOCALE_PREFIXES,
-  },
 } as const;
 
 /**
  * Backward-compatible alias to the legacy `SITE_CONFIG` shape.
  *
- * Previously exported from `src/config/site.config.ts` (now removed in B0).
- * New code should import `siteConfig` and `Locale` directly from this module.
+ * The site is EN-only as of 2026-08-23 (Session 2 of i18n cleanup).
+ * Kept so legacy imports of `SITE_CONFIG.defaultLocale` continue to resolve.
  *
- * @deprecated Prefer the typed `siteConfig` (with `siteConfig.i18n.*`) and
- *             the `Locale` / `LOCALES` exports. Kept as a thin alias so the
- *             existing imports continue to resolve during the migration.
+ * @deprecated Prefer `siteConfig` and the `Locale` export. The legacy
+ *   `SITE_CONFIG.locales` / `.localeLabels` / `.localePrefixes` fields
+ *   were dropped during the EN-only conversion.
  */
 export const SITE_CONFIG = {
   url: siteConfig.url,
   name: siteConfig.name,
   description: siteConfig.description,
-  defaultLocale: siteConfig.i18n.defaultLocale,
-  locales: siteConfig.i18n.locales,
-  localeLabels: LOCALE_LABELS,
-  localePrefixes: LOCALE_PREFIXES,
+  defaultLocale: DEFAULT_LOCALE,
 } as const;
 
 export default siteConfig;

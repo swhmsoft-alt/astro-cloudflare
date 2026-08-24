@@ -5,10 +5,15 @@ import { docsSchema } from "@astrojs/starlight/schema";
 import { glob } from "astro/loaders";
 
 
-// Add locale codes here when introducing new languages.
-// Active set is governed by `.clinerules/translation-governance.md` and the
-// `LOCALES` constant in `src/config/site.config.ts`.
-const localeSchema = z.enum(["en", "de", "ja", "fr", "es", "pt-br", "it", "ko", "nl", "pl"]);
+// EN-only project (2026-08-23, Session 2 of i18n cleanup).
+// Content frontmatter may still declare `locale: "en"` for back-compat
+// with collection schemas that previously required it; any other value
+// is flagged at build time by `contentValidationIntegration` in
+// `astro.config.ts`. The schema is intentionally narrow — re-introducing
+// additional locales is a deliberate, breaking SEO change and requires
+// updating `src/config/site.config.ts`, the build integration, and the
+// content frontmatter at the same time.
+const localeSchema = z.enum(["en"]);
 
 const blog = defineCollection({
   loader: glob({
