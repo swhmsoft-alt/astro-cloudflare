@@ -5,10 +5,42 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
+import type { Plugin } from "vite";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, extname, basename, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { siteConfig } from "./src/config/site.config";
+
+/**
+ * Path B workaround (Session 14, 2026-08-30):
+ * Node 26 stream × esbuild child IPC causes `EPIPE` in astro's
+ * `vite-plugin-import-meta-env` during production build. Pre-replacing
+ * `import.meta.env.*` literals here structurally bypasses the esbuild.transform
+ * path so the failing code is never reached. Dev mode keeps astro's default
+ * handling intact (`apply: 'build'`).
+ *
+ * Scope: matches the single user-code usage
+ * (`src/lib/blog.ts:15` → `import.meta.env.PROD`). If new PUBLIC_* vars are
+ * added, extend the regex below.
+ */
+function preTransformImportMetaEnv(): Plugin {
+  return {
+    name: "titanium-blog-pre-transform-import-meta-env",
+    enforce: "pre",
+    apply: "build",
+    transform(code, id) {
+      if (id.includes("node_modules")) return;
+      if (!code.includes("import.meta.env")) return;
+
+      let replaced = code;
+      replaced = replaced.replace(/\bimport\.meta\.env\.PROD\b/g, "true");
+      replaced = replaced.replace(/\bimport\.meta\.env\.DEV\b/g, "false");
+
+      if (replaced === code) return;
+      return { code: replaced };
+    },
+  };
+}
 
 async function collectFiles(dir: string, extensions: string[]): Promise<string[]> {
   const results: string[] = [];
@@ -229,7 +261,7 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [preTransformImportMetaEnv(), tailwindcss()],
     resolve: {
       alias: {
         "@pages": resolve(process.cwd(), "src/pages"),

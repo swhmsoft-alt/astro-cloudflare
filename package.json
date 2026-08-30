@@ -51,8 +51,8 @@
     "build:skip-pagefind": "node scripts/build-no-pagefind.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^7.0.2",
-    "@astrojs/react": "^6.0.1",
+    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/react": "^6.0.4",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/jetbrains-mono": "^5.2.0",
@@ -61,7 +61,7 @@
     "@iconify-json/lucide": "^1.2.114",
     "@iconify-json/simple-icons": "^1.2.89",
     "@tailwindcss/vite": "^4.3.2",
-    "astro": "^7.0.7",
+    "astro": "^7.2.9",
     "astro-icon": "^1.1.5",
     "clsx": "^2.1.1",
     "cva": "1.0.0-beta.6",
@@ -75,8 +75,8 @@
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@astrojs/starlight": "^0.41.3",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/starlight": "^0.41.10",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.53.0",
     "@types/node": "^20.0.0",
