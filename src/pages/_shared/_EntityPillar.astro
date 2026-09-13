@@ -17,12 +17,19 @@ export interface Props {
   path: string;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   pageGraph?: Record<string, unknown> & { "@graph": unknown[] };
+  /**
+   * Frontmatter field to group entries by (e.g. "issuingBody").
+   * Omit (default) to render a single flat grid — preserves legacy behaviour.
+   * First-seen group order is preserved; entries within each group keep
+   * their existing sort by `order`.
+   */
+  groupBy?: string;
 }
 
 // EN-only project (2026-08-23): locale is pinned at the boundary.
 const locale = "en";
 
-const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, path, jsonLd, pageGraph } = Astro.props as Props;
+const { collectionName, pageTitle, pageDescription, pageTitleKey, pageDescriptionKey, path, jsonLd, pageGraph, groupBy } = Astro.props as Props;
 const resolvedTitle = pageTitleKey ? t(locale, pageTitleKey) : (pageTitle || "");
 const resolvedDescription = pageDescriptionKey ? t(locale, pageDescriptionKey) : (pageDescription || "");
 
@@ -46,6 +53,24 @@ const collectionLabels: Record<string, string> = {
   applications: "knowledge.applications",
   cases: "knowledge.cases",
 };
+
+// Optional grouping (used by /standards/ to cluster by issuingBody, etc.).
+// When `groupBy` is undefined, groupedEntries collapses to a single "" group
+// so the render loop can use a unified code path.
+const groupedEntries: Array<{ groupName: string; entries: typeof entries }> = [];
+if (groupBy) {
+  const seen = new Map<string, typeof entries>();
+  for (const e of entries) {
+    const g = (e.data[groupBy] as string | undefined) ?? "Other";
+    if (!seen.has(g)) seen.set(g, []);
+    seen.get(g)!.push(e);
+  }
+  for (const [groupName, groupEntries] of seen) {
+    groupedEntries.push({ groupName, entries: groupEntries });
+  }
+} else {
+  groupedEntries.push({ groupName: "", entries });
+}
 ---
 
 <MarketingLayout
@@ -67,45 +92,86 @@ const collectionLabels: Record<string, string> = {
       <slot name="hubIntro" />
     </div>
 
-    <div class="entity-grid">
-      {entries.length === 0 && (
-        <p class="text-secondary">Content coming soon.</p>
-      )}
-      {
-        entries.map((entry: any) => {
-          const slug = entry.id;
-          return (
-            <a href={`/${path.replace(/^\//, "").replace(/\/$/, "")}/${slug}/`} class="entity-card">
-              <div class="entity-card__content">
-                <h2 class="entity-card__title">{entry.data.title}</h2>
-                <p class="entity-card__description">{entry.data.description}</p>
-                {'standards' in entry.data && entry.data.standards?.length > 0 && (
-                  <div class="entity-card__tags">
-                    {entry.data.standards.slice(0, 3).map((s: string) => (
-                      <span class="entity-card__tag">{s}</span>
-                    ))}
-                  </div>
-                )}
-                {'industries' in entry.data && entry.data.industries?.length > 0 && (
-                  <div class="entity-card__tags">
-                    {entry.data.industries.slice(0, 3).map((i: string) => (
-                      <span class="entity-card__tag">{i}</span>
-                    ))}
-                  </div>
-                )}
-                {'materials' in entry.data && entry.data.materials?.length > 0 && (
-                  <div class="entity-card__tags">
-                    {entry.data.materials.slice(0, 3).map((m: string) => (
-                      <span class="entity-card__tag">{m.replace(/-/g, " ")}</span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </a>
-          );
-        })
+    {(() => {
+      // Shared card renderer. Kept inside the IIFE so both grouped and
+      // ungrouped paths share a single source of truth.
+      const renderCard = (entry: any) => {
+        const slug = entry.id;
+        return (
+          <a href={`/${path.replace(/^\//, "").replace(/\/$/, "")}/${slug}/`} class="entity-card">
+            <div class="entity-card__content">
+              <h2 class="entity-card__title">{entry.data.title}</h2>
+              <p class="entity-card__description">{entry.data.description}</p>
+              {'standards' in entry.data && entry.data.standards?.length > 0 && (
+                <div class="entity-card__tags">
+                  {entry.data.standards.slice(0, 3).map((s: string) => (
+                    <span class="entity-card__tag">{s}</span>
+                  ))}
+                </div>
+              )}
+              {'industries' in entry.data && entry.data.industries?.length > 0 && (
+                <div class="entity-card__tags">
+                  {entry.data.industries.slice(0, 3).map((i: string) => (
+                    <span class="entity-card__tag">{i}</span>
+                  ))}
+                </div>
+              )}
+              {'materials' in entry.data && entry.data.materials?.length > 0 && (
+                <div class="entity-card__tags">
+                  {entry.data.materials.slice(0, 3).map((m: string) => (
+                    <span class="entity-card__tag">{m.replace(/-/g, " ")}</span>
+                  ))}
+                </div>
+              )}
+              {/* Collection-specific extras (L3) */}
+              {collectionName === "standards" && (entry.data.issuingBody || entry.data.standardType) && (
+                <div class="entity-card__tags">
+                  {entry.data.issuingBody && (
+                    <span class="entity-card__tag entity-card__tag--accent">{entry.data.issuingBody}</span>
+                  )}
+                  {entry.data.standardType && (
+                    <span class="entity-card__tag">{entry.data.standardType}</span>
+                  )}
+                </div>
+              )}
+              {collectionName === "materials" && entry.data.grade && (
+                <div class="entity-card__tags">
+                  <span class="entity-card__tag">{entry.data.grade}</span>
+                </div>
+              )}
+            </div>
+          </a>
+        );
+      };
+
+      // Grouped path — wrap each group in a section with a heading.
+      if (groupBy) {
+        return groupedEntries.map(({ groupName, entries: groupEntries }) => (
+          <div class="entity-group">
+            <h2 class="entity-group__heading">
+              {groupName}
+              <span class="entity-group__count">{groupEntries.length}</span>
+            </h2>
+            <div class="entity-grid">
+              {groupEntries.length === 0 && (
+                <p class="text-secondary">Content coming soon.</p>
+              )}
+              {groupEntries.map(renderCard)}
+            </div>
+          </div>
+        ));
       }
-    </div>
+
+      // Legacy flat-grid path (no groupBy).
+      return (
+        <div class="entity-grid">
+          {entries.length === 0 && (
+            <p class="text-secondary">Content coming soon.</p>
+          )}
+          {entries.map(renderCard)}
+        </div>
+      );
+    })()}
   </section>
 </MarketingLayout>
 
@@ -160,6 +226,44 @@ const collectionLabels: Record<string, string> = {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
     color: var(--color-text-secondary);
+    background: var(--color-bg-tertiary);
+  }
+
+  /* Accent variant — used for primary grouping keys (issuingBody) */
+  .entity-card__tag--accent {
+    border-color: var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    background: var(--color-bg-primary);
+  }
+
+  /* Group container (L3 — used when hub passes `groupBy` prop) */
+  .entity-group {
+    margin-top: var(--space-xl);
+  }
+
+  .entity-group:first-child {
+    margin-top: var(--space-xl);
+  }
+
+  .entity-group__heading {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-md);
+    padding-bottom: var(--space-sm);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .entity-group__count {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    padding: 0.1rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
     background: var(--color-bg-tertiary);
   }
 

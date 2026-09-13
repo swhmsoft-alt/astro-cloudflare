@@ -84,6 +84,15 @@ const githubUrl = siteConfig.socialLinks.find(
       </ul>
     </nav>
 
+    <a
+      href="/consultation/"
+      class="header__cta"
+      aria-current={contentPath === "/consultation" ? "page" : undefined}
+    >
+      <Icon name="lucide:message-circle" class="header__cta-icon" aria-hidden="true" />
+      <span>{t(locale, "nav.consultation")}</span>
+    </a>
+
     <div class="header__actions">
       {
         githubUrl && (
@@ -161,6 +170,14 @@ const githubUrl = siteConfig.socialLinks.find(
           ))
         }
       </ul>
+      <a
+        href="/consultation/"
+        class="header__mobile-cta"
+        aria-current={contentPath === "/consultation" ? "page" : undefined}
+      >
+        <Icon name="lucide:message-circle" aria-hidden="true" />
+        <span>{t(locale, "nav.consultation")}</span>
+      </a>
     </nav>
   </div>
 </header>
@@ -202,6 +219,19 @@ const githubUrl = siteConfig.socialLinks.find(
 </script>
 
 <style>
+  /* Global bridge: alias the missing --space-* tokens to the canonical
+     --spacing-* scale so older CSS (and our CTA spacing) keeps working.
+     Header is rendered on every page, so this propagates globally. */
+  :global(:root) {
+    --space-xs: var(--spacing-1);
+    --space-sm: var(--spacing-3);
+    --space-md: var(--spacing-4);
+    --space-lg: var(--spacing-6);
+    --space-xl: var(--spacing-7);
+    --space-2xl: var(--spacing-8);
+    --space-3xl: var(--spacing-10);
+  }
+
   .header {
     position: sticky;
     top: 0;
@@ -461,6 +491,88 @@ const githubUrl = siteConfig.socialLinks.find(
 
     .header__mobile:not([hidden]) {
       display: block;
+    }
+  }
+
+  /* Independent Free Consultation CTA — visually distinct from regular nav
+     links so it reads as a primary entry point on every page. */
+  .header__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    background: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.005em;
+    border: 1px solid var(--color-text-primary);
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .header__cta:hover {
+    background: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+    color: var(--color-bg-primary);
+    transform: translateY(-1px);
+  }
+
+  .header__cta[aria-current="page"] {
+    background: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+  }
+
+  .header__cta:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .header__cta-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .header__mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: var(--space-md) 0 var(--space-sm);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    background: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    text-decoration: none;
+    font-weight: 700;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .header__mobile-cta :global(svg) {
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+
+  .header__mobile-cta:hover {
+    background: var(--color-brand-primary);
+    color: var(--color-bg-primary);
+  }
+
+  .header__mobile-cta[aria-current="page"] {
+    background: var(--color-brand-primary);
+  }
+
+  /* Hide the desktop CTA on small screens — the mobile menu has its own. */
+  @media (max-width: 60rem) {
+    .header__cta {
+      display: none;
     }
   }
 </style>

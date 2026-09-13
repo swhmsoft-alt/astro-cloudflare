@@ -566,6 +566,13 @@
       ]
     },
     {
+      "name": "Free Consultation",
+      "path": "src/pages/consultation.astro",
+      "locales": [
+        "en"
+      ]
+    },
+    {
       "name": "Sections showcase",
       "path": "src/pages/sections.astro",
       "locales": [

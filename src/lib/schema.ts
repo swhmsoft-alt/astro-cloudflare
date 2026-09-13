@@ -448,6 +448,12 @@ export function buildCollectionPageSchema(
     description: string;
     url: string;
     numberOfItems: number;
+    /**
+     * Optional `about` subjects for the CollectionPage. AIO engines use this
+     * to classify the hub's topical focus. Pass `SITE_ABOUT_TOPICS` for the
+     * canonical site-wide topics, or a custom narrower array per hub.
+     */
+    about?: Array<{ "@type": string; name: string }>;
   },
   site: SiteConfig = defaultSiteConfig,
   locale?: string,
@@ -463,6 +469,7 @@ export function buildCollectionPageSchema(
     isPartOf: { "@id": websiteId(site) },
     publisher: { "@id": organizationId(site) },
     inLanguage: lang,
+    ...(collection.about ? { about: collection.about } : {}),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: collection.numberOfItems,
@@ -843,6 +850,28 @@ export interface KnowledgeArticleGraphInput {
   image?: string;
   /** Free-form keywords (joined into TechArticle.keywords). */
   keywords?: string[];
+  /**
+   * Subjects the TechArticle is about. Emitted as `TechArticle.about`.
+   * AIO engines use this for topical classification. Pass `SITE_ABOUT_TOPICS`
+   * for the site-wide canonical topics, or a narrower per-entry list.
+   * Defaults to `SITE_ABOUT_TOPICS` when omitted (every knowledge article
+   * claims the canonical titanium subject area).
+   */
+  about?: Array<{ "@type": string; name: string }>;
+  /**
+   * Optional `SpeakableSpecification` for the TechArticle. AIO engines use
+   * this to surface voice/quick-answer snippets. Provide either `xpath`
+   * (XPath expressions, e.g. `"/html/head/title"`, `"#quick-answer"`) or
+   * `cssSelector` (CSS selectors targeting prominent paragraphs). At least
+   * one must be present.
+   */
+  speakable?: { xpath?: string[]; cssSelector?: string[] };
+  /**
+   * Optional `sameAs` URLs for the DefinedTerm node (e.g. the Wikipedia or
+   * Wikidata entry for the entity this page defines). AIO engines use these
+   * to confirm entity identity against authoritative sources.
+   */
+  sameAs?: string[];
   /** Optional breadcrumb trail (Home → pillar → current). */
   breadcrumb?: Array<{ label: string; href: string }>;
   /** Optional FAQ section. */
@@ -919,7 +948,15 @@ export function buildKnowledgeArticleGraph(
     mainEntityOfPage: { "@id": input.url },
     isPartOf: { "@id": websiteId(site) },
     inLanguage: lang,
+    about: input.about ?? SITE_ABOUT_TOPICS,
   };
+  // Optional Speakable — only emitted when caller provides xpath or cssSelector.
+  if (input.speakable && (input.speakable.xpath?.length || input.speakable.cssSelector?.length)) {
+    const spec: Record<string, unknown> = { "@type": "SpeakableSpecification" };
+    if (input.speakable.xpath?.length) spec.xpath = input.speakable.xpath;
+    if (input.speakable.cssSelector?.length) spec.cssSelector = input.speakable.cssSelector;
+    techArticle.speakable = spec;
+  }
   const mentions = buildMentions(input.mentions);
   if (mentions) techArticle.mentions = mentions;
   graph.push(techArticle);
@@ -935,6 +972,7 @@ export function buildKnowledgeArticleGraph(
     inDefinedTermSet: { "@type": "DefinedTermSet", "@id": setAnchor },
     url: input.url,
     inLanguage: lang,
+    ...(input.sameAs && input.sameAs.length > 0 ? { sameAs: input.sameAs } : {}),
   });
 
   // 6. DefinedTermSet — collection anchor (stable @id, reused across pages).
@@ -1004,6 +1042,13 @@ export interface PillarGraphInput {
   collectionKey: CollectionSetKey;
   locale: string;
   items: Array<{ name: string; description: string; url: string }>;
+  /**
+   * Subjects the CollectionPage is about. Emitted as `CollectionPage.about`.
+   * Defaults to `SITE_ABOUT_TOPICS` when omitted (every hub claims the
+   * canonical titanium subject area). Pass a narrower array for hub-specific
+   * topical focus.
+   */
+  about?: Array<{ "@type": string; name: string }>;
   breadcrumb?: Array<{ label: string; href: string }>;
   faqs?: Array<{ question: string; answer: string }>;
 }
@@ -1046,6 +1091,7 @@ export function buildPillarGraph(
         description: input.description,
         url: input.url,
         numberOfItems: input.items.length,
+        about: input.about ?? SITE_ABOUT_TOPICS,
       },
       site,
       input.locale,

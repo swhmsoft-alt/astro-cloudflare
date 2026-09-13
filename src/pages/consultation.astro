@@ -1,0 +1,719 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { t } from "../i18n/ui";
+import { siteConfig as s } from "../config/site.config";
+import { buildKnowledgeArticleGraph } from "../lib/schema";
+import Hero from "../components/Hero.astro";
+import { Button, Icon } from "../components/ui/index";
+
+// EN-only project (2026-08-23): locale is pinned at the boundary.
+const locale = "en" as const;
+
+// Formspree endpoint (POST target for inquiries). Submission is a free,
+// no-obligation engineering consultation; it does NOT constitute an order,
+// quote, or supply commitment. See the "Scope" callout below.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzeblvja";
+const thankYouUrl = s.url + "/consultation/?submitted=1";
+
+// JSON-LD @graph: site identity + WebPage + ContactPage + breadcrumb.
+// Declares the page as a ContactPage (Schema.org) with no commercial intent.
+const consultationUrl = s.url + "/consultation";
+const pageGraph = buildKnowledgeArticleGraph(
+  {
+    name: t(locale, "consultation.pageTitle"),
+    description: t(locale, "consultation.pageDescription"),
+    url: consultationUrl,
+    collectionKey: "guides",
+    locale,
+    breadcrumb: [
+      { label: "Home", href: s.url + "/" },
+      { label: t(locale, "nav.consultation"), href: consultationUrl },
+    ],
+  },
+  s,
+);
+
+const industries = [
+  { value: "", label: t(locale, "consultation.field.industryPlaceholder") },
+  { value: "aerospace", label: t(locale, "consultation.opt.industry.aerospace") },
+  { value: "medical", label: t(locale, "consultation.opt.industry.medical") },
+  { value: "semiconductor", label: t(locale, "consultation.opt.industry.semiconductor") },
+  { value: "automotive", label: t(locale, "consultation.opt.industry.automotive") },
+  { value: "energy", label: t(locale, "consultation.opt.industry.energy") },
+  { value: "oil-gas", label: t(locale, "consultation.opt.industry.oilGas") },
+  { value: "chemical-processing", label: t(locale, "consultation.opt.industry.chemicalProcessing") },
+  { value: "marine", label: t(locale, "consultation.opt.industry.marine") },
+  { value: "defence", label: t(locale, "consultation.opt.industry.defence") },
+  { value: "other", label: t(locale, "consultation.opt.industry.other") },
+];
+
+const grades = [
+  { value: "", label: t(locale, "consultation.field.gradePlaceholder") },
+  { value: "grade-1", label: "Grade 1 (CP4)" },
+  { value: "grade-2", label: "Grade 2 (CP3)" },
+  { value: "grade-3", label: "Grade 3" },
+  { value: "grade-4", label: "Grade 4" },
+  { value: "grade-5", label: "Grade 5 (Ti-6Al-4V)" },
+  { value: "grade-7", label: "Grade 7 (Ti-Pd)" },
+  { value: "grade-9", label: "Grade 9 (Ti-3Al-2.5V)" },
+  { value: "grade-12", label: "Grade 12 (Ti-0.3Mo-0.8Ni)" },
+  { value: "grade-23", label: "Grade 23 (Ti-6Al-4V ELI)" },
+  { value: "beta", label: "Beta alloys (e.g. Ti-10V-2Fe-3Al)" },
+  { value: "unsure", label: t(locale, "consultation.opt.unsure") },
+];
+
+const processes = [
+  { value: "", label: t(locale, "consultation.field.processPlaceholder") },
+  { value: "cnc-machining", label: t(locale, "consultation.opt.process.cnc") },
+  { value: "5-axis-machining", label: t(locale, "consultation.opt.process.5axis") },
+  { value: "milling", label: t(locale, "consultation.opt.process.milling") },
+  { value: "turning", label: t(locale, "consultation.opt.process.turning") },
+  { value: "wire-edm", label: t(locale, "consultation.opt.process.wireEdm") },
+  { value: "additive-manufacturing", label: t(locale, "consultation.opt.process.am") },
+  { value: "multiple", label: t(locale, "consultation.opt.process.multiple") },
+  { value: "unsure", label: t(locale, "consultation.opt.unsure") },
+];
+
+const finishes = [
+  { value: "", label: t(locale, "consultation.field.finishPlaceholder") },
+  { value: "mill", label: t(locale, "consultation.opt.finish.mill") },
+  { value: "bead-blasted", label: t(locale, "consultation.opt.finish.beadBlasted") },
+  { value: "polished", label: t(locale, "consultation.opt.finish.polished") },
+  { value: "passivated", label: t(locale, "consultation.opt.finish.passivated") },
+  { value: "anodized", label: t(locale, "consultation.opt.finish.anodized") },
+  { value: "pvd-coated", label: t(locale, "consultation.opt.finish.pvdCoated") },
+  { value: "unsure", label: t(locale, "consultation.opt.unsure") },
+];
+
+const stages = [
+  { value: "", label: t(locale, "consultation.field.stagePlaceholder") },
+  { value: "material-selection", label: t(locale, "consultation.opt.stage.materialSelection") },
+  { value: "prototype", label: t(locale, "consultation.opt.stage.prototype") },
+  { value: "pre-production", label: t(locale, "consultation.opt.stage.preProduction") },
+  { value: "production", label: t(locale, "consultation.opt.stage.production") },
+  { value: "reverse-engineering", label: t(locale, "consultation.opt.stage.reverseEngineering") },
+];
+
+const volumes = [
+  { value: "", label: t(locale, "consultation.field.volumePlaceholder") },
+  { value: "<10", label: t(locale, "consultation.opt.volume.lt10") },
+  { value: "10-100", label: t(locale, "consultation.opt.volume.10to100") },
+  { value: "100-1000", label: t(locale, "consultation.opt.volume.100to1000") },
+  { value: "1000+", label: t(locale, "consultation.opt.volume.gt1000") },
+  { value: "unknown", label: t(locale, "consultation.opt.unsure") },
+];
+---
+
+<BaseLayout
+  title={t(locale, "consultation.pageTitle")}
+  description={t(locale, "consultation.pageDescription")}
+  locale={locale}
+  path="/consultation"
+  pageGraph={pageGraph}
+>
+  <Hero
+    variant="centered"
+    size="md"
+    eyebrow={t(locale, "consultation.eyebrow")}
+    headline={t(locale, "consultation.headline")}
+    subheadline={t(locale, "consultation.subheadline")}
+    locale={locale}
+  />
+
+  <section class="consult container">
+    <aside class="consult__scope" aria-labelledby="consult-scope-title">
+      <h2 id="consult-scope-title" class="consult__scope-title">
+        {t(locale, "consultation.scope.title")}
+      </h2>
+      <p class="consult__scope-lead">{t(locale, "consultation.scope.lead")}</p>
+
+      <div class="consult__scope-grid">
+        <article class="consult__scope-card consult__scope-card--yes">
+          <header>
+            <Icon name="lucide:check-circle-2" aria-hidden="true" />
+            <h3>{t(locale, "consultation.scope.canTitle")}</h3>
+          </header>
+          <ul>
+            <li>{t(locale, "consultation.scope.can1")}</li>
+            <li>{t(locale, "consultation.scope.can2")}</li>
+            <li>{t(locale, "consultation.scope.can3")}</li>
+            <li>{t(locale, "consultation.scope.can4")}</li>
+          </ul>
+        </article>
+
+        <article class="consult__scope-card consult__scope-card--no">
+          <header>
+            <Icon name="lucide:x-circle" aria-hidden="true" />
+            <h3>{t(locale, "consultation.scope.cantTitle")}</h3>
+          </header>
+          <ul>
+            <li>{t(locale, "consultation.scope.cant1")}</li>
+            <li>{t(locale, "consultation.scope.cant2")}</li>
+            <li>{t(locale, "consultation.scope.cant3")}</li>
+            <li>{t(locale, "consultation.scope.cant4")}</li>
+          </ul>
+        </article>
+      </div>
+    </aside>
+
+    <form
+      class="consult__form"
+      action={FORMSPREE_ENDPOINT}
+      method="POST"
+      data-consult-form
+      aria-describedby="consult-disclaimer"
+      novalidate
+    >
+      <input type="hidden" name="_subject" value={t(locale, "consultation.emailSubject")} />
+      <input type="hidden" name="_next" value={thankYouUrl} />
+      <input
+        type="text"
+        name="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+        style="position:absolute;left:-9999px;height:0;width:0;opacity:0"
+      />
+
+      <div class="consult__section">
+        <h2 class="consult__section-title">{t(locale, "consultation.section.contactTitle")}</h2>
+        <p class="consult__section-hint">{t(locale, "consultation.section.contactHint")}</p>
+
+        <div class="consult__grid consult__grid--two">
+          <div class="ui-field">
+            <label for="consult-name" class="ui-field__label">
+              {t(locale, "consultation.field.name")}<span aria-hidden="true"> *</span>
+            </label>
+            <input
+              id="consult-name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder={t(locale, "consultation.field.namePlaceholder")}
+              class="ui-input"
+            />
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-email" class="ui-field__label">
+              {t(locale, "consultation.field.email")}<span aria-hidden="true"> *</span>
+            </label>
+            <input
+              id="consult-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder={t(locale, "consultation.field.emailPlaceholder")}
+              class="ui-input"
+            />
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-company" class="ui-field__label">
+              {t(locale, "consultation.field.company")}
+            </label>
+            <input
+              id="consult-company"
+              name="company"
+              type="text"
+              autocomplete="organization"
+              placeholder={t(locale, "consultation.field.companyPlaceholder")}
+              class="ui-input"
+            />
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-phone" class="ui-field__label">
+              {t(locale, "consultation.field.phone")}
+            </label>
+            <input
+              id="consult-phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              placeholder={t(locale, "consultation.field.phonePlaceholder")}
+              class="ui-input"
+            />
+          </div>
+
+          <div class="ui-field consult__field--full">
+            <label for="consult-country" class="ui-field__label">
+              {t(locale, "consultation.field.country")}
+            </label>
+            <input
+              id="consult-country"
+              name="country"
+              type="text"
+              autocomplete="country-name"
+              placeholder={t(locale, "consultation.field.countryPlaceholder")}
+              class="ui-input"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="consult__section">
+        <h2 class="consult__section-title">{t(locale, "consultation.section.projectTitle")}</h2>
+        <p class="consult__section-hint">{t(locale, "consultation.section.projectHint")}</p>
+
+        <div class="consult__grid consult__grid--two">
+          <div class="ui-field">
+            <label for="consult-industry" class="ui-field__label">
+              {t(locale, "consultation.field.industry")}
+            </label>
+            <select id="consult-industry" name="industry" class="ui-select">
+              {industries.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+            </select>
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-grade" class="ui-field__label">
+              {t(locale, "consultation.field.grade")}
+            </label>
+            <select id="consult-grade" name="grade" class="ui-select">
+              {grades.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+            </select>
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-process" class="ui-field__label">
+              {t(locale, "consultation.field.process")}
+            </label>
+            <select id="consult-process" name="process" class="ui-select">
+              {processes.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+            </select>
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-finish" class="ui-field__label">
+              {t(locale, "consultation.field.finish")}
+            </label>
+            <select id="consult-finish" name="finish" class="ui-select">
+              {finishes.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+            </select>
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-stage" class="ui-field__label">
+              {t(locale, "consultation.field.stage")}
+            </label>
+            <select id="consult-stage" name="stage" class="ui-select">
+              {stages.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+            </select>
+          </div>
+
+          <div class="ui-field">
+            <label for="consult-volume" class="ui-field__label">
+              {t(locale, "consultation.field.volume")}
+            </label>
+            <select id="consult-volume" name="volume" class="ui-select">
+              {volumes.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+            </select>
+          </div>
+        </div>
+
+        <div class="ui-field consult__field--full">
+          <label for="consult-requirements" class="ui-field__label">
+            {t(locale, "consultation.field.requirements")}
+            <span aria-hidden="true"> *</span>
+          </label>
+          <textarea
+            id="consult-requirements"
+            name="requirements"
+            required
+            rows={6}
+            placeholder={t(locale, "consultation.field.requirementsPlaceholder")}
+            class="ui-textarea"
+          ></textarea>
+          <small class="ui-field__help">
+            {t(locale, "consultation.field.requirementsHelp")}
+          </small>
+        </div>
+      </div>
+
+      <div class="consult__consent">
+        <label class="consult__consent-label">
+          <input
+            type="checkbox"
+            name="consent"
+            value="yes"
+            required
+            class="consult__consent-input"
+          />
+          <span>{t(locale, "consultation.consent")}</span>
+        </label>
+      </div>
+
+      <div class="consult__actions">
+        <Button type="submit" variant="primary" size="lg">
+          <span data-submit-label>{t(locale, "consultation.submit")}</span>
+        </Button>
+        <p class="consult__actions-hint" data-submit-hint>
+          {t(locale, "consultation.slaMessage")}
+        </p>
+      </div>
+
+      <p
+        id="consult-disclaimer"
+        class="consult__disclaimer"
+        role="note"
+      >
+        <Icon name="lucide:info" aria-hidden="true" />
+        <span>{t(locale, "consultation.disclaimer")}</span>
+      </p>
+
+      <div
+        class="consult__status"
+        role="status"
+        aria-live="polite"
+        hidden
+        data-consult-status
+      ></div>
+    </form>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.querySelector("[data-consult-form]");
+    if (!form) return;
+    var statusEl = form.querySelector("[data-consult-status]");
+    var labelEl = form.querySelector("[data-submit-label]");
+    var hintEl = form.querySelector("[data-submit-hint]");
+    var defaultLabel = labelEl ? labelEl.textContent : "";
+    var defaultHint = hintEl ? hintEl.textContent : "";
+    var successMsg = form.getAttribute("data-success-msg") || "";
+    var errorMsg = form.getAttribute("data-error-msg") || "";
+
+    form.addEventListener("submit", function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        form.reportValidity();
+        return;
+      }
+      event.preventDefault();
+      var endpoint = form.getAttribute("action");
+      if (!endpoint) return;
+
+      if (labelEl) labelEl.textContent = "Sending...";
+      if (hintEl) hintEl.textContent = "";
+      if (statusEl) {
+        statusEl.hidden = false;
+        statusEl.textContent = "Submitting your inquiry...";
+        statusEl.dataset.state = "pending";
+      }
+
+      var data = new FormData(form);
+      fetch(endpoint, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) {
+          if (res.ok) {
+            if (statusEl) {
+              statusEl.textContent = successMsg || "Thank you — we will be in touch shortly.";
+              statusEl.dataset.state = "success";
+            }
+            form.reset();
+            var next = data.get("_next");
+            if (typeof next === "string" && next) {
+              window.location.href = next;
+            }
+          } else {
+            throw new Error("formspree-" + res.status);
+          }
+        })
+        .catch(function () {
+          if (labelEl) labelEl.textContent = defaultLabel;
+          if (hintEl) hintEl.textContent = defaultHint;
+          if (statusEl) {
+            statusEl.hidden = false;
+            statusEl.textContent = errorMsg || "Network error — submitting directly.";
+            statusEl.dataset.state = "error";
+          }
+          form.submit();
+        });
+    });
+  })();
+
+  (function () {
+    if (typeof window === "undefined") return;
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("submitted") !== "1") return;
+    var statusEl = document.querySelector("[data-consult-status]");
+    if (statusEl) {
+      statusEl.hidden = false;
+      statusEl.dataset.state = "success";
+      statusEl.textContent =
+        "Thank you — your inquiry has been received. We will respond within 1\u20132 business days.";
+    }
+    var form = document.querySelector("[data-consult-form]");
+    if (form) {
+      form.querySelectorAll("input, select, textarea, button").forEach(function (el) {
+        el.disabled = true;
+      });
+    }
+  })();
+</script>
+
+<style>
+  /* Global form-field primitives — mirrors src/components/ui/form/* so that
+     raw <input>/<select>/<textarea> elements in this page pick up the same
+     on-system styling without needing the per-component scope hash. */
+  :global(.ui-field) {
+    display: grid;
+    gap: 0.45rem;
+  }
+  :global(.ui-field__label) {
+    font-weight: 600;
+  }
+  :global(.ui-input),
+  :global(.ui-select),
+  :global(.ui-textarea) {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-bg-primary);
+    padding: 0.75rem 1rem;
+    color: var(--color-text-primary);
+    font: inherit;
+  }
+  :global(.ui-select) {
+    appearance: auto;
+    cursor: pointer;
+  }
+  :global(.ui-textarea) {
+    resize: vertical;
+    min-height: 8rem;
+  }
+  :global(.ui-input:focus-visible),
+  :global(.ui-select:focus-visible),
+  :global(.ui-textarea:focus-visible) {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-color: var(--ring);
+  }
+  :global(.ui-field__help),
+  :global(.ui-field__error) {
+    font-size: 0.875rem;
+  }
+  :global(.ui-field__help) {
+    color: var(--color-text-secondary);
+  }
+
+  .consult {
+    padding-block: var(--space-2xl) var(--space-3xl);
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .consult__scope {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-xl);
+    background: var(--color-bg-secondary);
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .consult__scope-title {
+    margin: 0;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    letter-spacing: -0.01em;
+  }
+
+  .consult__scope-lead {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .consult__scope-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .consult__scope-card {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-primary);
+  }
+
+  .consult__scope-card header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .consult__scope-card header :global(svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .consult__scope-card--yes header :global(svg) {
+    color: var(--color-success, #16a34a);
+  }
+
+  .consult__scope-card--no header :global(svg) {
+    color: var(--color-text-secondary);
+  }
+
+  .consult__scope-card h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .consult__scope-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.4rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .consult__form {
+    display: grid;
+    gap: var(--space-2xl);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    background: var(--color-bg-primary);
+  }
+
+  .consult__section {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .consult__section-title {
+    margin: 0;
+    font-size: 1.125rem;
+    letter-spacing: -0.005em;
+  }
+
+  .consult__section-hint {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .consult__grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .consult__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .consult__field--full {
+    grid-column: 1 / -1;
+  }
+
+  .consult__consent {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-lg);
+  }
+
+  .consult__consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+
+  .consult__consent-input {
+    margin-top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    accent-color: var(--color-brand-primary);
+  }
+
+  .consult__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .consult__actions-hint {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .consult__disclaimer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    margin: 0;
+    padding: var(--space-md);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+
+  .consult__disclaimer :global(svg) {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.1rem;
+  }
+
+  .consult__status {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .consult__status[data-state="pending"] {
+    background: color-mix(in oklab, var(--color-text-primary) 6%, transparent);
+    color: var(--color-text-secondary);
+  }
+
+  .consult__status[data-state="success"] {
+    background: color-mix(in oklab, var(--color-success, #16a34a) 12%, transparent);
+    color: var(--color-success, #16a34a);
+    border: 1px solid color-mix(in oklab, var(--color-success, #16a34a) 35%, transparent);
+  }
+
+  .consult__status[data-state="error"] {
+    background: color-mix(in oklab, #dc2626 10%, transparent);
+    color: #dc2626;
+    border: 1px solid color-mix(in oklab, #dc2626 30%, transparent);
+  }
+
+  @media (max-width: 48rem) {
+    .consult__scope-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .consult__grid--two {
+      grid-template-columns: 1fr;
+    }
+
+    .consult__form,
+    .consult__scope {
+      padding: var(--space-lg);
+    }
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import EntityPillar from "../_shared/_EntityPillar.astro";
 import { getCollection } from "astro:content";
-import { buildCollectionPageSchema, buildItemListSchema } from "../../lib/schema";
+import { buildPillarGraph, SITE_ABOUT_TOPICS } from "../../lib/schema";
 import { siteConfig } from "../../config/site.config";
 const locale = "en";
 const entries = (await getCollection("standards"))
@@ -9,25 +9,24 @@ const entries = (await getCollection("standards"))
   .sort((a: any, b: any) => a.data.order - b.data.order);
 
 const listUrl = siteConfig.url + "/standards/";
-const collectionSchema = buildCollectionPageSchema({
+// Unified `@graph` document: WebSite + Organization + WebPage + CollectionPage
+// + ItemList + DefinedTermSet all share stable @ids so this pillar page
+// emits exactly ONE <script type="application/ld+json"> block. Matches the
+// /grades/ hub pattern so AIO engines treat both peer hubs symmetrically
+// (same KG node structure, same dedupe behavior).
+const pageGraph = buildPillarGraph({
   name: "Titanium Standards & Certifications",
   description: "Industry standards and certifications for titanium materials, manufacturing, and quality assurance.",
   url: listUrl,
-  numberOfItems: entries.length,
-});
-const itemListSchema = entries.length > 0 ? buildItemListSchema({
-  itemType: "DefinedTerm",
-  numberOfItems: entries.length,
-  url: listUrl,
-  itemListElement: entries.map((e: any) => ({
+  collectionKey: "standards",
+  locale,
+  about: SITE_ABOUT_TOPICS,
+  items: entries.map((e: any) => ({
     name: e.data.title,
     description: e.data.description,
     url: siteConfig.url + "/standards/" + e.id + "/",
   })),
-}) : null;
-const schemas = [collectionSchema, itemListSchema].filter(
-  (s): s is NonNullable<typeof s> => s !== null,
-);
+}, siteConfig);
 ---
 <EntityPillar
   collectionName="standards"
@@ -35,5 +34,6 @@ const schemas = [collectionSchema, itemListSchema].filter(
   pageDescription="Industry standards and certifications for titanium materials, manufacturing, and quality assurance."
   locale={locale}
   path="/standards/"
-  jsonLd={schemas}
+  groupBy="issuingBody"
+  pageGraph={pageGraph}
 />
