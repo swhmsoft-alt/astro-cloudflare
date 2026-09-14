@@ -376,85 +376,67 @@ const volumes = [
 </BaseLayout>
 
 <script is:inline>
-  (function () {
-    var form = document.querySelector("[data-consult-form]");
-    if (!form) return;
-    var statusEl = form.querySelector("[data-consult-status]");
-    var labelEl = form.querySelector("[data-submit-label]");
-    var hintEl = form.querySelector("[data-submit-hint]");
-    var defaultLabel = labelEl ? labelEl.textContent : "";
-    var defaultHint = hintEl ? hintEl.textContent : "";
-    var successMsg = form.getAttribute("data-success-msg") || "";
-    var errorMsg = form.getAttribute("data-error-msg") || "";
+  /* Submission strategy (revised, post-line-deploy debugging):
+   *
+   *   1. Native browser POST to Formspree (no fetch / no CORS / no XHR).
+   *      Formspree processes the submission server-side and 302-redirects
+   *      the browser to `_next` = /consultation/?submitted=1.
+   *   2. JS only runs for two side-effects:
+   *        a. Client-side required-field gate (blocks bad submits before
+   *           they leave the browser).
+   *        b. A "Submitting..." affordance while the browser is in flight.
+   *   3. After the redirect lands on ?submitted=1, this same script
+   *      reveals the inline thank-you panel and locks the form.
+   *
+   *  Removed: fetch() / AJAX fallback / form.submit() retry. The fetch
+   *  path was triggering CORS-or-network "errors" on production HTTPS
+   *  (Formspree returns a 302 with text/plain for non-AJAX POSTs, which
+   *  the fetch().then(res => res.json()) chain interpreted as failure).
+   *  Native POST bypasses CORS entirely.
+   */
 
-    form.addEventListener("submit", function (event) {
+  (function () {
+    const form = document.querySelector("[data-consult-form]");
+    if (!form) return;
+    const labelEl = form.querySelector("[data-submit-label]");
+    const hintEl = form.querySelector("[data-submit-hint]");
+
+    form.addEventListener("submit", function () {
+      // checkValidity() reports native UI on the required fields; if the
+      // form is invalid the browser already cancels the submit, but we
+      // surface it explicitly because `novalidate` is set on the form.
       if (!form.checkValidity()) {
-        event.preventDefault();
         form.reportValidity();
         return;
       }
-      event.preventDefault();
-      var endpoint = form.getAttribute("action");
-      if (!endpoint) return;
-
-      if (labelEl) labelEl.textContent = "Sending...";
+      // Valid → let the browser POST to Formspree. Show in-flight state.
+      if (labelEl) labelEl.textContent = "Submitting...";
       if (hintEl) hintEl.textContent = "";
-      if (statusEl) {
-        statusEl.hidden = false;
-        statusEl.textContent = "Submitting your inquiry...";
-        statusEl.dataset.state = "pending";
-      }
-
-      var data = new FormData(form);
-      fetch(endpoint, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      })
-        .then(function (res) {
-          if (res.ok) {
-            if (statusEl) {
-              statusEl.textContent = successMsg || "Thank you — we will be in touch shortly.";
-              statusEl.dataset.state = "success";
-            }
-            form.reset();
-            var next = data.get("_next");
-            if (typeof next === "string" && next) {
-              window.location.href = next;
-            }
-          } else {
-            throw new Error("formspree-" + res.status);
-          }
-        })
-        .catch(function () {
-          if (labelEl) labelEl.textContent = defaultLabel;
-          if (hintEl) hintEl.textContent = defaultHint;
-          if (statusEl) {
-            statusEl.hidden = false;
-            statusEl.textContent = errorMsg || "Network error — submitting directly.";
-            statusEl.dataset.state = "error";
-          }
-          form.submit();
-        });
     });
   })();
 
+  // Post-redirect confirmation: Formspree bounced us back to
+  // /consultation/?submitted=1. Reveal the success panel and lock the form.
   (function () {
     if (typeof window === "undefined") return;
-    var params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
     if (params.get("submitted") !== "1") return;
-    var statusEl = document.querySelector("[data-consult-status]");
+    const statusEl = document.querySelector("[data-consult-status]");
     if (statusEl) {
       statusEl.hidden = false;
       statusEl.dataset.state = "success";
       statusEl.textContent =
-        "Thank you — your inquiry has been received. We will respond within 1\u20132 business days.";
+        "Thank you \u2014 your inquiry has been received. We will respond within 1\u20132 business days.";
     }
-    var form = document.querySelector("[data-consult-form]");
+    const form = document.querySelector("[data-consult-form]");
     if (form) {
       form.querySelectorAll("input, select, textarea, button").forEach(function (el) {
         el.disabled = true;
       });
+    }
+    // Scroll the success panel into view for keyboard / screen-reader users.
+    if (statusEl && typeof statusEl.scrollIntoView === "function") {
+      statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   })();
 </script>
