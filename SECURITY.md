@@ -24,7 +24,7 @@ This is a static site, so the attack surface is small.
 ### Content Security Policy
 - Enforced via `public/_headers` at the Cloudflare edge
 - `frame-ancestors 'none'` prevents clickjacking
-- `form-action 'self'` restricts form submissions
+- `form-action 'self' https://formspree.io` restricts form submissions to same-origin plus the Formspree endpoint used by `/consultation/`
 - Allows only configured analytics + the OpenStreetMap embed
 
 ### R2 cleanup worker
