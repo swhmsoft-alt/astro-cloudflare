@@ -127,7 +127,7 @@ export const siteConfig: SiteConfig = {
   description:
     "The independent titanium engineering knowledge hub. Expert technical guides on titanium grades, material selection, corrosion resistance, heat treatment, failure analysis, and manufacturing processes. Built for engineers, designers, and material researchers worldwide.",
   author: "Titanium Blog Team",
-  email: "hello@titanium.blog",
+  email: "leo@titanium.blog",
   authorImage: "/images/author.jpg",
 
   /* Default content language for Schema.org inLanguage and SEO. */
@@ -144,7 +144,7 @@ export const siteConfig: SiteConfig = {
       url: "https://linkedin.com/company/titanium-blog",
       label: "LinkedIn",
     },
-    { platform: "email", url: "mailto:hello@titanium.blog", label: "Email" },
+    { platform: "email", url: "mailto:leo@titanium.blog", label: "Email" },
   ],
 
   /* Canonical identity URLs for Organization.sameAs.

@@ -11,7 +11,7 @@ sections:
     title: Ways to Reach Us
     items:
       - title: Email
-        description: hello@example.com
+        description: leo@titanium.blog
       - title: Office
         description: Jakarta, Indonesia
       - title: Social

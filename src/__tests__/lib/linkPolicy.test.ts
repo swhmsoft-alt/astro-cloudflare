@@ -70,7 +70,7 @@ describe("isExternalUrl", () => {
   it("treats relative/internal urls as not external", () => {
     expect(isExternalUrl("/blog/titanium-grade-5-vs-grade-23/")).toBe(false);
     expect(isExternalUrl("/")).toBe(false);
-    expect(isExternalUrl("mailto:hello@titanium.blog")).toBe(false);
+    expect(isExternalUrl("mailto:leo@titanium.blog")).toBe(false);
   });
 });
 

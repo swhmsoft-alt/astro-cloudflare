@@ -330,9 +330,11 @@
   "consultation.scope.cantTitle": "What we don't do",
   "consultation.scope.cant1": "Quote prices, lead times, or accept purchase orders.",
   "consultation.scope.cant2": "Source suppliers, broker transactions, or introduce you to specific vendors.",
-  "consultation.scope.cant3": "Accept confidential CAD drawings or proprietary part numbers via this form.",
+  "consultation.scope.cant3": "Receive confidential or NDA-bound documentation via this form — use a secure email channel for that.",
   "consultation.scope.cant4": "Provide regulatory, legal, or investment advice.",
   "consultation.consent": "I understand this is an independent technical consultation, not a commercial offer, and consent to being contacted by email regarding my inquiry.",
+  "consultation.emailHint.title": "Prefer email?",
+  "consultation.emailHint.body": "Send your message and any attachments (up to 20 MB per file) directly to leo@titanium.blog.",
   "consultation.submit": "Submit inquiry",
   "consultation.slaMessage": "We respond within 1-2 business days.",
   "consultation.disclaimer": "By submitting this form you agree to be contacted by email regarding your inquiry. We do not add you to any newsletter, share your details with third parties, or use this form to solicit business."

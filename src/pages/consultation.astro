@@ -331,6 +331,17 @@ const volumes = [
             {t(locale, "consultation.field.requirementsHelp")}
           </small>
         </div>
+
+        <aside class="consult__email-hint" aria-label={t(locale, "consultation.emailHint.title")}>
+          <Icon name="lucide:mail" aria-hidden="true" />
+          <div class="consult__email-hint-body">
+            <p class="consult__email-hint-title">{t(locale, "consultation.emailHint.title")}</p>
+            <p class="consult__email-hint-text">
+              {t(locale, "consultation.emailHint.body")}{" "}
+              <a href="mailto:leo@titanium.blog">leo@titanium.blog</a>
+            </p>
+          </div>
+        </aside>
       </div>
 
       <div class="consult__consent">
@@ -682,6 +693,57 @@ const volumes = [
     background: color-mix(in oklab, #dc2626 10%, transparent);
     color: #dc2626;
     border: 1px solid color-mix(in oklab, #dc2626 30%, transparent);
+  }
+
+  .consult__email-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    margin: var(--space-md) 0 0;
+    padding: var(--space-md) var(--space-lg);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .consult__email-hint :global(svg) {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: 0.15rem;
+  }
+
+  .consult__email-hint-body {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .consult__email-hint-title {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-primary);
+  }
+
+  .consult__email-hint-text {
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+
+  .consult__email-hint-text a {
+    color: var(--color-brand-primary);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .consult__email-hint-text a:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 48rem) {
