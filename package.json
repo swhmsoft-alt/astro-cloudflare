@@ -55,7 +55,7 @@
     "@astrojs/react": "^6.0.4",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
-    "@fontsource-variable/jetbrains-mono": "^5.2.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@fontsource-variable/manrope": "^5.2.0",
     "@fontsource-variable/outfit": "^5.2.0",
     "@iconify-json/lucide": "^1.2.114",
